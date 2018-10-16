@@ -1,0 +1,42 @@
+.container {
+  max-width: 1170px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+body {
+  font-family: $mainfont;
+}
+
+.btn {
+  outline: none;
+  border: 1px solid #ffffff;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  padding: 21px 0;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  width: 220px;
+  transition: .5s;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #ff8638;
+    border: 1px solid #ff8638;
+  }
+}
+
+.btn.m--orange {
+  background-color: #f8a46e;
+  border: 1px solid #f8a46e;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #ff8638;
+    border: 1px solid #ff8638;
+  }
+}
