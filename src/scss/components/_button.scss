@@ -20,6 +20,18 @@
   }
 }
 
+.btn.m--black {
+  background-color: transparent;
+  color: $titlecolor;
+  border: 1px solid $titlecolor;
+
+  &:hover {
+    color: #ffffff;
+    background-color: $secondcolor;
+    border: 1px solid $secondcolor;
+  }
+}
+
 .btn.m--orange {
   background-color: $maincolor;
   border: 1px solid $maincolor;
