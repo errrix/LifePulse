@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
-    "local" : "webpack --mode development --watch"
+    "local": "webpack --mode development --watch"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +16,7 @@
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
+    "@fortawesome/fontawesome-free": "^5.4.1",
     "autoprefixer": "^9.2.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.4",

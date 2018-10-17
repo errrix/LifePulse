@@ -1,13 +1,3 @@
-.container {
-  max-width: 1170px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-body {
-  font-family: $mainfont;
-}
-
 .btn {
   outline: none;
   border: 1px solid #ffffff;
@@ -25,18 +15,18 @@ body {
 
   &:hover {
     cursor: pointer;
-    background-color: #ff8638;
-    border: 1px solid #ff8638;
+    background-color: $secondcolor;
+    border: 1px solid $secondcolor;
   }
 }
 
 .btn.m--orange {
-  background-color: #f8a46e;
-  border: 1px solid #f8a46e;
+  background-color: $maincolor;
+  border: 1px solid $maincolor;
 
   &:hover {
     cursor: pointer;
-    background-color: #ff8638;
-    border: 1px solid #ff8638;
+    background-color: $secondcolor;
+    border: 1px solid $secondcolor;
   }
 }
