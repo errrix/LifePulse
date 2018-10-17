@@ -1,0 +1,49 @@
+.card-block {
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 50px 0;
+
+  h2 {
+    display: inline-block;
+    border-bottom: 2px solid $maincolor;
+    padding-bottom: 5px;
+    color: $titlecolor;
+    font-weight: 600;
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+  }
+
+  .card-list {
+    display: flex;
+    margin-bottom: 50px;
+
+    li {
+      margin-right: 30px;
+    }
+
+
+  }
+  .show-more {
+    display: flex;
+    justify-content: flex-end;
+
+    a {
+      color: $titlecolor;
+      font-size: 18px;
+      font-weight: 300;
+      display: flex;
+      justify-content: flex-end;
+      padding-bottom: 5px;
+      border-bottom: 1px solid transparent;
+      transition: .5s;
+
+      &:hover {
+        //font-style: italic;
+        border-bottom: 1px solid $titlecolor;
+      }
+    }
+  }
+}

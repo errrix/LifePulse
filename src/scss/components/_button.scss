@@ -1,0 +1,32 @@
+.btn {
+  outline: none;
+  border: 1px solid #ffffff;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  padding: 21px 0;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  width: 220px;
+  transition: .5s;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $secondcolor;
+    border: 1px solid $secondcolor;
+  }
+}
+
+.btn.m--orange {
+  background-color: $maincolor;
+  border: 1px solid $maincolor;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $secondcolor;
+    border: 1px solid $secondcolor;
+  }
+}
