@@ -25,11 +25,32 @@ header {
       a {
         display: flex;
         align-items: center;
-        color: #ffffff;
+        color: $white;
         font-size: 16px;
         font-weight: 400;
         margin-right: 54px;
-
+        //border-bottom: 1px solid transparent;
+        //padding-bottom: 5px;
+        transition: .2s;
+        position: relative;
+        &:after {
+          content: '';
+          display: block;
+          position: absolute;
+          bottom: -5px;
+          left: 50%;
+          width: 0;
+          transition: .3s;
+          height: 1px;
+          background-color: $maincolor;
+        }
+        &:hover {
+          //border-bottom: 1px solid $white;
+          &:after {
+            width: 100%;
+            left: 0;
+          }
+        }
         i {
           font-size: 14px;
           margin-right: 8px;

@@ -36,13 +36,30 @@
       font-weight: 300;
       display: flex;
       justify-content: flex-end;
-      padding-bottom: 5px;
-      border-bottom: 1px solid transparent;
+      //padding-bottom: 5px;
+      //border-bottom: 1px solid transparent;
       transition: .5s;
+      position: relative;
 
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        width: 0;
+        transition: .3s;
+        height: 1px;
+        background-color: $titlecolor;
+
+      }
       &:hover {
         //font-style: italic;
-        border-bottom: 1px solid $titlecolor;
+        //border-bottom: 1px solid $titlecolor;
+        &:after {
+          width: 100%;
+          left: 0;
+        }
       }
     }
   }

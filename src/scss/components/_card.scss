@@ -3,12 +3,14 @@
   display: flex;
   flex-direction: column;
   padding-bottom: 20px;
-  box-shadow: 0 0.2rem 0.5rem 0 #dbdbdb;
+  transition: .5;
+  box-shadow: 0 0.01rem 0.2rem 0 #e4e4e4;
 
   &:hover {
+    box-shadow: 0 0.1rem 0.5rem 0 #e4e4e4;
     .img-wrapper {
       img {
-        transform: scale(1.15);
+        transform: scale(1.05);
       }
     }
   }
