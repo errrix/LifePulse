@@ -25,10 +25,17 @@
       display: flex;
       width: 30%;
 
+      .icon-wrapper {
+        width: 15%;
+        flex-shrink: 0;
+        display: flex;
+        justify-content: center;
+        margin-right: 18px;
+      }
+
       i {
         font-size: 40px;
         color: $maincolor;
-        margin-right: 18px;
       }
 
       .text-block {
