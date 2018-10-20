@@ -42,3 +42,21 @@
     border: 1px solid $secondcolor;
   }
 }
+
+.btn.m--h40 {
+  padding: 11px 0;
+}
+
+.btn-close {
+  border: none;
+  background-color: transparent;
+  outline: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  i {
+    font-size: 30px;
+  }
+}
