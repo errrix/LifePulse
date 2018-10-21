@@ -45,12 +45,14 @@
 
 .btn.m--h40 {
   padding: 11px 0;
+  width: 150px;
 }
 
 .btn-close {
   border: none;
   background-color: transparent;
   outline: none;
+  color: $white;
 
   &:hover {
     cursor: pointer;

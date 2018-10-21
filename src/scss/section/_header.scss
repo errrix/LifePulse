@@ -1,7 +1,9 @@
 header {
   width: 100%;
   height: 634px;
-  background-image: url("../img/header-baner.jpg");
+  //background-image: url("../img/header-baner.jpg");
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%), url(../img/header-baner.jpg);
+  background-position-y: center;
   background-size: cover;
   position: relative;
 
@@ -35,6 +37,18 @@ header {
 
     div {
       display: flex;
+      span {
+        color: $white;
+        padding: 2px 5px;
+      }
+      .enter-link {
+        margin-right: 0;
+        color: $maincolor;
+      }
+      .registration-link {
+        margin-right: 25px;
+        color: $maincolor;
+      }
       a, button {
         background-color: transparent;
         border: none;
@@ -44,7 +58,7 @@ header {
         color: $white;
         font-size: 16px;
         font-weight: 400;
-        margin-right: 54px;
+        margin-right: 40px;
         transition: .2s;
         position: relative;
         &:after {
@@ -80,7 +94,7 @@ header {
   }
 
   .text-block {
-    padding-top: 90px;
+    padding-top: 150px;
     padding-left: 70px;
 
     h1 {
@@ -183,7 +197,9 @@ header {
   }
 
   .search-block.show {
-   animation: search-show .6s !important;
+    animation: search-show .6s !important;
+    border-bottom: 1px solid $white;
+    background-color: transparent;
   }
 
 
