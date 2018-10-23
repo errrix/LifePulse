@@ -79,10 +79,37 @@ header {
             width: 100%;
             left: 0;
           }
+
+          & > .sub-menu {
+            display: block;
+          }
         }
         i {
           font-size: 14px;
           margin-right: 8px;
+        }
+
+        .sub-menu {
+          display: none;
+          padding: 20px 25px 0 25px;
+          margin-top: -20px;
+          border-top: 20px solid transparent;
+          position: absolute;
+          top: 41px;
+          left: 0;
+          background: rgba(0,0,0, .8);
+          background-clip: padding-box;
+
+          li {
+            padding-bottom: 30px;
+            width: 100%;
+            text-align: left;
+
+            a {
+              white-space: pre;
+              display: inline-block;
+            }
+          }
         }
 
         &:last-child {
