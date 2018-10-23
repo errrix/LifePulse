@@ -1,5 +1,11 @@
 import '../scss/all.scss';
 import $ from "jquery";
+import slick from "slick-carousel"
+
+$(".img-slider").slick({
+    autoplay: true,
+    autoplaySpeed: 4000
+});
 
 $(".header-search").on("click", function () {
 
