@@ -4,9 +4,12 @@ import slick from "slick-carousel";
 
 $(".img-slider").slick({
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 3000,
     arrows: false,
-    fade: true
+    fade: true,
+    infinite: true,
+    speed: 1200,
+    dots: false
 });
 
 $(".header-search").on("click", function () {
