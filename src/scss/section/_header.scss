@@ -87,6 +87,9 @@ header {
         margin-right: 40px;
         transition: .2s;
         position: relative;
+        svg {
+          margin-left: 5px;
+        }
         &:after {
           content: '';
           display: block;

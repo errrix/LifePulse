@@ -5,7 +5,8 @@ import slick from "slick-carousel";
 $(".img-slider").slick({
     autoplay: true,
     autoplaySpeed: 4000,
-    arrows: false
+    arrows: false,
+    fade: true
 });
 
 $(".header-search").on("click", function () {
