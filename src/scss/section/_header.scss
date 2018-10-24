@@ -87,9 +87,7 @@ header {
         margin-right: 40px;
         transition: .2s;
         position: relative;
-        svg {
-          margin-left: 5px;
-        }
+
         &:after {
           content: '';
           display: block;
@@ -143,6 +141,22 @@ header {
 
         &:last-child {
           margin-right: 0;
+        }
+      }
+      .faq-link {
+        padding-right: 20px;
+        &:before {
+          content:'';
+          display: block;
+          right: 2px;
+          top: 2px;
+          position: absolute;
+          width: 8px;
+          margin-left: 10px;
+          height: 8px;
+          border-left: 1px solid white;
+          border-bottom: 1px solid white;
+          transform: rotate(-45deg);
         }
       }
     }
