@@ -19,9 +19,11 @@
   .card-list {
     display: flex;
     margin-bottom: 50px;
+    justify-content: space-between;
+    flex-wrap: wrap;
 
     li {
-      margin-right: 30px;
+      margin-bottom: 30px;
     }
 
 
