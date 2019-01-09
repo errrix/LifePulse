@@ -1,0 +1,27 @@
+.card-block {
+  padding: 50px 33px 0;
+  background-color: $bg-second-color;
+
+  h2 {
+    margin-bottom: 39px;
+  }
+
+  .card-block-list {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+
+  .link-wrapper {
+    display: flex;
+    justify-content: flex-end;
+
+    a {
+      color: $main-text-color;
+      font-family: $mainfont;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 28px;
+    }
+  }
+}

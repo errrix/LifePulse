@@ -1,11 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600|Roboto:300,400,500,700');
 
-$mainfont: 'Open Sans', sans-serif;
+$mainfont: 'Roboto', sans-serif;
+$secondfont: 'Montserrat', sans-serif;
 
-$maincolor: #f8a46e;
-$secondcolor: #ff8638;
-$white: #ffffff;
-$titlecolor: #373737;
-$textcolor: #767373;
-$bgcolor: #373737;
-
+$bg-main-color: #363636;
+$bg-second-color: #f6f4f4;
+$nav-color: #ffffff;
+$nav-second-color: #e5e5e5;
+$main-accent-color: #e96b17;
+$button-text-color: #e5ebfc;
+$main-text-color: #252526;
+$bg-third-color: #ececec;

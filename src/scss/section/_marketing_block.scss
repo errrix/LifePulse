@@ -1,0 +1,47 @@
+.marketing-block {
+  background-color: $bg-second-color;
+  padding: 50px 33px 0;
+
+  h2 {
+    margin-bottom: 39px;
+  }
+
+  .info-block-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      width: 33%;
+      margin-bottom: 40px;
+      display: flex;
+
+      img {
+        width: 55px;
+        height: 50px;
+        flex-shrink: 0;
+        margin-right: 23px;
+      }
+
+      .text-block {
+        display: flex;
+        flex-direction: column;
+        max-width: 240px;
+
+        h5 {
+          color: $main-text-color;
+          font-family: $mainfont;
+          font-size: 21px;
+          font-weight: 700;
+          margin-bottom: 24px;
+        }
+
+        h6 {
+          color: $main-text-color;
+          font-family: $mainfont;
+          font-size: 16px;
+          line-height: 21px;
+        }
+      }
+    }
+  }
+}

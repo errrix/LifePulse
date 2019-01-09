@@ -1,0 +1,15 @@
+.how-it-work-block {
+  padding: 50px 0 0;
+  background-color: $bg-second-color;
+
+  h2 {
+    margin-bottom: 39px;
+    margin-left: 33px;
+  }
+
+  .how-it-work-block-wrapper {
+    display: flex;
+    justify-content: center;
+    background-color: $bg-third-color;
+  }
+}
