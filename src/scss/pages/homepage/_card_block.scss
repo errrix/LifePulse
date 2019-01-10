@@ -9,7 +9,10 @@
   .card-block-list {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 30px;
+    flex-wrap: wrap;
+    &>li {
+      margin-bottom: 50px;
+    }
   }
 
   .link-wrapper {
