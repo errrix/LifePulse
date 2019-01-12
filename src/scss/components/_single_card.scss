@@ -67,13 +67,14 @@
       background-color: $bg-second-color;
       height: 15px;
       position: relative;
+      border: 1px solid $light-gray-text-color;
       margin-bottom: 10px;
 
       .top-line {
         position: absolute;
         left: 0;
         top: 0;
-        height: 15px;
+        height: 100%;
         background-color: $bg-orange-color;
       }
     }
