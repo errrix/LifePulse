@@ -4,6 +4,10 @@
   background-color: $nav-color;
   display: flex;
   flex-direction: column;
+  transition: .3s;
+  &:hover {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+  }
 
   img {
     height: 292px;
