@@ -1,0 +1,21 @@
+.previousPageBlock {
+  padding-top: 80px;
+  display: flex;
+  justify-content: left;
+  .previousPageLink {
+    margin: 50px 0;
+    color: $main-text-color;
+    font-size: 16px;
+    line-height: 28px;
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 10px;
+      margin-right: 10px;
+      height: 10px;
+      border-left: 2px solid $main-light-text-color;
+      border-bottom: 2px solid $main-light-text-color;
+      transform: rotate(45deg);
+    }
+  }
+}

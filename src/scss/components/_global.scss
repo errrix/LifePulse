@@ -6,7 +6,7 @@ body {
 }
 
 h2 {
-  color: $bg-main-color;
+  color: $main-text-color;
   font-family: $mainfont;
   font-size: 37px;
   font-weight: 700;
@@ -14,7 +14,7 @@ h2 {
   position: relative;
   display: inline-block;
 
-  &:after {
+  &.h2Underline:after {
     content: '';
     display: block;
     position: absolute;

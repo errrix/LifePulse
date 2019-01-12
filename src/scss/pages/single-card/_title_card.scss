@@ -1,0 +1,17 @@
+.titleCard {
+  margin-bottom: 50px;
+  .titleCard-fullName {
+    color: $main-light-text-color;
+    font-size: 37px;
+    line-height: 49px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .titleCard-shortDiagnosis {
+    color: $main-text-color;
+    font-size: 21px;
+    line-height: 28px;
+    width: 66%;
+  }
+}
