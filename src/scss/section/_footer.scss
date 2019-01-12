@@ -9,7 +9,7 @@
     justify-content: space-between;
 
     h6 {
-      color: $nav-second-color;
+      color: $light-gray-text-color;
       font-family: $mainfont;
       font-size: 16px;
       font-weight: 300;
@@ -30,12 +30,12 @@
         svg {
           width: 20px;
           height: 20px;
-          fill: $main-accent-color;
+          fill: $bg-orange-color;
           margin-right: 10px;
         }
 
         span {
-          color: $nav-second-color;
+          color: $light-gray-text-color;
           font-family: $mainfont;
         }
       }
@@ -50,7 +50,7 @@
 
       a {
         display: flex;
-        color: $nav-second-color;
+        color: $light-gray-text-color;
         font-family: $mainfont;
         font-weight: 500;
         margin-bottom: 30px;
@@ -70,7 +70,7 @@
 
     .social-network {
       h5 {
-        color: $nav-second-color;
+        color: $light-gray-text-color;
         font-family: $mainfont;
         font-weight: 500;
         margin-bottom: 10px;
@@ -88,7 +88,7 @@
             svg {
               width: 30px;
               height: 30px;
-              fill: $main-accent-color;
+              fill: $bg-orange-color;
             }
           }
         }

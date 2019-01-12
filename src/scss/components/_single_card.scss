@@ -1,7 +1,7 @@
 .single-card {
   width: 372px;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
-  background-color: $nav-color;
+  background-color: $bg-white-color;
   display: flex;
   flex-direction: column;
   transition: .3s;
@@ -28,7 +28,7 @@
       align-items: center;
 
       svg {
-        fill: $main-accent-color;
+        fill: $bg-orange-color;
         width: 20px;
         height: 20px;
         margin-right: 5px;
@@ -74,7 +74,7 @@
         left: 0;
         top: 0;
         height: 15px;
-        background-color: $main-accent-color;
+        background-color: $bg-orange-color;
       }
     }
 
