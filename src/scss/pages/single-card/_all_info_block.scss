@@ -63,7 +63,142 @@
       }
     }
   }
+
   .shortInfoBlock {
-    width: 30%;
+    width: 32%;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    .shortInfoBlock-age, .shortInfoBlock-gender, .shortInfoBlock-locations {
+      color: $main-text-color;
+      font-size: 16px;
+      line-height: 21px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      span {
+        font-weight: 400;
+      }
+    }
+    .shortInfoBlock-startFund, .shortInfoBlock-endFund {
+      color: $main-text-color;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 18px;
+      margin-bottom: 5px;
+    }
+    .btn {
+      padding: 0 40px;
+      margin: 50px auto 30px auto;
+      &.btn-transparent {
+        margin-top: 0;
+        margin-bottom: 80px;
+      }
+    }
+
+    .info-block {
+      display: flex;
+      margin-bottom: 25px;
+      margin-top: 15px;
+
+      div {
+        margin-right: 14px;
+        display: flex;
+        align-items: center;
+
+        svg {
+          fill: $bg-orange-color;
+          width: 20px;
+          height: 20px;
+          margin-right: 5px;
+        }
+
+        p {
+          color: $main-text-color;
+          font-family: $mainfont;
+          font-size: 14px;
+          font-weight: 300;
+        }
+      }
+    }
+    .money-count {
+
+      .money-diagram {
+        width: 100%;
+        background-color: $bg-second-color;
+        height: 15px;
+        position: relative;
+        border: 1px solid $light-gray-text-color;
+        margin-bottom: 10px;
+
+        .top-line {
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 100%;
+          background-color: $bg-orange-color;
+        }
+      }
+
+      .money-how {
+        display: flex;
+        justify-content: space-between;
+
+        p {
+          color: $main-text-color;
+          font-family: $mainfont;
+          font-size: 14px;
+          font-weight: 300;
+        }
+      }
+    }
+    .repostBlock {
+      padding: 40px;
+      border-top: 1px solid rgba(0, 0, 0, 0.24);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.24);
+      .social-network {
+        h5 {
+          margin-bottom: 10px;
+          font-size: 14px;
+          font-weight: 300;
+          line-height: 21px;
+          text-align: center;
+        }
+
+        ul {
+          display: flex;
+          justify-content: center;
+
+          li {
+            margin-right: 12px;
+
+            a {
+              display: block;
+
+              svg {
+                width: 30px;
+                height: 30px;
+                fill: $bg-orange-color;
+              }
+            }
+          }
+        }
+      }
+    }
+    .helpedUs {
+      padding: 40px;
+      h5 {
+        font-size: 21px;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+      p {
+        margin-bottom: 20px;
+        span {
+          display: block;
+          font-size: 14px;
+          line-height: 18px;
+        }
+      }
+    }
+
   }
 }
