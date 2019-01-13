@@ -1,8 +1,9 @@
 .search-input-block {
-  padding-top: 80px;
+  padding: 130px 33px 0 33px;
   form {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     label {
       position: relative;
       .header-search {
@@ -44,6 +45,7 @@
   justify-content: space-between;
   align-items: baseline;
   padding-top: 50px;
+  width: 100%;
   .search-result-sort {
     button {
       display: inline-block;
