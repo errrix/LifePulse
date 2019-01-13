@@ -1,0 +1,156 @@
+.popup {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $bg-popup-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .7s;
+
+  &.hide-popup {
+    top: -3000px;
+    opacity: 0;
+    z-index: -1;
+  }
+
+  .content-block {
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.24);
+    border: 1px solid #eaeae8;
+    background-color: $white-text-color;
+    padding: 50px 50px 30px;
+
+    .content-block-wrapper {
+    }
+  }
+
+  .popup-step {
+    position: relative;
+    opacity: 1;
+    transition: .5s;
+    min-height: 200px;
+    transition-delay: .5s;
+
+    .button-back {
+      display: flex;
+      align-items: center;
+      color: $main-text-color;
+      font-family: $mainfont;
+      font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 20px;
+
+      &:before {
+        content: '';
+        display: inline-block;
+        width: 10px;
+        margin-right: 5px;
+        height: 10px;
+        border-left: 2px solid $bg-main-color;
+        border-bottom: 2px solid $bg-main-color;
+        transform: rotate(45deg);
+      }
+    }
+
+
+    &.m--login {
+      display: flex;
+      flex-direction: column;
+
+      .main-form {
+        display: flex;
+        flex-direction: column;
+
+        .label-password-top-block {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+          margin-bottom: 5px;
+
+          span, button {
+            color: $main-text-color;
+            font-family: $mainfont;
+            font-size: 21px;
+          }
+
+          button {
+            font-size: 14px;
+            font-weight: 300;
+          }
+        }
+      }
+
+      .no-account {
+        align-self: center;
+        color: $main-text-color;
+        font-family: $mainfont;
+        font-size: 14px;
+        font-weight: 300;
+        margin-bottom: 20px;
+      }
+
+      .block-underline {
+        width: 100%;
+        height: 1px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.24);
+        background-color: $white-text-color;
+      }
+
+      .social-login-block {
+        padding-top: 20px;
+
+        h4 {
+          text-align: center;
+          color: $main-text-color;
+          font-family: $mainfont;
+          font-size: 21px;
+          font-weight: 400;
+          line-height: 21px;
+          margin-bottom: 20px;
+        }
+
+        .link-wrapper {
+          display: flex;
+          justify-content: center;
+
+          a {
+            &:first-child {
+              margin-right: 50px;
+            }
+
+            svg {
+              width: 50px;
+              height: 50px;
+              fill: $common-orange-color;
+            }
+          }
+        }
+      }
+    }
+
+    &.m--restore-password {
+      h6 {
+        color: $main-text-color;
+        font-family: $mainfont;
+        font-size: 21px;
+        font-weight: 400;
+        line-height: 28px;
+        margin-bottom: 10px;
+        max-width: 400px;
+      }
+    }
+
+    &.hide-step {
+      opacity: 0;
+      min-height: 0;
+      height: 0;
+      overflow: hidden;
+      transition: opacity 0s, min-height .5s;
+      transition-delay: 0s;
+    }
+
+  }
+}

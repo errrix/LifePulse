@@ -1,0 +1,115 @@
+.main-form {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    position: relative;
+
+    span.error {
+      display: none;
+    }
+
+    span {
+      color: $main-text-color;
+      font-family: $mainfont;
+      font-size: 21px;
+      line-height: 21px;
+      margin-bottom: 5px;
+    }
+
+    &.label-error {
+      span.error {
+        display: block;
+        color: $common-alert-color;
+        font-family: $mainfont;
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 14px;
+        position: absolute;
+        bottom: -24px;
+        left: 0;
+        margin-bottom: 0;
+      }
+
+      &.label-input {
+        input {
+          border: 1px solid $common-alert-light-color;
+          background-color: $common-white-color;
+        }
+      }
+
+      &.label-checkbox {
+        span:before {
+          border: 2px solid $common-alert-light-color;
+        }
+      }
+    }
+
+    &.label-input {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 31px;
+
+      input {
+        min-width: 400px;
+        width: 100%;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24);
+        border: 1px solid #eaeae8;
+        background-color: $white-text-color;
+        height: 50px;
+        font-family: $mainfont;
+        font-size: 21px;
+        font-weight: 400;
+        padding: 0 20px;
+        line-height: 50px;
+      }
+    }
+
+    &.label-checkbox {
+      margin-bottom: 20px;
+
+      &:hover {
+        cursor: pointer;
+
+        input ~ span:before {
+          border: 2px solid $common-orange-color;
+        }
+      }
+
+      input {
+        display: none;
+      }
+
+      input:checked ~ span:before {
+        background-color: $common-orange-color;
+        border: none;
+      }
+
+      span {
+        color: $main-text-color;
+        font-family: $mainfont;
+        font-size: 14px;
+        font-weight: 300;
+        margin-bottom: 0;
+        display: flex;
+        align-items: center;
+
+        &:before {
+          box-sizing: border-box;
+          content: '';
+          display: block;
+          width: 20px;
+          height: 20px;
+          border: 2px solid $bg-main-color;
+          border-radius: 2px;
+          margin-right: 13px;
+        }
+      }
+    }
+  }
+  .button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+}

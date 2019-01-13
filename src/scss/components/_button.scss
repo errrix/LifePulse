@@ -73,4 +73,24 @@
       background-color: transparent;
     }
   }
+
+  &.m--with-loader {
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      .loader {
+        opacity: 1;
+        width: 41px;
+        margin-left: 20px;
+      }
+    }
+
+    .loader {
+      width: 0;
+      margin-left: 0;
+      opacity: 0;
+      transition: .5s;
+    }
+  }
 }
