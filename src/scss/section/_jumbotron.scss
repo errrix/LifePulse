@@ -6,7 +6,7 @@
 
   &:after {
     content: '';
-    background-image: linear-gradient(to top, #020202 0%, rgba(2, 2, 2, 0) 80%);
+    background-image: linear-gradient(to right, rgba(2,2,2, .7), rgba(2,2,2,0));
     position: absolute;
     z-index: 1;
     top: 0;

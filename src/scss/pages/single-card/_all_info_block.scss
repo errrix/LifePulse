@@ -21,8 +21,8 @@
       &>p {
         margin-bottom: 20px;
         color: $main-text-color;
-        font-size: 21px;
-        line-height: 28px;
+        font-size: 18px;
+        line-height: 24px;
         text-indent: 1.5em;
       }
       &>h2 {
@@ -38,7 +38,7 @@
         margin: 10px;
         li {
           color: $main-text-color;
-          font-size: 21px;
+          font-size: 18px;
           line-height: 28px;
           margin-bottom: 10px;
           &:before {
@@ -52,15 +52,20 @@
           }
         }
       }
-      .customUserBlock-imgInside {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 30px;
+      figure {
         img {
           width: 80%;
-          height: 100%;
+          margin: 0 auto;
+          display: block;
+        }
+        figcaption {
+          color: $main-text-color;
+          font-size: 16px;
+          line-height: 24px;
+          text-align: center;
         }
       }
+
     }
   }
 
@@ -68,7 +73,7 @@
     width: 32%;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
     padding: 20px;
-    .shortInfoBlock-age, .shortInfoBlock-gender, .shortInfoBlock-locations {
+    .shortInfoBlock-age, .shortInfoBlock-gender, .shortInfoBlock-locations, .shortInfoBlock-category {
       color: $main-text-color;
       font-size: 16px;
       line-height: 21px;
@@ -88,6 +93,7 @@
     .btn {
       padding: 0 40px;
       margin: 50px auto 30px auto;
+      width: 100%;
       &.btn-transparent {
         margin-top: 0;
         margin-bottom: 80px;
