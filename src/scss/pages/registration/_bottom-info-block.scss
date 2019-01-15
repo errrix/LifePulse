@@ -1,0 +1,16 @@
+.bottom-info-block {
+  display: flex;
+  justify-content: space-between;
+
+  div {
+    span {
+      font-family: $mainfont;
+      color: $main-text-color;
+    }
+
+    a {
+      font-family: $mainfont;
+      color: $common-orange-color;
+    }
+  }
+}

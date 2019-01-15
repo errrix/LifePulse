@@ -1,0 +1,33 @@
+.registration-block {
+  width: 100%;
+  background-color: $bg-second-color;
+
+  .registration-block-wrapper {
+    padding-top: 180px;
+    padding-bottom: 50px;
+
+    h1 {
+      text-align: center;
+      color: $main-light-text-color;
+      font-family: $mainfont;
+      font-size: 37px;
+      font-weight: 700;
+      line-height: 37px;
+      text-transform: uppercase;
+      margin-bottom: 50px;
+    }
+
+    h3 {
+      text-align: center;
+      color: $main-text-color;
+      font-family: $mainfont;
+      font-size: 21px;
+      font-weight: 400;
+      line-height: 21px;
+    }
+
+    .main-form {
+      margin-bottom: 50px;
+    }
+  }
+}

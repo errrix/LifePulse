@@ -15,6 +15,14 @@
       font-size: 21px;
       line-height: 21px;
       margin-bottom: 5px;
+
+      &.info {
+        margin-bottom: 0;
+        margin-top: 10px;
+        max-width: 400px;
+        font-size: 14px;
+        font-weight: 300;
+      }
     }
 
     &.label-error {
@@ -95,6 +103,7 @@
         align-items: center;
 
         &:before {
+          flex-shrink: 0;
           box-sizing: border-box;
           content: '';
           display: block;
@@ -104,6 +113,18 @@
           border-radius: 2px;
           margin-right: 13px;
         }
+
+        & > span {
+          display: inline;
+
+          &:before {
+            display: none;
+          }
+
+          a {
+            color: $common-orange-color;
+          }
+        }
       }
     }
   }
@@ -111,5 +132,46 @@
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
+  }
+
+  &.m--registration {
+    max-width: 900px;
+    width:  100%;
+    margin: 0 auto;
+    align-items: center;
+
+    .input-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    label {
+      max-width: 400px;
+    }
+
+    .label-error {
+      span.info {
+        display: none;
+      }
+
+      &.m--password {
+        span.error {
+          margin-top: 10px;
+          position: relative;
+          bottom: auto;
+          left: auto;
+        }
+      }
+    }
+
+    .label-checkbox {
+      margin-top: 30px;
+    }
+
+    .button-wrapper {
+      margin-bottom: 0;
+    }
   }
 }
