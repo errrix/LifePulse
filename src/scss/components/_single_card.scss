@@ -58,6 +58,7 @@
     font-weight: 400;
     line-height: 21px;
     margin-bottom: 16px;
+    min-height: 84px;
   }
 
   .money-count {
@@ -89,6 +90,12 @@
         font-size: 14px;
         font-weight: 300;
       }
+    }
+  }
+
+  &.m--my-campaign {
+    button, a {
+      margin-bottom: 20px;
     }
   }
 }

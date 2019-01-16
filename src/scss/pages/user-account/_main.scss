@@ -1,0 +1,18 @@
+.user-account-block {
+  width: 100%;
+  background-color: $bg-second-color;
+
+  .user-account-block-wrapper {
+    padding: 130px 33px 50px;
+
+    h1 {
+      color: $main-light-text-color;
+      font-family: $mainfont;
+      font-size: 37px;
+      font-weight: 700;
+      line-height: 37px;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+  }
+}

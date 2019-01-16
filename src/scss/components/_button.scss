@@ -93,4 +93,18 @@
       transition: .5s;
     }
   }
+
+  &.m--noactive {
+    background-color: $common-gray-lighter-color;
+    border: 1px solid $main-light-text-color;
+
+    &:before {
+      display: none;
+    }
+
+    &:hover {
+      cursor: not-allowed;
+      background-color: $common-gray-lighter-color;
+    }
+  }
 }

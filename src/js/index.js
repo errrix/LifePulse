@@ -1,8 +1,10 @@
 import '../scss/all.scss';
 import $ from "jquery";
 import popup from './popup'
+import userAccount from './user-account'
 
 popup();
+userAccount();
 
 if ($('.money-count')) {
     $('.single-card .top-line, .shortInfoBlock .top-line').each(function () {

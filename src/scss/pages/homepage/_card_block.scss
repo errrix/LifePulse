@@ -8,10 +8,34 @@
 
   .card-block-list {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
+
     &>li {
       margin-bottom: 50px;
+      margin-right: 9px;
+
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+
+      &.m--add-new {
+        a {
+          width: 372px;
+          padding-top: 70px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          span {
+            color: $main-text-color;
+            font-family: $mainfont;
+            font-size: 21px;
+            line-height: 21px;
+            margin-top: 30px;
+          }
+        }
+      }
     }
   }
 

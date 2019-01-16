@@ -1,0 +1,36 @@
+.add-icon {
+  width: 21px;
+  height: 21px;
+  border: 1px solid $common-orange-color;
+  border-radius: 50%;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24);
+  background-color: $white-text-color;
+  position: relative;
+
+  &:before, &:after {
+    display: block;
+    content: '';
+    width: 13px;
+    height: 1px;
+    background-color: $common-orange-color;
+    position: absolute;
+    left: 3px;
+    top: 9px;
+  }
+
+  &:after {
+    transform: rotate(90deg);
+  }
+
+  &.m--large {
+    width: 100px;
+    height: 100px;
+
+    &:before, &:after {
+      width: 62px;
+      height: 4px;
+      left: 18px;
+      top: 48px;
+    }
+  }
+}
