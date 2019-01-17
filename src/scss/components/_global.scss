@@ -25,12 +25,22 @@ h2 {
   }
 }
 
-input {
+input, textarea {
   border: none;
   border-radius: 0;
   box-shadow: none;
   -webkit-appearance: none;
   box-sizing: border-box;
+  resize: none;
+}
+
+input[type='number'] {
+  -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 
 .block-line {

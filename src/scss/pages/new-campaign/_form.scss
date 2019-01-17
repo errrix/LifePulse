@@ -1,0 +1,254 @@
+.new-campaign-form {
+  label {
+    margin-bottom: 31px;
+
+    &.label-input {
+      span:first-child {
+        margin-bottom: 10px;
+      }
+
+      span.info {
+        max-width: 100%;
+        line-height: 14px;
+      }
+
+      textarea {
+        height: 86px;
+        line-height: 28px;
+        padding: 15px 20px;
+      }
+    }
+
+    &.label-number {
+      input {
+        position: relative;
+        z-index: 1;
+        height: 86px;
+        font-size: 37px;
+        font-weight: 700;
+        line-height: 28px;
+
+        &::placeholder {
+          color: $gray-text-color;
+          font-family: $mainfont;
+          font-size: 37px;
+          font-weight: 700;
+          line-height: 28px;
+        }
+      }
+
+      .currency {
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $common-orange-color;
+        font-family: $mainfont;
+        font-size: 37px;
+        font-weight: 400;
+        line-height: 28px;
+        width: 132px;
+        height: 86px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24);
+        border: 1px solid #eaeae8;
+        background-color: $white-text-color;
+        position: absolute;
+        top: 31px;
+        right: 0;
+      }
+    }
+
+    &.label-radio {
+      input {
+        display: none;
+      }
+
+      span {
+        display: flex;
+        align-items: center;
+
+        &:before {
+          display: block;
+          content: '';
+          margin-right: 10px;
+          width: 24px;
+          height: 24px;
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24);
+          background-color: $white-text-color;
+          border-radius: 50%;
+          transition: .2s;
+        }
+      }
+
+      input:checked + span:before {
+        background-color: $common-orange-color;
+      }
+    }
+
+    &.label-select {
+      display: flex;
+      flex-direction: column;
+
+      span {
+        margin-bottom: 10px;
+      }
+
+      select {
+        width: calc(40% - 48px);
+      }
+    }
+
+    &.label-textarea {
+      textarea {
+        min-height: 280px;
+      }
+    }
+
+    &.label-file {
+      display: block;
+      width: 180px;
+
+      input {
+        display: none;
+      }
+
+      .btn {
+        color: $main-light-text-color;
+        font-family: $mainfont;
+        line-height: 45px;
+        font-size: 16px;
+        text-transform: uppercase;
+        height: 45px;
+      }
+    }
+
+    &.label-checkbox {
+      max-width: 500px;
+      margin: 0 auto 30px;
+    }
+  }
+
+  //.header-block {
+  //  display: flex;
+  //
+  //  label:first-child {
+  //    width: 68%;
+  //    flex-shrink: 0;
+  //    margin-right: 50px;
+  //  }
+  //}
+
+  .block-line {
+    margin-bottom: 31px;
+  }
+
+  .bank-details {
+    display: flex;
+
+    label {
+      width: calc(40% - 33px);
+      margin-right: 50px;
+
+      &:last-child {
+        width: 20%;
+        margin-right: 0;
+      }
+
+      input {
+        min-width: unset;
+      }
+    }
+  }
+
+  .phone-inn {
+    display: flex;
+
+    label {
+      width: 50%;
+      margin-right: 50px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .to-whom-campaign {
+    .radio-wrapper {
+      display: flex;
+
+      label:first-child {
+        margin-right: 50px;
+      }
+    }
+  }
+
+  .address-birth {
+    display: flex;
+
+    label {
+      width: calc(40% - 33px);
+      margin-right: 50px;
+
+      &:last-child {
+        width: 19.33%;
+        margin-right: 0;
+      }
+
+      input {
+        min-width: unset;
+      }
+    }
+  }
+
+  .campaign-duration {
+    .title {
+      color: $main-text-color;
+      font-family: $mainfont;
+      font-size: 21px;
+      line-height: 21px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .campaign-duration-wrapper {
+      display: flex;
+
+      label {
+        margin-right: 50px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .document-block {
+    h3 {
+      color: $main-light-text-color;
+      font-family: $mainfont;
+      font-size: 21px;
+      font-weight: 700;
+      line-height: 21px;
+      margin-bottom: 15px;
+    }
+
+    h5 {
+      color: $main-text-color;
+      font-family: $mainfont;
+      line-height: 21px;
+      max-width: 70%;
+      margin-bottom: 15px;
+    }
+
+    h6 {
+      color: $main-text-color;
+      font-family: $mainfont;
+      font-size: 21px;
+      font-weight: 400;
+      line-height: 21px;
+      margin-bottom: 10px;
+    }
+  }
+}
