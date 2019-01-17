@@ -1,6 +1,6 @@
 import $ from "jquery";
 
-export default function userAccount() {
+export default (function userAccount() {
 
     $('.user-account-main-block .button-block button').on('click', function () {
         if(!$(this).hasClass('active')) {
@@ -14,4 +14,4 @@ export default function userAccount() {
             }
         }
     });
-}
+})();

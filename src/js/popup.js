@@ -1,6 +1,6 @@
 import $ from "jquery";
 
-export default function popup() {
+export default (function popup() {
 
     //открываем попап логина
     $('.header-login-popup').on('click', function () {
@@ -26,4 +26,4 @@ export default function popup() {
         $('.popup-step.m--login').removeClass('hide-step');
     });
 
-}
+})();

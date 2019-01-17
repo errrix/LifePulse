@@ -286,16 +286,16 @@
             <div class="to-whom-campaign">
                 <div class="radio-wrapper">
                     <label class="label-radio">
-                        <input type="radio" name="to-whom" checked>
+                        <input type="radio" name="to-whom" checked value="self">
                         <span>Я собираю деньги для себя</span>
                     </label>
 
                     <label class="label-radio">
-                        <input type="radio" name="to-whom">
+                        <input type="radio" name="to-whom" value="notself">
                         <span>Я собираю деньги не для себя</span>
                     </label>
                 </div>
-                <label class="label-input">
+                <label class="label-input" id="another-recipient">
                     <span>Для кого собираются средства?</span>
                     <input placeholder="Василий Васильев Васильевич" type="text">
                     <!--<span class="info">Вы можете ввести не меньше 80 и не больше 130 знаков, включая пробелы</span>-->
@@ -396,12 +396,15 @@
                     <input type="file">
                 </label>
 
-                <h6>Фото / скан паспорта реципиента (больного)</h6>
+                <div id="another-recipient-foto">
+                    <h6>Фото / скан паспорта реципиента (больного)</h6>
 
-                <label class="label-file">
-                    <span class="btn btn-transparent">ВЫБРАТЬ</span>
-                    <input type="file">
-                </label>
+                    <label class="label-file">
+                        <span class="btn btn-transparent">ВЫБРАТЬ</span>
+                        <input type="file">
+                    </label>
+                </div>
+
 
                 <h6>Фото / скан больничных документов (выписки, заключения врачей)</h6>
 

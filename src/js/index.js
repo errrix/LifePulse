@@ -2,9 +2,8 @@ import '../scss/all.scss';
 import $ from "jquery";
 import popup from './popup'
 import userAccount from './user-account'
+import newCampaign from './new-campaign'
 
-popup();
-userAccount();
 
 if ($('.money-count')) {
     $('.single-card .top-line, .shortInfoBlock .top-line').each(function () {
