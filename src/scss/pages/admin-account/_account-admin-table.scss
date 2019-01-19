@@ -1,4 +1,6 @@
 .account-admin-table {
+  width: 100%;
+
   .title {
     border-bottom: 1px solid #eaeae8;
 
@@ -20,6 +22,8 @@
 
   tr {
     td {
+      vertical-align: middle;
+      text-align: left;
       padding: 15px 35px;
       border: 1px solid #eaeae8;
 
@@ -33,9 +37,8 @@
     }
 
     .button-block {
-      display: flex;
-
       a, button {
+        display: inline-block;
         margin-right: 30px;
         &:last-child {
           margin-right: 0;
@@ -45,6 +48,59 @@
           height: 20px;
           fill: $main-text-color;
         }
+      }
+    }
+  }
+
+  &.m--big-table {
+    margin-bottom: 30px;
+
+    .title {
+      text-align: left;
+
+      th {
+        padding: 15px;
+
+        & > * {
+          display: inline-block;
+        }
+
+        span {
+          //margin-right: 5px;
+        }
+
+        .title-sort-block {
+          a {
+            &:first-child {
+              svg {
+                transform: rotate(180deg);
+              }
+            }
+
+            svg {
+              fill: $bg-orange-color;
+              width: 12px;
+              height: 12px;
+            }
+          }
+        }
+      }
+    }
+
+    tr {
+      td {
+        padding: 15px;
+      }
+    }
+
+    .ailment {
+      max-width: 180px;
+    }
+
+    .button-block {
+      padding: 15px 5px;
+      a, button {
+        margin-right: 5px;
       }
     }
   }

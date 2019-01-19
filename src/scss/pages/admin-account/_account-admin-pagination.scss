@@ -1,0 +1,19 @@
+.account-admin-pagination-wrapper {
+  display: flex;
+  justify-content: flex-end;
+
+  .account-admin-pagination {
+    a {
+      color: $main-light-text-color;
+      font-family: $mainfont;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+
+      &.active {
+        color: $common-orange-color;
+        font-weight: 700;
+      }
+    }
+  }
+}
