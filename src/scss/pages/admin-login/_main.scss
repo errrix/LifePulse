@@ -1,0 +1,11 @@
+.admin-login-block {
+  width: 100%;
+  background-color: $bg-second-color;
+
+  .admin-login-block-wrapper {
+    padding-top: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

@@ -92,4 +92,27 @@
       }
     }
   }
+
+  &.m--account-admin {
+    .main-header-wrapper {
+      max-width: 1400px;
+      padding: 0 33px;
+    }
+
+    .button-block {
+      span,a {
+        color: $white-text-color;
+        font-family: $mainfont;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 16px;
+        margin-right: 20px;
+      }
+
+      a {
+        color: $orange-text-color;
+        margin-right: 0;
+      }
+    }
+  }
 }

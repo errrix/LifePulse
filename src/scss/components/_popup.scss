@@ -16,15 +16,23 @@
     opacity: 0;
     z-index: -1;
   }
+}
 
-  .content-block {
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.24);
-    border: 1px solid #eaeae8;
-    background-color: $white-text-color;
-    padding: 50px 50px 30px;
+.popup-content-block {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.24);
+  border: 1px solid #eaeae8;
+  background-color: $white-text-color;
+  padding: 50px 50px 30px;
 
-    .content-block-wrapper {
-    }
+  h1 {
+    text-align: center;
+    color: $main-light-text-color;
+    font-family: $mainfont;
+    font-size: 37px;
+    font-weight: 700;
+    line-height: 49px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
   }
 
   .popup-step {

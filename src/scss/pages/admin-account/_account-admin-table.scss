@@ -1,0 +1,51 @@
+.account-admin-table {
+  .title {
+    border-bottom: 1px solid #eaeae8;
+
+    th {
+      padding: 15px 35px;
+      border: 1px solid #eaeae8;
+      font-size: 18px;
+      font-weight: 500;
+
+      //&:nth-child(2n) {
+      //  background-color: $white-text-color;
+      //}
+
+      //&:nth-child(2n-1) {
+      background-color: #fffcfa;
+      //}
+    }
+  }
+
+  tr {
+    td {
+      padding: 15px 35px;
+      border: 1px solid #eaeae8;
+
+      &:nth-child(2n) {
+        background-color: $white-text-color;
+      }
+
+      &:nth-child(2n-1) {
+        background-color: #fffcfa;
+      }
+    }
+
+    .button-block {
+      display: flex;
+
+      a, button {
+        margin-right: 30px;
+        &:last-child {
+          margin-right: 0;
+        }
+        svg {
+          width: 20px;
+          height: 20px;
+          fill: $main-text-color;
+        }
+      }
+    }
+  }
+}

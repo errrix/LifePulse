@@ -1,0 +1,48 @@
+.account-admin-side-menu {
+  background-color: $bg-white-color;
+  padding: 20px 50px 20px 30px;
+
+
+
+  .account-admin-side-menu-list {
+    & > li {
+      margin-bottom: 5px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      & > a {
+        color: $main-light-text-color;
+        font-family: $mainfont;
+        font-size: 18px;
+        line-height: 28px;
+      }
+
+      ul {
+        padding-left: 20px;
+        li {
+          a {
+            color: $main-light-text-color;
+            font-family: $mainfont;
+            line-height: 28px;
+          }
+
+          &.active {
+            & > a {
+              font-weight: 700;
+              color: $orange-text-color;
+            }
+          }
+        }
+      }
+
+      &.active {
+        & > a {
+          font-weight: 700;
+          color: $orange-text-color;
+        }
+      }
+    }
+  }
+}

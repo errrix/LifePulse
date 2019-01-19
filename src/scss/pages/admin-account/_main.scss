@@ -1,0 +1,17 @@
+.account-admin-block {
+  width: 100%;
+  background-color: $bg-second-color;
+
+  .account-admin-block-wrapper {
+    max-width: 1400px;
+    width: 100%;
+    padding: 130px 33px;
+    display: flex;
+    margin: 0 auto;
+
+    .account-admin-side-menu {
+      flex-shrink: 0;
+      margin-right: 40px;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.account-admin-staff {
+
+  header {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+      color: $orange-text-color;
+      font-family: $mainfont;
+      font-weight: 400;
+      font-size: 14px;
+    }
+  }
+
+  .account-admin-staff-wrapper {
+  }
+}
