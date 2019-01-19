@@ -8,11 +8,22 @@ export default (function popup() {
     });
 
     //закрываем попап логина
-    $('.popup').on('click', function (e) {
-       if(!$.contains(document.querySelector('.popup'), e.target)) {
-           $(this).addClass('hide-popup');
-       }
-    });
+    //TODO переписать на jquery(правильно закрывать попапы если их больше одного на странице)
+    let popups = document.querySelectorAll('.popup');
+    for (let i = 0; i < popups.length; i++) {
+        popups[i].addEventListener('click', function (e) {
+            if(!this.querySelector('.popup-content-block').contains(e.target)) {
+                this.classList.add('hide-popup');
+            }
+        });
+    }
+
+    // $('.popup').on('click', function (e) {
+    //     console.log($.contains(document.querySelector('.popup'), e.target));
+    //    if(!$.contains(document.querySelector('.popup'), e.target)) {
+    //        $(this).addClass('hide-popup');
+    //    }
+    // });
 
     //открываем окно восстановить пароль
     $('.popup .forgot-password').on('click', function () {
