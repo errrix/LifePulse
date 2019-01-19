@@ -1,0 +1,17 @@
+.faq-block {
+  padding-top: 120px;
+  padding-bottom: 50px;
+  .text-block {
+    h3 {
+      font-size: 21px;
+      line-height: 28px;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+    p {
+      color: $main-text-color;
+      font-size: 16px;
+      line-height: 21px;
+    }
+  }
+}

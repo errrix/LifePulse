@@ -1,0 +1,23 @@
+.text-image-block {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+  .text-block {
+    width: 49%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 20px;
+  }
+  .image-block {
+    width: 49%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 100%;
+    }
+  }
+}
