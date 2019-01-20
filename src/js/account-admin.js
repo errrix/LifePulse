@@ -39,6 +39,11 @@ export default (function accountAdmin() {
         }else if($(this).hasClass('campaign-delete')) {
             $('.popup.m--view-campaign .popup-step.m--campaign-delete').removeClass('hide-step');
             $('.popup.m--view-campaign').removeClass('hide-popup');
+        }else if($(this).hasClass('campaign-edit')) {
+           $('.view-campaign .button-wrapper').removeClass('hide');
+            $('.view-campaign textarea').removeAttr('disabled');
+            $('.view-campaign select').removeAttr('disabled');
+            $('.account-admin-campaign .button-block').addClass('hide');
         }
     });
 

@@ -8,6 +8,13 @@
   .account-admin-campaign-wrapper {
 
     .view-campaign {
+
+      .button-wrapper {
+        &.hide {
+          display: none;
+        }
+      }
+
       .text-block {
         display: flex;
         justify-content: space-between;
@@ -100,6 +107,10 @@
     .button-block {
       display: flex;
       justify-content: space-between;
+
+      &.hide {
+        display: none;
+      }
     }
   }
 }
