@@ -1,6 +1,10 @@
 .account-admin-table {
   width: 100%;
 
+  a {
+    color: $bg-orange-color;
+  }
+
   .title {
     border-bottom: 1px solid #eaeae8;
 
@@ -56,10 +60,6 @@
 
         & > * {
           display: inline-block;
-        }
-
-        span {
-          //margin-right: 5px;
         }
 
         .title-sort-block {
