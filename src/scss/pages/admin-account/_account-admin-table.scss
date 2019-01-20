@@ -9,14 +9,7 @@
       border: 1px solid #eaeae8;
       font-size: 18px;
       font-weight: 500;
-
-      //&:nth-child(2n) {
-      //  background-color: $white-text-color;
-      //}
-
-      //&:nth-child(2n-1) {
       background-color: #fffcfa;
-      //}
     }
   }
 
@@ -37,7 +30,7 @@
     }
 
     .button-block {
-      a, button {
+      & > a, & > button {
         display: inline-block;
         margin-right: 30px;
         &:last-child {

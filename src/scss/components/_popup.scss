@@ -16,6 +16,16 @@
     opacity: 0;
     z-index: -1;
   }
+
+  &.m--admin-show-appeal {
+    .popup-content-block {
+      max-width: 70%;
+
+      p {
+        line-height: 22px;
+      }
+    }
+  }
 }
 
 .popup-content-block {

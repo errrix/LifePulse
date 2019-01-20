@@ -19,4 +19,11 @@ export default (function accountAdmin() {
     $('.admin-edit-category').on('click', function () {
         $(this).parents('.button-block').find('.popup.m--admin-edit-category').removeClass('hide-popup');
     });
+
+    //открыть жалобу в попапе
+
+    $('.admin-open-appeal').on('click', function () {
+        $(this).parents('.button-block').find('.popup.m--admin-show-appeal').removeClass('hide-popup');
+    });
+
 })();
