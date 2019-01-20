@@ -5,6 +5,26 @@
 
 
   .account-admin-side-menu-list {
+
+    a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .account-admin-side-menu-count {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        border: 1px solid $common-orange-color;
+        border-radius: 50%;
+        line-height: 19px;
+        font-size: 11px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
     & > li {
       margin-bottom: 5px;
 
