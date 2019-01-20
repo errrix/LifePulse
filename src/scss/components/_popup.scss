@@ -25,6 +25,16 @@
       }
     }
   }
+
+  &.m--view-campaign {
+    .popup-content-block {
+      width: 600px;
+
+      textarea {
+        min-height: 300px;
+      }
+    }
+  }
 }
 
 .popup-content-block {

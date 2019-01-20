@@ -1,0 +1,105 @@
+.account-admin-campaign {
+  width: 100%;
+
+  h1 {
+    margin-bottom: 30px;
+  }
+
+  .account-admin-campaign-wrapper {
+
+    .view-campaign {
+      .text-block {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+
+        span {
+          color: $main-light-text-color;
+          font-family: $mainfont;
+          font-weight: 400;
+
+          &:last-child {
+            font-weight: 700;
+          }
+        }
+      }
+
+      .text-wrapper {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 10px;
+
+        & > * {
+          width: 50%;
+          flex-direction: column;
+          margin-bottom: 0;
+
+          .text-item {
+            margin-bottom: 20px;
+          }
+        }
+      }
+
+      .main-foto {
+        margin-bottom: 30px;
+
+        h3 {
+          text-transform: none;
+          color: $main-text-color;
+          font-family: $mainfont;
+          font-size: 21px;
+          line-height: 21px;
+          margin-bottom: 5px;
+          text-align: left;
+          font-weight: 400;
+        }
+
+        img {
+          width: 200px;
+          height: 200px;
+          object-fit: cover;
+        }
+      }
+
+      .link-block {
+        margin-bottom: 10px;
+
+        h3 {
+          text-transform: none;
+          color: $main-text-color;
+          font-family: $mainfont;
+          font-size: 21px;
+          line-height: 21px;
+          margin-bottom: 20px;
+          text-align: left;
+          font-weight: 400;
+        }
+
+        .link-block-wrapper {
+          & > * {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+
+            span {
+              color: $main-light-text-color;
+              font-family: $mainfont;
+              line-height: 20px;
+              margin-right: 20px;
+            }
+            svg {
+              width: 20px;
+              height: auto;
+            }
+          }
+        }
+      }
+    }
+
+    .button-block {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
