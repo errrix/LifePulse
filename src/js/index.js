@@ -4,6 +4,7 @@ import popup from './popup'
 import userAccount from './user-account'
 import newCampaign from './new-campaign'
 import accountAdmin from './account-admin'
+import faq from './faq'
 
 
 if ($('.money-count')) {

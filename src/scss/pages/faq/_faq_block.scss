@@ -1,17 +1,85 @@
 .faq-block {
-  padding-top: 120px;
-  padding-bottom: 50px;
-  .text-block {
-    h3 {
-      font-size: 21px;
-      line-height: 28px;
-      margin-bottom: 10px;
-      font-weight: 500;
+  padding: 120px 80px 50px 80px;
+
+  .faq-block-link {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+
+    & > div {
+      width: 49%;
+
+      a {
+        margin-bottom: 5px;
+        color: $main-text-color;
+        font-size: 21px;
+        font-weight: 500;
+        line-height: 28px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+        display: table;
+      }
     }
-    p {
-      color: $main-text-color;
-      font-size: 16px;
-      line-height: 21px;
+  }
+
+  .faq-dropdown-block {
+    margin-top: 50px;
+
+    .faq-dropdown-item {
+      margin-bottom: 15px;
+      min-height: 50px;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24);
+      background-color: $bg-white-color;
+      overflow: hidden;
+      &:hover {
+        background-color: $bg-second-color;
+      }
+
+      .faq-dropdown-question {
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        padding: 5px 40px 5px 50px;
+        min-height: 50px;
+        align-items: center;
+        &.active:before {
+          transform: rotate(-45deg);
+        }
+        &:before {
+          transition: .2s;
+          margin: auto;
+          content: "";
+          position: absolute;
+          left: 20px;
+          top: 0;
+          bottom: 0;
+          transform: rotate(134deg);
+          width: 10px;
+          height: 10px;
+          border-right: 2px solid $main-text-color;
+          border-top: 2px solid $main-text-color;
+        }
+
+        p {
+          color: $main-text-color;
+          font-size: 21px;
+          line-height: 24px;
+        }
+      }
+
+      .faq-dropdown-hide {
+        display: none;
+        border: 1px solid $common-orange-color;
+      }
+
+      .faq-dropdown-show-more {
+        padding: 10px 40px 10px 23px;
+
+        p {
+          color: $main-text-color;
+          font-size: 21px;
+          line-height: 24px;
+        }
+      }
     }
   }
 }
