@@ -5,6 +5,7 @@ import userAccount from './user-account'
 import newCampaign from './new-campaign'
 import accountAdmin from './account-admin'
 import faq from './faq'
+import donate from './donate-page'
 
 
 if ($('.money-count')) {

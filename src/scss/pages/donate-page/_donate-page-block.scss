@@ -36,7 +36,7 @@
       span {
         color: $main-text-color;
         font-size: 21px;
-        line-height: 28px;
+        line-height: 34px;
       }
       input {
         position: relative;
@@ -73,25 +73,39 @@
         border: 1px solid #eaeae8;
         background-color: $white-text-color;
         position: absolute;
-        top: 28px;
+        top: 34px;
         right: 0;
       }
       .fast-choice {
-        margin-top: 10px;
         span {
           border-bottom: 1px solid $main-text-color;
           margin-right: 30px;
           cursor: pointer;
           font-weight: 500;
-          &:focus {
+          &.active {
             color: $common-orange-color;
             border-bottom: 1px solid $common-orange-color;
           }
         }
       }
     }
-    .btn {
-      margin: 0 auto;
+    //.credit-card-info {
+    //  color: $main-text-color;
+    //  font-size: 16px;
+    //  line-height: 21px;
+    //  margin-bottom: 40px;
+    //}
+    .button-wrapper {
+      margin-top: 40px;
+      p {
+        color: $main-text-color;
+        font-size: 16px;
+        line-height: 21px;
+        margin-bottom: 10px;
+      }
+      .btn {
+        margin: 0 auto;
+      }
     }
   }
 }
