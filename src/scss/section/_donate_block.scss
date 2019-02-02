@@ -1,0 +1,22 @@
+.donate-section {
+  border-top: 1px solid $common-orange-color;
+  border-bottom: 1px solid $common-orange-color;
+
+  .donate-block {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    p {
+      font-size: 24px;
+      margin-right: 40px;
+    }
+    .btn {
+      height: 50px;
+      line-height: 50px;
+      padding-left: 30px;
+      padding-right: 30px;
+      font-weight: 400;
+    }
+  }
+}
