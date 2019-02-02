@@ -10,7 +10,7 @@
       width: 49%;
 
       a {
-        margin-bottom: 5px;
+        margin-bottom: 15px;
         color: $main-text-color;
         font-size: 21px;
         font-weight: 500;
@@ -30,20 +30,33 @@
       box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24);
       background-color: $bg-white-color;
       overflow: hidden;
-      &:hover {
-        background-color: $bg-second-color;
+      border-radius: 5px;
+
+      &.show-more {
+        div {
+          border: 1px solid $common-orange-color;
+        }
+        .faq-dropdown-show-more {
+          border-top: none;
+          max-height: 400px;
+          opacity: 1;
+          padding: 20px 40px 20px 23px;
+        }
+        .faq-dropdown-question:before {
+          transform: rotate(-45deg);
+        }
       }
 
       .faq-dropdown-question {
         cursor: pointer;
         position: relative;
         display: flex;
-        padding: 5px 40px 5px 50px;
+        padding: 10px 40px 10px 50px;
         min-height: 50px;
         align-items: center;
-        &.active:before {
-          transform: rotate(-45deg);
-        }
+        border: 1px solid transparent;
+        border-radius: 5px 5px 0 0;
+
         &:before {
           transition: .2s;
           margin: auto;
@@ -53,8 +66,8 @@
           top: 0;
           bottom: 0;
           transform: rotate(134deg);
-          width: 10px;
-          height: 10px;
+          width: 8px;
+          height: 8px;
           border-right: 2px solid $main-text-color;
           border-top: 2px solid $main-text-color;
         }
@@ -66,13 +79,13 @@
         }
       }
 
-      .faq-dropdown-hide {
-        display: none;
-        border: 1px solid $common-orange-color;
-      }
-
       .faq-dropdown-show-more {
-        padding: 10px 40px 10px 23px;
+        padding: 0 40px 0 23px;
+        transition: .5s;
+        max-height: 0;
+        opacity: 0;
+        border-radius: 0 0 5px 5px;
+        border: 1px solid transparent;
 
         p {
           color: $main-text-color;
