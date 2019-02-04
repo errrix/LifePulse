@@ -3,7 +3,6 @@
   background-image: url("../../src/img/bg_404.jpg");
   background-size: cover;
   background-position: center;
-  height: 85vh;
   .page-not-found-wrapper {
     padding-top: 220px;
     padding-bottom: 180px;
@@ -26,7 +25,7 @@
       color: $orange-text-color;
       font-size: 21px;
       line-height: 28px;
-      display: block;
+      display: table;
       margin-bottom: 30px;
     }
   }

@@ -1,0 +1,27 @@
+a.link-bottom-hover {
+  color: $white-text-color;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+  transition: .2s;
+  position: relative;
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    transition: .3s;
+    height: 1px;
+    background-color: $bg-orange-color;
+  }
+  &:hover {
+    cursor: pointer;
+
+    &:after {
+      width: 100%;
+      left: 0;
+    }
+  }
+}
