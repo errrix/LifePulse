@@ -6,6 +6,7 @@ import newCampaign from './new-campaign'
 import accountAdmin from './account-admin'
 import faq from './faq'
 import donate from './donate-page'
+import newCampaignTab from './new-campaign-tab'
 
 
 if ($('.money-count')) {
