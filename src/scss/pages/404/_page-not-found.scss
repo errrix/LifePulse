@@ -4,8 +4,14 @@
   background-size: cover;
   background-position: center;
   .page-not-found-wrapper {
-    padding-top: 220px;
+    padding-top: 140px;
     padding-bottom: 180px;
+    h1 {
+      color: white;
+      font-size: 122px;
+      text-align: center;
+      margin-bottom: 60px;
+    }
     h2 {
       color: $main-light-text-color;
       font-size: 37px;
