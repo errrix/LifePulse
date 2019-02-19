@@ -63,23 +63,34 @@
   }
 
   .money-count {
-
-    .money-diagram {
+    progress {
       width: 100%;
-      background-color: $bg-second-color;
       height: 15px;
-      position: relative;
       border: 1px solid $light-gray-text-color;
       margin-bottom: 10px;
-
-      .top-line {
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 100%;
-        background-color: $bg-orange-color;
-      }
     }
+    progress::-webkit-progress-bar {
+      background-color: $bg-second-color;
+    }
+    progress::-webkit-progress-value {
+      background-color: $bg-orange-color;
+    }
+    //.money-diagram {
+    //  width: 100%;
+    //  background-color: $bg-second-color;
+    //  height: 15px;
+    //  position: relative;
+    //  border: 1px solid $light-gray-text-color;
+    //  margin-bottom: 10px;
+    //
+    //  .top-line {
+    //    position: absolute;
+    //    left: 0;
+    //    top: 0;
+    //    height: 100%;
+    //    background-color: $bg-orange-color;
+    //  }
+    //}
 
     .money-how {
       display: flex;

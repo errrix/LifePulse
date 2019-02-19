@@ -9,8 +9,14 @@ import donate from './donate-page'
 import newCampaignTab from './new-campaign-tab'
 
 
+// if ($('.money-count')) {
+//     $('.single-card .top-line, .shortInfoBlock .top-line').each(function () {
+//         $(this).css('width', $(this).attr('data-money-diagram') + '%');
+//     });
+// }
+
 if ($('.money-count')) {
-    $('.single-card .top-line, .shortInfoBlock .top-line').each(function () {
-        $(this).css('width', $(this).attr('data-money-diagram') + '%');
+    $('progress').each(function () {
+        $(this).val(66);
     });
 }
