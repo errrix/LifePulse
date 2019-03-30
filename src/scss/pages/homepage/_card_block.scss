@@ -9,7 +9,7 @@
   .card-block-list {
     display: flex;
     justify-content: space-around;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 
     &>li {
       margin-bottom: 50px;

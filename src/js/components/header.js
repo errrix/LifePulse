@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
 
@@ -7,15 +8,15 @@ class Header extends React.Component {
                 <header className="main-header">
                     <div className="main-header-wrapper">
                         <div className="logo-side">
-                            <a href="/">
+                            <Link to='/'>
                                 <img src="../../../dist/img/img-logo.png" alt=""/>
-                            </a>
+                            </Link>
                         </div>
 
                         <div className="navigation-side">
                             <ul className="navigation">
                                 <li className="hover-submenu">
-                                    <a href="/faq">F.A.Q.</a>
+                                    <Link to='/faq'>F.A.Q.</Link>
                                 </li>
                                 <li>
                                     <a href="/">Успешные сборы</a>
@@ -26,8 +27,7 @@ class Header extends React.Component {
 
                                 </li>
                                 <li>
-                                    <a href="/"> Начать помогать</a>
-
+                                    <Link to='/allcampaing'>Начать помогать</Link>
                                 </li>
                                 <li>
                                     <a href="/"> Подать заявку</a>

@@ -15,11 +15,20 @@ import ReactDOM from 'react-dom';
 // import reducer from './reducer/';
 import {Route, HashRouter} from 'react-router-dom';
 import Homepage from './pages/homepage'
+import Faq from './pages/faq'
+import SearchPage from './pages/searchpage'
+import Header from "./components/header";
+import Footer from "./components/footer";
 
 ReactDOM.render(
         <HashRouter>
             <div>
+                <Route path="/" component={Header}/>
                 <Route exact path="/" component={Homepage}/>
+                <Route exact path="/faq" component={Faq}/>
+                <Route exact path="/allcampaing" component={SearchPage}/>
+                <Route path="/" component={Footer}/>
+                {/*<Route exact path="/faq" component={Faq}/>*/}
                 {/*<Route path="/" component={Header}/>*/}
                 {/*<Route exact path="/" component={WebPage}/>*/}
                 {/*<Route exact path="/film:id"*/}

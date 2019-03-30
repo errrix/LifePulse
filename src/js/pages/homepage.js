@@ -1,11 +1,10 @@
 import React from "react";
-import Header from '../components/header';
-import Footer from '../components/footer';
+
 import Jumbotron from '../components/jumbotron'
 import Howitwork from '../components/howitwork'
 import Marketing from '../components/marketing'
 import BlogHomepage from '../components/blogHomepage'
-import СardBlock from '../components/cardBlock'
+import CardBlock from '../components/cardBlock'
 
 
 class Homepage extends React.Component {
@@ -86,23 +85,21 @@ class Homepage extends React.Component {
                         </div>
                     </div>
                 </div>
-                <Header></Header>
 
                 <Jumbotron></Jumbotron>
 
-                <СardBlock title={'Популярные компании'}></СardBlock>
+                <CardBlock title={'Популярные компании'}></CardBlock>
 
 
 
                 <Howitwork></Howitwork>
 
-                <СardBlock title={'Помогать легко'}></СardBlock>
+                <CardBlock title={'Помогать легко'}></CardBlock>
 
                 <Marketing></Marketing>
 
                 <BlogHomepage></BlogHomepage>
 
-                <Footer></Footer>
             </div>
 
         )
