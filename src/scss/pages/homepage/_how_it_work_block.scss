@@ -1,6 +1,6 @@
 .how-it-work-block {
-  padding: 50px 0 0;
-  background-color: $bg-second-color;
+  padding: 50px 0;
+  background-color: $bg-third-color;
 
   h2 {
     margin-bottom: 39px;
@@ -11,5 +11,112 @@
     display: flex;
     justify-content: center;
     background-color: $bg-third-color;
+  }
+
+  .infographick-step {
+    background-color: white;
+    height: 250px;
+    width: 400px;
+    border-radius: 80px;
+    margin: 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.4);
+
+    .circle {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background-color: #fc8e45;
+
+      .circle-text {
+        position: absolute;
+        left: 50px;
+        top: 50px;
+        text-align: center;
+
+        p {
+          color: white;
+          font-size: 26px;
+          font-weight: 800;
+        }
+
+        span {
+          color: white;
+          font-size: 34px;
+        }
+      }
+    }
+
+    .circle1 {
+      bottom: -150px;
+      right: -150px;
+
+    }
+
+    .circle2 {
+      bottom: -150px;
+      left: -150px;
+
+      .circle-text {
+        right: 50px;
+        left: auto;
+        top: 50px;
+      }
+    }
+
+    .circle3 {
+      top: -150px;
+      right: -150px;
+
+      .circle-text {
+        left: 50px;
+        bottom: 50px;
+        top: auto;
+      }
+    }
+
+    .circle4 {
+      top: -150px;
+      left: -150px;
+
+      .circle-text {
+        right: 50px;
+        bottom: 50px;
+        left: auto;
+        top: auto;
+      }
+    }
+  }
+
+  .infographick {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .infographick-step:nth-child(2),
+    .infographick-step:nth-child(4){
+      text-align: right;
+    }
+  }
+
+  .info-block {
+    padding: 35px;
+
+    h2 {
+      color: black;
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      margin-left: 0;
+    }
+
+    p {
+      color: black;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.2;
+    }
   }
 }

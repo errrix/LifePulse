@@ -1,6 +1,6 @@
 .single-card {
-  height: 552px;
-  width: 355px;
+  height: 442px;
+  width: 300px;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
   background-color: $bg-white-color;
   display: flex;
@@ -11,7 +11,7 @@
   }
 
   img {
-    height: 270px;
+    height: 200px;
     object-fit: cover;
   }
 
@@ -46,7 +46,7 @@
   h4 {
     color: $main-text-color;
     font-family: $mainfont;
-    font-size: 21px;
+    font-size: 18px;
     font-weight: 700;
     margin-bottom: 20px;
   }

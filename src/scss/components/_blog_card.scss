@@ -14,7 +14,7 @@
   }
 
   .text-block {
-    height: 100%;
+    height: 350px;
     padding: 20px 27px 30px;
     display: flex;
     flex-direction: column;
@@ -47,6 +47,8 @@
         font-family: $mainfont;
         font-weight: 300;
         line-height: 21px;
+        height: 147px;
+        overflow: hidden;
       }
     }
 
