@@ -27,8 +27,11 @@ module.exports = (env, options) => {
             rules: [
                 {
                     test: /\.js$/,
+                    exclude: '/node_modules/',
                     loader: "babel-loader",
-                    exclude: '/node_modules/'
+                    query: {
+                        presets: ['@babel/preset-env','@babel/preset-react']
+                    },
                 },
                 {
                     test: /\.scss$/,
