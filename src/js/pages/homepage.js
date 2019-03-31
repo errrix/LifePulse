@@ -5,100 +5,60 @@ import Howitwork from '../components/howitwork'
 import Marketing from '../components/marketing'
 import BlogHomepage from '../components/blogHomepage'
 import CardBlock from '../components/cardBlock'
+import LoginPopup from '../components/popup/loginPopup'
 
 
 class Homepage extends React.Component {
 
+    constructor() {
+        super();
+
+        this.state = {
+            showPopup: false
+        };
+
+        this.togglePopup = this.togglePopup.bind(this);
+        this.closePopup = this.closePopup.bind(this);
+        this.updatePopupStatus = this.updatePopupStatus.bind(this);
+    }
+
+    updatePopupStatus () {
+        this.setState({
+            showPopup: value
+        });
+    }
+
+    togglePopup(){
+            this.setState({
+                showPopup: !this.state.showPopup
+            });
+        }
+
+        closePopup() {
+            if(this.state.showPopup) {
+                this.setState({
+                    showPopup: false
+                });
+            }
+
+    }
+
     render() {
         return (
             <div>
-                <div className="popup hide-popup">
-                    <div className="popup-content-block">
-                        <div className="popup-content-block-wrapper">
+                {/*<LoginPopup/>*/}
 
-                            <div className="popup-step m--login">
+                <Jumbotron/>
 
-                                <form className="main-form" action="">
-                                    <label className="label-input">
-                                        <span>Ваша почта:</span>
-                                        <input type="email" required/>
-                                        <span className="error"> Некорректный email. Попробуйте еще раз</span>
-                                    </label>
-                                    <div className="label-password-top-block">
-                                        <span>Пароль:</span>
-                                        <button className="forgot-password" type="button">
-                                            Забыли пароль?
-                                        </button>
-                                    </div>
-                                    <label className="label-input">
-                                        <input type="password" required/>
-                                        <span className="error">Неверный пароль. Введите еще раз</span>
-                                    </label>
-                                    <label className="label-checkbox">
+                <CardBlock title={'Популярные компании'}/>
 
-                                        <input type="checkbox"/>
-                                        <span>
-                             Запомнить меня
-                        </span>
-                                    </label>
+                <Howitwork/>
 
-                                    <div className="button-wrapper">
-                                        <button type="submit" className="btn m--with-loader">
-                                <span>
-                                     войти
-                                </span>
-                                            <span className="loader"></span>
-                                        </button>
-                                    </div>
+                <CardBlock title={'Помогать легко'}/>
 
-                                </form>
-                                <a href="/" className="no-account">
-                                    Нет аккаунта?
-                                </a>
-                            </div>
-                            <div className="popup-step m--restore-password hide-step">
-                                <button type="button" className="button-back">
-                                    назад
-                                </button>
+                <Marketing/>
 
-                                <h6>
-                                    Введите email, который Вы указывали при регистрации:
-                                </h6>
-
-                                <form className="main-form" action="">
-                                    <label className="label-input">
-                                        <input type="text"/>
-                                        <span className="error">Некорректный email. Попробуйте еще раз</span>
-                                    </label>
-                                    <div className="button-wrapper">
-                                        <button className="btn m--with-loader" type="submit">
-
-                                            <span>отправить</span>
-
-                                            <span className="loader"></span>
-
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                            <div className="popup-step m--thanks hide-step"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <Jumbotron></Jumbotron>
-
-                <CardBlock title={'Популярные компании'}></CardBlock>
-
-
-
-                <Howitwork></Howitwork>
-
-                <CardBlock title={'Помогать легко'}></CardBlock>
-
-                <Marketing></Marketing>
-
-                <BlogHomepage></BlogHomepage>
+                <BlogHomepage/>
 
             </div>
 
