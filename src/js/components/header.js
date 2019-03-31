@@ -82,7 +82,7 @@ class Header extends React.Component {
                                     </button>
 
                                     <button className="header-login-popup" onClick={this.togglePopup}>
-                                        Вход |
+                                        Вход
                                     </button>
 
                                     <Link to='/registration'  className="header-login-popup">Регистрация</Link>

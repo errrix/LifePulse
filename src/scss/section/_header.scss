@@ -97,7 +97,7 @@
         align-items: center;
 
         .header-search {
-          margin-right: 20px;
+          margin-right: 30px;
 
           svg {
             width: 21px;
@@ -107,13 +107,13 @@
 
         .header-login-popup {
           font-size: 16px;
-          color: $orange-text-color;
-          svg {
-            width: 40px;
-            height: 40px;
-          }
+          color: $white-text-color;
+          margin-right: 15px;
+          padding: 5px 10px;
+          border: 1px solid $common-orange-color;
+          border-radius: 4px;
+          font-weight: 300;
         }
-
       }
     }
   }

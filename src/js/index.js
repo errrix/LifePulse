@@ -17,6 +17,7 @@ import {Route, HashRouter, Switch } from 'react-router-dom';
 import Homepage from './pages/homepage'
 import Faq from './pages/faq'
 import pageNotFound from './pages/404'
+import donate from './pages/donate'
 import SearchPage from './pages/searchpage'
 import Header from "./components/header";
 import Footer from "./components/footer";
