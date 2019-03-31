@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifesPulse | Категории</title>
+    <link rel="stylesheet" href="../../../dist/css/styles.css">
+</head>
+<body>
+<header class="main-header m--account-admin">
+
+    <div class="main-header-wrapper">
+        <div class="logo-side">
+            <a href="/">
+                <img src="../../../dist/img/img-logo.png" alt="">
+            </a>
+        </div>
+        <div class="button-block">
+            <span>Текущая почта юзера</span>
+            <a href="/">Выйти</a>
+        </div>
+    </div>
+</header>
+
+<main class="account-admin-block">
+    <div class="account-admin-block-wrapper">
+        <div class="account-admin-side-menu">
+            <ul class="account-admin-side-menu-list">
+                <li>
+                    <a href="./application.html">Сборы</a>
+                    <ul>
+                        <li>
+                            <a href="./application.html">
+                                <span>
+                                    Новые
+                                </span>
+                                <span class="account-admin-side-menu-count">
+                                    31
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./application.html">Активные</a>
+                        </li>
+                        <li>
+                            <a href="./application.html">Завершенные </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="active">
+                    <a href="./categories.html">Категория</a>
+                </li>
+
+                <li>
+                    <a href="./appeal.html">
+                        <span>
+                                    Жалобы
+                        </span>
+                        <span class="account-admin-side-menu-count">
+                                    31
+                        </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./ban.html">Бан</a>
+                </li>
+
+                <li>
+                    <a href="./users.html">Пользователи</a>
+                </li>
+
+                <li>
+                    <a href="./staff.html">Команда</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="account-admin-content-block account-admin-categories">
+
+            <div class="popup m--admin-add-new-category hide-popup">
+                <div class="popup-content-block">
+                    <div class="popup-content-block-wrapper">
+                        <div class="popup-step">
+                            <form class="main-form" action="">
+                                <h3>Добавить категорию</h3>
+                                <label class="label-input">
+                                    <span>Название категории</span>
+                                    <input type="text" required>
+                                    <span class="error">Введите название категории</span>
+                                </label>
+                                <div class="button-wrapper">
+                                    <button type="submit" class="btn m--with-loader">
+        <span>
+        Сохранить
+        </span>
+                                        <span class="loader"></span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <header>
+                <h1>
+                    Категории
+                </h1>
+
+                <button type="button" class="account-admin-new-category">Добавить категорию</button>
+            </header>
+            <div class="account-admin-staff-wrapper">
+                <table class="account-admin-table">
+                    <tr class="title">
+                        <th>№</th>
+                        <th>Категории</th>
+                        <th>Сборы</th>
+                        <th>Действия</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Онкология</td>
+                        <td>321</td>
+                        <td class="button-block">
+                            <div class="popup m--admin-edit-category hide-popup">
+                                <div class="popup-content-block">
+                                    <div class="popup-content-block-wrapper">
+                                        <div class="popup-step">
+
+                                            <form class="main-form" action="">
+                                                <h3>Изменить название категории</h3>
+
+                                                <label class="label-input">
+                                                    <span>Название категории</span>
+                                                    <input type="text" required>
+                                                    <span class="error">Введите название категории</span>
+                                                </label>
+
+                                                <div class="button-wrapper">
+                                                    <button type="submit" class="btn m--with-loader">
+        <span>
+        Сохранить
+        </span>
+                                                        <span class="loader"></span>
+                                                    </button>
+                                                </div>
+
+                                            </form>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <button class="admin-edit-category">
+                                <svg aria-hidden="true" data-prefix="fas" data-icon="pen-square"
+                                     class="svg-inline--fa fa-pen-square fa-w-14" xmlns="http://www.w3.org/2000/svg"
+                                     viewBox="0 0 448 512">
+                                    <path d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z"/>
+                                </svg>
+                            </button>
+                            <a href="/">
+                                <svg aria-hidden="true" data-prefix="fas" data-icon="ban"
+                                     class="svg-inline--fa fa-ban fa-w-16" xmlns="http://www.w3.org/2000/svg"
+                                     viewBox="0 0 512 512">
+                                    <path d="M256 8C119.034 8 8 119.033 8 256s111.034 248 248 248 248-111.034 248-248S392.967 8 256 8zm130.108 117.892c65.448 65.448 70 165.481 20.677 235.637L150.47 105.216c70.204-49.356 170.226-44.735 235.638 20.676zM125.892 386.108c-65.448-65.448-70-165.481-20.677-235.637L361.53 406.784c-70.203 49.356-170.226 44.736-235.638-20.676z"/>
+                                </svg>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Сердечно-сосудистые заболевания</td>
+                        <td>1345</td>
+                        <td class="button-block">
+                            <div class="popup m--admin-edit-category hide-popup">
+                                <div class="popup-content-block">
+                                    <div class="popup-content-block-wrapper">
+                                        <div class="popup-step">
+
+                                            <form class="main-form" action="">
+                                                <h3>Изменить название категории</h3>
+
+                                                <label class="label-input">
+                                                    <span>Название категории</span>
+                                                    <input type="text" required>
+                                                    <span class="error">Введите название категории</span>
+                                                </label>
+
+                                                <div class="button-wrapper">
+                                                    <button type="submit" class="btn m--with-loader">
+        <span>
+        Сохранить
+        </span>
+                                                        <span class="loader"></span>
+                                                    </button>
+                                                </div>
+
+                                            </form>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <button class="admin-edit-category">
+                                <svg aria-hidden="true" data-prefix="fas" data-icon="pen-square"
+                                     class="svg-inline--fa fa-pen-square fa-w-14" xmlns="http://www.w3.org/2000/svg"
+                                     viewBox="0 0 448 512">
+                                    <path d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z"/>
+                                </svg>
+                            </button>
+                            <a href="/">
+                                <svg aria-hidden="true" data-prefix="fas" data-icon="ban"
+                                     class="svg-inline--fa fa-ban fa-w-16" xmlns="http://www.w3.org/2000/svg"
+                                     viewBox="0 0 512 512">
+                                    <path d="M256 8C119.034 8 8 119.033 8 256s111.034 248 248 248 248-111.034 248-248S392.967 8 256 8zm130.108 117.892c65.448 65.448 70 165.481 20.677 235.637L150.47 105.216c70.204-49.356 170.226-44.735 235.638 20.676zM125.892 386.108c-65.448-65.448-70-165.481-20.677-235.637L361.53 406.784c-70.203 49.356-170.226 44.736-235.638-20.676z"/>
+                                </svg>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Ревматические заболевания</td>
+                        <td>2</td>
+                        <td class="button-block">
+                            <div class="popup m--admin-edit-category hide-popup">
+                                <div class="popup-content-block">
+                                    <div class="popup-content-block-wrapper">
+                                        <div class="popup-step">
+
+                                            <form class="main-form" action="">
+                                                <h3>Изменить название категории</h3>
+
+                                                <label class="label-input">
+                                                    <span>Название категории</span>
+                                                    <input type="text" required>
+                                                    <span class="error">Введите название категории</span>
+                                                </label>
+
+                                                <div class="button-wrapper">
+                                                    <button type="submit" class="btn m--with-loader">
+        <span>
+        Сохранить
+        </span>
+                                                        <span class="loader"></span>
+                                                    </button>
+                                                </div>
+
+                                            </form>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <button class="admin-edit-category">
+                                <svg aria-hidden="true" data-prefix="fas" data-icon="pen-square"
+                                     class="svg-inline--fa fa-pen-square fa-w-14" xmlns="http://www.w3.org/2000/svg"
+                                     viewBox="0 0 448 512">
+                                    <path d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z"/>
+                                </svg>
+                            </button>
+                            <a href="/">
+                                <svg aria-hidden="true" data-prefix="fas" data-icon="ban"
+                                     class="svg-inline--fa fa-ban fa-w-16" xmlns="http://www.w3.org/2000/svg"
+                                     viewBox="0 0 512 512">
+                                    <path d="M256 8C119.034 8 8 119.033 8 256s111.034 248 248 248 248-111.034 248-248S392.967 8 256 8zm130.108 117.892c65.448 65.448 70 165.481 20.677 235.637L150.47 105.216c70.204-49.356 170.226-44.735 235.638 20.676zM125.892 386.108c-65.448-65.448-70-165.481-20.677-235.637L361.53 406.784c-70.203 49.356-170.226 44.736-235.638-20.676z"/>
+                                </svg>
+                            </a>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+
+        </div>
+
+
+    </div>
+</main>
+
+
+<script src="../../../dist/js/index.js"></script>
+</body>
+</html>

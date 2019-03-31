@@ -45,8 +45,10 @@ class Header extends React.Component {
                                 </button>
 
                                 <button className="header-login-popup">
-                                    Вход | Регистрация
+                                    Вход |
                                 </button>
+
+                                <Link to='/registration'  className="header-login-popup">Регистрация</Link>
                             </div>
                         </div>
                     </div>
