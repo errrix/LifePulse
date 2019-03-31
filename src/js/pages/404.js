@@ -1,13 +1,5 @@
 import React from "react";
 
-import Jumbotron from '../components/jumbotron'
-import Howitwork from '../components/howitwork'
-import Marketing from '../components/marketing'
-import BlogHomepage from '../components/blogHomepage'
-import СardBlock from '../components/cardBlock'
-import pageNotFound from '../components/pageNotFound'
-
-
 class pageNotFound extends React.Component {
 
     render() {

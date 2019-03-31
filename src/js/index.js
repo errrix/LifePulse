@@ -28,6 +28,7 @@ ReactDOM.render(
                 <Route exact path="/" component={Homepage}/>
                 <Route exact path="/faq" component={Faq}/>
                 <Route exact path="/allcampaing" component={SearchPage}/>
+                <Route exact path="/404" component={pageNotFound}/>
                 <Route path="/" component={Footer}/>
                 {/*<Route exact path="/faq" component={Faq}/>*/}
                 {/*<Route path="/" component={Header}/>*/}
