@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 
 class LoginPopup extends React.Component {
@@ -11,28 +11,19 @@ class LoginPopup extends React.Component {
             showPopup: false
         };
 
-        this.togglePopup = this.togglePopup.bind(this);
         this.closePopup = this.closePopup.bind(this);
     }
 
-    togglePopup(){
-        this.setState({
-            showPopup: !this.state.showPopup
-        });
-    }
-
-    closePopup() {
-        if(this.state.showPopup) {
-            this.setState({
-                showPopup: false
-            });
+     closePopup(e) {
+        if(!document.querySelector('.popup .popup-content-block').contains(e.target)) {
+            this.props.updateStatusPopup(false);
+            // document.querySelector('.popup').classList.add('hide-popup');
         }
-
     }
 
     render() {
         return (
-            <div className="popup">
+            <div className="popup" onClick={this.closePopup}>
                 <div className="popup-content-block">
                     <div className="popup-content-block-wrapper">
 

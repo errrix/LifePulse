@@ -12,23 +12,20 @@ class Header extends React.Component {
             showPopup: false
         };
 
-        this.togglePopup = this.togglePopup.bind(this);
-        this.closePopup = this.closePopup.bind(this);
+        this.openPopup = this.openPopup.bind(this);
+        this.handlePopup = this.handlePopup.bind(this);
     }
 
-    togglePopup(){
+    openPopup(){
         this.setState({
             showPopup: !this.state.showPopup
         });
     }
 
-    closePopup() {
-        if(this.state.showPopup) {
-            this.setState({
-                showPopup: false
-            });
-        }
-
+    handlePopup(value) {
+       this.setState({
+           showPopup: value
+       })
     }
 
     render() {
@@ -37,10 +34,8 @@ class Header extends React.Component {
                 <div>
                     {
                         this.state.showPopup ?
-                            <LoginPopup/> : false
+                            <LoginPopup updateStatusPopup={this.handlePopup}/> : false
                     }
-
-
 
                     <header className="main-header">
                         <div className="main-header-wrapper">
@@ -81,7 +76,7 @@ class Header extends React.Component {
                                         </svg>
                                     </button>
 
-                                    <button className="header-login-popup" onClick={this.togglePopup}>
+                                    <button className="header-login-popup" onClick={this.openPopup}>
                                         Вход
                                     </button>
 
