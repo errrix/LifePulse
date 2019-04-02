@@ -2,6 +2,24 @@ import React from "react";
 
 class Faq extends React.Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+
+        };
+
+        this.toggleAnswer = this.toggleAnswer.bind(this);
+    }
+
+    toggleAnswer(e) {
+        for(let i = 0; i < document.querySelectorAll('.faq-dropdown-question').length; i++ ) {
+            if(e.target === document.querySelectorAll('.faq-dropdown-question')[i]) {
+                document.querySelectorAll('.faq-dropdown-question')[i].parentElement.classList.toggle('show-more')
+            }
+        }
+    }
+
     render() {
         return (
             <div>
@@ -17,7 +35,7 @@ class Faq extends React.Component {
                             <a href="#" className="faq-block-section">Помочь проекту</a>
                         </div>
                     </div>
-                    <div className="faq-dropdown-block">
+                    <div className="faq-dropdown-block" onClick={this.toggleAnswer}>
                         <div className="faq-dropdown-item">
                             <div className="faq-dropdown-question">
                                 <p>Я не хочу регистрироваться! Что можно делать на сайте без регистрации?</p>

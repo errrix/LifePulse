@@ -2,6 +2,34 @@ import React from "react";
 
 class Registration extends React.Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {};
+
+        this.sendData = this.sendData.bind(this);
+    }
+
+    sendData(e) {
+        e.preventDefault();
+        console.log('some test');
+        fetch("http://165.227.11.173:3001/api/users/newuser", {
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "body": {
+                    "first_name": "German",
+                    "last_name": "Novikov",
+                    "email": "test@test.test",
+                    "password": "qwerty"
+                }
+            }
+        ).then((ressponse) => ressponse.json()).then((response) => {
+            console.log(response)
+        })
+    }
+
     render() {
         return (
             <div className="registration-block">
@@ -33,11 +61,11 @@ class Registration extends React.Component {
                             или зарегистрироваться через email
                         </h3>
 
-                        <form action="" className="main-form m--registration">
+                        <form action="" className="main-form m--registration" onSubmit={this.sendData}>
                             <div className="input-wrapper">
                                 <label className="label-input">
                                     <span>Имя:</span>
-                                    <input type="text" required placeholder="Василий"/>
+                                    <input type="text" placeholder="Василий"/>
                                     <span className="error"> Поле не заполнено</span>
                                 </label>
 
@@ -50,7 +78,7 @@ class Registration extends React.Component {
                             <div className="input-wrapper">
                                 <label className="label-input">
                                     <span>Ваша почта:</span>
-                                    <input type="email" required placeholder="vasiliy@lifespulse.com"/>
+                                    <input type="email" placeholder="vasiliy@lifespulse.com"/>
                                     <span className="error"> Некорректный email. Попробуйте еще раз</span>
                                 </label>
 
@@ -64,14 +92,14 @@ class Registration extends React.Component {
 
                             <label className="label-input m--password">
                                 <span>Пароль:</span>
-                                <input type="password" required placeholder="Введите пароль"/>
+                                <input type="password" placeholder="Введите пароль"/>
                                 <span className="info">Пароль должен состоять из букв и цифер, содержать минимум 6 знаков, 3 из которых уникальные</span>
                                 <span className="error"> Пароль должен состоять из букв и цифер, содержать минимум 6 знаков, 3 из которых уникальные</span>
                             </label>
 
                             <label className="label-input m--password">
                                 <span>Повторите пароль:</span>
-                                <input type="password" required placeholder="Введите пароль"/>
+                                <input type="password" placeholder="Введите пароль"/>
                                 <span className="error"> Пароли не совпадают. Повторите еще раз</span>
                             </label>
 
