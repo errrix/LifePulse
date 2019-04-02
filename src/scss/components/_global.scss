@@ -49,3 +49,10 @@ input::-webkit-inner-spin-button {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.24);
   background-color: $white-text-color;
 }
+
+.link-global {
+  color: $orange-text-color;
+  &:hover {
+    text-decoration: underline;
+  }
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 class Footer extends React.Component {
 
@@ -67,9 +68,7 @@ class Footer extends React.Component {
                                     <a href="/">
                                         FAQ
                                     </a>
-                                    <a href="/">
-                                        Публичная оферта
-                                    </a>
+                                    <Link to='/confidentiality'>Конфиденциальность</Link>
                                     <a href="/">
                                         Обратная связь
                                     </a>
