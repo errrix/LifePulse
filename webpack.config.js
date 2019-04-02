@@ -20,7 +20,8 @@ module.exports = (env, options) => {
             overlay: true,
             publicPath: '',
             contentBase: path.join(__dirname, 'src/template'),
-            watchContentBase: true
+            watchContentBase: true,
+            port: 4200
 
         },
         module: {

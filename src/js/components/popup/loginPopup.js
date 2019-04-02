@@ -13,6 +13,7 @@ class LoginPopup extends React.Component {
         };
 
         this.closePopup = this.closePopup.bind(this);
+        this.submitLogin = this.submitLogin.bind(this);
     }
 
      closePopup(e) {
@@ -20,6 +21,25 @@ class LoginPopup extends React.Component {
             this.props.updateStatusPopup(false);
             // document.querySelector('.popup').classList.add('hide-popup');
         }
+    }
+
+    submitLogin(e) {
+        e.preventDefault()
+        fetch('http://165.227.11.173:3001/api/users/login', {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            method: 'POST',
+            'cache-control': 'no-cache',
+            credentials: 'include',
+            body: JSON.stringify({
+                "email": "test@test.test",
+                "password": "Test1234"
+            })
+        })
+        .then(function (response) {
+            return response.json()
+        }).then((json) => {console.log(json.response)})
     }
 
     render() {
@@ -30,10 +50,10 @@ class LoginPopup extends React.Component {
 
                         <div className="popup-step m--login">
 
-                            <form className="main-form" action="">
+                            <form className="main-form" action="" onSubmit={this.submitLogin}>
                                 <label className="label-input">
                                     <span>Ваша почта:</span>
-                                    <input type="email" required/>
+                                    <input type="email" />
                                     <span className="error"> Некорректный email. Попробуйте еще раз</span>
                                 </label>
                                 <div className="label-password-top-block">
@@ -43,7 +63,7 @@ class LoginPopup extends React.Component {
                                     </button>
                                 </div>
                                 <label className="label-input">
-                                    <input type="password" required/>
+                                    <input type="password" />
                                     <span className="error">Неверный пароль. Введите еще раз</span>
                                 </label>
                                 <label className="label-checkbox">
