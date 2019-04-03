@@ -5,26 +5,6 @@ body {
   background-color: $bg-second-color;
 }
 
-//h2 {
-//  color: $main-text-color;
-//  font-family: $mainfont;
-//  font-size: 37px;
-//  font-weight: 700;
-//  text-transform: uppercase;
-//  position: relative;
-//  display: inline-block;
-//
-//  &.h2Underline:after {
-//    content: '';
-//    display: block;
-//    position: absolute;
-//    bottom: -9px;
-//    width: 100%;
-//    height: 2px;
-//    background-color: $bg-orange-color;
-//  }
-//}
-
 input, textarea {
   border: none;
   border-radius: 0;
@@ -57,6 +37,25 @@ input::-webkit-inner-spin-button {
   }
 }
 
+.h1Header {
+  color: $main-text-color;
+  font-family: $mainfont;
+  font-size: 46px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  line-height: 1.3;
+
+  @media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
+    font-size: 42px;
+  }
+
+  @media only screen and (max-width: $mobileWidth) {
+    font-size: 32px;
+  }
+}
+
 .h2Header {
   color: $main-text-color;
   font-family: $mainfont;
@@ -76,11 +75,11 @@ input::-webkit-inner-spin-button {
     height: 2px;
     background-color: $bg-orange-color;
   }
-  @media only screen and (max-width: 1199px) and (min-width: 980px) {
+  @media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
     font-size: 34px;
   }
 
-  @media only screen and (max-width: 979px) {
+  @media only screen and (max-width: $mobileWidth) {
     font-size: 26px;
   }
 }
