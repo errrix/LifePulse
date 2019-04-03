@@ -61,7 +61,7 @@ class Howitwork extends React.Component {
                 {/*</div>*/}
                 <div className="marketing-block">
                     <div className="container">
-                        <h2 className="h2Underline">
+                        <h2 className="h2Header">
                             КАК ЭТО РАБОТАЕТ
                         </h2>
 
