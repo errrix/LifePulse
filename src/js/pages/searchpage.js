@@ -35,7 +35,7 @@ class Faq extends React.Component {
                             <option value="">восемь</option>
                         </select>
                         <div className="search-result-navigation">
-                            <h2>
+                            <h2 className="h2Header">
                                 Результаты поиска
                             </h2>
                             <div className="search-result-sort">

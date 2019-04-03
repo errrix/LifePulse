@@ -24,7 +24,7 @@ class Faq extends React.Component {
         return (
             <div>
                 <div className="faq-block container">
-                    <h2 className="faq-block-title">ответы на самые частые вопросы</h2>
+                    <h2 className="h2Header">ответы на самые частые вопросы</h2>
                     <div className="faq-block-link">
                         <div>
                             <a href="#" className="faq-block-section">О проекте</a>

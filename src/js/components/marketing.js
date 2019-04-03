@@ -6,7 +6,7 @@ class Marketing extends React.Component {
         return (
             <div className="marketing-block">
                 <div className="container">
-                    <h2 className="h2Underline">
+                    <h2 className="h2Header h2Underline">
                         Почему нам стоит доверять?
                     </h2>
 
