@@ -65,19 +65,13 @@ class Footer extends React.Component {
                                     <a href="/">
                                         О нас
                                     </a>
-                                    <a href="/">
-                                        FAQ
-                                    </a>
+                                    <Link to='/faq'>F.A.Q.</Link>
                                     <Link to='/confidentiality'>Конфиденциальность</Link>
-                                    <a href="/">
-                                        Обратная связь
-                                    </a>
+                                    <Link to='/rules'>Правила сайта</Link>
                                 </div>
 
                                 <div>
-                                    <a href="/">
-                                        Начать помогать
-                                    </a>
+                                    <Link to='/allcampaing'>Начать помогать</Link>
                                     <a href="/">
                                         Подать заявку
                                     </a>
