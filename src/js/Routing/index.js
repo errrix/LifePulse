@@ -9,6 +9,8 @@ import donate from './../pages/donate'
 import SearchPage from './../pages/searchpage'
 import Header from "./../components/header";
 import Footer from "./../components/footer";
+import confidentiality from "./../pages/confidentiality";
+import Rules from "./../pages/rules";
 import Registration from "./../pages/registration";
 import ScrollToTop from './../modules/scrollToTop'
 
@@ -25,6 +27,8 @@ class MainRouter extends React.Component {
                         <Route exact path="/faq" component={Faq}/>
                         <Route exact path="/allcampaing" component={SearchPage}/>
                         <Route exact path="/registration" component={Registration}/>
+                        <Route exact path="/confidentiality" component={confidentiality}/>
+                        <Route exact path="/rules" component={Rules}/>
                         <Route exact path="/donate" component={donate}/>
                         <Route component={pageNotFound}/>
                     </Switch>

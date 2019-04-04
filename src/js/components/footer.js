@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 class Footer extends React.Component {
 
@@ -10,7 +11,7 @@ class Footer extends React.Component {
                     <div className="container">
                         <img src="../../../dist/img/subscrible-img.jpg" alt=""/>
                         <div className="subscribe-block-wrapper">
-                            <h2>
+                            <h2 className="h2Header">
                                 Следите за новостями LIFES<span>PULSE</span>
                             </h2>
                             <form action="">
@@ -64,21 +65,13 @@ class Footer extends React.Component {
                                     <a href="/">
                                         О нас
                                     </a>
-                                    <a href="/">
-                                        FAQ
-                                    </a>
-                                    <a href="/">
-                                        Публичная оферта
-                                    </a>
-                                    <a href="/">
-                                        Обратная связь
-                                    </a>
+                                    <Link to='/faq'>F.A.Q.</Link>
+                                    <Link to='/confidentiality'>Конфиденциальность</Link>
+                                    <Link to='/rules'>Правила сайта</Link>
                                 </div>
 
                                 <div>
-                                    <a href="/">
-                                        Начать помогать
-                                    </a>
+                                    <Link to='/allcampaing'>Начать помогать</Link>
                                     <a href="/">
                                         Подать заявку
                                     </a>

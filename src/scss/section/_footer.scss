@@ -1,12 +1,18 @@
 .main-footer {
   background-color: $bg-main-dark-color;
-  padding: 70px 0 30px;
+  padding: 50px 0 30px;
 
   .main-footer-wrapper {
     max-width: 980px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+
+    &:last-child {
+      padding: 25px 0 0;
+      justify-content: center;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
 
     h6 {
       color: $light-gray-text-color;
@@ -28,7 +34,8 @@
       a {
         display: flex;
         align-items: center;
-        margin-bottom: 26px;
+        margin-bottom: 20px;
+        font-weight: 300;
 
         svg {
           width: 20px;
@@ -56,8 +63,8 @@
         display: flex;
         color: $light-gray-text-color;
         font-family: $mainfont;
-        font-weight: 400;
-        margin-bottom: 30px;
+        font-weight: 300;
+        margin-bottom: 20px;
       }
 
       .padding-left {

@@ -7,7 +7,7 @@ class BlogHomepage extends React.Component {
            <div>
                <div className="homepage-blog-section">
                    <div className="container">
-                       <h2 className="h2Underline">
+                       <h2 className="h2Header h2Underline">
                            ИНТЕРЕСНОЕ В БЛОГЕ
                        </h2>
 

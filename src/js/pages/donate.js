@@ -6,7 +6,7 @@ class donate extends React.Component {
         return (
             <div>
                 <div className="donate-page-block container">
-                    <h2 className="donate-page-block-title">
+                    <h2 className="h2Header">
                         ПОЖЕРТВОВАТЬ
                     </h2>
                     <div className="donate-page-block-info">
