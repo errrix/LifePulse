@@ -1,0 +1,1 @@
+export const addToken = (string) => ( { type:'addToken', payload:string } );

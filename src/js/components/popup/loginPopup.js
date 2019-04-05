@@ -9,11 +9,16 @@ class LoginPopup extends React.Component {
         super(props);
 
         this.state = {
-            showPopup: false
+            email: '',
+            validate_email: false,
+            password: '',
         };
 
         this.closePopup = this.closePopup.bind(this);
         this.submitLogin = this.submitLogin.bind(this);
+        this.inputEmail = this.inputEmail.bind(this);
+        this.validateEmail = this.validateEmail.bind(this);
+        this.inputPassword = this.inputPassword.bind(this);
     }
 
      closePopup(e) {
@@ -23,23 +28,48 @@ class LoginPopup extends React.Component {
         }
     }
 
+    inputEmail(e) {
+        this.setState({email: e.target.value})
+    }
+
+    validateEmail(e) {
+        if(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{1,6}$/.test(e.target.value)) {
+            this.setState({validate_email: true});
+            e.target.parentNode.classList.remove('label-error');
+        } else {
+            this.setState({validate_email: false});
+            e.target.parentNode.classList.add('label-error');
+        }
+    }
+
+    inputPassword(e) {
+        this.setState({password: e.target.value})
+    }
+
     submitLogin(e) {
-        e.preventDefault()
-        fetch('http://165.227.11.173:3001/api/users/login', {
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            method: 'POST',
-            'cache-control': 'no-cache',
-            credentials: 'include',
-            body: JSON.stringify({
-                "email": "test@test.test",
-                "password": "Test1234"
+        e.preventDefault();
+        if(!this.state.validate_email) {
+            fetch('http://165.227.11.173:3001/api/users/login', {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                method: 'POST',
+                // 'cache-control': 'no-cache',
+                // credentials: 'include',
+                body: JSON.stringify({
+                    email: "test@test.test",
+                    password: "Test1234"
+                    // "email": this.state.email,
+                    // "password": this.state.password
+                })
             })
-        })
-        .then(function (response) {
-            return response.json()
-        }).then((json) => {console.log(json.response)})
+                .then(function (response) {
+                    return response.json()
+                }).then((json) => {
+                    console.log(json.response.id);
+                    this.props.addToken(json.response.id);
+            })
+        }
     }
 
     render() {
@@ -53,7 +83,7 @@ class LoginPopup extends React.Component {
                             <form className="main-form" action="" onSubmit={this.submitLogin}>
                                 <label className="label-input">
                                     <span>Ваша почта:</span>
-                                    <input type="email" />
+                                    <input type="email" onChange={this.inputEmail} onBlur={this.validateEmail}/>
                                     <span className="error"> Некорректный email. Попробуйте еще раз</span>
                                 </label>
                                 <div className="label-password-top-block">
@@ -63,7 +93,7 @@ class LoginPopup extends React.Component {
                                     </button>
                                 </div>
                                 <label className="label-input">
-                                    <input type="password" />
+                                    <input type="password" onChange={this.inputPassword}/>
                                     <span className="error">Неверный пароль. Введите еще раз</span>
                                 </label>
                                 <label className="label-checkbox">
