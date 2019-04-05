@@ -11,6 +11,7 @@ import Header from "./../components/header";
 import Footer from "./../components/footer";
 import confidentiality from "./../pages/confidentiality";
 import Rules from "./../pages/rules";
+import usercard from "./../pages/usercard";
 import Registration from "./../pages/registration";
 import ScrollToTop from './../modules/scrollToTop'
 
@@ -30,6 +31,7 @@ class MainRouter extends React.Component {
                         <Route exact path="/confidentiality" component={confidentiality}/>
                         <Route exact path="/rules" component={Rules}/>
                         <Route exact path="/donate" component={donate}/>
+                        <Route exact path="/usercard" component={usercard}/>
                         <Route component={pageNotFound}/>
                     </Switch>
                     <Route path="/" component={Footer}/>

@@ -63,7 +63,8 @@
 
   .blog-article-list {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    flex-wrap: wrap;
     margin-bottom: 30px;
   }
 
@@ -76,5 +77,15 @@
       color: $main-text-color;
       font-family: $mainfont;
     }
+  }
+}
+
+@media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
+
+}
+
+@media only screen and (max-width: $mobileWidth) {
+  .main-article-wrapper {
+    display: none;
   }
 }

@@ -73,6 +73,7 @@
     width: 32%;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
     padding: 20px;
+    align-self: flex-start;
     .shortInfoBlock-age, .shortInfoBlock-gender, .shortInfoBlock-locations, .shortInfoBlock-category {
       color: $main-text-color;
       font-size: 16px;
@@ -126,22 +127,17 @@
       }
     }
     .money-count {
-
-      .money-diagram {
+      progress {
         width: 100%;
-        background-color: $bg-second-color;
         height: 15px;
-        position: relative;
         border: 1px solid $light-gray-text-color;
         margin-bottom: 10px;
-
-        .top-line {
-          position: absolute;
-          left: 0;
-          top: 0;
-          height: 100%;
-          background-color: $bg-orange-color;
-        }
+      }
+      progress::-webkit-progress-bar {
+        background-color: $bg-second-color;
+      }
+      progress::-webkit-progress-value {
+        background-color: $bg-orange-color;
       }
 
       .money-how {

@@ -11,7 +11,7 @@ class Jumbotron extends React.Component {
                     <div className="back-layer"></div>
 
                     <div className="jumbotron-wrapper">
-                        <h1>
+                        <h1 className="h1Header">
                             lifes<span>pulse</span>
                         </h1>
                         <p>

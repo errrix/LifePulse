@@ -28,7 +28,7 @@
       width: 300px;
       height: 300px;
       border-radius: 50%;
-      background-color: #fc8e45;
+      background-color: $common-orange-light-color;
 
       .circle-text {
         position: absolute;
@@ -37,13 +37,13 @@
         text-align: center;
 
         p {
-          color: white;
+          color: $bg-white-color;
           font-size: 26px;
           font-weight: 800;
         }
 
         span {
-          color: white;
+          color: $bg-white-color;
           font-size: 34px;
         }
       }
@@ -104,7 +104,7 @@
     padding: 35px;
 
     h2 {
-      color: black;
+      color: $main-text-color;
       font-size: 26px;
       font-weight: 800;
       line-height: 1.2;
@@ -113,7 +113,7 @@
     }
 
     p {
-      color: black;
+      color: $main-text-color;
       font-size: 18px;
       font-weight: 400;
       line-height: 1.2;
