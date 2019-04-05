@@ -80,12 +80,14 @@ class Header extends React.Component {
                                 </li>
                             </ul>
 
-                            <div className="button-block">
+
                                 {
                                     (this.props.tokenData) ? (
-                                            <div> ПРИВЕТ ЮЗЕР</div>
+                                        <div className="button-block">
+                                            <Link to='/account' className="header-login-popup">Личный кабинет</Link>
+                                        </div>
                                 ) : (
-                                    <div>
+                                        <div className="button-block">
                                         <button className="header-search">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                                 <path
@@ -103,7 +105,7 @@ class Header extends React.Component {
 
                                 )}
 
-                            </div>
+
                         </div>
                     </div>
 

@@ -13,6 +13,7 @@ import confidentiality from "./../pages/confidentiality";
 import Rules from "./../pages/rules";
 import usercard from "./../pages/usercard";
 import Registration from "./../pages/registration";
+import UserAccount from "./../pages/user-account";
 import ScrollToTop from './../modules/scrollToTop'
 
 import {createStore} from 'redux';
@@ -47,6 +48,7 @@ class MainRouter extends React.Component {
                             <Route exact path="/confidentiality" component={confidentiality}/>
                             <Route exact path="/rules" component={Rules}/>
                             <Route exact path="/donate" component={donate}/>
+                            <Route exact path="/account" component={UserAccount}/>
                             <Route exact path="/usercard" component={usercard}/>
                             <Route component={pageNotFound}/>
                         </Switch>
