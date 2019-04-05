@@ -14,7 +14,10 @@ import Rules from "./../pages/rules";
 import usercard from "./../pages/usercard";
 import Registration from "./../pages/registration";
 import UserAccount from "./../pages/user-account";
-import ScrollToTop from './../modules/scrollToTop'
+import ScrollToTop from './../modules/scrollToTop';
+import application from "./../pages/admin/application";
+
+import appeal from "./../pages/admin/appeal";
 
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
@@ -42,6 +45,7 @@ class MainRouter extends React.Component {
                         <Route path="/" component={Header}/>
                         <Switch>
                             <Route exact path="/" component={Homepage}/>
+                            <Route exact path="/" component={Homepage}/>
                             <Route exact path="/faq" component={Faq}/>
                             <Route exact path="/allcampaing" component={SearchPage}/>
                             <Route exact path="/registration" component={Registration}/>
@@ -50,6 +54,8 @@ class MainRouter extends React.Component {
                             <Route exact path="/donate" component={donate}/>
                             <Route exact path="/account" component={UserAccount}/>
                             <Route exact path="/usercard" component={usercard}/>
+                            <Route exact path="/appeal" component={appeal}/>
+                            <Route exact path="/application" component={application}/>
                             <Route component={pageNotFound}/>
                         </Switch>
                         <Route path="/" component={Footer}/>
