@@ -16,8 +16,11 @@ import Registration from "./../pages/registration";
 import UserAccount from "./../pages/user-account";
 import ScrollToTop from './../modules/scrollToTop';
 import application from "./../pages/admin/application";
-
 import appeal from "./../pages/admin/appeal";
+import ban from "./../pages/admin/ban";
+import categories from "./../pages/admin/categories";
+import staff from "./../pages/admin/staff";
+import users from "./../pages/admin/users";
 
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
@@ -56,6 +59,10 @@ class MainRouter extends React.Component {
                             <Route exact path="/usercard" component={usercard}/>
                             <Route exact path="/appeal" component={appeal}/>
                             <Route exact path="/application" component={application}/>
+                            <Route exact path="/ban" component={ban}/>
+                            <Route exact path="/categories" component={categories}/>
+                            <Route exact path="/staff" component={staff}/>
+                            <Route exact path="/users" component={users}/>
                             <Route component={pageNotFound}/>
                         </Switch>
                         <Route path="/" component={Footer}/>

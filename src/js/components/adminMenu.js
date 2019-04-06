@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 class adminMenu extends React.Component {
 
@@ -9,17 +10,10 @@ class adminMenu extends React.Component {
                 <div className="account-admin-side-menu">
                     <ul className="account-admin-side-menu-list">
                         <li>
-                            <a href="./application.html">Сборы</a>
+                            <Link to='/application'>Сборы</Link>
                             <ul>
                                 <li>
-                                    <a href="./application.html">
-                                <span>
-                                    Новые
-                                </span>
-                                        <span className="account-admin-side-menu-count">
-                                    31
-                                </span>
-                                    </a>
+                                    <Link to='/application'>Новые<span className="account-admin-side-menu-count">31</span></Link>
                                 </li>
                                 <li>
                                     <a href="./application.html">Активные</a>
@@ -31,30 +25,23 @@ class adminMenu extends React.Component {
                         </li>
 
                         <li>
-                            <a href="./categories.html">Категория</a>
+                            <Link to='/ban'>Категория</Link>
                         </li>
 
                         <li className="active">
-                            <a href="./appeal.html">
-                        <span>
-                                    Жалобы
-                        </span>
-                                <span className="account-admin-side-menu-count">
-                                    31
-                        </span>
-                            </a>
+                            <Link to='/appeal'>Жалобы<span className="account-admin-side-menu-count">30</span></Link>
                         </li>
 
                         <li>
-                            <a href="./ban.html">Бан</a>
+                            <Link to='/ban'>Бан</Link>
                         </li>
 
                         <li>
-                            <a href="./users.html">Пользователи</a>
+                            <Link to='/users'>Пользователи</Link>
                         </li>
 
                         <li>
-                            <a href="./staff.html">Команда</a>
+                            <Link to='/staff'>Команда</Link>
                         </li>
                     </ul>
                 </div>
