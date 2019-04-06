@@ -67,7 +67,7 @@ class MainRouter extends React.Component {
                             <Route exact path="/staff" component={staff}/>
                             <Route exact path="/users" component={users}/>
                             <Route exact path="/view-campaign" component={viewCampaign}/>
-                            <Route exact path="/registration-confirm" component={registrationConfirm}/>
+                            <Route exact path="/registration-confirm" component={RegistrationConfirm}/>
                             <Route component={pageNotFound}/>
                         </Switch>
                         <Route path="/" component={Footer}/>

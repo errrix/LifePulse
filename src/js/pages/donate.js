@@ -1,6 +1,24 @@
 import React from "react";
+import $ from "jquery";
 
 class donate extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+
+        };
+
+        this.choiceSum = this.choiceSum.bind(this);
+    }
+
+    choiceSum(e) {
+        var choiceDonate = e.target.textContent;
+        document.querySelector('input').setAttribute("value", choiceDonate);
+        e.target.classList.toggle("active")
+
+    }
 
     render() {
         return (
@@ -19,7 +37,7 @@ class donate extends React.Component {
                             <span>Хочу пожертвовать</span>
                             <span className="currency">ГРН</span>
                             <input placeholder="200" type="number"/>
-                                <p className="fast-choice">
+                                <p className="fast-choice"  onClick={this.choiceSum}>
                                     <span>25</span><span>50</span><span>100</span><span>200</span></p>
                         </label>
                         <label className="label-input">
