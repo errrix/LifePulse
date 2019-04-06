@@ -14,6 +14,7 @@ import Rules from "./../pages/rules";
 import usercard from "./../pages/usercard";
 import Registration from "./../pages/registration";
 import UserAccount from "./../pages/user-account";
+import RegistrationConfirm from "./../pages/registration-confirm";
 import ScrollToTop from './../modules/scrollToTop';
 import application from "./../pages/admin/application";
 import appeal from "./../pages/admin/appeal";
@@ -31,6 +32,7 @@ const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window
 
 import {addToken} from "./../actions";
 import {connect} from "react-redux";
+import registrationConfirm from "../pages/registration-confirm";
 
 
 class MainRouter extends React.Component {
@@ -65,6 +67,7 @@ class MainRouter extends React.Component {
                             <Route exact path="/staff" component={staff}/>
                             <Route exact path="/users" component={users}/>
                             <Route exact path="/view-campaign" component={viewCampaign}/>
+                            <Route exact path="/registration-confirm" component={registrationConfirm}/>
                             <Route component={pageNotFound}/>
                         </Switch>
                         <Route path="/" component={Footer}/>
