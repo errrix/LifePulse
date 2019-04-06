@@ -2,8 +2,6 @@
   background-color: $bg-white-color;
   padding: 20px 50px 20px 30px;
 
-
-
   .account-admin-side-menu-list {
 
     a {
@@ -31,8 +29,7 @@
       &:last-child {
         margin-bottom: 0;
       }
-
-      & > a {
+      & > a, & > p {
         color: $main-light-text-color;
         font-family: $mainfont;
         font-size: 18px;
@@ -47,7 +44,9 @@
             font-family: $mainfont;
             line-height: 28px;
           }
-
+&:hover a {
+  color: $orange-text-color;
+}
           &.active {
             & > a {
               font-weight: 700;

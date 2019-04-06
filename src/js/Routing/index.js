@@ -21,6 +21,7 @@ import ban from "./../pages/admin/ban";
 import categories from "./../pages/admin/categories";
 import staff from "./../pages/admin/staff";
 import users from "./../pages/admin/users";
+import viewCampaign from "./../pages/admin/view-campaign";
 
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
@@ -63,6 +64,7 @@ class MainRouter extends React.Component {
                             <Route exact path="/categories" component={categories}/>
                             <Route exact path="/staff" component={staff}/>
                             <Route exact path="/users" component={users}/>
+                            <Route exact path="/view-campaign" component={viewCampaign}/>
                             <Route component={pageNotFound}/>
                         </Switch>
                         <Route path="/" component={Footer}/>
