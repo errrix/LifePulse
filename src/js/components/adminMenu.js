@@ -13,7 +13,7 @@ class adminMenu extends React.Component {
                             <p>Сборы</p>
                             <ul>
                                 <li>
-                                    <Link to='/application'>Новые<span className="account-admin-side-menu-count">31</span></Link>
+                                    <Link to='/admin/application'>Новые<span className="account-admin-side-menu-count">31</span></Link>
                                 </li>
                                 <li>
                                     <a href="./application.html">Активные</a>
@@ -25,23 +25,23 @@ class adminMenu extends React.Component {
                         </li>
 
                         <li>
-                            <Link to='/categories'>Категория</Link>
+                            <Link to='/admin/categories'>Категория</Link>
                         </li>
 
                         <li>
-                            <Link to='/appeal'>Жалобы<span className="account-admin-side-menu-count">30</span></Link>
+                            <Link to='/admin/appeal'>Жалобы<span className="account-admin-side-menu-count">30</span></Link>
                         </li>
 
                         <li>
-                            <Link to='/ban'>Бан</Link>
+                            <Link to='/admin/ban'>Бан</Link>
                         </li>
 
                         <li>
-                            <Link to='/users'>Пользователи</Link>
+                            <Link to='/admin/users'>Пользователи</Link>
                         </li>
 
                         <li>
-                            <Link to='/staff'>Команда</Link>
+                            <Link to='/admin/staff'>Команда</Link>
                         </li>
                     </ul>
                 </div>

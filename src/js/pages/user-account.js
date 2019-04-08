@@ -6,6 +6,29 @@ class UserAccount extends React.Component {
 
     constructor(props) {
         super(props);
+
+        this.state = {
+            email:'',
+            name: '',
+            last_name:''
+        }
+    }
+
+    componentDidMount() {
+        console.log('some test');
+        fetch('http://165.227.11.173:3001/api/users/mydata', {
+            headers: {
+                'Content-Type': 'application/json',
+                "Authorization": 'Bearer ' + this.props.tokenData
+            },
+            method: 'GET'
+        })
+            .then(function (response) {
+                return response.json()
+            }).then((json) => {
+            console.log(json.response);
+        })
+
     }
 
     render() {

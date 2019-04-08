@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import ReactDOM from 'react-dom';
 
 import {Route, HashRouter, Switch} from 'react-router-dom';
@@ -34,6 +34,22 @@ import {addToken} from "./../actions";
 import {connect} from "react-redux";
 import registrationConfirm from "../pages/registration-confirm";
 
+class Admin extends React.Component {
+    render() {
+        return (
+            <Switch>
+                <Route exact path="/admin" component={appeal}/>
+                <Route exact path="/admin/appeal" component={appeal}/>
+                <Route exact path="/admin/application" component={application}/>
+                <Route exact path="/admin/ban" component={ban}/>
+                <Route exact path="/admin/categories" component={categories}/>
+                <Route exact path="/admin/staff" component={staff}/>
+                <Route exact path="/admin/users" component={users}/>
+                <Route exact path="/admin/view-campaign" component={viewCampaign}/>
+            </Switch>
+        )
+    }
+}
 
 class MainRouter extends React.Component {
 
@@ -48,36 +64,34 @@ class MainRouter extends React.Component {
 
                 <HashRouter>
                     <ScrollToTop>
-                        <Route path="/" component={Header}/>
                         <Switch>
-                            <Route exact path="/" component={Homepage}/>
-                            <Route exact path="/" component={Homepage}/>
-                            <Route exact path="/faq" component={Faq}/>
-                            <Route exact path="/allcampaing" component={SearchPage}/>
-                            <Route exact path="/registration" component={Registration}/>
-                            <Route exact path="/confidentiality" component={confidentiality}/>
-                            <Route exact path="/rules" component={Rules}/>
-                            <Route exact path="/donate" component={donate}/>
-                            <Route exact path="/account" component={UserAccount}/>
-                            <Route exact path="/usercard" component={usercard}/>
-                            <Route exact path="/appeal" component={appeal}/>
-                            <Route exact path="/application" component={application}/>
-                            <Route exact path="/ban" component={ban}/>
-                            <Route exact path="/categories" component={categories}/>
-                            <Route exact path="/staff" component={staff}/>
-                            <Route exact path="/users" component={users}/>
-                            <Route exact path="/view-campaign" component={viewCampaign}/>
-                            <Route exact path="/registration-confirm" component={RegistrationConfirm}/>
-                            <Route component={pageNotFound}/>
+                            <Route path="/admin" component={Admin}/>
+                            <Fragment>
+                                <Route path="/" component={Header}/>
+                                <Switch>
+                                    <Route exact path="/" component={Homepage}/>
+                                    <Route exact path="/faq" component={Faq}/>
+                                    <Route exact path="/allcampaing" component={SearchPage}/>
+                                    <Route exact path="/registration" component={Registration}/>
+                                    <Route exact path="/confidentiality" component={confidentiality}/>
+                                    <Route exact path="/rules" component={Rules}/>
+                                    <Route exact path="/donate" component={donate}/>
+                                    <Route exact path="/account" component={UserAccount}/>
+                                    <Route exact path="/usercard" component={usercard}/>
+                                    <Route exact path="/registration-confirm" component={RegistrationConfirm}/>
+                                    <Route component={pageNotFound}/>
+                                </Switch>
+                                <Route path="/" component={Footer}/>
+                            </Fragment>
+
                         </Switch>
-                        <Route path="/" component={Footer}/>
+
                     </ScrollToTop>
                 </HashRouter>
             </Provider>
         )
     }
 };
-
 
 
 export default MainRouter;
