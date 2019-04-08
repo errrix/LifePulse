@@ -14,10 +14,15 @@ class donate extends React.Component {
     }
 
     choiceSum(e) {
-        var choiceDonate = e.target.textContent;
+        var choiceDonate;
+        for (let i = 0; i < document.querySelectorAll('.fast-choice span').length; i++) {
+            document.querySelectorAll('.fast-choice span')[i].classList.remove("active");
+            if(e.target === document.querySelectorAll('.fast-choice span')[i]) {
+                choiceDonate = e.target.textContent
+            }
+        }
         document.querySelector('input').setAttribute("value", choiceDonate);
-        e.target.classList.toggle("active")
-
+        e.target.classList.add("active");
     }
 
     render() {
