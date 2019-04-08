@@ -37,18 +37,13 @@ class Header extends React.Component {
         return (
 
             <div>
-                {
-                    this.state.showPopup ?
-                        <CSSTransitionGroup transitionName="example"
-                                            transitionAppear={true}
-                                            transitionAppearTimeout={200}
-                                            transitionEnter={true}
-                                            transitionLeave={true}>
-                            <LoginPopup updateStatusPopup={this.handlePopup}
-                                        addToken={addTokenAction}/>
-                        </CSSTransitionGroup> : false
-
-                }
+                <CSSTransitionGroup transitionName="logn-popup"
+                                    transitionEnter={true}
+                                    transitionEnterTimeout={300}
+                                    transitionLeave={true}
+                                    transitionLeaveTimeout={300}>
+                    {this.state.showPopup ? (<LoginPopup updateStatusPopup={this.handlePopup} addToken={addTokenAction}/>) : (false)}
+                </CSSTransitionGroup>
 
                 <header className="main-header">
                     <div className="main-header-wrapper">
@@ -81,13 +76,13 @@ class Header extends React.Component {
                             </ul>
 
 
-                                {
-                                    (this.props.tokenData) ? (
-                                        <div className="button-block">
-                                            <Link to='/account' className="header-login-popup">Личный кабинет</Link>
-                                        </div>
+                            {
+                                (this.props.tokenData) ? (
+                                    <div className="button-block">
+                                        <Link to='/account' className="header-login-popup">Личный кабинет</Link>
+                                    </div>
                                 ) : (
-                                        <div className="button-block">
+                                    <div className="button-block">
                                         <button className="header-search">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                                 <path

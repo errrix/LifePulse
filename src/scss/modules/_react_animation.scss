@@ -1,7 +1,17 @@
-.example-appear {
+.logn-popup-enter {
   opacity: 0.01;
-  transition: opacity .1s ease-in;
 }
-.example-appear.example-appear-active {
+
+.logn-popup-enter.logn-popup-enter-active {
   opacity: 1;
+  transition: opacity 200ms ease-in;
+}
+
+.logn-popup-leave {
+  opacity: 1;
+}
+
+.logn-popup-leave.logn-popup-leave-active {
+  opacity: 0.01;
+  transition: opacity 200ms ease-in;
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
+import {Redirect} from "react-router-dom";
 
 class UserAccount extends React.Component {
 
@@ -620,9 +621,7 @@ class UserAccount extends React.Component {
                             </div>
                         </div>
                     ) : (
-                        <div>
-                            Привет
-                        </div>
+                        <Redirect to="/"/>
                     )}
             </div>
 

@@ -68,6 +68,7 @@ class LoginPopup extends React.Component {
                 }).then((json) => {
                     console.log(json.response.id);
                     this.props.addToken(json.response.id);
+                    this.props.updateStatusPopup(false);
             })
         }
     }
