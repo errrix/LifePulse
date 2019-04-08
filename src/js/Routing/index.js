@@ -23,6 +23,7 @@ import categories from "./../pages/admin/categories";
 import staff from "./../pages/admin/staff";
 import users from "./../pages/admin/users";
 import viewCampaign from "./../pages/admin/view-campaign";
+import adminLogin from "../pages/admin/admin-login";
 
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
@@ -34,11 +35,12 @@ import {addToken} from "./../actions";
 import {connect} from "react-redux";
 import registrationConfirm from "../pages/registration-confirm";
 
+
 class Admin extends React.Component {
     render() {
         return (
             <Switch>
-                <Route exact path="/admin" component={appeal}/>
+                <Route exact path="/admin" component={adminLogin}/>
                 <Route exact path="/admin/appeal" component={appeal}/>
                 <Route exact path="/admin/application" component={application}/>
                 <Route exact path="/admin/ban" component={ban}/>

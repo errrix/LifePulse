@@ -1,9 +1,126 @@
 import React from "react";
+import CSSTransitionGroup from "react-addons-css-transition-group"
 
 import AdminMenu from '../../components/adminMenu'
 import AdminHeader from '../../components/adminHeader'
 
+class AddCategoryPopup extends React.Component{
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            title: ''
+        };
+
+        this.closePopup = this.closePopup.bind(this);
+        this.newCategory = this.newCategory.bind(this);
+        this.categoryName = this.categoryName.bind(this);
+    }
+
+    closePopup(e) {
+        if(!document.querySelector('.popup .popup-content-block').contains(e.target)) {
+            this.props.updateStatusPopup(false);
+        }
+    }
+
+
+    categoryName(e) {
+        this.setState({title: e.target.value});
+    }
+
+
+    newCategory(e) {
+        e.preventDefault();
+        console.log(this.state.title)
+            fetch('http://165.227.11.173:3001/api/category/', {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                method: 'POST',
+                body: JSON.stringify({
+                    "title": this.state.title
+                })
+            })
+                .then(function (response) {
+                    return response.json()
+                }).then((json) => {
+                console.log(json.response.id);
+            })
+    }
+
+    render(){
+        return (
+            <div className="popup m--admin-add-new-category" onClick={this.closePopup}>
+                <div className="popup-content-block">
+                    <div className="popup-content-block-wrapper">
+                        <div className="popup-step">
+                            <form className="main-form" onSubmit={this.newCategory}>
+                                <h3>Добавить категорию</h3>
+                                <label className="label-input">
+                                    <span>Название категории</span>
+                                    <input type="text" onChange={this.categoryName}/>
+                                    <span className="error">Введите название категории</span>
+                                </label>
+
+
+                                <div className="button-wrapper">
+                                    <button type="submit" className="btn m--with-loader">
+        <span>
+        Сохранить
+        </span>
+                                        <span className="loader"></span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+}
+
 class categories extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            showPopup: false,
+            allCategories: []
+        };
+
+        this.openPopup = this.openPopup.bind(this);
+        this.handlePopup = this.handlePopup.bind(this);
+    }
+
+    openPopup() {
+        this.setState({
+            showPopup: !this.state.showPopup
+        });
+    }
+
+    handlePopup(value) {
+        this.setState({
+            showPopup: value
+        })
+    }
+
+    componentDidMount() {
+        console.log('some test');
+        fetch('http://165.227.11.173:3001/api/category', {
+            headers: {
+                'Content-Type': 'application/json',
+                "Authorization": 'Bearer ' + this.props.tokenData
+            },
+            method: 'GET'
+        })
+            .then(function (response) {
+                return response.json()
+            }).then((json) => {
+            console.log(json.response);
+        })
+    }
 
     render() {
         return (
@@ -13,44 +130,23 @@ class categories extends React.Component {
                     <div className="account-admin-block-wrapper">
                         <AdminMenu/>
                         <div className="account-admin-content-block account-admin-categories">
-
-                            <div className="popup m--admin-add-new-category hide-popup">
-                                <div className="popup-content-block">
-                                    <div className="popup-content-block-wrapper">
-                                        <div className="popup-step">
-                                            <form className="main-form" action="">
-                                                <h3>Добавить категорию</h3>
-                                                <label className="label-input">
-                                                    <span>Название категории</span>
-                                                    <input type="text" required/>
-                                                        <span className="error">Введите название категории</span>
-                                                </label>
-
-
-
-                                                <div className="button-wrapper">
-                                                    <button type="submit" className="btn m--with-loader">
-        <span>
-        Сохранить
-        </span>
-                                                        <span className="loader"></span>
-                                                    </button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+                            <CSSTransitionGroup transitionName="logn-popup"
+                                                transitionEnter={true}
+                                                transitionEnterTimeout={300}
+                                                transitionLeave={true}
+                                                transitionLeaveTimeout={300}>
+                                {this.state.showPopup ? (<AddCategoryPopup updateStatusPopup={this.handlePopup}/>) : (false)}
+                            </CSSTransitionGroup>
                             <header>
                                 <h1>
                                     Категории
                                 </h1>
 
-                                <button type="button" className="account-admin-new-category">Добавить категорию</button>
+                                <button type="button" className="account-admin-new-category" onClick={this.openPopup}>Добавить категорию</button>
                             </header>
                             <div className="account-admin-staff-wrapper">
                                 <table className="account-admin-table">
+                                    <tbody>
                                     <tr className="title">
                                         <th>№</th>
                                         <th>Категории</th>
@@ -73,7 +169,8 @@ class categories extends React.Component {
                                                                 <label className="label-input">
                                                                     <span>Название категории</span>
                                                                     <input type="text" required/>
-                                                                        <span className="error">Введите название категории</span>
+                                                                    <span
+                                                                        className="error">Введите название категории</span>
                                                                 </label>
 
                                                                 <div className="button-wrapper">
@@ -131,7 +228,8 @@ class categories extends React.Component {
                                                                 <label className="label-input">
                                                                     <span>Название категории</span>
                                                                     <input type="text" required/>
-                                                                        <span className="error">Введите название категории</span>
+                                                                    <span
+                                                                        className="error">Введите название категории</span>
                                                                 </label>
 
                                                                 <div className="button-wrapper">
@@ -189,7 +287,8 @@ class categories extends React.Component {
                                                                 <label className="label-input">
                                                                     <span>Название категории</span>
                                                                     <input type="text" required/>
-                                                                        <span className="error">Введите название категории</span>
+                                                                    <span
+                                                                        className="error">Введите название категории</span>
                                                                 </label>
 
                                                                 <div className="button-wrapper">
@@ -231,6 +330,8 @@ class categories extends React.Component {
                                             </a>
                                         </td>
                                     </tr>
+                                    </tbody>
+
 
                                 </table>
                             </div>
