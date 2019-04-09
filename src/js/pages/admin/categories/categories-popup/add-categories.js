@@ -13,17 +13,19 @@ class AddCategoryPopup extends React.Component{
         this.categoryName = this.categoryName.bind(this);
     }
 
+    componentDidMount() {
+        document.querySelector('input').focus();
+    }
+
     closePopup(e) {
         if(!document.querySelector('.popup .popup-content-block').contains(e.target)) {
             this.props.updateStatusPopup(false);
         }
     }
 
-
     categoryName(e) {
         this.setState({title: e.target.value});
     }
-
 
     newCategory(e) {
         e.preventDefault();
@@ -41,7 +43,6 @@ class AddCategoryPopup extends React.Component{
             .then(function (response) {
                 return response.json()
             }).then((json) => {
-            console.log(json.response.id);
             this.props.updateStatusPopup(false);
         })
     }
@@ -59,8 +60,6 @@ class AddCategoryPopup extends React.Component{
                                     <input type="text" onChange={this.categoryName}/>
                                     <span className="error">Введите название категории</span>
                                 </label>
-
-
                                 <div className="button-wrapper">
                                     <button type="submit" className="btn m--with-loader">
                                         <span>

@@ -3,8 +3,9 @@ import CSSTransitionGroup from "react-addons-css-transition-group"
 
 import AdminMenu from '../../../components/adminMenu'
 import AdminHeader from '../../../components/adminHeader'
-import AddCategoryPopup from './add-categories'
-import EditCategoriesPopup from './edit-categories'
+import AddCategoryPopup from './categories-popup/add-categories'
+import EditCategoriesPopup from './categories-popup/edit-categories'
+import DeleteCategoriesPopup from './categories-popup/delete-categories'
 
 
 class categories extends React.Component {
@@ -15,6 +16,7 @@ class categories extends React.Component {
         this.state = {
             showAddPopup: false,
             showEditPopup: false,
+            showDeletePopup: false,
             editId: '',
             editTitle: '',
             allCategories: []
@@ -22,8 +24,9 @@ class categories extends React.Component {
 
         this.openAddPopup = this.openAddPopup.bind(this);
         this.openEditPopup = this.openEditPopup.bind(this);
+        this.openDeletePopup = this.openDeletePopup.bind(this);
+
         this.handleClosePopup = this.handleClosePopup.bind(this);
-        this.deleteCategories = this.deleteCategories.bind(this);
     }
 
     openAddPopup() {
@@ -38,14 +41,24 @@ class categories extends React.Component {
             editId: id,
             editTitle: title
         });
-        console.log(this.state.editTitle)
+    }
+
+    openDeletePopup(id, title) {
+        this.setState({
+            showDeletePopup: !this.state.showDeletePopup,
+            editId: id,
+            editTitle: title
+        });
     }
 
     handleClosePopup(value) {
         this.setState({
             showAddPopup: value,
-            showEditPopup: value
-        })
+            showEditPopup: value,
+            showDeletePopup: value,
+            editId: '',
+            editTitle: ''
+        });
         this.getCategories();
     }
 
@@ -69,24 +82,6 @@ class categories extends React.Component {
         this.getCategories();
     }
 
-    deleteCategories(id, title) {
-        fetch(`http://165.227.11.173:3001/api/category/${id}`, {
-            headers: {
-                'Content-Type': 'application/json',
-                "Authorization": this.props.tokenData
-            },
-            method: 'DELETE',
-            body: JSON.stringify({
-                "title": title
-            })
-        })
-            .then(function (response) {
-                return response.json()
-            }).then((json) => {
-            console.log(json.response);
-        })
-    }
-
     render() {
         return (
             <div>
@@ -102,6 +97,7 @@ class categories extends React.Component {
                                                 transitionLeaveTimeout={300}>
                                 {this.state.showAddPopup ? <AddCategoryPopup updateStatusPopup={this.handleClosePopup}/> : false}
                                 {this.state.showEditPopup ? <EditCategoriesPopup id={this.state.editId} title={this.state.editTitle} updateStatusPopup={this.handleClosePopup}/> : false}
+                                {this.state.showDeletePopup ? <DeleteCategoriesPopup id={this.state.editId} title={this.state.editTitle} updateStatusPopup={this.handleClosePopup}/> : false}
                             </CSSTransitionGroup>
                             <header>
                                 <h1>
@@ -138,7 +134,7 @@ class categories extends React.Component {
                                                                     d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z"/>
                                                             </svg>
                                                         </button>
-                                                        <button data-id={item._id} onClick={() => this.deleteCategories(item._id, item.title)} className="delete-button">
+                                                        <button data-id={item._id} onClick={() => this.openDeletePopup(item._id, item.title)} className="delete-button">
                                                             <svg aria-hidden="true" data-prefix="fas" data-icon="ban"
                                                                  className="svg-inline--fa fa-ban fa-w-16"
                                                                  xmlns="http://www.w3.org/2000/svg"

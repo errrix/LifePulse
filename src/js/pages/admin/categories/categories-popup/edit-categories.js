@@ -1,6 +1,6 @@
 import React from "react";
 
-class EditCategoriesPopup extends React.Component{
+class EditCategoriesPopup extends React.Component {
     constructor(props) {
         super(props);
 
@@ -15,7 +15,7 @@ class EditCategoriesPopup extends React.Component{
     }
 
     closePopup(e) {
-        if(!document.querySelector('.popup .popup-content-block').contains(e.target)) {
+        if (!document.querySelector('.popup .popup-content-block').contains(e.target)) {
             this.props.updateStatusPopup(false);
         }
     }
@@ -28,6 +28,7 @@ class EditCategoriesPopup extends React.Component{
 
     editCategory(e) {
         e.preventDefault();
+        document.querySelector('.loader').classList.add('active-loader', 'm--loader');
         fetch(`http://165.227.11.173:3001/api/category/${this.state.id}`, {
             headers: {
                 'Content-Type': 'application/json',
@@ -45,22 +46,19 @@ class EditCategoriesPopup extends React.Component{
         })
     }
 
-    render(){
+    render() {
         return (
             <div className="popup m--admin-edit-category" onClick={this.closePopup}>
                 <div className="popup-content-block">
                     <div className="popup-content-block-wrapper">
                         <div className="popup-step">
-
                             <form className="main-form" onSubmit={this.editCategory}>
                                 <h3>Изменить название категории</h3>
-
                                 <label className="label-input">
                                     <span>Название категории</span>
                                     <input type="text" required value={this.state.title} onChange={this.categoryName}/>
-                                        <span className="error">Введите название категории</span>
+                                    <span className="error">Введите название категории</span>
                                 </label>
-
                                 <div className="button-wrapper">
                                     <button type="submit" className="btn m--with-loader">
                                         <span>
@@ -69,9 +67,7 @@ class EditCategoriesPopup extends React.Component{
                                         <span className="loader"></span>
                                     </button>
                                 </div>
-
                             </form>
-
                         </div>
                     </div>
 
