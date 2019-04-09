@@ -6,7 +6,7 @@ import appeal from "../../pages/admin/appeal";
 import application from "../../pages/admin/application";
 import ban from "../../pages/admin/ban";
 import categories from "../../pages/admin/categories/categories";
-import staff from "../../pages/admin/staff";
+import staff from "../../pages/admin/staff/staff";
 import users from "../../pages/admin/users";
 import viewCampaign from "../../pages/admin/view-campaign";
 

@@ -1,9 +1,81 @@
 import React from "react";
+import CSSTransitionGroup from "react-addons-css-transition-group"
 
-import AdminMenu from '../../components/adminMenu'
-import AdminHeader from '../../components/adminHeader'
+import AdminMenu from '../../../components/adminMenu'
+import AdminHeader from '../../../components/adminHeader'
+import AddNewStaff from './staff-popup/add-new-staff'
 
 class staff extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            showAddPopup: false,
+            showEditPopup: false,
+            showDeletePopup: false,
+            editId: '',
+            editTitle: '',
+            allCategories: []
+        };
+
+        this.openAddPopup = this.openAddPopup.bind(this);
+
+        this.handleClosePopup = this.handleClosePopup.bind(this);
+    }
+
+    openAddPopup() {
+        this.setState({
+            showAddPopup: !this.state.showAddPopup
+        });
+    }
+
+    openEditPopup(id, title) {
+        this.setState({
+            showEditPopup: !this.state.showEditPopup,
+            editId: id,
+            editTitle: title
+        });
+    }
+
+    openDeletePopup(id, title) {
+        this.setState({
+            showDeletePopup: !this.state.showDeletePopup,
+            editId: id,
+            editTitle: title
+        });
+    }
+
+    handleClosePopup(value) {
+        this.setState({
+            showAddPopup: value,
+            showEditPopup: value,
+            showDeletePopup: value,
+            editId: '',
+            editTitle: ''
+        });
+        this.getCategories();
+    }
+
+    getCategories() {
+        // fetch('http://165.227.11.173:3001/api/category', {
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //         "Authorization": this.props.tokenData
+        //     },
+        //     method: 'GET'
+        // })
+        //     .then(function (response) {
+        //         return response.json()
+        //     }).then((json) => {
+        //     this.setState({allCategories: json.response});
+        //     console.log(this.state.allCategories);
+        // })
+    }
+
+    componentDidMount() {
+        this.getCategories();
+    }
 
     render() {
         return (
@@ -14,64 +86,13 @@ class staff extends React.Component {
                         <AdminMenu/>
 
                         <div className="account-admin-content-block account-admin-staff">
-
-                            <div className="popup m--admin-add-new-staff hide-popup">
-                                <div className="popup-content-block">
-                                    <div className="popup-content-block-wrapper">
-                                        <div className="popup-step">
-
-                                            <form className="main-form" action="">
-                                                <h3>Добавить пользователя</h3>
-                                                <label className="label-input">
-                                                    <span>Имя и фамилия</span>
-                                                    <input type="text" required/>
-                                                        <span className="error">Введите имя и фамилию</span>
-                                                </label>
-
-                                                <label className="label-input">
-                                                    <span>Email</span>
-                                                    <input type="email" required/>
-                                                        <span
-                                                            className="error"> Некорректный email. Попробуйте еще раз</span>
-                                                </label>
-
-                                                <label className="label-select">
-                                                    <span>Роль в комманде</span>
-                                                    <select name="" id="">
-                                                        <option value="">СЕО</option>
-                                                        <option value="">Модератор</option>
-                                                        <option value="">Администратор</option>
-                                                    </select>
-                                                </label>
-
-                                                <label className="label-input">
-                                                    <span>Пароль</span>
-                                                    <input type="password" required/>
-                                                        <span className="error">Неверный пароль. Введите еще раз</span>
-                                                </label>
-
-                                                <label className="label-input">
-                                                    <span>Повторите пароль</span>
-                                                    <input type="password" required/>
-                                                        <span className="error">Неверный пароль. Введите еще раз</span>
-                                                </label>
-
-                                                <div className="button-wrapper">
-                                                    <button type="submit" className="btn m--with-loader">
-                                        <span>
-                                            Сохранить
-                                        </span>
-                                                        <span className="loader"></span>
-                                                    </button>
-                                                </div>
-
-                                            </form>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
+                            <CSSTransitionGroup transitionName="logn-popup"
+                                                transitionEnter={true}
+                                                transitionEnterTimeout={300}
+                                                transitionLeave={true}
+                                                transitionLeaveTimeout={300}>
+                                {this.state.showAddPopup ? <AddNewStaff updateStatusPopup={this.handleClosePopup}/> : false}
+                            </CSSTransitionGroup>
 
                             <header>
                                 <h1>
