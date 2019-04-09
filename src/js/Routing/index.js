@@ -1,5 +1,4 @@
 import React, {Fragment} from 'react';
-import ReactDOM from 'react-dom';
 
 import {Route, HashRouter, Switch} from 'react-router-dom';
 import Homepage from './../pages/homepage'
@@ -16,14 +15,7 @@ import Registration from "./../pages/registration";
 import UserAccount from "./../pages/user-account";
 import RegistrationConfirm from "./../pages/registration-confirm";
 import ScrollToTop from './../modules/scrollToTop';
-import application from "./../pages/admin/application";
-import appeal from "./../pages/admin/appeal";
-import ban from "./../pages/admin/ban";
-import categories from "./../pages/admin/categories";
-import staff from "./../pages/admin/staff";
-import users from "./../pages/admin/users";
-import viewCampaign from "./../pages/admin/view-campaign";
-import adminLogin from "../pages/admin/admin-login";
+import AdminRouting from './admin-routing/index'
 
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
@@ -31,43 +23,15 @@ import reducer from './../reducer/';
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
-import {addToken} from "./../actions";
-import {connect} from "react-redux";
-import registrationConfirm from "../pages/registration-confirm";
-
-
-class Admin extends React.Component {
-    render() {
-        return (
-            <Switch>
-                <Route exact path="/admin" component={adminLogin}/>
-                <Route exact path="/admin/appeal" component={appeal}/>
-                <Route exact path="/admin/application" component={application}/>
-                <Route exact path="/admin/ban" component={ban}/>
-                <Route exact path="/admin/categories" component={categories}/>
-                <Route exact path="/admin/staff" component={staff}/>
-                <Route exact path="/admin/users" component={users}/>
-                <Route exact path="/admin/view-campaign" component={viewCampaign}/>
-            </Switch>
-        )
-    }
-}
-
 class MainRouter extends React.Component {
 
-    // constructor(props) {
-    //     super(props)
-    // }
-
     render() {
-
         return (
             <Provider store={store}>
-
                 <HashRouter>
                     <ScrollToTop>
                         <Switch>
-                            <Route path="/admin" component={Admin}/>
+                            <Route path="/admin" component={AdminRouting}/>
                             <Fragment>
                                 <Route path="/" component={Header}/>
                                 <Switch>
