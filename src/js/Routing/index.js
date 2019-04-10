@@ -9,6 +9,7 @@ import SearchPage from './../pages/searchpage'
 import Header from "./../components/header";
 import Footer from "./../components/footer";
 import confidentiality from "./../pages/confidentiality";
+import createFundraiser from "./../pages/create-fundraiser";
 import Rules from "./../pages/rules";
 import usercard from "./../pages/usercard";
 import Registration from "./../pages/registration";
@@ -44,6 +45,7 @@ class MainRouter extends React.Component {
                                     <Route exact path="/donate" component={donate}/>
                                     <Route exact path="/account" component={UserAccount}/>
                                     <Route exact path="/usercard" component={usercard}/>
+                                    <Route exact path="/create-fundraiser" component={createFundraiser}/>
                                     <Route exact path="/registration-confirm" component={RegistrationConfirm}/>
                                     <Route component={pageNotFound}/>
                                 </Switch>
