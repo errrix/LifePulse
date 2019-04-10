@@ -32,9 +32,9 @@ class AddCategoryPopup extends React.Component{
         document.querySelector('.loader').classList.add('active-loader', 'm--loader');
         fetch('http://165.227.11.173:3001/api/category/', {
             headers: {
-                'Content-Type': 'application/json',
-                "Authorization": this.props.tokenData
+                'Content-Type': 'application/json'
             },
+            credentials: 'include',
             method: 'POST',
             body: JSON.stringify({
                 "title": this.state.title

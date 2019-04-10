@@ -19,10 +19,9 @@ class UserAccount extends React.Component {
         fetch('http://165.227.11.173:3001/api/users/mydata', {
             headers: {
                 'Content-Type': 'application/json',
-                "Authorization": this.props.tokenData,
-                "_id": this.props.tokenData
             },
-            method: 'GET'
+            method: 'GET',
+            credentials: "include"
         })
             .then(function (response) {
                 return response.json()

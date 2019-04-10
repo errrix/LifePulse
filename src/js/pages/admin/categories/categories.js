@@ -65,10 +65,10 @@ class categories extends React.Component {
     getCategories() {
         fetch('http://165.227.11.173:3001/api/category', {
             headers: {
-                'Content-Type': 'application/json',
-                "Authorization": this.props.tokenData
+                'Content-Type': 'application/json'
             },
-            method: 'GET'
+            method: 'GET',
+            credentials: 'include'
         })
             .then(function (response) {
                 return response.json()

@@ -26,9 +26,9 @@ class DeleteCategoriesPopup extends React.Component {
         fetch(`http://165.227.11.173:3001/api/category/${this.state.id}`, {
             headers: {
                 'Content-Type': 'application/json',
-                "Authorization": this.props.tokenData
             },
             method: 'DELETE',
+            credentials: 'include',
             body: JSON.stringify({
                 "title": this.state.title
             })
@@ -37,6 +37,7 @@ class DeleteCategoriesPopup extends React.Component {
                 return response.json()
             }).then((json) => {
             console.log(json.response);
+            this.props.updateStatusPopup(false);
         })
     }
 

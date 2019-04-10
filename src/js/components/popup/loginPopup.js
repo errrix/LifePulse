@@ -55,7 +55,7 @@ class LoginPopup extends React.Component {
                 },
                 method: 'POST',
                 // 'cache-control': 'no-cache',
-                // credentials: 'include',
+                credentials: 'include',
                 body: JSON.stringify({
                     email: "test@test.test",
                     password: "Test1234"

@@ -1,5 +1,5 @@
 const initialState = {
-    token:'5ca0f73c537c994eba9626e3'
+    token:''
 };
 
 const reduser = (state = initialState , action) => {
