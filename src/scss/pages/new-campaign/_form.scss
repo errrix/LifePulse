@@ -25,16 +25,16 @@
         position: relative;
         z-index: 1;
         height: 50px;
-        font-size: 32px;
-        font-weight: 600;
+        font-size: 30px;
+        font-weight: 500;
         line-height: 1.1;
 
         &::placeholder {
           color: $gray-text-color;
           font-family: $mainfont;
-          font-size: 37px;
-          font-weight: 700;
-          line-height: 28px;
+          font-size: 30px;
+          font-weight: 500;
+          line-height: 50px;
         }
       }
 
@@ -128,16 +128,6 @@
       margin: 0 auto 30px;
     }
   }
-
-  //.header-block {
-  //  display: flex;
-  //
-  //  label:first-child {
-  //    width: 68%;
-  //    flex-shrink: 0;
-  //    margin-right: 50px;
-  //  }
-  //}
 
   .block-line {
     margin-bottom: 31px;

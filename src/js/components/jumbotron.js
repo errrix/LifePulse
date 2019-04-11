@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 class Jumbotron extends React.Component {
 
@@ -19,12 +20,8 @@ class Jumbotron extends React.Component {
                             лечение.
                         </p>
                         <div className="button-block">
-                            <a href="#" className="btn btn-orange">
-                                Начать помогать
-                            </a>
-                            <button className="btn btn-transparent">
-                                Начать сбор средств
-                            </button>
+                            <Link to='/allcampaing' className="btn btn-orange">Начать помогать</Link>
+                            <Link to='/create-fundraiser' className="btn btn-transparent">Начать сбор средств</Link>
                         </div>
                     </div>
                 </div>
