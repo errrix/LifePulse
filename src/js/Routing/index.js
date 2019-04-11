@@ -11,6 +11,7 @@ import Footer from "./../components/footer";
 import confidentiality from "./../pages/confidentiality";
 import createFundraiser from "./../pages/create-fundraiser";
 import Rules from "./../pages/rules";
+import about from "./../pages/about";
 import usercard from "./../pages/usercard";
 import Registration from "./../pages/registration";
 import UserAccount from "./../pages/user-account";
@@ -42,6 +43,7 @@ class MainRouter extends React.Component {
                                     <Route exact path="/registration" component={Registration}/>
                                     <Route exact path="/confidentiality" component={confidentiality}/>
                                     <Route exact path="/rules" component={Rules}/>
+                                    <Route exact path="/about" component={about}/>
                                     <Route exact path="/donate" component={donate}/>
                                     <Route exact path="/account" component={UserAccount}/>
                                     <Route exact path="/usercard" component={usercard}/>

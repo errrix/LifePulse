@@ -59,19 +59,13 @@ class Header extends React.Component {
                                     <Link to='/faq'>F.A.Q.</Link>
                                 </li>
                                 <li>
-                                    <a href="/">Успешные сборы</a>
-
-                                </li>
-                                <li>
-                                    <a href="/">Блог</a>
-
+                                    <Link to='/'>Успешные сборы</Link>
                                 </li>
                                 <li>
                                     <Link to='/allcampaing'>Начать помогать</Link>
                                 </li>
                                 <li>
-                                    <a href="/"> Подать заявку</a>
-
+                                    <Link to='/create-fundraiser'>Подать заявку</Link>
                                 </li>
                             </ul>
 

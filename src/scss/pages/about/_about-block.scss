@@ -1,0 +1,18 @@
+.about-block {
+  padding: 120px 75px 50px 75px;
+  h1 {
+      margin-bottom: 30px;
+  }
+}
+
+@media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
+  .about-block {
+    padding: 120px 50px 50px 50px;
+  }
+}
+
+@media only screen and (max-width: $mobileWidth) {
+  .about-block {
+    padding: 100px 0 50px 0;
+  }
+}

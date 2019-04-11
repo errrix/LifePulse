@@ -64,8 +64,17 @@
     .info-block-list {
       li {
         width: 90%;
+        margin-bottom: 15px;
+        h2, img {
+          width: 40px;
+        }
         .text-block {
           max-width: none;
+          h5 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 10px;
+          }
         }
       }
     }
