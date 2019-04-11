@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 class pageNotFound extends React.Component {
 
@@ -12,8 +13,8 @@ class pageNotFound extends React.Component {
                         <p>
                             Этой страницы больше не существует, она была удалена или премещена про новому адресу.
                         </p>
-                        <a className="link-bottom-hover" href="/">Перейти на Главную</a>
-                        <a className="link-bottom-hover" href="/all-cards_new">Выберите, кому бы Вы хотели помочь</a>
+                        <Link to='/' className="link-bottom-hover">Перейти на Главную</Link>
+                        <Link to='/allcampaing' className="link-bottom-hover">Выберите, кому бы Вы хотели помочь</Link>
                     </div>
                 </div>
 
