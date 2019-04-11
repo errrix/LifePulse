@@ -108,7 +108,7 @@ class LoginPopup extends React.Component {
                                 <div className="button-wrapper">
                                     <button type="submit" className="btn m--with-loader">
                                 <span>
-                                     войти
+                                     Войти
                                 </span>
                                         <span className="loader"></span>
                                     </button>

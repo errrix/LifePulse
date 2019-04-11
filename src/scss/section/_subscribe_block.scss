@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 320px;
+  height: 300px;
 
   img {
     position: absolute;
@@ -13,7 +13,7 @@
     right: 0;
     z-index: 1;
     width: 100%;
-    height: 320px;
+    height: 300px;
     object-fit: cover;
   }
 
@@ -42,7 +42,7 @@
 
       label {
         input {
-          width: 500px;
+          width: 580px;
           height: 50px;
           box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24);
           border: 1px solid #eaeae8;
@@ -61,11 +61,11 @@
   }
 }
 
-@media only screen and (max-width: 1199px) and (min-width: 980px) {
+@media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
 
 }
 
-@media only screen and (max-width: 979px) {
+@media only screen and (max-width: $mobileWidth) {
   .subscribe-block {
     .subscribe-block-wrapper {
       width: 100%;

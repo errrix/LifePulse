@@ -108,7 +108,7 @@
   }
 }
 
-@media only screen and (max-width: 1199px) and (min-width: 980px) {
+@media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
   .main-footer {
     .main-footer-wrapper {
       max-width: 980px;
@@ -116,7 +116,7 @@
   }
 }
 
-@media only screen and (max-width: 979px) {
+@media only screen and (max-width: $mobileWidth) {
   .main-footer {
     .main-footer-wrapper {
       max-width: none;

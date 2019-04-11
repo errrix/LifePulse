@@ -62,7 +62,7 @@ class Footer extends React.Component {
 
                             <div className="nav-block">
                                 <div>
-                                    <Link to='/'>О нас</Link>
+                                    <Link to='/about'>О нас</Link>
                                     <Link to='/faq'>F.A.Q.</Link>
                                     <Link to='/confidentiality'>Конфиденциальность</Link>
                                     <Link to='/rules'>Правила сайта</Link>

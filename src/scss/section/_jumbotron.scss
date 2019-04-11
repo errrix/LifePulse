@@ -69,3 +69,27 @@
     }
   }
 }
+
+@media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
+
+}
+
+@media only screen and (max-width: $mobileWidth) {
+  .jumbotron {
+    height: 600px;
+
+    .jumbotron-wrapper {
+      padding-left: 0;
+    }
+    .button-block {
+      flex-direction: column;
+      *:first-child {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+      .btn {
+        text-align: center;
+      }
+    }
+  }
+}

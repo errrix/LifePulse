@@ -55,7 +55,7 @@ class Header extends React.Component {
 
                         <div className="navigation-side">
                             <ul className="navigation">
-                                <li className="hover-submenu">
+                                <li>
                                     <Link to='/faq'>F.A.Q.</Link>
                                 </li>
                                 <li>

@@ -38,19 +38,6 @@
 
         li {
           margin-right: 35px;
-          .submenu {
-            display: none;
-            position: absolute;
-            top: 15px;
-            left: -20px;
-            min-width: 200px;
-            padding: 50px 20px 20px;
-            background-color: rgba(54, 54, 54, 0.98);
-            li {
-              margin-right: 0;
-              margin-bottom: 13px;
-            }
-          }
 
           &:last-child {
             margin-right: 0;
@@ -59,7 +46,7 @@
           a {
             color: $white-text-color;
             font-size: 16px;
-            font-weight: 400;
+            font-weight: 300;
             line-height: 18px;
             transition: .2s;
             position: relative;
