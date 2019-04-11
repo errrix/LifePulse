@@ -62,7 +62,18 @@
 }
 
 @media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
-
+  .subscribe-block {
+    .subscribe-block-wrapper {
+      width: 700px;
+      form {
+        label {
+          input {
+            width: 500px;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: $mobileWidth) {

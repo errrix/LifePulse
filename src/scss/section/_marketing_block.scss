@@ -2,7 +2,7 @@
   background-color: $bg-third-color;
   padding: 50px 0;
 
-  h2 {
+  .h2Header  {
     margin-bottom: 39px;
   }
 
@@ -39,8 +39,8 @@
         h5 {
           color: $main-text-color;
           font-family: $mainfont;
-          font-size: 21px;
-          font-weight: 700;
+          font-size: 18px;
+          font-weight: 500;
           margin-bottom: 24px;
         }
 
@@ -56,7 +56,26 @@
 }
 
 @media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
-
+  .marketing-block {
+    .info-block-list {
+      justify-content: space-around;
+      li {
+        width: 40%;
+        margin-bottom: 15px;
+        h2, img {
+          width: 40px;
+          font-size: 50px;
+        }
+        .text-block {
+          h5 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: $mobileWidth) {

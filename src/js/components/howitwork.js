@@ -67,7 +67,7 @@ class Howitwork extends React.Component {
 
                         <ul className="info-block-list">
                             <li>
-                                <h2>1.</h2>
+                                <h2>1</h2>
                                 <div className="text-block">
                                     <h5>
                                         Первые в Украине
@@ -78,7 +78,7 @@ class Howitwork extends React.Component {
                                 </div>
                             </li>
                             <li>
-                                <h2>2.</h2>
+                                <h2>2</h2>
                                 <div className="text-block">
                                     <h5>
                                         Чужой беды не бывает
@@ -89,7 +89,7 @@ class Howitwork extends React.Component {
                                 </div>
                             </li>
                             <li>
-                                <h2>3.</h2>
+                                <h2>3</h2>
                                 <div className="text-block">
                                     <h5>
                                         Социальные сети
@@ -101,7 +101,7 @@ class Howitwork extends React.Component {
                                 </div>
                             </li>
                             <li>
-                                <h2>4.</h2>
+                                <h2>4</h2>
                                 <div className="text-block">
                                     <h5>
                                         Помогать легко
@@ -113,7 +113,7 @@ class Howitwork extends React.Component {
                             </li>
 
                             <li>
-                                <h2>5.</h2>
+                                <h2>5</h2>
                                 <div className="text-block">
                                     <h5>
                                         Успешные сборы
@@ -125,7 +125,7 @@ class Howitwork extends React.Component {
                             </li>
 
                             <li>
-                                <h2>6.</h2>
+                                <h2>6</h2>
                                 <div className="text-block">
                                     <h5>
                                         Благотворители
