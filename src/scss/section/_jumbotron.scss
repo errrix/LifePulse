@@ -71,12 +71,14 @@
 }
 
 @media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
-
+  .jumbotron {
+    height: 550px;
+  }
 }
 
 @media only screen and (max-width: $mobileWidth) {
   .jumbotron {
-    height: 600px;
+    height: 520px;
 
     .jumbotron-wrapper {
       padding-left: 0;
