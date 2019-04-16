@@ -65,16 +65,16 @@
 	}
 
 	.blog-article-list {
-		display: flex;
-		justify-content: space-around;
-		flex-wrap: wrap;
-		margin-bottom: 30px;
+		//display: flex;
+		//justify-content: space-around;
+		//flex-wrap: wrap;
+		//margin-bottom: 30px;
 	}
 
 	.link-wrapper {
 		display: flex;
 		justify-content: flex-end;
-		padding: 0 33px;
+		padding: 40px 0 0 0;
 
 		a {
 			color: $main-text-color;

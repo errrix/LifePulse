@@ -17,7 +17,7 @@ class CardBlock extends React.Component {
             initialSlide: 0,
             responsive: [
                 {
-                    breakpoint: 1051,
+                    breakpoint: 1050,
                     settings: {
                         slidesToShow: 2,
                         slidesToScroll: 1,
@@ -26,7 +26,7 @@ class CardBlock extends React.Component {
                     }
                 },
                 {
-                    breakpoint: 768,
+                    breakpoint: 767,
                     settings: {
                         slidesToShow: 1,
                         slidesToScroll: 1,

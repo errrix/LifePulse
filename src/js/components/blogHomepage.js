@@ -1,8 +1,41 @@
 import React from "react";
+// import Slider from "react-slick/lib";
+import Slider from "react-slick";
+import {Link} from "react-router-dom";
 
 class BlogHomepage extends React.Component {
 
     render() {
+
+        var settings = {
+            dots: true,
+            arrows : false,
+            infinite: false,
+            speed: 500,
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            initialSlide: 0,
+            responsive: [
+                {
+                    breakpoint: 1050,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 767,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        initialSlide: 1
+                    }
+                }
+            ]
+        };
+
         return (
            <div>
                <div className="homepage-blog-section">
@@ -41,65 +74,76 @@ class BlogHomepage extends React.Component {
 
 
                        <ul className="blog-article-list">
-                           <li className="blog-card">
-                               <img src="../../../dist/img/card1.jpg" alt=""/>
+                           <Slider {...settings}>
+                               <div>
+                                   <li className="blog-card">
+                                       <img src="../../../dist/img/card1.jpg" alt=""/>
 
-                               <div className="text-block">
-                                   <div>
-                                       <div className="date">
-                                           12.08.2018
+                                       <div className="text-block">
+                                           <div>
+                                               <div className="date">
+                                                   12.08.2018
+                                               </div>
+                                               <h4>
+                                                   НЕСКОЛЬКО ДНЕЙ НАЗАД БЛАГОДАРЯ LIFESPULSE ПРООПЕРИРОВАЛИ ГАРШИНА
+                                                   ВЯЧЕСЛАВА
+                                               </h4>
+                                           </div>
+
+
+                                           <a href="/"> Читать дальше</a>
                                        </div>
-                                       <h4>
-                                           НЕСКОЛЬКО ДНЕЙ НАЗАД БЛАГОДАРЯ LIFESPULSE ПРООПЕРИРОВАЛИ ГАРШИНА
-                                           ВЯЧЕСЛАВА
-                                       </h4>
-                                   </div>
-
-
-                                   <a href="/"> Читать дальше</a>
+                                   </li>
                                </div>
-                           </li>
-                           <li className="blog-card">
-                               <img src="../../../dist/img/card2.jpg" alt=""/>
+                               <div>
+                                   <li className="blog-card">
+                                       <img src="../../../dist/img/card2.jpg" alt=""/>
 
-                               <div className="text-block">
-                                   <div>
-                                       <div className="date">
-                                           12.08.2018
+                                       <div className="text-block">
+                                           <div>
+                                               <div className="date">
+                                                   12.08.2018
+                                               </div>
+                                               <h4>
+                                                   НЕСКОЛЬКО ДНЕЙ НАЗАД БЛАГОДАРЯ LIFESPULSE ПРООПЕРИРОВАЛИ ГАРШИНА
+                                                   ВЯЧЕСЛАВА
+                                               </h4>
+                                           </div>
+
+
+                                           <a href="/"> Читать дальше</a>
                                        </div>
-                                       <h4>
-                                           НЕСКОЛЬКО ДНЕЙ НАЗАД БЛАГОДАРЯ LIFESPULSE ПРООПЕРИРОВАЛИ ГАРШИНА
-                                           ВЯЧЕСЛАВА
-                                       </h4>
-                                   </div>
-
-
-                                   <a href="/"> Читать дальше</a>
+                                   </li>
                                </div>
-                           </li>
-                           <li className="blog-card">
-                               <img src="../../../dist/img/card3.jpg" alt=""/>
+                               <div>
+                                   <li className="blog-card">
+                                       <img src="../../../dist/img/card3.jpg" alt=""/>
 
-                               <div className="text-block">
-                                   <div>
-                                       <div className="date">
-                                           12.08.2018
+                                       <div className="text-block">
+                                           <div>
+                                               <div className="date">
+                                                   12.08.2018
+                                               </div>
+                                               <h4>
+                                                   НЕСКОЛЬКО ДНЕЙ НАЗАД БЛАГОДАРЯ LIFESPULSE ПРООПЕРИРОВАЛИ ГАРШИНА
+                                                   ВЯЧЕСЛАВА
+                                               </h4>
+
+                                           </div>
+
+
+                                           <a href="/"> Читать дальше</a>
                                        </div>
-                                       <h4>
-                                           НЕСКОЛЬКО ДНЕЙ НАЗАД БЛАГОДАРЯ LIFESPULSE ПРООПЕРИРОВАЛИ ГАРШИНА
-                                           ВЯЧЕСЛАВА
-                                       </h4>
-
-                                   </div>
-
-
-                                   <a href="/"> Читать дальше</a>
+                                   </li>
                                </div>
-                           </li>
+
+
+
+                           </Slider>
                        </ul>
 
                        <div className="link-wrapper">
-                           <a href="/">Смотреть больше публикаций</a>
+                           <Link to='/blog'>Смотреть ещё</Link>
                        </div>
                    </div>
                </div>
