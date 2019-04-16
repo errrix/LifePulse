@@ -7,7 +7,7 @@ class createFundraiser extends React.Component {
         return (
             <div>
                 <main className="new-campaign-block">
-                    <div className="new-campaign-block-wrapper container">
+                    <div className="container">
                         <h1>
                             новая публикация
                         </h1>
@@ -17,7 +17,7 @@ class createFundraiser extends React.Component {
                             <div className="header-block">
                                 <label className="label-input">
                                     <span>Укажите цель сбора средств: <br></br> <span className="info">Вы можете ввести не меньше 80 и не больше 130 знаков, включая пробелы</span></span>
-                                    <textarea
+                                    <textarea maxlength="130" minlength = "80"
                                         placeholder="Острое нарушение мозгового кровообращения по ишемическому типу в басейне левой внутренней сонной артерии внутренней сонной артерии"></textarea>
 
                                     <span className="error">Вы можете ввести не меньше 80 и не больше 130 знаков, включая пробелы</span>

@@ -1,10 +1,5 @@
 .new-campaign-block {
-  width: 100%;
-  background-color: $bg-second-color;
-
-  .new-campaign-block-wrapper {
-    padding: 130px 33px 50px;
-  }
+  padding: 130px 33px 50px;
 
   h1 {
     text-align: center;
@@ -15,5 +10,17 @@
     line-height: 37px;
     text-transform: uppercase;
     margin-bottom: 50px;
+  }
+}
+
+@media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
+  .new-campaign-block {
+    padding: 120px 0 50px 0;
+  }
+}
+
+@media only screen and (max-width: $mobileWidth) {
+  .new-campaign-block {
+    padding: 120px 0 50px 0;
   }
 }

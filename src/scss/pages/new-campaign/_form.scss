@@ -20,7 +20,7 @@
     }
 
     &.label-number {
-      width: 50%;
+      width: 100%;
       input {
         position: relative;
         z-index: 1;
@@ -120,6 +120,7 @@
         font-size: 16px;
         text-transform: uppercase;
         height: 45px;
+        text-align: center;
       }
     }
 
@@ -135,14 +136,14 @@
 
   .bank-details {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 
     label {
-      width: calc(40% - 33px);
-      margin-right: 50px;
+      width: 35%;
 
       &:last-child {
         width: 20%;
-        margin-right: 0;
       }
 
       input {
@@ -153,20 +154,18 @@
 
   .phone-inn {
     display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 
     label {
-      width: 50%;
-      margin-right: 50px;
-
-      &:last-child {
-        margin-right: 0;
-      }
+      width: 45%;
     }
   }
 
   .to-whom-campaign {
     .radio-wrapper {
       display: flex;
+      flex-wrap: wrap;
 
       label:first-child {
         margin-right: 50px;
@@ -176,14 +175,14 @@
 
   .address-birth {
     display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 
     label {
-      width: calc(40% - 33px);
-      margin-right: 50px;
+      width: 35%;
 
       &:last-child {
-        width: 19.33%;
-        margin-right: 0;
+        width: 20%;
       }
 
       input {
@@ -229,7 +228,7 @@
       color: $main-text-color;
       font-family: $mainfont;
       line-height: 21px;
-      max-width: 70%;
+      max-width: 100%;
       margin-bottom: 15px;
     }
 
@@ -240,6 +239,77 @@
       font-weight: 400;
       line-height: 21px;
       margin-bottom: 10px;
+    }
+  }
+}
+
+
+@media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
+  .new-campaign-form {
+    .bank-details {
+      flex-wrap: wrap;
+      label {
+        width: 50%;
+        margin-right: 50px;
+
+        &:last-child {
+          width: 20%;
+          margin-right: 0;
+        }
+
+        input {
+          min-width: unset;
+        }
+      }
+    }
+
+    .phone-inn {
+      label {
+        input {
+          min-width: unset;
+        }
+      }
+    }
+
+    .address-birth {
+
+      label {
+        width: 45%;
+
+        &:last-child {
+          width: 45%;
+        }
+
+        input {
+          min-width: unset;
+        }
+      }
+    }
+    label.label-select {
+      select {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $mobileWidth) {
+  .new-campaign-form {
+
+    label.label-select {
+      display: flex;
+      flex-direction: column;
+      select {
+        width: 100%;
+      }
+    }
+    label {
+      width: 100%!important;
+      margin-right: 0!important;
+      input, textarea {
+        width: 100%!important;
+        min-width: unset!important;
+      }
     }
   }
 }
