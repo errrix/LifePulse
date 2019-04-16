@@ -50,7 +50,7 @@ class BlogHomepage extends React.Component {
                                <div className="text-block">
                                    <div>
                                        <h4>
-                                           НЕСКОЛЬКО ДНЕЙ НАЗАД БЛАГОДАРЯ LIFESPULSE ПРООПЕРИРОВАЛИ ГАРШИНА
+                                           БЛАГОДАРЯ LIFESPULSE ПРООПЕРИРОВАЛИ ГАРШИНА
                                            ВЯЧЕСЛАВА
                                        </h4>
                                        <h6>
@@ -85,8 +85,7 @@ class BlogHomepage extends React.Component {
                                                    12.08.2018
                                                </div>
                                                <h4>
-                                                   НЕСКОЛЬКО ДНЕЙ НАЗАД БЛАГОДАРЯ LIFESPULSE ПРООПЕРИРОВАЛИ ГАРШИНА
-                                                   ВЯЧЕСЛАВА
+                                                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi beatae  Animi beatae
                                                </h4>
                                            </div>
 
@@ -105,8 +104,7 @@ class BlogHomepage extends React.Component {
                                                    12.08.2018
                                                </div>
                                                <h4>
-                                                   НЕСКОЛЬКО ДНЕЙ НАЗАД БЛАГОДАРЯ LIFESPULSE ПРООПЕРИРОВАЛИ ГАРШИНА
-                                                   ВЯЧЕСЛАВА
+                                                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi beatae  Animi beatae
                                                </h4>
                                            </div>
 
@@ -125,8 +123,7 @@ class BlogHomepage extends React.Component {
                                                    12.08.2018
                                                </div>
                                                <h4>
-                                                   НЕСКОЛЬКО ДНЕЙ НАЗАД БЛАГОДАРЯ LIFESPULSE ПРООПЕРИРОВАЛИ ГАРШИНА
-                                                   ВЯЧЕСЛАВА
+                                                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi beatae  Animi beatae
                                                </h4>
 
                                            </div>
@@ -143,7 +140,7 @@ class BlogHomepage extends React.Component {
                        </ul>
 
                        <div className="link-wrapper">
-                           <Link to='/blog'>Смотреть ещё</Link>
+                           <Link to='/blog' className="link-bottom-hover">Смотреть ещё</Link>
                        </div>
                    </div>
                </div>

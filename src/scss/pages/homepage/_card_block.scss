@@ -7,9 +7,11 @@
 	}
 
 	.card-block-list {
-		//display: flex;
-		//justify-content: space-around;
-		//flex-wrap: wrap;
+		&.card-block-list-flex {
+			display: flex;
+			justify-content: space-around;
+			flex-wrap: wrap;
+		}
 
 		 li {
 			padding-bottom: 20px;
@@ -49,7 +51,7 @@
 			font-family: $mainfont;
 			font-size: 16px;
 			font-weight: 400;
-			line-height: 28px;
+			line-height: 1.2;
 		}
 	}
 }

@@ -57,7 +57,7 @@ class CardBlock extends React.Component {
                     </ul>
 
                     <div className="link-wrapper">
-                        <a href="/">Посмотреть еще</a>
+                        <a href="/" className="link-bottom-hover">Посмотреть еще</a>
                     </div>
 
                 </div>

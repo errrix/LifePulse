@@ -1,6 +1,7 @@
 import React from "react";
 
 import SingleCard from './../components/singleCard'
+import {Link} from "react-router-dom";
 
 
 class Faq extends React.Component {
@@ -26,22 +27,18 @@ class Faq extends React.Component {
                                 </button>
                             </label>
                             <select name="" id="">
-                                <option value="">Сердечно-сосудистые заболевания</option>
-                                <option value="">два</option>
-                                <option value="">три</option>
-                                <option value="">четыре</option>
-                                <option value="">пять</option>
-                                <option value="">шесть</option>
-                                <option value="">семь</option>
-                                <option value="">восемь</option>
+                                <option value="" title="Сердечно-сосудистые">Сердечно-сосудистые</option>
+                                <option value="" title="два">два</option>
+                                <option value="" title="два">три</option>
+                                <option value="" title="два">четыре</option>
+                                <option value="" title="два">пять</option>
+                                <option value="" title="два">шесть</option>
+                                <option value="" title="два">семь</option>
+                                <option value="" title="два">восемь</option>
                             </select>
                             <div className="search-result-navigation">
-                                <h2 className="h2Header">
-                                    Результаты поиска
-                                </h2>
                                 <div className="search-result-sort">
                                     <button>Популярные</button>
-                                    <button>Завершаются</button>
                                     <button>Новые вверху</button>
                                     <button>Старые вверху</button>
                                 </div>
@@ -50,7 +47,7 @@ class Faq extends React.Component {
                     </div>
                     <div className="card-block container">
 
-                        <ul className="card-block-list">
+                        <ul className="card-block-list card-block-list-flex">
                             <li>
                                 <SingleCard></SingleCard>
                             </li>
@@ -90,7 +87,7 @@ class Faq extends React.Component {
                         </ul>
 
                         <div className="link-wrapper">
-                            <a href="/">Посмотреть еще</a>
+                            <a href="/" className="link-bottom-hover">Посмотреть еще</a>
                         </div>
 
                     </div>
