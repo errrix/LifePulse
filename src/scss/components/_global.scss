@@ -62,7 +62,7 @@ input::-webkit-inner-spin-button {
   color: $main-text-color;
   font-family: $mainfont;
   font-size: 36px;
-  font-weight: 700;
+  font-weight: 500;
   text-transform: uppercase;
   position: relative;
   display: inline-block;
@@ -83,5 +83,22 @@ input::-webkit-inner-spin-button {
 
   @media only screen and (max-width: $mobileWidth) {
     font-size: 26px;
+  }
+}
+
+.h3Header {
+  color: $main-text-color;
+  font-family: $mainfont;
+  font-size: 30px;
+  font-weight: 400;
+  display: inline-block;
+  line-height: 1.2;
+
+  @media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
+    font-size: 28px;
+  }
+
+  @media only screen and (max-width: $mobileWidth) {
+    font-size: 24px;
   }
 }
