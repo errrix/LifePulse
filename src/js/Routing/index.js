@@ -14,7 +14,7 @@ import Rules from "./../pages/rules";
 import about from "./../pages/about";
 import usercard from "./../pages/usercard";
 import Registration from "./../pages/registration";
-import UserAccount from "./../pages/user-account";
+import UserAccount from "../pages/user-account/user-account";
 import RegistrationConfirm from "./../pages/registration-confirm";
 import ScrollToTop from './../modules/scrollToTop';
 import AdminRouting from './admin-routing/index'

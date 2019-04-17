@@ -1,5 +1,5 @@
 const initialState = {
-    user_id: '',
+    user_id: '5ca0f73c537c994eba9626e3',
     user_role: []
 };
 
