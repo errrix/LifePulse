@@ -77,7 +77,6 @@ class UserAccount extends React.Component {
                                                 <h2 className="h3Header">{this.state.name} {this.state.last_name}</h2>
 
                                                 <button className="logout-user-btn">Выйти</button>
-
                                                 {/*<a href="/">Редактировать профиль</a>*/}
                                             </div>
 
