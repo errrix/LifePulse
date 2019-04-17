@@ -62,38 +62,35 @@ class UserAccount extends React.Component {
                 {
                     (this.props.tokenData) ? (
                         <div className="user-account-block">
-                            <div className="user-account-block-wrapper container">
-
-                                <h1>
-                                    мой профиль
-                                </h1>
+                                <div className="container">
 
                                 <div className="user-account-top-block">
                                     <div className="image-block">
                                         <div className="back-layer"/>
-                                        <img src="../../../../dist/img/card1.jpg" alt=""/>
+                                        <img src="../../../../dist/img/men_women.png" alt="user image"/>
                                     </div>
 
                                     <div className="text-block">
 
                                         <div>
                                             <div className="top-block">
-                                                <h2>{this.state.name} {this.state.last_name}</h2>
+                                                <h2 className="h3Header">{this.state.name} {this.state.last_name}</h2>
+
+                                                <button className="logout-user-btn">Выйти</button>
 
                                                 {/*<a href="/">Редактировать профиль</a>*/}
                                             </div>
 
-                                            <h4>
+                                            <h4 className="h4Header">
                                                 Почта: <span>{this.state.email}</span>
                                             </h4>
 
-                                            <h4>
+                                            <h4 className="h4Header">
                                                 Номер телефона: <span>
                                                 {this.state.phone !== '' ? this.state.phone : 'не указан'}
                                                 </span>
                                             </h4>
                                         </div>
-                                        <div className="block-line"/>
                                         <div>
 
 
@@ -145,9 +142,7 @@ class UserAccount extends React.Component {
 
                                     </div>
 
-
                                 </div>
-
                             </div>
                         </div>
                     ) : (
