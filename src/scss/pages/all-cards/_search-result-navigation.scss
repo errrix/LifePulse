@@ -65,7 +65,7 @@
 
 @media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
   .search-input-block {
-    padding: 130px 33px 0 33px;
+    padding: 120px 0 0 0 ;
     form {
       display: flex;
       justify-content: space-between;
@@ -86,7 +86,7 @@
 
 @media only screen and (max-width: $mobileWidth) {
   .search-input-block {
-    padding: 130px 0 0 0;
+    padding: 120px 0 0 0;
     form {
       display: flex;
       justify-content: space-between;
