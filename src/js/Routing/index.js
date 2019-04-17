@@ -9,7 +9,7 @@ import SearchPage from './../pages/searchpage'
 import Header from "./../components/header";
 import Footer from "./../components/footer";
 import confidentiality from "./../pages/confidentiality";
-import createFundraiser from "./../pages/create-fundraiser";
+import createFundraiser from "../pages/create-fundraiser/create-fundraiser";
 import Rules from "./../pages/rules";
 import about from "./../pages/about";
 import usercard from "./../pages/usercard";
