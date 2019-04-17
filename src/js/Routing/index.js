@@ -27,6 +27,14 @@ const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window
 
 class MainRouter extends React.Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+
+        };
+    }
+
     render() {
         return (
             <Provider store={store}>
@@ -53,9 +61,7 @@ class MainRouter extends React.Component {
                                 </Switch>
                                 <Route path="/" component={Footer}/>
                             </Fragment>
-
                         </Switch>
-
                     </ScrollToTop>
                 </HashRouter>
             </Provider>

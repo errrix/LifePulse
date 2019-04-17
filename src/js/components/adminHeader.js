@@ -1,18 +1,17 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 
 class adminHeader extends React.Component {
 
     render() {
         return (
-            <div>
-
                 <header className="main-header m--account-admin">
 
                     <div className="main-header-wrapper">
                         <div className="logo-side">
-                            <a href="/">
+                            <Link to="/">
                                 <img src="../../../dist/img/img-logo.png" alt=""/>
-                            </a>
+                            </Link>
                         </div>
                         <div className="button-block">
                             <span>Текущая почта юзера</span>
@@ -20,8 +19,6 @@ class adminHeader extends React.Component {
                         </div>
                     </div>
                 </header>
-            </div>
-
         )
     }
 };

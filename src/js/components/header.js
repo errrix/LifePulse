@@ -4,7 +4,7 @@ import CSSTransitionGroup from "react-addons-css-transition-group"
 
 import LoginPopup from './popup/loginPopup'
 
-import {addToken} from "./../actions";
+import {addUserId, addUserRole } from "./../actions";
 import {connect} from "react-redux";
 
 class Header extends React.Component {
@@ -18,7 +18,10 @@ class Header extends React.Component {
 
         this.openPopup = this.openPopup.bind(this);
         this.handlePopup = this.handlePopup.bind(this);
-        this.toggleMobMenu = this.toggleMobMenu.bind(this);
+    }
+
+    componentDidMount() {
+        console.log(document.cookie)
     }
 
     toggleMobMenu() {
@@ -38,7 +41,7 @@ class Header extends React.Component {
     }
 
     render() {
-        const {addTokenAction, tokenData} = this.props;
+        const {addUserIdAction, tokenData, addUserRoleAction} = this.props;
         return (
 
             <div>
@@ -47,7 +50,7 @@ class Header extends React.Component {
                                     transitionEnterTimeout={300}
                                     transitionLeave={true}
                                     transitionLeaveTimeout={300}>
-                    {this.state.showPopup ? (<LoginPopup updateStatusPopup={this.handlePopup} addToken={addTokenAction}/>) : (false)}
+                    {this.state.showPopup ? (<LoginPopup updateStatusPopup={this.handlePopup} addUserId={addUserIdAction} addUserRole={addUserRoleAction}/>) : (false)}
                 </CSSTransitionGroup>
 
                 <header className="main-header">
@@ -79,6 +82,7 @@ class Header extends React.Component {
                                 (this.props.tokenData) ? (
                                     <div className="button-block">
                                         <Link to='/account' className="header-login-popup">Личный кабинет</Link>
+                                        <Link to='/admin' className="header-login-popup">В админку</Link>
                                     </div>
                                 ) : (
                                     <div className="button-block">
@@ -127,6 +131,7 @@ class Header extends React.Component {
                                 (this.props.tokenData) ? (
                                     <div className="button-block">
                                         <Link to='/account' className="header-login-popup">Личный кабинет</Link>
+                                        <Link to='/admin' className="header-login-popup">В админку</Link>
                                     </div>
                                 ) : (
                                     <div className="button-block">
@@ -144,15 +149,9 @@ class Header extends React.Component {
 
                                         <Link to='/registration' className="header-login-popup">Регистрация</Link>
                                     </div>
-
                                 )}
-
-
                         </div>
-
                     </div>
-
-
                 </header>
             </div>
         )
@@ -162,12 +161,13 @@ class Header extends React.Component {
 const mapStateToProps = (store) => {
     return {
         data: store,
-        tokenData: store.token
+        tokenData: store.user_id
     }
 };
 
 const mapDispatchToProps = dispatch => ({
-    addTokenAction: string => dispatch(addToken(string)),
+    addUserIdAction: string => dispatch(addUserId(string)),
+    addUserRoleAction: array => dispatch(addUserRole(array)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

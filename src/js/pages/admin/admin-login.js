@@ -21,29 +21,25 @@ class adminLogin extends React.Component {
                                         <label className="label-input">
                                             <span>Ваша почта:</span>
                                             <input type="email" required/>
-                                                <span className="error"> Некорректный email. Попробуйте еще раз</span>
+                                            <span className="error"> Некорректный email. Попробуйте еще раз</span>
                                         </label>
                                         <div className="label-password-top-block">
                                             <span>Пароль:</span>
                                         </div>
                                         <label className="label-input">
                                             <input type="password" required/>
-                                                <span className="error">Неверный пароль. Введите еще раз</span>
+                                            <span className="error">Неверный пароль. Введите еще раз</span>
                                         </label>
                                         <label className="label-checkbox">
 
                                             <input type="checkbox"/>
-                            <span>
-                             Запомнить меня
-                        </span>
+                                            <span>Запомнить меня</span>
                                         </label>
 
                                         <div className="button-wrapper">
                                             <button type="submit" className="btn m--with-loader">
-                                <span>
-                                     войти
-                                </span>
-                                                <span className="loader"></span>
+                                                <span>войти</span>
+                                                <span className="loader"/>
                                             </button>
                                         </div>
 

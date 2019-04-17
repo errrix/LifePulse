@@ -1,1 +1,2 @@
-export const addToken = (string) => ( { type:'addToken', payload:string } );
+export const addUserId = (string) => ( { type:'addUserId', payload:string } );
+export const addUserRole = (array) => ( { type:'addUserRole', payload:array } );

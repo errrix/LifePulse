@@ -656,7 +656,7 @@ class UserAccount extends React.Component {
 const mapStateToProps = (store) => {
     return {
         data: store,
-        tokenData: store.token
+        tokenData: store.user_id
     }
 };
 
