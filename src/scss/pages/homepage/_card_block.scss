@@ -17,10 +17,6 @@
 			padding-bottom: 30px;
             outline: none;
 
-			&:nth-child(3n) {
-				margin-right: 0;
-			}
-
 			&.m--add-new {
 				a {
 					width: 372px;
@@ -63,6 +59,9 @@
 @media only screen and (max-width: $mobileWidth) {
 	.card-block {
 		.card-block-list {
+			li.m--add-new {
+				display: none;
+			}
 			& > li {
 				margin: 0 auto;
 			}

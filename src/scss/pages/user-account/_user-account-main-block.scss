@@ -2,6 +2,7 @@
 
   .button-block {
     display: flex;
+    flex-wrap: wrap;
     margin-bottom: 43px;
 
     button {
@@ -73,6 +74,10 @@
     overflow: hidden;
     position: relative;
 
+    & > span {
+      width: 100%;
+    }
+
     & > div {
       position: relative;
       transition: .5s;
@@ -103,7 +108,33 @@
         }
       }
     }
+  }
+}
 
+@media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
+  .user-account-main-block {
+    .button-block {
+      a {
+        margin-left: 50px;
 
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $mobileWidth) {
+  .user-account-main-block {
+    .button-block {
+      button {
+        margin-top: 20px;
+      }
+      a {
+        margin-top: 40px;
+        margin-left: 0;
+        &.active {
+          width: 100%;
+        }
+      }
+    }
   }
 }
