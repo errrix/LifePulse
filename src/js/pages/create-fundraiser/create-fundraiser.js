@@ -154,7 +154,8 @@ class createFundraiser extends React.Component {
                                 </div>
                                 <label className="label-input" id="another-recipient">
                                     <span>Для кого собираются средства?</span>
-                                    <input placeholder="Василий Васильев Васильевич" type="text"/>
+                                    <input placeholder="Василий Васильев Васильевич" type="text" name="for_whom_name"
+                                           onChange={this.StateValue} onBlur={validator.forWhomName}/>
                                     <span className="error">Неверный формат. Попробуйте еще раз</span>
                                 </label>
                             </div>
@@ -162,19 +163,22 @@ class createFundraiser extends React.Component {
                             <div className="address-birth">
                                 <label className="label-input">
                                     <span>Населенный пункт</span>
-                                    <input placeholder="c. Григорьевка" type="text"/>
+                                    <input placeholder="c. Григорьевка" type="text" name="country"
+                                           onChange={this.StateValue} onBlur={validator.country}/>
                                     <span className="error">Неверный формат. Попробуйте еще раз</span>
                                 </label>
 
                                 <label className="label-input">
                                     <span>Адрес</span>
-                                    <input placeholder="ул. Бунина, 17, кв. 12" type="text"/>
+                                    <input placeholder="ул. Бунина, 17, кв. 12" type="text" name="address"
+                                           onChange={this.StateValue} onBlur={validator.address}/>
                                     <span className="error">Неверный формат. Попробуйте еще раз</span>
                                 </label>
 
                                 <label className="label-input">
                                     <span>Дата рождения</span>
-                                    <input placeholder="13.07.2012" type="date"/>
+                                    <input placeholder="13.07.2012" type="date" name="birthday"
+                                           onChange={this.StateValue} onBlur={validator.birthday}/>
                                     <span className="error">Неверный формат.</span>
                                 </label>
                             </div>

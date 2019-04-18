@@ -3,11 +3,15 @@ const  validator = {
         text_preview_valid: false,
         sum_valid: false,
         full_name_valid: false,
+        for_whom_name_valid: false,
         account_number: false,
         bank: false,
         mfo: false,
         phone: false,
-        inn: false
+        inn: false,
+        country: false,
+        address: false,
+        birthday: false
     },
     textPreview : function(e) {
         if(e.target.value.length < 80 || e.target.value.length > 130) {
@@ -85,6 +89,48 @@ const  validator = {
             e.target.parentNode.classList.add('label-error');
         } else {
             validator.validValue.inn = true;
+            e.target.parentNode.classList.remove('label-error');
+        }
+    },
+
+    forWhomName : function(e) {
+        if(e.target.value.length < 10 || e.target.value.length > 50) {
+            validator.validValue.for_whom_name_valid = false;
+            e.target.parentNode.classList.add('label-error');
+        } else {
+            validator.validValue.for_whom_name_valid = true;
+            e.target.parentNode.classList.remove('label-error');
+        }
+    },
+
+    country : function(e) {
+        if(e.target.value.length < 2 || e.target.value.length > 50) {
+            validator.validValue.country = false;
+            e.target.parentNode.classList.add('label-error');
+        } else {
+            validator.validValue.country = true;
+            e.target.parentNode.classList.remove('label-error');
+        }
+    },
+
+    address : function(e) {
+        if(e.target.value.length < 10 || e.target.value.length > 50) {
+            validator.validValue.address = false;
+            e.target.parentNode.classList.add('label-error');
+        } else {
+            validator.validValue.address = true;
+            e.target.parentNode.classList.remove('label-error');
+        }
+    },
+
+    birthday : function(e) {
+        var userDate = e.target.value.substring(0,4);
+        var nextYear = Number(new Date().getFullYear());
+        if(userDate < 1900 || userDate > nextYear) {
+            validator.validValue.birthday = false;
+            e.target.parentNode.classList.add('label-error');
+        } else {
+            validator.validValue.birthday = true;
             e.target.parentNode.classList.remove('label-error');
         }
     }
