@@ -5,8 +5,8 @@ class Rules extends React.Component {
     render() {
         return (
             <div>
-                <div className="container">
-                    <div className="rules-block">
+                <div className="rules-block">
+                    <div className="container">
                         <article>
                             <h1>Правила платформы</h1>
 

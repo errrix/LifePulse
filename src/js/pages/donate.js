@@ -1,5 +1,6 @@
 import React from "react";
 import $ from "jquery";
+import {Link} from "react-router-dom";
 
 class donate extends React.Component {
 
@@ -28,7 +29,8 @@ class donate extends React.Component {
     render() {
         return (
             <div>
-                <div className="donate-page-block container">
+                <div className="donate-page-block">
+                    <div className="container">
                     <h2 className="h2Header">
                         ПОЖЕРТВОВАТЬ
                     </h2>
@@ -50,12 +52,17 @@ class donate extends React.Component {
                             <input placeholder="Василий Васильев Васильевич" type="text"/>
                         </label>
                         <div className="button-wrapper">
-                            <p>Продолжая, Вы соглашаетесь с Политикой конфиденициальности и Правилами перевода денег</p>
+                            <p>
+                                Продолжая, Вы соглашаетесь с <Link to="/confidentiality"
+                                                                   target="_blank"> Политикой конфиденциальности</Link> и <Link
+                                to="/rules" target="_blank">Правилами пользования сайтом</Link>
+                            </p>
                             <button type="submit" className="btn">
                                 ПОЖЕРТВОВАТЬ
                             </button>
                         </div>
                     </form>
+                    </div>
                 </div>
             </div>
 

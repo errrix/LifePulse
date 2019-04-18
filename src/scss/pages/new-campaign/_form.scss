@@ -45,17 +45,17 @@
         justify-content: center;
         color: $common-orange-color;
         font-family: $mainfont;
-        font-size: 37px;
+        font-size: 32px;
         font-weight: 400;
         line-height: 28px;
         width: 132px;
-        height: 49px;
-        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24);
-        border: 1px solid #eaeae8;
+        height: 48px;
+        border-left: 1px solid #eaeae8;
         background-color: $white-text-color;
         position: absolute;
-        top: 31px;
-        right: 0;
+        top: 32px;
+        right: 1px;
+        margin-bottom: 0;
       }
     }
 

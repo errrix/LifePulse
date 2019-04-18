@@ -1,5 +1,5 @@
 .donate-page-block {
-  padding: 120px 150px 50px 150px;
+  padding: 130px 0 50px 0;
   .h2Header {
     text-align: center;
     display: block;
@@ -42,14 +42,17 @@
         line-height: 1.1;
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24);
         border: 1px solid #eaeae8;
-        padding: 0 135px 0 20px;
+        padding: 0 20px 0 20px;
+        &[type=number] {
+          padding: 0 135px 0 20px;
+        }
 
         &::placeholder {
           color: $gray-text-color;
           font-family: $mainfont;
-          font-size: 24px;
-          font-weight: 500;
-          line-height: 28px;
+          font-size: 22px;
+          font-weight: 400;
+          line-height: 1.2;
         }
       }
 
@@ -59,17 +62,18 @@
         align-items: center;
         justify-content: center;
         color: $common-orange-color;
-        font-size: 37px;
+        font-family: $mainfont;
+        font-size: 32px;
         font-weight: 400;
         line-height: 28px;
         width: 132px;
-        height: 49px;
-        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24);
-        border: 1px solid #eaeae8;
+        height: 48px;
+        border-left: 1px solid #eaeae8;
         background-color: $white-text-color;
         position: absolute;
-        top: 34px;
-        right: 0;
+        top: 35px;
+        right: 1px;
+        margin-bottom: 0;
       }
       .fast-choice {
         span {
@@ -84,23 +88,35 @@
         }
       }
     }
-    //.credit-card-info {
-    //  color: $main-text-color;
-    //  font-size: 16px;
-    //  line-height: 21px;
-    //  margin-bottom: 40px;
-    //}
     .button-wrapper {
       margin-top: 40px;
+      a {
+        color: $orange-text-color;
+      }
       p {
         color: $main-text-color;
         font-size: 16px;
         line-height: 21px;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
       }
       .btn {
         margin: 0 auto;
       }
+    }
+  }
+}
+
+@media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
+  .donate-page-block {
+    padding: 120px 0 50px 0;
+  }
+}
+
+@media only screen and (max-width: $mobileWidth) {
+  .donate-page-block {
+    padding: 100px 0 50px 0;
+    .donate-page-form {
+      width: 100%;
     }
   }
 }
