@@ -196,20 +196,14 @@
     }
 
     label {
-      max-width: 400px;
+      max-width: 500px;
     }
 
     .label-error {
-      span.info {
-        display: none;
-      }
-
       &.m--password {
-        span.error {
-          margin-top: 10px;
-          position: relative;
-          bottom: auto;
-          left: auto;
+        span.info {
+          color: $common-alert-color;;
+            font-weight: 400;
         }
       }
     }

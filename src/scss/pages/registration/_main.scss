@@ -1,6 +1,4 @@
 .registration-block {
-  width: 100%;
-  background-color: $bg-second-color;
   padding: 130px 0 50px 0;
 
     h1 {
@@ -21,4 +19,16 @@
     .main-form {
       margin-bottom: 50px;
     }
+}
+
+@media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
+  .registration-block {
+    padding: 120px 0 50px 0;
+  }
+}
+
+@media only screen and (max-width: $mobileWidth) {
+  .registration-block {
+    padding: 120px 0 50px 0;
+  }
 }
