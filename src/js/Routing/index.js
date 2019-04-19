@@ -13,7 +13,7 @@ import createFundraiser from "../pages/create-fundraiser/create-fundraiser";
 import Rules from "./../pages/rules";
 import about from "./../pages/about";
 import usercard from "./../pages/usercard";
-import Registration from "./../pages/registration";
+import Registration from "./../pages/registration/registration";
 import UserAccount from "../pages/user-account/user-account";
 import RegistrationConfirm from "./../pages/registration-confirm";
 import ScrollToTop from './../modules/scrollToTop';
