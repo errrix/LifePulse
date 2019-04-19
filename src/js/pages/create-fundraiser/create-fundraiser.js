@@ -10,6 +10,7 @@ class createFundraiser extends React.Component {
 
         this.state = {
             all_categories: [],
+            to_whom: 'self',
 
             status: '',
             text_preview: '',
@@ -157,23 +158,25 @@ class createFundraiser extends React.Component {
                             <div className="block-line"/>
 
                             <div className="to-whom-campaign">
-                                <div className="radio-wrapper">
+                                <div className="radio-wrapper" onChange={this.StateValue}>
                                     <label className="label-radio">
-                                        <input type="radio" name="to-whom" defaultChecked value="self"/>
+                                        <input type="radio" name="to_whom" defaultChecked value="self"/>
                                         <span>Я собираю деньги для себя</span>
                                     </label>
 
                                     <label className="label-radio">
-                                        <input type="radio" name="to-whom" value="notself"/>
+                                        <input type="radio" name="to_whom" value="notself"/>
                                         <span>Я собираю деньги не для себя</span>
                                     </label>
                                 </div>
-                                <label className="label-input" id="another-recipient">
-                                    <span>Для кого собираются средства?</span>
-                                    <input placeholder="Василий Васильев Васильевич" type="text" name="for_whom_name"
-                                           onChange={this.StateValue} onBlur={validator.forWhomName}/>
-                                    <span className="error">Неверный формат. Попробуйте еще раз</span>
-                                </label>
+                                {this.state.to_whom === 'self' ? false : (
+                                    <label className="label-input" id="another-recipient">
+                                        <span>Для кого собираются средства?</span>
+                                        <input placeholder="Василий Васильев Васильевич" type="text" name="for_whom_name"
+                                               onChange={this.StateValue} onBlur={validator.forWhomName}/>
+                                        <span className="error">Неверный формат. Попробуйте еще раз</span>
+                                    </label>
+                                )}
                             </div>
 
                             <div className="address-birth">
@@ -212,6 +215,13 @@ class createFundraiser extends React.Component {
                                 </select>
                             </label>
 
+                            <h6 >Фото-превью компании по сбору средств</h6>
+
+                            <label className="label-file">
+                                <span className="btn btn-transparent">ВЫБРАТЬ</span>
+                                <input type="file" name='photo_preview' onChange={this.LoadImage}/>
+                            </label>
+
                             <label className="label-input label-textarea">
                                 <span>Опишите свою ситуацию</span>
                                 <textarea placeholder="Опишите свою ситуацию"/>
@@ -230,44 +240,43 @@ class createFundraiser extends React.Component {
                                     Ваши данные не будут доступны другим пользователям.
                                 </h5>
 
+
                                 <h6>
                                     Фото / скан Вашего паспорта
                                 </h6>
                                 <label className="label-file">
                                     <span className="btn btn-transparent">ВЫБРАТЬ</span>
-                                    <input type="file" name='photo_preview' onChange={this.LoadImage}/>
+                                    <input type="file" name='photo_passports' onChange={this.LoadImage}/>
                                 </label>
 
-                                <div id="another-recipient-foto">
-                                    <h6>Фото / скан паспорта реципиента (больного)</h6>
+                                {this.state.to_whom === 'self' ? false : (
+                                    <div id="another-recipient-foto">
+                                        <h6>Фото / скан паспорта реципиента (больного)</h6>
 
-                                    <label className="label-file">
-                                        <span className="btn btn-transparent">ВЫБРАТЬ</span>
-                                        <input type="file"/>
-                                    </label>
-                                </div>
-
+                                        <label className="label-file">
+                                            <span className="btn btn-transparent">ВЫБРАТЬ</span>
+                                            <input type="file" name='photo_passports_sick' onChange={this.LoadImage}/>
+                                        </label>
+                                    </div>
+                                )}
 
                                 <h6>Фото / скан больничных документов (выписки, заключения врачей)</h6>
 
                                 <label className="label-file">
                                     <span className="btn btn-transparent">ВЫБРАТЬ</span>
-                                    <input type="file"/>
+                                    <input type="file" name='photo_documents' onChange={this.LoadImage}/>
                                 </label>
                             </div>
 
                             <label className="label-checkbox">
-
                                 <input type="checkbox"/>
                                 <span>
-                        <span>
-                              Я соглашаюсь с <Link to="/confidentiality"
-                                                   target="_blank"> Политикой конфиденциальности</Link> и <Link
-                            to="/rules" target="_blank">Правилами пользования сайтом</Link>
-                        </span>
-                    </span>
+                                    <span>
+                                        Я соглашаюсь с <Link to="/confidentiality" target="_blank"> Политикой конфиденциальности</Link> и
+                                        <Link to="/rules" target="_blank">Правилами пользования сайтом</Link>
+                                    </span>
+                                </span>
                             </label>
-
                             <div className="button-wrapper">
                                 <button type="submit" className="btn">
                                     Отправить
