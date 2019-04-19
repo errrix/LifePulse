@@ -48,6 +48,7 @@ class createFundraiser extends React.Component {
                 return response.json()
             }).then((json) => {
             this.setState({all_categories: json.response});
+            this.setState({category: json.response[0]._id});
         })
     }
 
@@ -56,18 +57,14 @@ class createFundraiser extends React.Component {
         let data = new FormData();
         data.append("image", e.target.files[0]);
         fetch('http://165.227.11.173:3001/api/images/', {
-            headers: {
-                // 'Content-Type': 'application/x-www-form-urlencoded'
-            },
             method: 'POST',
             credentials: 'include',
             body: data
         })
             .then(function (response) {
                 return response.json()
-            }).then((json) => {
-            console.log(json);
-            this.setState({[name]: json.response._id});
+            }).then((data) => {
+            this.setState({[name]: data.response._id});
         })
     }
 
