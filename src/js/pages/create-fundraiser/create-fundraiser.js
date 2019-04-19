@@ -94,12 +94,11 @@ class createFundraiser extends React.Component {
 
                             <div className="header-block">
                                 <label className="label-input">
-                                    <span>Укажите цель сбора средств: <br/> <span className="info">Вы можете ввести не меньше 80 и не больше 130 знаков, включая пробелы</span></span>
+                                    <span>Укажите цель сбора средств: </span>
                                     <textarea maxLength="130" minLength="80" name="text_preview"
                                               onChange={this.StateValue} onBlur={validator.textPreview}
                                               placeholder="Острое нарушение мозгового кровообращения по ишемическому типу в басейне левой внутренней сонной артерии внутренней сонной артерии"/>
-
-                                    <span className="error">Вы можете ввести не меньше 80 и не больше 130 знаков, включая пробелы</span>
+                                    <span className="info">Вы можете ввести не меньше 80 и не больше 130 знаков, включая пробелы</span>
                                 </label>
 
                                 <label className="label-input label-number">
