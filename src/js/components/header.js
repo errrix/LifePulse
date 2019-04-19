@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import CSSTransitionGroup from "react-addons-css-transition-group"
 
 import LoginPopup from './popup/loginPopup'
@@ -88,7 +88,12 @@ class Header extends React.Component {
                                     <Link to='/allcampaing'>Начать помогать</Link>
                                 </li>
                                 <li>
-                                    <Link to='/create-fundraiser'>Подать заявку</Link>
+                                    {
+                                        (this.props.tokenData) ? (
+                                            <Link to='/create-fundraiser'>Подать заявку</Link>
+                                        ) : (
+                                            <Link onClick={this.openPopup}>Подать заявку</Link>
+                                    )}
                                 </li>
                             </ul>
 
