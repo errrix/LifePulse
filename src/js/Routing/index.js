@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 
-import {Route, HashRouter, Switch} from 'react-router-dom';
+import {Route, HashRouter, Switch, BrowserRouter} from 'react-router-dom';
 import Homepage from './../pages/homepage'
 import Faq from './../pages/faq'
 import pageNotFound from './../pages/404'
@@ -38,7 +38,7 @@ class MainRouter extends React.Component {
     render() {
         return (
             <Provider store={store}>
-                <HashRouter>
+                <BrowserRouter>
                     <ScrollToTop>
                         <Switch>
                             <Route path="/admin" component={AdminRouting}/>
@@ -63,7 +63,7 @@ class MainRouter extends React.Component {
                             </Fragment>
                         </Switch>
                     </ScrollToTop>
-                </HashRouter>
+                </BrowserRouter>
             </Provider>
         )
     }

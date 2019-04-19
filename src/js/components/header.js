@@ -21,7 +21,22 @@ class Header extends React.Component {
     }
 
     componentDidMount() {
-        console.log(document.cookie)
+        fetch('http://165.227.11.173:3001/api/users/mydata', {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            method: 'GET',
+            credentials: "include"
+        })
+            .then((response) => {
+                return response.json()
+            })
+            .then((data) => {
+                console.log(data.response);
+                this.props.addUserIdAction(data.response.id);
+                this.props.addUserRoleAction(data.response.roles);
+
+            })
     }
 
     toggleMobMenu() {

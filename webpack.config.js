@@ -21,6 +21,7 @@ module.exports = (env, options) => {
             publicPath: '',
             contentBase: path.join(__dirname, 'src/template'),
             watchContentBase: true,
+            historyApiFallback: true,
             port: 4200
 
         },
@@ -100,7 +101,7 @@ module.exports = (env, options) => {
             new CopyWebpackPlugin([
                 {from:'src/img',to:'img'},
                 {from:'src/fonts',to:'fonts'},
-                {from:'src/template',to:'template'}
+                {from:'src/index.html',to: ''}
             ])
         ].filter(Boolean),
 
