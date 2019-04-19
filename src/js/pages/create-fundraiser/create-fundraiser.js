@@ -13,7 +13,6 @@ class createFundraiser extends React.Component {
 
             status: '',
             text_preview: '',
-            text_preview_valid: false,
             sum: '',
             full_name: '',
             account_number: '',
@@ -34,6 +33,7 @@ class createFundraiser extends React.Component {
         };
 
         this.StateValue = this.StateValue.bind(this);
+        this.LoadImage = this.LoadImage.bind(this);
     }
 
     getCategories() {
@@ -51,13 +51,33 @@ class createFundraiser extends React.Component {
         })
     }
 
+    LoadImage(e) {
+        const {name} = e.target;
+        let data = new FormData();
+        data.append("image", e.target.files[0]);
+        fetch('http://165.227.11.173:3001/api/images/', {
+            headers: {
+                // 'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            method: 'POST',
+            credentials: 'include',
+            body: data
+        })
+            .then(function (response) {
+                return response.json()
+            }).then((json) => {
+            console.log(json);
+            this.setState({[name]: json.response._id});
+        })
+    }
+
     componentDidMount() {
         this.getCategories();
     }
 
     StateValue(e) {
         const {name, value} = e.target;
-        this.setState({name: value});
+        this.setState({[name]: value});
         console.log(this.state.name)
     }
 
@@ -187,7 +207,7 @@ class createFundraiser extends React.Component {
 
                             <label className="label-select">
                                 <span> Категория заболевания</span>
-                                <select>
+                                <select name="category" onChange={this.StateValue}>
                                     {
                                         this.state.all_categories.map((item, index) => {
                                             return <option key={item._id} value={item._id}>{item.title}</option>
@@ -219,7 +239,7 @@ class createFundraiser extends React.Component {
                                 </h6>
                                 <label className="label-file">
                                     <span className="btn btn-transparent">ВЫБРАТЬ</span>
-                                    <input type="file"/>
+                                    <input type="file" name='photo_preview' onChange={this.LoadImage}/>
                                 </label>
 
                                 <div id="another-recipient-foto">

@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {Redirect} from "react-router-dom";
+import {Redirect, Link} from "react-router-dom";
 import CSSTransitionGroup from "react-addons-css-transition-group"
 
 import MyFollow from './components/follow'
@@ -102,14 +102,13 @@ class UserAccount extends React.Component {
                                                 onClick={this.showMyCampaign}>Мои публикации
                                         </button>
                                         {!this.state.show_follow ? (
-                                            <a href="/" className="active">
+                                            <Link to="/create-fundraiser" className="active">
                                                 <div className="add-icon"/>
                                                 <span>Добавить новую публикацию</span>
-                                            </a>
+                                            </Link>
                                         ) : false}
 
                                     </div>
-
                                     <div className="user-account-main-block-container">
                                         <CSSTransitionGroup transitionName="logn-popup"
                                                             transitionEnter={true}
@@ -118,9 +117,7 @@ class UserAccount extends React.Component {
                                                             transitionLeaveTimeout={300}>
                                             {this.state.show_follow ? <MyFollow/> : <MyCampaignList/>}
                                         </CSSTransitionGroup>
-
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -128,8 +125,6 @@ class UserAccount extends React.Component {
                         <Redirect to="/"/>
                     )}
             </div>
-
-
         )
     }
 };
