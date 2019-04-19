@@ -215,12 +215,14 @@ class createFundraiser extends React.Component {
                                 </select>
                             </label>
 
-                            <h6 >Фото-превью компании по сбору средств</h6>
+                            <div className="photo-preview-block">
+                                <h6 className="h4Header">Фото-обложка компании по сбору средств</h6>
 
-                            <label className="label-file">
-                                <span className="btn btn-transparent">ВЫБРАТЬ</span>
-                                <input type="file" name='photo_preview' onChange={this.LoadImage}/>
-                            </label>
+                                <label className="label-file">
+                                    <span className="btn btn-transparent">ВЫБРАТЬ</span>
+                                    <input type="file" name='photo_preview' onChange={this.LoadImage}/>
+                                </label>
+                            </div>
 
                             <label className="label-input label-textarea">
                                 <span>Опишите свою ситуацию</span>
@@ -241,7 +243,7 @@ class createFundraiser extends React.Component {
                                 </h5>
 
 
-                                <h6>
+                                <h6 className="h4Header">
                                     Фото / скан Вашего паспорта
                                 </h6>
                                 <label className="label-file">
@@ -260,7 +262,7 @@ class createFundraiser extends React.Component {
                                     </div>
                                 )}
 
-                                <h6>Фото / скан больничных документов (выписки, заключения врачей)</h6>
+                                <h6 className="h4Header">Фото / скан больничных документов (выписки, заключения врачей)</h6>
 
                                 <label className="label-file">
                                     <span className="btn btn-transparent">ВЫБРАТЬ</span>
@@ -273,7 +275,7 @@ class createFundraiser extends React.Component {
                                 <span>
                                     <span>
                                         Я соглашаюсь с <Link to="/confidentiality" target="_blank"> Политикой конфиденциальности</Link> и
-                                        <Link to="/rules" target="_blank">Правилами пользования сайтом</Link>
+                                        <Link to="/rules" target="_blank"> Правилами пользования сайтом</Link>
                                     </span>
                                 </span>
                             </label>

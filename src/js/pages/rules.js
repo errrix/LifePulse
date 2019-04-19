@@ -8,7 +8,7 @@ class Rules extends React.Component {
                 <div className="rules-block">
                     <div className="container">
                         <article>
-                            <h1>Правила платформы</h1>
+                            <h1 className="h2Header">Правила платформы</h1>
 
                             <p>
                                 Наш мир находится в постоянном развитии. Этот непрерывный процесс постоянно требует

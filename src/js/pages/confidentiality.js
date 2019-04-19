@@ -7,7 +7,7 @@ class confidentiality extends React.Component {
             <div>
                 <div className="faq-security-block">
                     <div className="container">
-                        <h1>Соглашение о конфиденциальности</h1>
+                        <h1 className="h2Header">Соглашение о конфиденциальности</h1>
 
                         <p>
                             Благотворительная организация «ПУЛЬС ЖИЗНИ» владелец сайта <a href="/"

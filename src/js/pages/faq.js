@@ -23,7 +23,7 @@ class Faq extends React.Component {
             <div>
                 <div className="faq-block">
                     <div className="container">
-                        <h2 className="h2Header">ответы на самые частые вопросы</h2>
+                        <h1 className="h2Header">ответы на самые частые вопросы</h1>
 
                         <div className="faq-dropdown-block" onClick={this.toggleAnswer}>
                             <div className="faq-dropdown-item">

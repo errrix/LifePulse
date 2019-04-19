@@ -31,9 +31,9 @@ class donate extends React.Component {
             <div>
                 <div className="donate-page-block">
                     <div className="container">
-                    <h2 className="h2Header">
+                    <h1 className="h2Header">
                         ПОЖЕРТВОВАТЬ
-                    </h2>
+                    </h1>
                     <div className="donate-page-block-info">
                         <p>Назначение платежа: <span>Эрика Волошинец, хроническая лимфоидная лейкемия</span></p>
                         <p>Необходимая сумма: <span>60 000 грн</span></p>
