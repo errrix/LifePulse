@@ -19,7 +19,7 @@ module.exports = (env, options) => {
         devServer: {
             overlay: true,
             publicPath: '',
-            contentBase: path.join(__dirname, 'src/template'),
+            contentBase: path.join(__dirname, 'src/'),
             watchContentBase: true,
             historyApiFallback: true,
             port: 4200
