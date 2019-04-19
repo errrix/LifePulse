@@ -7,17 +7,16 @@ class pageNotFound extends React.Component {
         return (
             <div>
                 <div className="page-not-found">
-                    <div className="container page-not-found-wrapper">
+                    <div className="container">
                         <h1>404</h1>
-                        <h2>Похоже, вы заблудились</h2>
+                        <h2 className="h2Header">Похоже, вы заблудились</h2>
                         <p>
                             Этой страницы больше не существует, она была удалена или премещена про новому адресу.
                         </p>
-                        <Link to='/' className="link-bottom-hover">Перейти на Главную</Link>
-                        <Link to='/allcampaing' className="link-bottom-hover">Выберите, кому бы Вы хотели помочь</Link>
+                        <Link to='/' className="link-bottom-hover">Перейти на главную</Link>
+                        <Link to='/allcampaing' className="link-bottom-hover">Начать помогать</Link>
                     </div>
                 </div>
-
             </div>
 
         )

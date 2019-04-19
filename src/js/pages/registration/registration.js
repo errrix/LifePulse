@@ -156,29 +156,9 @@ class Registration extends React.Component {
                         Регистрация
                     </h1>
 
-                    {/*<div className="social-registration">*/}
-                        {/*<h3>*/}
-                            {/*Вы можете войти через соцсети*/}
-                        {/*</h3>*/}
-
-                        {/*<div className="button-social-block">*/}
-                            {/*<div className="button-registration m--facebook">*/}
-                                {/*<img src="../../../dist/img/login-facebook.jpg" alt=""/>*/}
-                            {/*</div>*/}
-
-                            {/*<div className="button-registration m--google">*/}
-                                {/*<img src="../../../dist/img/login-google.jpg" alt=""/>*/}
-                            {/*</div>*/}
-                        {/*</div>*/}
-                    {/*</div>*/}
-
                     <div className="block-line"></div>
 
                     <div className="registration-block-main-form">
-                        {/*<h3>*/}
-                            {/*или зарегистрироваться через email*/}
-                        {/*</h3>*/}
-
                         <form action="" className="main-form m--registration" onSubmit={this.sendData}>
                             <div className="input-wrapper">
                                 <label className="label-input">
