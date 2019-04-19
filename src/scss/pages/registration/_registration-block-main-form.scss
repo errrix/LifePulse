@@ -1,4 +1,43 @@
 .registration-block-main-form {
   padding-top: 40px;
+}
 
+@media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
+  .registration-block-main-form {
+    padding-top: 40px;
+    .main-form {
+      .input-wrapper {
+        .label-input {
+          width: 350px;
+          min-width: inherit;
+          input {
+            width: 100%;
+            min-width: inherit;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $mobileWidth) {
+  .registration-block-main-form {
+    padding-top: 40px;
+    .main-form {
+      .input-wrapper {
+        flex-wrap: wrap;
+        justify-content: center;
+        .label-input {
+          width: 100%;
+          min-width: inherit;
+          max-width: inherit;
+          input {
+            width: 100%;
+            min-width: inherit;
+            max-width: inherit;
+          }
+        }
+      }
+    }
+  }
 }

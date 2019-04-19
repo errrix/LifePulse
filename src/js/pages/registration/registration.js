@@ -152,33 +152,13 @@ class Registration extends React.Component {
                     {/*<div>{this.state.confirmPassword}</div>*/}
                     {/*<div>{this.state.email}</div>*/}
                     {/*<div>{this.state.phone}</div>*/}
-                    <h1 className="h1Header">
+                    <h1 className="h2Header">
                         Регистрация
                     </h1>
-
-                    {/*<div className="social-registration">*/}
-                        {/*<h3>*/}
-                            {/*Вы можете войти через соцсети*/}
-                        {/*</h3>*/}
-
-                        {/*<div className="button-social-block">*/}
-                            {/*<div className="button-registration m--facebook">*/}
-                                {/*<img src="../../../dist/img/login-facebook.jpg" alt=""/>*/}
-                            {/*</div>*/}
-
-                            {/*<div className="button-registration m--google">*/}
-                                {/*<img src="../../../dist/img/login-google.jpg" alt=""/>*/}
-                            {/*</div>*/}
-                        {/*</div>*/}
-                    {/*</div>*/}
 
                     <div className="block-line"></div>
 
                     <div className="registration-block-main-form">
-                        {/*<h3>*/}
-                            {/*или зарегистрироваться через email*/}
-                        {/*</h3>*/}
-
                         <form action="" className="main-form m--registration" onSubmit={this.sendData}>
                             <div className="input-wrapper">
                                 <label className="label-input">
@@ -188,7 +168,7 @@ class Registration extends React.Component {
                                 </label>
 
                                 <label className="label-input">
-                                    <span>Фамилия (опционально):</span>
+                                    <span>Фамилия:</span>
                                     <input type="text" placeholder="Васильев" onChange={this.inputLastName} onBlur={this.validateLastName}/>
                                     <span className="error"> Поле не заполнено</span>
                                 </label>
@@ -202,32 +182,36 @@ class Registration extends React.Component {
                                 </label>
 
                                 <label className="label-input">
-                                    <span>Ваш номер телефона (опционально):</span>
+                                    <span>Номер телефона (не обязательно):</span>
                                     <input type="tel" placeholder="+38  (096) 33 33 333" onChange={this.inputPhone}/>
                                     <span className="info">Ваш номер телефона - конфиденциальная информация. Он не будет доступен другим пользователям</span>
                                     <span className="error"> Неправильный ввод номера. Попробуйте еще раз</span>
                                 </label>
                             </div>
 
-                            <label className="label-input m--password">
-                                <span>Пароль:</span>
-                                <input type="password" placeholder="Введите пароль" onChange={this.inputPassword} onBlur={this.validatePassword}/>
-                                <span className="info">Пароль должен состоять из букв и цифер, содержать минимум 6 знаков, 3 из которых уникальные</span>
-                                <span className="error"> Пароль должен состоять из букв и цифер, содержать минимум 6 знаков, 3 из которых уникальные</span>
-                            </label>
+                            <div className="input-wrapper">
+                                <label className="label-input m--password">
+                                    <span>Пароль:</span>
+                                    <input type="password" placeholder="Введите пароль" onChange={this.inputPassword} onBlur={this.validatePassword}/>
+                                    <span className="info">Пароль должен состоять из букв и цифер, содержать минимум 6 знаков, 3 из которых уникальные</span>
+                                    {/*<span className="error"> Пароль должен состоять из букв и цифер, содержать минимум 6 знаков, 3 из которых уникальные</span>*/}
+                                </label>
 
-                            <label className="label-input m--password">
-                                <span>Повторите пароль:</span>
-                                <input type="password" placeholder="Введите пароль " onChange={this.inputConfirmPassword} onBlur={this.validateConfirm}/>
-                                <span className="error"> Пароли не совпадают. Повторите еще раз</span>
-                            </label>
+                                <label className="label-input m--password">
+                                    <span>Повторите пароль:</span>
+                                    <input type="password" placeholder="Введите пароль " onChange={this.inputConfirmPassword} onBlur={this.validateConfirm}/>
+                                    <span className="error"> Пароли не совпадают. Повторите еще раз</span>
+                                </label>
+                            </div>
+
 
                             <label className="label-checkbox">
 
                                 <input type="checkbox" onChange={this.inputCheckbox}/>
                                 <span>
                         <span>
-                              Я соглашаюсь с <a href="/"> Политикой конфиденциальности</a> и <a href="/">Правилами пользования сайтом</a>
+                             Я соглашаюсь с <Link to="/confidentiality" target="_blank"> Политикой конфиденциальности</Link> и
+                            <Link to="/rules" target="_blank"> Правилами пользования сайтом</Link>
                         </span>
                     </span>
                             </label>
@@ -235,7 +219,7 @@ class Registration extends React.Component {
                             <div className="button-wrapper">
                                 <button className="btn m--with-loader" type="submit">
 
-                                    <span>создать профиль</span>
+                                    <span>Создать профиль</span>
 
                                     <span className="loader"></span>
 

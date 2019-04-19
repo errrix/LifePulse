@@ -1,0 +1,20 @@
+<svg contentscripttype="text/ecmascript" xmlns:xlink="http://www.w3.org/1999/xlink" zoomAndPan="magnify" contentstyletype="text/css" id="svg-1823549269" viewBox="0 0 21 21" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" version="1.0">
+<defs>
+<style xml:space="preserve">
+.info-icon-a,.info-icon-b,.info-icon-e{fill:none;}
+.info-icon-a,.info-icon-e{stroke:#0085c7;}
+.info-icon-a{stroke-miterlimit:10;}
+.info-icon-c{clip-path:url(#info-icon-a);}
+.info-icon-d{clip-path:url(#info-icon-b);}
+.info-icon-e{stroke-linecap:round;stroke-linejoin:round;stroke-width:2.4px;}
+.info-icon-f{clip-path:url(#info-icon-c);}.info-icon-g{clip-path:url(#info-icon-d);}
+.info-icon-h{fill:#82c1de;}.info-icon-i{fill:#0085c7;}
+</style>
+<clipPath id="info-icon-a">
+<circle r="10" class="info-icon-a" cx="10.5" cy="10.5"></circle></clipPath>
+<clipPath id="info-icon-b"><rect width="20" x="0.5" height="20" y="0.5" class="info-icon-a"></rect></clipPath>
+<clipPath id="info-icon-c">
+<path class="info-icon-b" d="M10.5,8a.6.6,0,0,1-.4-.1c-.1-.1-.2-.1-.3-.2A.91.91,0,0,1,9.5,7V6.8c0-.1,0-.1.1-.2s.1-.1.1-.2a.1.1,0,0,1,.1-.1c.1-.1.2-.2.3-.2a.91.91,0,0,1,1.1.2l.1.1c0,.1.1.1.1.2s0,.1.1.2V7a.91.91,0,0,1-.3.7.1.1,0,0,0-.1.1c-.1,0-.1.1-.2.1s-.1,0-.2.1Z"></path></clipPath>
+<clipPath id="info-icon-d"><rect width="20" x="0.5" height="20" y="0.5" class="info-icon-b"></rect></clipPath>
+</defs><title>Plans Info</title>
+<g class="info-icon-c"><g class="info-icon-d"><circle r="10" class="info-icon-e" cx="10.5" cy="10.5"></circle></g><rect width="20" x="0.5" height="20" y="0.5" class="info-icon-a"></rect></g><circle r="10" class="info-icon-a" cx="10.5" cy="10.5"></circle><g class="info-icon-f"><g class="info-icon-g"><rect width="12" x="4.5" height="12" y="1" class="info-icon-h"></rect></g></g><circle r="1.06" class="info-icon-i" cx="10.5" cy="7"></circle><rect rx="1" width="2" x="9.5" height="6" y="9.28" class="info-icon-i"></rect></svg>

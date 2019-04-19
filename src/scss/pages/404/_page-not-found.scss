@@ -1,11 +1,10 @@
 .page-not-found {
   position: relative;
-  background-image: url("../../src/img/bg_404.jpg");
+  background-image: url("/../../dist/img/bg_404.jpg");
   background-size: cover;
   background-position: center;
-  .page-not-found-wrapper {
-    padding-top: 140px;
-    padding-bottom: 180px;
+  padding-top: 130px;
+  padding-bottom: 130px;
     h1 {
       color: white;
       font-size: 122px;
@@ -13,10 +12,6 @@
       margin-bottom: 60px;
     }
     h2 {
-      color: $main-light-text-color;
-      font-size: 37px;
-      font-weight: 700;
-      line-height: 49px;
       text-transform: uppercase;
       margin-bottom: 30px;
     }
@@ -24,7 +19,7 @@
       color: $main-text-color;
       font-size: 21px;
       line-height: 28px;
-      width: 400px;
+      max-width: 500px;
       margin-bottom: 120px;
     }
     a {
@@ -34,5 +29,12 @@
       display: table;
       margin-bottom: 30px;
     }
-  }
+}
+
+@media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
+
+}
+
+@media only screen and (max-width: $mobileWidth) {
+
 }

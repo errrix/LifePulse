@@ -11,7 +11,7 @@ class Footer extends React.Component {
                     <div className="container">
                         <img src="../../../dist/img/subscrible-img.jpg" alt=""/>
                         <div className="subscribe-block-wrapper">
-                            <h2 className="h2Header">
+                            <h2 className="h3Header">
                                 Следите за новостями LIFES<span>PULSE</span>
                             </h2>
                             <form action="">
