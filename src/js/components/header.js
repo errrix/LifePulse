@@ -88,12 +88,7 @@ class Header extends React.Component {
                                     <Link to='/allcampaing'>Начать помогать</Link>
                                 </li>
                                 <li>
-                                    {
-                                        (this.props.tokenData) ? (
-                                            <Link to='/create-fundraiser'>Подать заявку</Link>
-                                        ) : (
-                                            <Link onClick={this.openPopup}>Подать заявку</Link>
-                                    )}
+                                    <Link to='/create-fundraiser'>Подать заявку</Link>
                                 </li>
                             </ul>
 

@@ -140,7 +140,7 @@ class Registration extends React.Component {
 
                                     <span>Создать профиль</span>
 
-                                    <span className="loader"></span>
+                                    <span className="loader"/>
 
                                 </button>
                             </div>

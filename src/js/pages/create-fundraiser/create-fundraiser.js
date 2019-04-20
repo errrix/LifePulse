@@ -280,8 +280,9 @@ class createFundraiser extends React.Component {
                                 </span>
                             </label>
                             <div className="button-wrapper">
-                                <button type="submit" className="btn">
+                                <button type="submit" className="btn m--with-loader">
                                     Отправить
+                                    <span className="loader"/>
                                 </button>
                             </div>
 

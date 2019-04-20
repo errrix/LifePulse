@@ -2,7 +2,6 @@ import React from "react";
 import {Link} from 'react-router-dom';
 
 
-
 class LoginPopup extends React.Component {
 
     constructor(props) {
@@ -25,8 +24,8 @@ class LoginPopup extends React.Component {
         this.validatePassword = this.validatePassword.bind(this);
     }
 
-     closePopup(e) {
-        if(!document.querySelector('.popup .popup-content-block').contains(e.target)) {
+    closePopup(e) {
+        if (!document.querySelector('.popup .popup-content-block').contains(e.target)) {
             this.props.updateStatusPopup(false);
             // document.querySelector('.popup').classList.add('hide-popup');
         }
@@ -37,7 +36,7 @@ class LoginPopup extends React.Component {
     }
 
     validateEmail(e) {
-        if(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{1,6}$/.test(e.target.value)) {
+        if (/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{1,6}$/.test(e.target.value)) {
             this.setState({validate_email: true});
             e.target.parentNode.classList.remove('label-error');
         } else {
@@ -52,7 +51,7 @@ class LoginPopup extends React.Component {
     }
 
     validatePassword(e) {
-        if(e.target.value !== '') {
+        if (e.target.value !== '') {
             this.setState({validate_password: true});
             e.target.parentNode.classList.remove('label-error');
         } else {
@@ -63,7 +62,7 @@ class LoginPopup extends React.Component {
 
     submitLogin(e) {
         e.preventDefault();
-        if(!this.state.validate_email && !this.state.validate_password) {
+        if (!this.state.validate_email && !this.state.validate_password) {
             document.querySelector('.loader').classList.add('active-loader', 'm--loader');
             fetch('http://165.227.11.173:3001/api/users/login', {
                 headers: {
@@ -81,18 +80,18 @@ class LoginPopup extends React.Component {
                 .then(function (response) {
                     return response.json()
                 }).then((data) => {
-                    if(data.success) {
-                        this.props.addUserId(data.response.id);
-                        this.props.addUserRole(data.response.roles);
-                        this.props.updateStatusPopup(false);
-                        console.log(data.response);
-                    } else {
-                        let errorElem = document.querySelector('.email-error');
-                        errorElem.textContent = this.state.validate_email_message_from_response;
-                        errorElem.parentNode.classList.add('label-error');
-                        document.querySelector('.loader').classList.remove('active-loader', 'm--loader');
-                    }
-            }).catch(function(error) {
+                if (data.success) {
+                    this.props.addUserId(data.response.id);
+                    this.props.addUserRole(data.response.roles);
+                    this.props.updateStatusPopup(false);
+                    console.log(data.response);
+                } else {
+                    let errorElem = document.querySelector('.email-error');
+                    errorElem.textContent = this.state.validate_email_message_from_response;
+                    errorElem.parentNode.classList.add('label-error');
+                    document.querySelector('.loader').classList.remove('active-loader', 'm--loader');
+                }
+            }).catch(function (error) {
                 console.log(error);
             });
         }
@@ -107,17 +106,14 @@ class LoginPopup extends React.Component {
                             <form className="main-form" action="" onSubmit={this.submitLogin}>
                                 <label className="label-input">
                                     <span>Ваша почта:</span>
-                                    <input type="email" onChange={this.inputEmail} onBlur={this.validateEmail} autoComplete="email"/>
+                                    <input type="email" onChange={this.inputEmail} onBlur={this.validateEmail}
+                                           autoComplete="email"/>
                                     <span className="error email-error"/>
                                 </label>
-                                <div className="label-password-top-block">
-                                    <span>Пароль:</span>
-                                    <button className="forgot-password" type="button">
-                                        Забыли пароль?
-                                    </button>
-                                </div>
                                 <label className="label-input">
-                                    <input type="password" onChange={this.inputPassword} onBlur={this.validatePassword} autoComplete="password"/>
+                                    <span>Пароль:</span>
+                                    <input type="password" onChange={this.inputPassword} onBlur={this.validatePassword}
+                                           autoComplete="password"/>
                                     <span className="error">Введите пароль</span>
                                 </label>
                                 <label className="label-checkbox">
@@ -137,32 +133,36 @@ class LoginPopup extends React.Component {
                                 </div>
 
                             </form>
-                            <Link to='/registration' className="no-account">Нет аккаунта?</Link>
+                            <div className="label-password-top-block">
+                                <button className="forgot-password" type="button">Забыли пароль</button>
+                                <Link to='/registration' className="no-account">Нет аккаунта</Link>
+                            </div>
                         </div>
+
                         {/*<div className="popup-step m--restore-password hide-step">*/}
-                            {/*<button type="button" className="button-back">*/}
-                                {/*назад*/}
-                            {/*</button>*/}
+                        {/*<button type="button" className="button-back">*/}
+                        {/*назад*/}
+                        {/*</button>*/}
 
-                            {/*<h6>*/}
-                                {/*Введите email, который Вы указывали при регистрации:*/}
-                            {/*</h6>*/}
+                        {/*<h6>*/}
+                        {/*Введите email, который Вы указывали при регистрации:*/}
+                        {/*</h6>*/}
 
-                            {/*<form className="main-form" action="">*/}
-                                {/*<label className="label-input">*/}
-                                    {/*<input type="text"/>*/}
-                                    {/*<span className="error">Некорректный email. Попробуйте еще раз</span>*/}
-                                {/*</label>*/}
-                                {/*<div className="button-wrapper">*/}
-                                    {/*<button className="btn m--with-loader" type="submit">*/}
+                        {/*<form className="main-form" action="">*/}
+                        {/*<label className="label-input">*/}
+                        {/*<input type="text"/>*/}
+                        {/*<span className="error">Некорректный email. Попробуйте еще раз</span>*/}
+                        {/*</label>*/}
+                        {/*<div className="button-wrapper">*/}
+                        {/*<button className="btn m--with-loader" type="submit">*/}
 
-                                        {/*<span>отправить</span>*/}
+                        {/*<span>отправить</span>*/}
 
-                                        {/*<span className="loader"/>*/}
+                        {/*<span className="loader"/>*/}
 
-                                    {/*</button>*/}
-                                {/*</div>*/}
-                            {/*</form>*/}
+                        {/*</button>*/}
+                        {/*</div>*/}
+                        {/*</form>*/}
                         {/*</div>*/}
                         {/*<div className="popup-step m--thanks hide-step"/>*/}
                     </div>
