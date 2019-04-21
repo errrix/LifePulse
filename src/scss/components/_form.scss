@@ -101,6 +101,7 @@
     &.label-checkbox {
       margin-bottom: 20px;
       padding-left: 20px;
+
       .check__input {
         position: absolute;
         -webkit-appearance: none;
@@ -118,18 +119,17 @@
         background-color: white;
         background-repeat: no-repeat;
         background-position: 50% 50%;
-        box-shadow: 0 0 0 1.5px #fc8e45;
+        box-shadow: 0 0 0 1.5px $common-orange-light-color;
       }
 
       .check__input:checked + .check__box {
-        background-color: #fc8e45;
-        background-image: url(https://cdn.glitch.com/d6162378-5823-4160-a555-3d9789bd2b92%2Fcheck.svg?1550563475518);
+        background-color: $common-orange-light-color;
+        background-image: url(/../../dist/img/checked_svg.svg);
       }
 
-          a {
-            color: $common-orange-color;
-          }
-
+      a {
+        color: $common-orange-color;
+      }
 
 
       //&:hover {
@@ -215,7 +215,7 @@
 
   &.m--registration {
     max-width: 900px;
-    width:  100%;
+    width: 100%;
     margin: 0 auto;
     align-items: center;
 
@@ -234,7 +234,7 @@
       &.m--password {
         span.info {
           color: $common-alert-color;;
-            font-weight: 400;
+          font-weight: 400;
         }
       }
     }
