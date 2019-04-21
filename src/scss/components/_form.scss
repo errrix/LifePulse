@@ -100,57 +100,88 @@
 
     &.label-checkbox {
       margin-bottom: 20px;
-
-      &:hover {
-        cursor: pointer;
-
-        input ~ span:before {
-          border: 2px solid $common-orange-color;
-        }
+      padding-left: 20px;
+      .check__input {
+        position: absolute;
+        -webkit-appearance: none;
       }
 
-      input {
-        display: none;
+      .check__box {
+        position: absolute;
+        transition: 0.2s;
+        margin-top: .2em;
+        left: 0;
+        width: 13px;
+        height: 13px;
+        overflow: hidden;
+        border-radius: 0.05em;
+        background-color: white;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        box-shadow: 0 0 0 1.5px #fc8e45;
       }
 
-      input:checked ~ span:before {
-        background-color: $common-orange-color;
-        border: none;
+      .check__input:checked + .check__box {
+        background-color: #fc8e45;
+        background-image: url(https://cdn.glitch.com/d6162378-5823-4160-a555-3d9789bd2b92%2Fcheck.svg?1550563475518);
       }
-
-      span {
-        color: $main-text-color;
-        font-family: $mainfont;
-        font-size: 14px;
-        font-weight: 300;
-        margin-bottom: 0;
-        display: flex;
-        align-items: center;
-
-        &:before {
-          flex-shrink: 0;
-          box-sizing: border-box;
-          content: '';
-          display: block;
-          width: 20px;
-          height: 20px;
-          border: 2px solid $bg-main-color;
-          border-radius: 2px;
-          margin-right: 13px;
-        }
-
-        & > span {
-          display: inline;
-
-          &:before {
-            display: none;
-          }
 
           a {
             color: $common-orange-color;
           }
-        }
-      }
+
+
+
+      //&:hover {
+      //  cursor: pointer;
+      //
+      //  input ~ span:before {
+      //    border: 2px solid $common-orange-color;
+      //  }
+      //}
+      //
+      //input {
+      //  display: none;
+      //}
+      //
+      //input:checked ~ span:before {
+      //  background-color: $common-orange-color;
+      //  border: none;
+      //}
+      //
+      //span {
+      //  color: $main-text-color;
+      //  font-family: $mainfont;
+      //  font-size: 14px;
+      //  font-weight: 300;
+      //  margin-bottom: 0;
+      //  display: flex;
+      //  align-items: center;
+      //
+      //  &:before {
+      //    flex-shrink: 0;
+      //    box-sizing: border-box;
+      //    content: '';
+      //    display: block;
+      //    width: 20px;
+      //    height: 20px;
+      //    border: 2px solid $bg-main-color;
+      //    border-radius: 2px;
+      //    margin-right: 13px;
+      //  }
+      //
+      //  & > span {
+      //    display: inline;
+      //
+      //    &:before {
+      //      display: none;
+      //    }
+      //
+      //    a {
+      //      color: $common-orange-color;
+      //    }
+      //  }
+      //}
     }
 
     &.label-select {

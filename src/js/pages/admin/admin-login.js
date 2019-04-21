@@ -31,14 +31,14 @@ class adminLogin extends React.Component {
                                             <span className="error">Неверный пароль. Введите еще раз</span>
                                         </label>
                                         <label className="label-checkbox">
-
-                                            <input type="checkbox"/>
-                                            <span>Запомнить меня</span>
+                                            <input className="check__input" type="checkbox"/>
+                                            <span className="check__box"/>
+                                            Запомнить меня
                                         </label>
 
                                         <div className="button-wrapper">
                                             <button type="submit" className="btn m--with-loader">
-                                                <span>войти</span>
+                                                <span>Войти</span>
                                                 <span className="loader"/>
                                             </button>
                                         </div>

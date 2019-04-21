@@ -117,10 +117,9 @@ class LoginPopup extends React.Component {
                                     <span className="error">Введите пароль</span>
                                 </label>
                                 <label className="label-checkbox">
-                                    <input type="checkbox"/>
-                                    <span>
+                                    <input className="check__input" type="checkbox"/>
+                                    <span className="check__box"/>
                                         Запомнить меня
-                                    </span>
                                 </label>
 
                                 <div className="button-wrapper">

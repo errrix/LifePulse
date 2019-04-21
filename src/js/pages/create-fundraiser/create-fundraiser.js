@@ -271,13 +271,10 @@ class createFundraiser extends React.Component {
                             </div>
 
                             <label className="label-checkbox">
-                                <input type="checkbox"/>
-                                <span>
-                                    <span>
-                                        Я соглашаюсь с <Link to="/confidentiality" target="_blank"> Политикой конфиденциальности</Link> и
-                                        <Link to="/rules" target="_blank"> Правилами пользования сайтом</Link>
-                                    </span>
-                                </span>
+                                <input className="check__input" type="checkbox"/>
+                                <span className="check__box"/>
+                                Я соглашаюсь с <Link to="/confidentiality" target="_blank"> Политикой конфиденциальности</Link> и
+                                <Link to="/rules" target="_blank"> Правилами пользования сайтом</Link>
                             </label>
                             <div className="button-wrapper">
                                 <button type="submit" className="btn m--with-loader">
