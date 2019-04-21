@@ -61,73 +61,69 @@ class viewCampaign extends React.Component {
                                     <div className="text-block">
                                         <div>
                                             <span>Сумма сбора: </span>
-                                            <span>100 000 грн</span>
+                                            <span>{this.state.card.sum}</span>
                                         </div>
                                         <div>
                                             <span>Дата создания сбора: </span>
-                                            <span>21.03.2018</span>
-                                        </div>
-                                        <div>
-                                            <span>Дата окончания сбора: </span>
-                                            <span>21.03.2018</span>
+                                            <span>{new Date(Date.parse(this.state.card.createdAt)).toLocaleDateString()}</span>
                                         </div>
                                     </div>
                                     <div className="text-wrapper">
                                         <div className="text-block">
                                             <div className="text-item">
                                                 <span>Пользователь: </span>
-                                                <span>Василий Васильев Васильевич</span>
+                                                <span>{this.state.card.full_name}</span>
                                             </div>
                                             <div className="text-item">
-                                                <span>Название банка</span>
-                                                <span>АО КБ «ПРИВАТБАНК»</span>
+                                                <span>Название банка: </span>
+                                                <span>{this.state.card.bank}</span>
                                             </div>
                                             <div className="text-item">
                                                 <span>Номер счета: </span>
-                                                <span>4242 4242 4242 4242</span>
+                                                <span>{this.state.card.account_number}</span>
                                             </div>
                                             <div className="text-item">
                                                 <span>МФО: </span>
-                                                <span>434312</span>
+                                                <span>{this.state.card.mfo}</span>
                                             </div>
                                             <div className="text-item">
                                                 <span>ИНН: </span>
-                                                <span>0987654321</span>
+                                                <span>{this.state.card.inn}</span>
                                             </div>
                                             <div className="text-item">
                                                 <span>email: </span>
-                                                <span>user@gmail.com</span>
+                                                <span>!!!!!!!!!!!!!!!!!!!!!!!!!! FIX_ME</span>
                                             </div>
                                         </div>
 
                                         <div className="text-block">
                                             <div className="text-item">
                                                 <span>Пациент: </span>
-                                                <span>Василий Васильев Васильевич</span>
+                                                <span>!!!!!!!!!!!!!!!!!!!!!!!!! FIX_ME</span>
                                             </div>
                                             <div className="text-item">
                                                 <span>Дата рождения: </span>
-                                                <span>08.08.2018</span>
+                                                <span>{new Date(Date.parse(this.state.card.birthday)).toLocaleDateString()}</span>
                                             </div>
 
                                             <div className="text-item">
                                                 <span>Населенный пункт: </span>
-                                                <span>Одесса</span>
+                                                <span>{this.state.card.city}</span>
                                             </div>
                                             <div className="text-item">
                                                 <span>Адрес: </span>
-                                                <span>Канатная 22, кв. 22</span>
+                                                <span>{this.state.card.address}</span>
                                             </div>
                                             <div className="text-item">
                                                 <span>Номер телефона: </span>
-                                                <span>+38 (096) 33 33 333</span>
+                                                <span>{this.state.card.phone}</span>
                                             </div>
                                         </div>
                                     </div>
 
                                     <label className="label-select">
                                         <span> Категория заболевания</span>
-                                        <select disabled>
+                                        <select disabled="disabled" value={this.state.card.category}>
                                             <option value="">Сердечно-сосудистые заболевания</option>
                                             <option value="">два</option>
                                             <option value="">три</option>
@@ -148,7 +144,7 @@ class viewCampaign extends React.Component {
 
                                     <label className="label-input label-textarea">
                                         <span>Основной текст заявки</span>
-                                        <textarea disabled="disabled">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam animi assumenda atque autem blanditiis dolorem dolores esse, explicabo, facilis laboriosam libero maiores minus molestiae nam non, odit quisquam quo quod ratione repudiandae sed tempore vero. Accusamus alias architecto atque aut beatae culpa cum delectus deleniti deserunt dolor eligendi et, excepturi exercitationem facere incidunt inventore ipsam laboriosam libero minima molestias nulla odio quam quisquam, repellat similique, sint suscipit veritatis. Consequatur corporis deserunt dicta eius facilis ipsa itaque nisi veritatis. A at autem excepturi, illo, itaque natus nisi optio perspiciatis porro quo quod reiciendis sed totam, vel veritatis. Aliquid architecto aspernatur debitis deserunt dolore eius esse eum excepturi fugiat magnam nam nesciunt nisi provident, qui, quos reprehenderit sapiente vero. Aut beatae, consequatur deleniti dicta enim, labore libero minima molestias neque officiis praesentium quidem tenetur? Aliquam amet, asperiores, aut, consequatur cum debitis doloribus dolorum eius ex harum ipsa iure iusto laborum magnam molestias nostrum obcaecati officia perferendis quis reiciendis reprehenderit sequi tempora ut vel voluptate. Enim nesciunt perspiciatis repudiandae sapiente suscipit. Ab ad aliquid ipsum magnam porro ut vero! Alias, aperiam commodi consectetur ea eligendi modi molestias nam, perferendis quos rerum sequi sunt, tempore totam ut voluptatem. Ad architecto assumenda blanditiis culpa cum cupiditate deserunt dicta eaque eum exercitationem expedita facilis id incidunt ipsa iste, itaque iusto laborum mollitia nemo nulla obcaecati officia omnis possimus quibusdam quisquam quos saepe sed sequi suscipit tempora tempore vel velit voluptatum. Asperiores assumenda commodi consectetur consequuntur exercitationem, in iure laborum, minima mollitia porro quibusdam quidem velit voluptatibus. Aliquid at atque blanditiis commodi facere, in necessitatibus nostrum porro quod sint tempora vero voluptatum! Dolore doloribus eum fuga provident vero! Aliquam modi quo reiciendis tempora ullam ut voluptatibus. Alias architecto blanditiis dicta, dolore dolores ex excepturi facere harum minima molestiae natus numquam odit, quos recusandae reiciendis repellendus, voluptatibus!
+                                        <textarea disabled="disabled"  value={this.state.card.main_text}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam animi assumenda atque autem blanditiis dolorem dolores esse, explicabo, facilis laboriosam libero maiores minus molestiae nam non, odit quisquam quo quod ratione repudiandae sed tempore vero. Accusamus alias architecto atque aut beatae culpa cum delectus deleniti deserunt dolor eligendi et, excepturi exercitationem facere incidunt inventore ipsam laboriosam libero minima molestias nulla odio quam quisquam, repellat similique, sint suscipit veritatis. Consequatur corporis deserunt dicta eius facilis ipsa itaque nisi veritatis. A at autem excepturi, illo, itaque natus nisi optio perspiciatis porro quo quod reiciendis sed totam, vel veritatis. Aliquid architecto aspernatur debitis deserunt dolore eius esse eum excepturi fugiat magnam nam nesciunt nisi provident, qui, quos reprehenderit sapiente vero. Aut beatae, consequatur deleniti dicta enim, labore libero minima molestias neque officiis praesentium quidem tenetur? Aliquam amet, asperiores, aut, consequatur cum debitis doloribus dolorum eius ex harum ipsa iure iusto laborum magnam molestias nostrum obcaecati officia perferendis quis reiciendis reprehenderit sequi tempora ut vel voluptate. Enim nesciunt perspiciatis repudiandae sapiente suscipit. Ab ad aliquid ipsum magnam porro ut vero! Alias, aperiam commodi consectetur ea eligendi modi molestias nam, perferendis quos rerum sequi sunt, tempore totam ut voluptatem. Ad architecto assumenda blanditiis culpa cum cupiditate deserunt dicta eaque eum exercitationem expedita facilis id incidunt ipsa iste, itaque iusto laborum mollitia nemo nulla obcaecati officia omnis possimus quibusdam quisquam quos saepe sed sequi suscipit tempora tempore vel velit voluptatum. Asperiores assumenda commodi consectetur consequuntur exercitationem, in iure laborum, minima mollitia porro quibusdam quidem velit voluptatibus. Aliquid at atque blanditiis commodi facere, in necessitatibus nostrum porro quod sint tempora vero voluptatum! Dolore doloribus eum fuga provident vero! Aliquam modi quo reiciendis tempora ullam ut voluptatibus. Alias architecto blanditiis dicta, dolore dolores ex excepturi facere harum minima molestiae natus numquam odit, quos recusandae reiciendis repellendus, voluptatibus!
                         </textarea>
                                     </label>
 

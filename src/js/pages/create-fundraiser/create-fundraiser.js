@@ -79,7 +79,7 @@ class createFundraiser extends React.Component {
                 "address": this.state.address,
                 "birthday": this.state.birthday,
                 "category": [this.state.category],
-                "main_text": "main_text",
+                "main_text": this.state.main_text,
                 "photo_passports": this.state.photo_passports,
                 "photo_passports_sick": this.state.photo_passports_sick,
                 "photo_preview": this.state.photo_preview,
@@ -269,7 +269,8 @@ class createFundraiser extends React.Component {
 
                             <label className="label-input label-textarea">
                                 <span>Опишите свою ситуацию</span>
-                                <textarea placeholder="Опишите свою ситуацию"/>
+                                <textarea placeholder="Опишите свою ситуацию" name="main_text"
+                                          onChange={this.StateValue}/>
                             </label>
 
                             <div className="block-line"/>
