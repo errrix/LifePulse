@@ -5,6 +5,37 @@ import AdminHeader from '../../components/adminHeader'
 
 class viewCampaign extends React.Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            card: {}
+        };
+
+        this.getthisCard = this.getthisCard.bind(this);
+    }
+
+    getthisCard() {
+        fetch('http://165.227.11.173:3001/api/card/5cbcb4ab8eb41f7b3492fd91', {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            method: 'GET',
+            credentials: 'include'
+        })
+            .then(function (response) {
+                return response.json()
+            }).then((json) => {
+            console.log(json);
+            this.setState({card : json.response})
+            console.log(this.state.card)
+        })
+    }
+
+    componentDidMount() {
+        this.getthisCard();
+    }
+
     render() {
         return (
             <div>
@@ -24,7 +55,7 @@ class viewCampaign extends React.Component {
                                 <form action="" className="main-form new-campaign-form view-campaign">
                                     <label className="label-input">
                                         <span>Цель сбора средств:</span>
-                                        <textarea disabled>Острое нарушение мозгового кровообращения по ишемическому типу в басейне левой внутренней сонной артерии внутренней сонной артерии</textarea>
+                                        <textarea disabled="disabled" value={this.state.card.text_preview}/>
                                     </label>
 
                                     <div className="text-block">
@@ -117,7 +148,7 @@ class viewCampaign extends React.Component {
 
                                     <label className="label-input label-textarea">
                                         <span>Основной текст заявки</span>
-                                        <textarea disabled>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam animi assumenda atque autem blanditiis dolorem dolores esse, explicabo, facilis laboriosam libero maiores minus molestiae nam non, odit quisquam quo quod ratione repudiandae sed tempore vero. Accusamus alias architecto atque aut beatae culpa cum delectus deleniti deserunt dolor eligendi et, excepturi exercitationem facere incidunt inventore ipsam laboriosam libero minima molestias nulla odio quam quisquam, repellat similique, sint suscipit veritatis. Consequatur corporis deserunt dicta eius facilis ipsa itaque nisi veritatis. A at autem excepturi, illo, itaque natus nisi optio perspiciatis porro quo quod reiciendis sed totam, vel veritatis. Aliquid architecto aspernatur debitis deserunt dolore eius esse eum excepturi fugiat magnam nam nesciunt nisi provident, qui, quos reprehenderit sapiente vero. Aut beatae, consequatur deleniti dicta enim, labore libero minima molestias neque officiis praesentium quidem tenetur? Aliquam amet, asperiores, aut, consequatur cum debitis doloribus dolorum eius ex harum ipsa iure iusto laborum magnam molestias nostrum obcaecati officia perferendis quis reiciendis reprehenderit sequi tempora ut vel voluptate. Enim nesciunt perspiciatis repudiandae sapiente suscipit. Ab ad aliquid ipsum magnam porro ut vero! Alias, aperiam commodi consectetur ea eligendi modi molestias nam, perferendis quos rerum sequi sunt, tempore totam ut voluptatem. Ad architecto assumenda blanditiis culpa cum cupiditate deserunt dicta eaque eum exercitationem expedita facilis id incidunt ipsa iste, itaque iusto laborum mollitia nemo nulla obcaecati officia omnis possimus quibusdam quisquam quos saepe sed sequi suscipit tempora tempore vel velit voluptatum. Asperiores assumenda commodi consectetur consequuntur exercitationem, in iure laborum, minima mollitia porro quibusdam quidem velit voluptatibus. Aliquid at atque blanditiis commodi facere, in necessitatibus nostrum porro quod sint tempora vero voluptatum! Dolore doloribus eum fuga provident vero! Aliquam modi quo reiciendis tempora ullam ut voluptatibus. Alias architecto blanditiis dicta, dolore dolores ex excepturi facere harum minima molestiae natus numquam odit, quos recusandae reiciendis repellendus, voluptatibus!
+                                        <textarea disabled="disabled">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam animi assumenda atque autem blanditiis dolorem dolores esse, explicabo, facilis laboriosam libero maiores minus molestiae nam non, odit quisquam quo quod ratione repudiandae sed tempore vero. Accusamus alias architecto atque aut beatae culpa cum delectus deleniti deserunt dolor eligendi et, excepturi exercitationem facere incidunt inventore ipsam laboriosam libero minima molestias nulla odio quam quisquam, repellat similique, sint suscipit veritatis. Consequatur corporis deserunt dicta eius facilis ipsa itaque nisi veritatis. A at autem excepturi, illo, itaque natus nisi optio perspiciatis porro quo quod reiciendis sed totam, vel veritatis. Aliquid architecto aspernatur debitis deserunt dolore eius esse eum excepturi fugiat magnam nam nesciunt nisi provident, qui, quos reprehenderit sapiente vero. Aut beatae, consequatur deleniti dicta enim, labore libero minima molestias neque officiis praesentium quidem tenetur? Aliquam amet, asperiores, aut, consequatur cum debitis doloribus dolorum eius ex harum ipsa iure iusto laborum magnam molestias nostrum obcaecati officia perferendis quis reiciendis reprehenderit sequi tempora ut vel voluptate. Enim nesciunt perspiciatis repudiandae sapiente suscipit. Ab ad aliquid ipsum magnam porro ut vero! Alias, aperiam commodi consectetur ea eligendi modi molestias nam, perferendis quos rerum sequi sunt, tempore totam ut voluptatem. Ad architecto assumenda blanditiis culpa cum cupiditate deserunt dicta eaque eum exercitationem expedita facilis id incidunt ipsa iste, itaque iusto laborum mollitia nemo nulla obcaecati officia omnis possimus quibusdam quisquam quos saepe sed sequi suscipit tempora tempore vel velit voluptatum. Asperiores assumenda commodi consectetur consequuntur exercitationem, in iure laborum, minima mollitia porro quibusdam quidem velit voluptatibus. Aliquid at atque blanditiis commodi facere, in necessitatibus nostrum porro quod sint tempora vero voluptatum! Dolore doloribus eum fuga provident vero! Aliquam modi quo reiciendis tempora ullam ut voluptatibus. Alias architecto blanditiis dicta, dolore dolores ex excepturi facere harum minima molestiae natus numquam odit, quos recusandae reiciendis repellendus, voluptatibus!
                         </textarea>
                                     </label>
 

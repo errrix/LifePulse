@@ -20,8 +20,10 @@ class AdminRouting extends React.Component {
     }
 
     statusRole() {
-        if ((this.props.tokenData.indexOf('admin') !== -1 || this.props.tokenData.indexOf('moderator') !== -1)
-            && this.props.tokenData.length !== 0) {
+        if ( true
+            // (this.props.tokenData.indexOf('admin') !== -1 || this.props.tokenData.indexOf('moderator') !== -1)
+            // && this.props.tokenData.length !== 0
+        ) {
             return <Fragment>
                 <Switch>
                     <Route exact path="/admin" render={ ()=> <Redirect to="/admin/categories"/> }/>
