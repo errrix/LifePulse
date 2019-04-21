@@ -20,8 +20,8 @@ class Registration extends React.Component {
         this.StateValue = this.StateValue.bind(this);
     }
 
-    sendData() {
-        // e.preventDefault();
+    sendData(e) {
+        e.preventDefault(e);
         // console.log('some test');
         // console.log(this.state.validate_first_name, this.state.validate_email, this.state.validate_password, this.state.validate_confirm);
         // if(this.state.validate_first_name &&

@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 import validator from './components/validator'
+import {connect} from "react-redux";
 
 class createFundraiser extends React.Component {
 
@@ -35,6 +36,7 @@ class createFundraiser extends React.Component {
 
         this.StateValue = this.StateValue.bind(this);
         this.LoadImage = this.LoadImage.bind(this);
+        this.NewFundraiser = this.NewFundraiser.bind(this);
     }
 
     getCategories() {
@@ -50,6 +52,46 @@ class createFundraiser extends React.Component {
             }).then((json) => {
             this.setState({all_categories: json.response});
             this.setState({category: json.response[0]._id});
+        })
+    }
+
+    NewFundraiser(e) {
+        e.preventDefault();
+        console.log(this.props.userId);
+        fetch('http://165.227.11.173:3001/api/card', {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include',
+            method: 'POST',
+            body: JSON.stringify({
+                "user": this.props.userId,
+                "status": "active",
+                "text_preview": this.state.text_preview,
+                "sum": this.state.sum,
+                "full_name": this.state.full_name,
+                "account_number": this.state.account_number,
+                "bank": this.state.bank,
+                "mfo": this.state.mfo,
+                "inn": this.state.inn,
+                "phone": this.state.phone,
+                "city": this.state.country,
+                "address": this.state.address,
+                "birthday": this.state.birthday,
+                "category": [this.state.category],
+                "main_text": "main_text",
+                "photo_passports": this.state.photo_passports,
+                "photo_passports_sick": this.state.photo_passports_sick,
+                "photo_preview": this.state.photo_preview,
+                "photo_documents": [this.state.photo_documents],
+                "for_whom_name": this.state.for_whom_name
+            })
+        })
+            .then(function (response) {
+                return response.json()
+            }).then((json) => {
+            console.log(json);
+            // this.props.updateStatusPopup(false);
         })
     }
 
@@ -172,7 +214,8 @@ class createFundraiser extends React.Component {
                                 {this.state.to_whom === 'self' ? false : (
                                     <label className="label-input" id="another-recipient">
                                         <span>Для кого собираются средства?</span>
-                                        <input placeholder="Василий Васильев Васильевич" type="text" name="for_whom_name"
+                                        <input placeholder="Василий Васильев Васильевич" type="text"
+                                               name="for_whom_name"
                                                onChange={this.StateValue} onBlur={validator.forWhomName}/>
                                         <span className="error">Неверный формат. Попробуйте еще раз</span>
                                     </label>
@@ -262,7 +305,8 @@ class createFundraiser extends React.Component {
                                     </div>
                                 )}
 
-                                <h6 className="h4Header">Фото / скан больничных документов (выписки, заключения врачей)</h6>
+                                <h6 className="h4Header">Фото / скан больничных документов (выписки, заключения
+                                    врачей)</h6>
 
                                 <label className="label-file">
                                     <span className="btn btn-transparent">ВЫБРАТЬ</span>
@@ -273,11 +317,12 @@ class createFundraiser extends React.Component {
                             <label className="label-checkbox">
                                 <input className="check__input" type="checkbox"/>
                                 <span className="check__box"/>
-                                Я соглашаюсь с <Link to="/confidentiality" target="_blank"> Политикой конфиденциальности</Link> и
+                                Я соглашаюсь с <Link to="/confidentiality" target="_blank"> Политикой
+                                конфиденциальности</Link> и
                                 <Link to="/rules" target="_blank"> Правилами пользования сайтом</Link>
                             </label>
                             <div className="button-wrapper">
-                                <button type="submit" className="btn m--with-loader">
+                                <button type="submit" className="btn m--with-loader" onClick={this.NewFundraiser}>
                                     Отправить
                                     <span className="loader"/>
                                 </button>
@@ -293,5 +338,12 @@ class createFundraiser extends React.Component {
     }
 };
 
+const mapStateToProps = (store) => {
+    return {
+        data: store,
+        userId: store.user_id
+    }
+};
 
-export default createFundraiser;
+
+export default connect(mapStateToProps)(createFundraiser);
