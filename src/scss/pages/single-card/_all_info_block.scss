@@ -1,141 +1,331 @@
-.allInfoBlock {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 50px;
-  .allHistoryBlock {
-    width: 66%;
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
-    background-color: #ffffff;
-    .allHistoryBlock-imgBlock {
-      width: 100%;
-      height: 540px;
-      overflow: hidden;
-      img {
+.user-card-block {
+
+  .help-btn-block {
+    display: none;
+  }
+
+  .money-count {
+    display: none;
+  }
+
+  .allInfoBlock {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+
+    .allHistoryBlock {
+      width: 66%;
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+      background-color: #ffffff;
+
+      .allHistoryBlock-imgBlock {
         width: 100%;
         height: 540px;
-        object-fit: cover;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 540px;
+          object-fit: cover;
+        }
+      }
+
+      .customUserBlock {
+        padding: 50px 30px 0 30px;
+
+        & > p {
+          margin-bottom: 20px;
+          color: $main-text-color;
+          font-size: 16px;
+          line-height: 1.4;
+          text-indent: 1.5em;
+        }
+
+        & > h2 {
+          color: $main-text-color;
+          font-size: 34px;
+          font-weight: 500;
+          line-height: 49px;
+          display: block;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.24);
+          margin-bottom: 25px;
+        }
+
+        & > ol {
+          margin: 10px;
+
+          li {
+            color: $main-text-color;
+            font-size: 16px;
+            line-height: 1.4;
+            margin-bottom: 10px;
+
+            &:before {
+              content: '';
+              width: 10px;
+              height: 10px;
+              border-radius: 50%;
+              background-color: $bg-orange-color;
+              display: inline-block;
+              margin-right: 10px;
+            }
+          }
+        }
+
+        figure {
+          img {
+            width: 80%;
+            margin: 0 auto;
+            display: block;
+          }
+
+          figcaption {
+            color: $main-text-color;
+            font-size: 16px;
+            line-height: 24px;
+            text-align: center;
+          }
+        }
+
       }
     }
-    .customUserBlock {
-      padding: 50px 30px 0 30px;
-      &>p {
-        margin-bottom: 20px;
+
+    .shortInfoBlock {
+      width: 32%;
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      align-self: flex-start;
+
+      .shortInfoBlock-age, .shortInfoBlock-gender, .shortInfoBlock-locations, .shortInfoBlock-category {
         color: $main-text-color;
-        font-size: 18px;
-        line-height: 24px;
-        text-indent: 1.5em;
-      }
-      &>h2 {
-        color: $main-text-color;
-        font-size: 37px;
+        font-size: 16px;
+        line-height: 21px;
         font-weight: 700;
-        line-height: 49px;
-        display: block;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.24);
-        margin-bottom: 25px;
+        margin-bottom: 15px;
+
+        span {
+          font-weight: 400;
+        }
       }
-      &>ol {
-        margin: 10px;
-        li {
-          color: $main-text-color;
-          font-size: 18px;
-          line-height: 28px;
-          margin-bottom: 10px;
-          &:before {
-            content: '';
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: $bg-orange-color;
-            display: inline-block;
-            margin-right: 10px;
+
+      .shortInfoBlock-startFund, .shortInfoBlock-endFund {
+        color: $main-text-color;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 18px;
+        margin-bottom: 15px;
+      }
+
+      .btn {
+        padding: 0 40px;
+        margin: 50px auto 30px auto;
+        width: 100%;
+
+        &.btn-transparent {
+          margin-top: 0;
+          margin-bottom: 80px;
+        }
+      }
+
+      .info-block {
+        display: flex;
+        margin-bottom: 25px;
+        margin-top: 15px;
+
+        div {
+          margin-right: 14px;
+          display: flex;
+          align-items: center;
+
+          svg {
+            fill: $bg-orange-color;
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+          }
+
+          p {
+            color: $main-text-color;
+            font-family: $mainfont;
+            font-size: 14px;
+            font-weight: 300;
           }
         }
       }
-      figure {
-        img {
-          width: 80%;
-          margin: 0 auto;
-          display: block;
+
+      .money-count {
+        display: block;
+        progress {
+          width: 100%;
+          height: 15px;
+          border: 1px solid $light-gray-text-color;
+          margin-bottom: 10px;
         }
-        figcaption {
-          color: $main-text-color;
-          font-size: 16px;
-          line-height: 24px;
-          text-align: center;
+
+        progress::-webkit-progress-bar {
+          background-color: $bg-second-color;
+        }
+
+        progress::-webkit-progress-value {
+          background-color: $bg-orange-color;
+        }
+
+        .money-how {
+          display: flex;
+          justify-content: space-between;
+
+          p {
+            color: $main-text-color;
+            font-family: $mainfont;
+            font-size: 14px;
+            font-weight: 300;
+          }
+        }
+      }
+
+      .repostBlock {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.24);
+
+        .social-network {
+          h5 {
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 21px;
+            text-align: center;
+          }
+
+          ul {
+            display: flex;
+            justify-content: center;
+
+            li {
+              margin-right: 12px;
+
+              a {
+                display: block;
+
+                svg {
+                  width: 30px;
+                  height: 30px;
+                  fill: $bg-orange-color;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .advertising-block {
+        margin-top: 50px;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .helpedUs {
+        padding: 40px;
+
+        h5 {
+          font-size: 21px;
+          font-weight: 700;
+          margin-bottom: 20px;
+        }
+
+        p {
+          margin-bottom: 20px;
+
+          span {
+            display: block;
+            font-size: 14px;
+            line-height: 18px;
+          }
         }
       }
 
     }
   }
+}
 
-  .shortInfoBlock {
-    width: 32%;
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    align-self: flex-start;
-    .shortInfoBlock-age, .shortInfoBlock-gender, .shortInfoBlock-locations, .shortInfoBlock-category {
-      color: $main-text-color;
-      font-size: 16px;
-      line-height: 21px;
-      font-weight: 700;
-      margin-bottom: 15px;
-      span {
-        font-weight: 400;
-      }
-    }
-    .shortInfoBlock-startFund, .shortInfoBlock-endFund {
-      color: $main-text-color;
-      font-size: 16px;
-      font-weight: 300;
-      line-height: 18px;
-      margin-bottom: 5px;
-    }
-    .btn {
-      padding: 0 40px;
-      margin: 50px auto 30px auto;
-      width: 100%;
-      &.btn-transparent {
-        margin-top: 0;
-        margin-bottom: 80px;
-      }
-    }
-
-    .info-block {
-      display: flex;
-      margin-bottom: 25px;
-      margin-top: 15px;
-
-      div {
-        margin-right: 14px;
-        display: flex;
-        align-items: center;
-
-        svg {
-          fill: $bg-orange-color;
-          width: 20px;
-          height: 20px;
-          margin-right: 5px;
-        }
-
-        p {
-          color: $main-text-color;
-          font-family: $mainfont;
-          font-size: 14px;
-          font-weight: 300;
-        }
-      }
-    }
+@media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
+  .user-card-block {
     .money-count {
+    display: block;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    progress {
+      width: 100%;
+      height: 15px;
+      border: 1px solid $light-gray-text-color;
+      margin-bottom: 10px;
+    }
+
+    progress::-webkit-progress-bar {
+      background-color: $bg-second-color;
+    }
+
+    progress::-webkit-progress-value {
+      background-color: $bg-orange-color;
+    }
+
+    .money-how {
+      display: flex;
+      justify-content: space-between;
+
+      p {
+        color: $main-text-color;
+        font-family: $mainfont;
+        font-size: 14px;
+        font-weight: 300;
+      }
+    }
+  }
+    .allInfoBlock {
+      flex-direction: column;
+
+      .allHistoryBlock {
+        width: 100%;
+        margin-bottom: 20px;
+        .customUserBlock {
+          padding: 50px 15px 0 15px;
+        }
+      }
+      .shortInfoBlock {
+        width: 100%;
+      }
+    }
+
+    .help-btn-block {
+      display: block;
+      margin-bottom: 20px;
+      position: sticky;
+      top: 90px;
+      z-index: 3;
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $mobileWidth) {
+  .user-card-block {
+    .money-count {
+      display: block;
+      margin-top: 30px;
+      margin-bottom: 30px;
       progress {
         width: 100%;
         height: 15px;
         border: 1px solid $light-gray-text-color;
         margin-bottom: 10px;
       }
+
       progress::-webkit-progress-bar {
         background-color: $bg-second-color;
       }
+
       progress::-webkit-progress-value {
         background-color: $bg-orange-color;
       }
@@ -152,61 +342,30 @@
         }
       }
     }
-    .repostBlock {
-      padding: 40px;
-      border-top: 1px solid rgba(0, 0, 0, 0.24);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.24);
-      .social-network {
-        h5 {
-          margin-bottom: 10px;
-          font-size: 14px;
-          font-weight: 300;
-          line-height: 21px;
-          text-align: center;
-        }
+    .allInfoBlock {
+      flex-direction: column;
 
-        ul {
-          display: flex;
-          justify-content: center;
-
-          li {
-            margin-right: 12px;
-
-            a {
-              display: block;
-
-              svg {
-                width: 30px;
-                height: 30px;
-                fill: $bg-orange-color;
-              }
-            }
-          }
+      .allHistoryBlock {
+        width: 100%;
+        margin-bottom: 20px;
+        .customUserBlock {
+          padding: 50px 15px 0 15px;
         }
       }
-    }
-    .advertising-block {
-      margin-top: 50px;
-      img {
+      .shortInfoBlock {
         width: 100%;
       }
     }
-    .helpedUs {
-      padding: 40px;
-      h5 {
-        font-size: 21px;
-        font-weight: 700;
-        margin-bottom: 20px;
-      }
-      p {
-        margin-bottom: 20px;
-        span {
-          display: block;
-          font-size: 14px;
-          line-height: 18px;
-        }
+
+    .help-btn-block {
+      display: block;
+      margin-bottom: 20px;
+      position: sticky;
+      top: 90px;
+      z-index: 3;
+      button {
+        width: 100%;
       }
     }
-
   }
 }
