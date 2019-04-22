@@ -3,11 +3,6 @@
 
   h1 {
     text-align: center;
-    color: $main-light-text-color;
-    font-family: $mainfont;
-    font-size: 37px;
-    font-weight: 500;
-    line-height: 37px;
     text-transform: uppercase;
     margin-bottom: 50px;
   }
@@ -16,11 +11,17 @@
 @media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
   .new-campaign-block {
     padding: 120px 0 50px 0;
+    h1 {
+      margin-bottom: 40px;
+    }
   }
 }
 
 @media only screen and (max-width: $mobileWidth) {
   .new-campaign-block {
     padding: 120px 0 50px 0;
+    h1 {
+      margin-bottom: 30px;
+    }
   }
 }

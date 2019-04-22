@@ -130,58 +130,6 @@
       a {
         color: $common-orange-color;
       }
-
-
-      //&:hover {
-      //  cursor: pointer;
-      //
-      //  input ~ span:before {
-      //    border: 2px solid $common-orange-color;
-      //  }
-      //}
-      //
-      //input {
-      //  display: none;
-      //}
-      //
-      //input:checked ~ span:before {
-      //  background-color: $common-orange-color;
-      //  border: none;
-      //}
-      //
-      //span {
-      //  color: $main-text-color;
-      //  font-family: $mainfont;
-      //  font-size: 14px;
-      //  font-weight: 300;
-      //  margin-bottom: 0;
-      //  display: flex;
-      //  align-items: center;
-      //
-      //  &:before {
-      //    flex-shrink: 0;
-      //    box-sizing: border-box;
-      //    content: '';
-      //    display: block;
-      //    width: 20px;
-      //    height: 20px;
-      //    border: 2px solid $bg-main-color;
-      //    border-radius: 2px;
-      //    margin-right: 13px;
-      //  }
-      //
-      //  & > span {
-      //    display: inline;
-      //
-      //    &:before {
-      //      display: none;
-      //    }
-      //
-      //    a {
-      //      color: $common-orange-color;
-      //    }
-      //  }
-      //}
     }
 
     &.label-select {

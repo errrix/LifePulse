@@ -126,9 +126,7 @@ class createFundraiser extends React.Component {
             <div>
                 <main className="new-campaign-block">
                     <div className="container">
-                        <h1>
-                            новая публикация
-                        </h1>
+                        <h1 className="h2Header">Новая публикация</h1>
 
                         <form action="" className="main-form new-campaign-form">
 

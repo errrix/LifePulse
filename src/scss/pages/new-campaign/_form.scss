@@ -14,7 +14,6 @@
 
       textarea {
         min-height: 75px;
-        max-height: 115px;
         line-height: 22px;
         padding: 15px 15px;
       }
@@ -315,9 +314,17 @@
     label {
       width: 100%!important;
       margin-right: 0!important;
+      &.label-input {
+        textarea {
+          min-height: 170px;
+        }
+      }
       input, textarea {
         width: 100%!important;
         min-width: unset!important;
+      }
+      input.check__input {
+        width: initial !important;
       }
     }
   }
