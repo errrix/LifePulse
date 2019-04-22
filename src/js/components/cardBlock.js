@@ -4,12 +4,27 @@ import Slider from "react-slick";
 
 class CardBlock extends React.Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            cards: []
+        };
+
+        // this.getAmountCard = this.getAmountCard.bind(this);
+    }
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        return {cards: nextProps.cards};
+    }
+
     render() {
         const {title} = this.props;
 
+
         var settings = {
             dots: true,
-            arrows : false,
+            arrows: false,
             infinite: false,
             speed: 500,
             slidesToShow: 3,
@@ -44,15 +59,12 @@ class CardBlock extends React.Component {
                     </h2>
                     <ul className="card-block-list">
                         <Slider {...settings}>
-                        <li>
-                            <SingleCard></SingleCard>
-                        </li>
-                        <li>
-                            <SingleCard></SingleCard>
-                        </li>
-                        <li>
-                            <SingleCard></SingleCard>
-                        </li>
+                            {this.state.cards ? this.state.cards.map((item) => {
+                                return <li key={item._id}>
+                                         <SingleCard card={item}/>
+                                       </li>
+                            }) : false
+                            }
                         </Slider>
                     </ul>
 

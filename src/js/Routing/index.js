@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 
 import {Route, HashRouter, Switch, BrowserRouter} from 'react-router-dom';
-import Homepage from './../pages/homepage'
+import Homepage from '../pages/homepage/homepage'
 import Faq from './../pages/faq'
 import pageNotFound from './../pages/404'
 import donate from './../pages/donate'
