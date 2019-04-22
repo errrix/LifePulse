@@ -101,7 +101,7 @@
     &.label-checkbox {
       margin-bottom: 20px;
       padding-left: 20px;
-
+	  font-size: 14px;
       .check__input {
         position: absolute;
         -webkit-appearance: none;
@@ -110,10 +110,10 @@
       .check__box {
         position: absolute;
         transition: 0.2s;
-        margin-top: .2em;
+        margin-top: .1em;
         left: 0;
-        width: 13px;
-        height: 13px;
+        width: 12px;
+        height: 12px;
         overflow: hidden;
         border-radius: 0.05em;
         background-color: white;
@@ -123,8 +123,8 @@
       }
 
       .check__input:checked + .check__box {
+		background-image: url(/../../dist/img/checked_svg.svg);
         background-color: $common-orange-light-color;
-        background-image: url(/../../dist/img/checked_svg.svg);
       }
 
       a {

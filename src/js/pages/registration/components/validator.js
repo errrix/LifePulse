@@ -47,16 +47,6 @@ const  validator = {
             e.target.parentNode.classList.add('label-error');
         }
     },
-
-    confirmPassword : function(e) {
-        if(validator.validValue.password.value === e.target.value) {
-            validator.validValue.confirmPassword = true;
-            e.target.parentNode.classList.remove('label-error');
-        } else {
-            validator.validValue.confirmPassword = false;
-            e.target.parentNode.classList.add('label-error');
-        }
-    }
 };
 
 export default validator;

@@ -14,10 +14,27 @@ class Registration extends React.Component {
             email: '',
             password: '',
             confirmPassword: '',
+            validate_confirm: false,
             phone: ''
         };
         this.sendData = this.sendData.bind(this);
         this.StateValue = this.StateValue.bind(this);
+        this.inputConfirmPassword = this.inputConfirmPassword.bind(this);
+        this.validateConfirm = this.validateConfirm.bind(this);
+    }
+
+    inputConfirmPassword(e) {
+        this.setState({confirmPassword: e.target.value})
+    }
+
+    validateConfirm(e) {
+        if(this.state.password === e.target.value) {
+            this.setState({validate_confirm: true});
+            e.target.parentNode.classList.remove('label-error');
+        } else {
+            this.setState({validate_confirm: false});
+            e.target.parentNode.classList.add('label-error');
+        }
     }
 
     sendData(e) {
@@ -118,7 +135,7 @@ class Registration extends React.Component {
                                 <label className="label-input m--password">
                                     <span>Повторите пароль:</span>
                                     <input type="password" placeholder="Введите пароль" name="confirmPassword"
-                                           onChange={this.StateValue} onBlur={validator.confirmPassword}/>
+                                           onChange={this.inputConfirmPassword} onBlur={this.validateConfirm}/>
                                     <span className="error"> Пароли не совпадают. Повторите еще раз</span>
                                 </label>
                             </div>
