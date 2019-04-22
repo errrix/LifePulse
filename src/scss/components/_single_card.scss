@@ -12,12 +12,16 @@
   }
 
   img {
-    height: 200px;
+    height: 190px;
     object-fit: cover;
   }
 
   .text-block {
-    padding: 15px 25px 20px;
+    height: 252px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 20px;
   }
 
   .info-block {
@@ -48,8 +52,10 @@
     color: $main-text-color;
     font-family: $mainfont;
     font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 20px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    max-height: 50px;
+    overflow: hidden;
   }
 
   h6 {
@@ -58,7 +64,8 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 21px;
-    margin-bottom: 16px;
+    overflow: hidden;
+    margin-bottom: 15px;
     height: 110px;
   }
 
@@ -75,22 +82,6 @@
     progress::-webkit-progress-value {
       background-color: $bg-orange-color;
     }
-    //.money-diagram {
-    //  width: 100%;
-    //  background-color: $bg-second-color;
-    //  height: 15px;
-    //  position: relative;
-    //  border: 1px solid $light-gray-text-color;
-    //  margin-bottom: 10px;
-    //
-    //  .top-line {
-    //    position: absolute;
-    //    left: 0;
-    //    top: 0;
-    //    height: 100%;
-    //    background-color: $bg-orange-color;
-    //  }
-    //}
 
     .money-how {
       display: flex;
