@@ -140,7 +140,7 @@ class viewCampaign extends React.Component {
                                         <h3>
                                             Фото обложки
                                         </h3>
-                                        <img src="../../../dist/img/card1.jpg" alt=""/>
+                                        <img src="/img/card1.jpg" alt=""/>
                                     </div>
 
                                     <label className="label-input label-textarea">

@@ -12,7 +12,7 @@ class Marketing extends React.Component {
 
                     <ul className="info-block-list">
                         <li>
-                            <img src="../../../dist/img/orange-earth-globe.svg" alt=""/>
+                            <img src="/img/orange-earth-globe.svg" alt=""/>
                             <div className="text-block">
                                 <h5>
                                     Первые в Украине
@@ -23,7 +23,7 @@ class Marketing extends React.Component {
                             </div>
                         </li>
                         <li>
-                            <img src="../../../dist/img/give-money-orange.svg" alt=""/>
+                            <img src="/img/give-money-orange.svg" alt=""/>
                             <div className="text-block">
                                 <h5>
                                     Чужой беды не бывает
@@ -34,7 +34,7 @@ class Marketing extends React.Component {
                             </div>
                         </li>
                         <li>
-                            <img src="../../../dist/img/share-big-orange.svg" alt=""/>
+                            <img src="/img/share-big-orange.svg" alt=""/>
                             <div className="text-block">
                                 <h5>
                                     Социальные сети
@@ -46,7 +46,7 @@ class Marketing extends React.Component {
                             </div>
                         </li>
                         <li>
-                            <img src="../../../dist/img/heart-hands-orange.svg" alt=""/>
+                            <img src="/img/heart-hands-orange.svg" alt=""/>
                             <div className="text-block">
                                 <h5>
                                     Помогать легко
@@ -58,7 +58,7 @@ class Marketing extends React.Component {
                         </li>
 
                         <li>
-                            <img src="../../../dist/img/orange-award.svg" alt=""/>
+                            <img src="/img/orange-award.svg" alt=""/>
                             <div className="text-block">
                                 <h5>
                                     Успешные сборы
@@ -70,7 +70,7 @@ class Marketing extends React.Component {
                         </li>
 
                         <li>
-                            <img src="../../../dist/img/orange-wax-seal-with-ribbon.svg" alt=""/>
+                            <img src="/img/orange-wax-seal-with-ribbon.svg" alt=""/>
                             <div className="text-block">
                                 <h5>
                                     Благотворители

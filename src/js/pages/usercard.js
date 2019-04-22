@@ -78,7 +78,7 @@ class usercard extends React.Component {
                             <div className="allInfoBlock">
                                 <div className="allHistoryBlock">
                                     <div className="allHistoryBlock-imgBlock">
-                                        <img src="../../../dist/img/victoria-gonzales.jpg" alt=""/>
+                                        <img src="/img/victoria-gonzales.jpg" alt=""/>
                                     </div>
                                     <div className="customUserBlock">
                                         <p>

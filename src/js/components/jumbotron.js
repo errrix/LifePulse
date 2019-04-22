@@ -7,7 +7,7 @@ class Jumbotron extends React.Component {
         return (
             <div className="jumbotron">
                 <div className="container">
-                    <img src="../../../dist/img/header-baner3.jpg" alt=""/>
+                    <img src="/img/header-baner3.jpg" alt="jumbotron image"/>
 
                     <div className="back-layer"></div>
 

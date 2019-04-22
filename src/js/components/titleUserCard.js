@@ -21,7 +21,7 @@ class titleUserCard extends React.Component {
                         <div className="allInfoBlock">
                             <div className="allHistoryBlock">
                                 <div className="allHistoryBlock-imgBlock">
-                                    <img src="../../../dist/img/victoria-gonzales.jpg" alt=""/>
+                                    <img src="/img/victoria-gonzales.jpg" alt=""/>
                                 </div>
                                 <div className="customUserBlock">
                                     <p>
@@ -53,7 +53,7 @@ class titleUserCard extends React.Component {
                                         и должны были уделять внимание и другим детям.
                                     </p>
                                     <figure>
-                                        <img src="../../../dist/img/victoria-gonzales.jpg" alt=""/>
+                                        <img src="/img/victoria-gonzales.jpg" alt=""/>
                                         <figcaption>Софийский собор</figcaption>
                                     </figure>
                                     <h2>
@@ -97,7 +97,7 @@ class titleUserCard extends React.Component {
                                         </li>
                                     </ol>
                                     <figure>
-                                        <img src="../../../dist/img/patrick-fore-403383-unsplash.jpg" alt=""/>
+                                        <img src="/img/patrick-fore-403383-unsplash.jpg" alt=""/>
                                         <figcaption>Софийский собор</figcaption>
                                     </figure>
 

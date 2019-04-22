@@ -46,7 +46,7 @@ class BlogHomepage extends React.Component {
 
                        <div className="main-article-wrapper">
                            <div className="main-article">
-                               <img src="../../../dist/img/header-baner2.jpg" alt=""/>
+                               <img src="/img/header-baner2.jpg" alt=""/>
                                <div className="text-block">
                                    <div>
                                        <h4>
@@ -77,7 +77,7 @@ class BlogHomepage extends React.Component {
                            <Slider {...settings}>
                                <div>
                                    <li className="blog-card">
-                                       <img src="../../../dist/img/card1.jpg" alt=""/>
+                                       <img src="/img/card1.jpg" alt=""/>
 
                                        <div className="text-block">
                                            <div>
@@ -96,7 +96,7 @@ class BlogHomepage extends React.Component {
                                </div>
                                <div>
                                    <li className="blog-card">
-                                       <img src="../../../dist/img/card2.jpg" alt=""/>
+                                       <img src="/img/card2.jpg" alt=""/>
 
                                        <div className="text-block">
                                            <div>
@@ -115,7 +115,7 @@ class BlogHomepage extends React.Component {
                                </div>
                                <div>
                                    <li className="blog-card">
-                                       <img src="../../../dist/img/card3.jpg" alt=""/>
+                                       <img src="/img/card3.jpg" alt=""/>
 
                                        <div className="text-block">
                                            <div>
