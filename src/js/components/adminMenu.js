@@ -2,6 +2,39 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 class adminMenu extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            cards: []
+        };
+
+        this.getDraftFundraisers = this.getDraftFundraisers.bind(this);
+    }
+
+    getDraftFundraisers() {
+        fetch('http://165.227.11.173:3001/api/card/status?limit=222', {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            method: 'POST',
+            body: JSON.stringify({
+                "status": "draft"
+            }),
+
+            credentials: 'include'
+        })
+            .then(function (response) {
+                return response.json()
+            }).then((json) => {
+            console.log(json.response[3]);
+            this.setState({cards: json.response})
+        })
+    }
+
+    componentDidMount() {
+        this.getDraftFundraisers();
+    }
 
     render() {
         return (
@@ -13,7 +46,7 @@ class adminMenu extends React.Component {
                             <p>Сборы</p>
                             <ul>
                                 <li>
-                                    <Link to='/admin/application'>Новые<span className="account-admin-side-menu-count">31</span></Link>
+                                    <Link to='/admin/application'>Новые<span className="account-admin-side-menu-count">{this.state.cards.length}</span></Link>
                                 </li>
                                 <li>
                                     <a href="./application.html">Активные</a>

@@ -165,7 +165,6 @@ class viewCampaign extends React.Component {
                                         <h3>
                                             Фото обложки
                                         </h3>
-<<<<<<< HEAD
 
                                         {this.state.card.photo_preview ? (
                                             <a href={`http://165.227.11.173:3001/${this.state.card.photo_preview.sizes[0].path}`}
@@ -176,9 +175,6 @@ class viewCampaign extends React.Component {
                                             </a>
 
                                         ) : false}
-=======
-                                        <img src="/img/card1.jpg" alt=""/>
->>>>>>> 08732132ed16b358cdaf6a2304eb1c4d741b251a
                                     </div>
 
                                     <label className="label-input label-textarea">
