@@ -3,7 +3,7 @@ import React, {Fragment} from 'react';
 import {Redirect, Route, Switch} from "react-router";
 import adminLogin from "../../pages/admin/admin-login";
 import appeal from "../../pages/admin/appeal";
-import application from "../../pages/admin/application";
+import application from "../../pages/admin/cardStatus/draft";
 import ban from "../../pages/admin/ban";
 import categories from "../../pages/admin/categories/categories";
 import staff from "../../pages/admin/staff/staff";
@@ -33,7 +33,7 @@ class AdminRouting extends React.Component {
                     <Route exact path="/admin/categories" component={categories}/>
                     <Route exact path="/admin/staff" component={staff}/>
                     <Route exact path="/admin/users" component={users}/>
-                    <Route exact path="/admin/view-campaign" component={viewCampaign}/>
+                    <Route exact path="/admin/view-campaign/:value" component={viewCampaign}/>
                 </Switch>
             </Fragment>
         } else if(this.props.tokenData.length === 0) {

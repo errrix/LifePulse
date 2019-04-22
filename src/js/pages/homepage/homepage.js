@@ -34,6 +34,7 @@ class Homepage extends React.Component {
     }
 
     componentDidMount() {
+        console.log('dsadsa123')
         this.getAmountCard();
     }
 
