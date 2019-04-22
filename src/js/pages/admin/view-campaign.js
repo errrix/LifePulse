@@ -28,7 +28,7 @@ class viewCampaign extends React.Component {
                 return response.json()
             }).then((json) => {
             console.log(json);
-            this.setState({card : json.response})
+            this.setState({card : json.response});
             console.log(this.state.card)
         })
     }

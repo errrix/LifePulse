@@ -33,7 +33,7 @@ class AdminRouting extends React.Component {
                     <Route exact path="/admin/categories" component={categories}/>
                     <Route exact path="/admin/staff" component={staff}/>
                     <Route exact path="/admin/users" component={users}/>
-                    <Route exact path="/admin/view-campaign/:value" component={viewCampaign}/>
+                    <Route path="/admin/view-campaign/:id" component={viewCampaign}/>
                 </Switch>
             </Fragment>
         } else if(this.props.tokenData.length === 0) {

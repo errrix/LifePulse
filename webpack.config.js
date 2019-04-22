@@ -3,6 +3,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const webpack = require("webpack");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 let conf = {};
@@ -14,7 +15,7 @@ module.exports = (env, options) => {
         output: {
             path: path.resolve(__dirname, './dist'),
             filename: 'js/index.js',
-            publicPath: 'dist/'
+            publicPath: '/'
         },
         devServer: {
             overlay: true,
@@ -100,9 +101,12 @@ module.exports = (env, options) => {
             }) : false,
             new CopyWebpackPlugin([
                 {from:'src/img',to:'img'},
-                {from:'src/fonts',to:'fonts'},
-                {from:'src/index.html',to: ''}
-            ])
+                {from:'src/fonts',to:'fonts'}
+                // {from:'src/index.html',to: ''}
+            ]),
+            new HtmlWebpackPlugin({
+                template: 'src/index.html'
+            })
         ].filter(Boolean),
 
         devtool : (devMode) ? 'cheap-module-eval-source-map' : false

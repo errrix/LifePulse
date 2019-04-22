@@ -72,7 +72,7 @@ class Header extends React.Component {
                     <div className="main-header-wrapper">
                         <div className="logo-side">
                             <Link to='/'>
-                                <img src="../../../dist/img/img-logo.png" alt=""/>
+                                <img src="/img/img-logo.png" alt=""/>
                             </Link>
                         </div>
 
