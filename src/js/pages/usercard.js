@@ -11,6 +11,7 @@ class usercard extends React.Component {
         super(props);
 
         this.state = {
+            // id: this.props.location.pathname.substring(this.props.location.pathname.lastIndexOf('/') + 1),
             card: {}
         };
 
@@ -18,7 +19,8 @@ class usercard extends React.Component {
     }
 
     getThisCard() {
-        fetch('http://165.227.11.173:3001/api/card/5cbcb4ab8eb41f7b3492fd91', {
+        let id = this.props.location.pathname.substring(this.props.location.pathname.lastIndexOf('/') + 1);
+        fetch(`http://165.227.11.173:3001/api/card/${id}`, {
             headers: {
                 'Content-Type': 'application/json'
             },

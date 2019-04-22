@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 
 class SingleCard extends React.Component {
 
@@ -19,12 +20,15 @@ class SingleCard extends React.Component {
     render() {
 
         return (
-            <a href="/" className="single-card">
+            <Link className="single-card" to={{
+                pathname: `/usercard/${this.state.card._id}`,
+                state: {
+                    id: this.state.card._id
+                }
+            }} >
                 {this.state.card.photo_preview ? (
                     <img src={ `http://165.227.11.173:3001/${this.state.card.photo_preview.sizes[0].path}`} alt=""/>
                 ) : false}
-
-
                 <div className="text-block">
                     <h4>
                         {this.state.card.full_name}
@@ -45,7 +49,7 @@ class SingleCard extends React.Component {
                         </div>
                     </div>
                 </div>
-            </a>
+            </Link>
         )
     }
 };

@@ -54,7 +54,7 @@ class MainRouter extends React.Component {
                                     <Route exact path="/about" component={about}/>
                                     <Route exact path="/donate" component={donate}/>
                                     <Route exact path="/account" component={UserAccount}/>
-                                    <Route exact path="/usercard" component={usercard}/>
+                                    <Route exact path="/usercard/:value" component={usercard}/>
                                     <Route exact path="/create-fundraiser" component={createFundraiser}/>
                                     <Route exact path="/registration-confirm" component={RegistrationConfirm}/>
                                     <Route component={pageNotFound}/>
