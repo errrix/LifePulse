@@ -44,7 +44,7 @@ class viewCampaign extends React.Component {
             console.log(json);
             this.setState({card: json.response});
             this.setState({text_preview: json.response.text_preview});
-            this.setState({category: json.response.category[0]});
+            this.setState({category: json.response.category[0]._id});
             this.setState({main_text: json.response.main_text});
             console.log(this.state.card)
         })
@@ -75,7 +75,7 @@ class viewCampaign extends React.Component {
     HandleSaveEdit(e) {
         e.preventDefault();
         console.log(this.state.card._id);
-        fetch(  `http://165.227.11.173:3001/api/card/${this.state.card._id}`, {
+        fetch(`http://165.227.11.173:3001/api/card/${this.state.card._id}`, {
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -131,10 +131,10 @@ class viewCampaign extends React.Component {
                                     transitionEnterTimeout={300}
                                     transitionLeave={true}
                                     transitionLeaveTimeout={300}>
-                    {this.state.showPopup ?  <CardStatusPopup title={this.state.title}
-                                                              action={this.state.to_status}
-                                                              updateStatusPopup={this.handleClosePopup}
-                                                              id={this.state.card._id}/> : false}
+                    {this.state.showPopup ? <CardStatusPopup title={this.state.title}
+                                                             action={this.state.to_status}
+                                                             updateStatusPopup={this.handleClosePopup}
+                                                             id={this.state.card._id}/> : false}
 
                 </CSSTransitionGroup>
 
@@ -153,7 +153,8 @@ class viewCampaign extends React.Component {
                                 <form action="" className="main-form new-campaign-form view-campaign">
                                     <label className="label-input">
                                         <span>Цель сбора средств:</span>
-                                        <textarea name="text_preview" disabled={!this.state.edited} value={this.state.text_preview} onChange={this.HandlerChange}/>
+                                        <textarea name="text_preview" disabled={!this.state.edited}
+                                                  value={this.state.text_preview} onChange={this.HandlerChange}/>
                                     </label>
 
                                     <div className="text-block">
@@ -221,14 +222,16 @@ class viewCampaign extends React.Component {
 
                                     <label className="label-select">
                                         <span> Категория заболевания</span>
-                                        <select disabled={!this.state.edited} name="category" onChange={this.HandlerChange} value={this.state.category}>
-                                            {this.state.allCategories.length > 0 ? this.state.allCategories.map((item, index) => {
-                                                return <option key={item._id}>
-                                                    {item.title}
-                                                </option>
-                                            }) : false
-                                            }
-                                        </select>
+                                        {this.state.allCategories.length > 0 ?
+                                            (<select disabled={!this.state.edited} name="category"
+                                                     onChange={this.HandlerChange} value={this.state.category}>
+                                                {this.state.allCategories.map((item) => {
+                                                    return <option key={item._id} value={item._id}>
+                                                        {item.title}
+                                                    </option>
+                                                })}
+                                            </select>) : false
+                                        }
                                     </label>
 
                                     <div className="main-foto">
@@ -249,7 +252,9 @@ class viewCampaign extends React.Component {
 
                                     <label className="label-input label-textarea">
                                         <span>Основной текст заявки</span>
-                                        <textarea disabled={!this.state.edited} value={this.state.card.main_text} onChange={this.HandlerChange} name="main_text" value={this.state.main_text}/>
+                                        <textarea disabled={!this.state.edited} value={this.state.card.main_text}
+                                                  onChange={this.HandlerChange} name="main_text"
+                                                  value={this.state.main_text}/>
                                     </label>
 
                                     <div className="link-block">
@@ -325,16 +330,21 @@ class viewCampaign extends React.Component {
 
                                 {this.state.card.status === "draft" && !this.state.edited ? (
                                     <div className="button-block">
-                                        <button className="btn btn-transparent campaign-back" data-title="Отправить на доработку" data-action="rev" onClick={this.openPopup}>
+                                        <button className="btn btn-transparent campaign-back"
+                                                data-title="Отправить на доработку" data-action="rev"
+                                                onClick={this.openPopup}>
                                             На доработку
                                         </button>
-                                        <button className="btn campaign-publish"  data-title="Опубликовать" data-action="active" onClick={this.openPopup}>
+                                        <button className="btn campaign-publish" data-title="Опубликовать"
+                                                data-action="active" onClick={this.openPopup}>
                                             Опубликовать
                                         </button>
-                                        <button className="btn btn-transparent campaign-delete" data-title="Удалить" data-action="delete" onClick={this.openPopup}>
+                                        <button className="btn btn-transparent campaign-delete" data-title="Удалить"
+                                                data-action="delete" onClick={this.openPopup}>
                                             Удалить
                                         </button>
-                                        <button className="btn btn-transparent campaign-edit" onClick={this.HandlerEdit}>
+                                        <button className="btn btn-transparent campaign-edit"
+                                                onClick={this.HandlerEdit}>
                                             Редактировать
                                         </button>
                                     </div>
@@ -342,15 +352,18 @@ class viewCampaign extends React.Component {
 
                                 {this.state.edited ? (
                                     <div className="button-block">
-                                        <button className="btn btn-transparent campaign-edit" onClick={this.HandleSaveEdit}>
+                                        <button className="btn btn-transparent campaign-edit"
+                                                onClick={this.HandleSaveEdit}>
                                             Сохранить
                                         </button>
                                     </div>
-                                ): false}
+                                ) : false}
 
                                 {this.state.card.status === "active" ? (
                                     <div className="button-block">
-                                        <button className="btn btn-transparent campaign-freeze" data-title="Приостановить для проверки" data-action="ban" onClick={this.openPopup}>
+                                        <button className="btn btn-transparent campaign-freeze"
+                                                data-title="Приостановить для проверки" data-action="ban"
+                                                onClick={this.openPopup}>
                                             Приостановить
                                         </button>
                                     </div>
@@ -358,10 +371,14 @@ class viewCampaign extends React.Component {
 
                                 {this.state.card.status === "ban" ? (
                                     <div className="button-block">
-                                        <button className="btn btn-transparent campaign-verify" data-title="Успешно пройдена проверка" data-action="verify" onClick={this.openPopup}>
+                                        <button className="btn btn-transparent campaign-verify"
+                                                data-title="Успешно пройдена проверка" data-action="verify"
+                                                onClick={this.openPopup}>
                                             Проверено
                                         </button>
-                                        <button className="btn btn-transparent campaign-delete" data-title="Проверка не пройдена" data-action="ban" onClick={this.openPopup}>
+                                        <button className="btn btn-transparent campaign-delete"
+                                                data-title="Проверка не пройдена" data-action="ban"
+                                                onClick={this.openPopup}>
                                             Мошенничество
                                         </button>
                                     </div>
