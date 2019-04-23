@@ -71,7 +71,6 @@ class ban extends React.Component {
                                             <td>{new Date(Date.parse(item.createdAt)).toLocaleDateString()}</td>
                                             <td></td>
                                             <td></td>
-                                            <td></td>
                                             <td> <Link to={`/admin/view-campaign/${item._id}`} target="">Edit</Link> </td>
                                         </tr>
                                     }) : false
