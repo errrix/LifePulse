@@ -31,7 +31,7 @@ class ban extends React.Component {
             .then(function (response) {
                 return response.json()
             }).then((json) => {
-            console.log(json.response[3]);
+            console.log(json.response[0]);
             this.setState({cards: json.response})
         })
     }
@@ -66,11 +66,11 @@ class ban extends React.Component {
                                     </tr>
                                     {this.state.cards ? this.state.cards.map((item) => {
                                         return <tr key={item._id}>
-                                            <td>{item.user[0]}</td>
+                                            <td>{item.user[0].first_name + ' ' + item.user[0].last_name}</td>
                                             <td>{item.for_whom_name}</td>
+                                            {/*<td>{item.category[0].title}</td>*/}
+                                            <td>{item.max_sum}/{item.sum}</td>
                                             <td>{new Date(Date.parse(item.createdAt)).toLocaleDateString()}</td>
-                                            <td></td>
-                                            <td></td>
                                             <td> <Link to={`/admin/view-campaign/${item._id}`} target="">Edit</Link> </td>
                                         </tr>
                                     }) : false
