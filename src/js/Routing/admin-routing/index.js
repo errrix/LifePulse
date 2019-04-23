@@ -4,6 +4,7 @@ import {Redirect, Route, Switch} from "react-router";
 import adminLogin from "../../pages/admin/admin-login";
 import appeal from "../../pages/admin/appeal";
 import application from "../../pages/admin/cardStatus/draft";
+import active from "../../pages/admin/cardStatus/active";
 import ban from "../../pages/admin/ban";
 import categories from "../../pages/admin/categories/categories";
 import staff from "../../pages/admin/staff/staff";
@@ -29,6 +30,7 @@ class AdminRouting extends React.Component {
                     <Route exact path="/admin" render={ ()=> <Redirect to="/admin/categories"/> }/>
                     <Route exact path="/admin/appeal" component={appeal}/>
                     <Route exact path="/admin/application" component={application}/>
+                    <Route exact path="/admin/active" component={active}/>
                     <Route exact path="/admin/ban" component={ban}/>
                     <Route exact path="/admin/categories" component={categories}/>
                     <Route exact path="/admin/staff" component={staff}/>

@@ -49,10 +49,10 @@ class adminMenu extends React.Component {
                                     <Link to='/admin/application'>Новые<span className="account-admin-side-menu-count">{this.state.cards.length}</span></Link>
                                 </li>
                                 <li>
-                                    <a href="./application.html">Активные</a>
+                                    <Link to='/admin/active'>Активные</Link>
                                 </li>
                                 <li>
-                                    <a href="./application.html">Завершенные </a>
+                                    <Link to='/admin/ended'>Завершенные</Link>
                                 </li>
                             </ul>
                         </li>
