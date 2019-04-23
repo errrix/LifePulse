@@ -15,12 +15,18 @@ class viewCampaign extends React.Component {
             card: {},
             showPopup: false,
             title: '',
-            to_status: ''
+            to_status: '',
+            edited: false,
+            allCategories: []
         };
 
         this.getthisCard = this.getthisCard.bind(this);
         this.handleClosePopup = this.handleClosePopup.bind(this);
         this.openPopup = this.openPopup.bind(this);
+        this.HandlerEdit = this.HandlerEdit.bind(this);
+        this.HandleSaveEdit = this.HandleSaveEdit.bind(this);
+        this.HandlerChange = this.HandlerChange.bind(this);
+        this.getCategories = this.getCategories.bind(this);
     }
 
     getthisCard() {
@@ -37,12 +43,69 @@ class viewCampaign extends React.Component {
             }).then((json) => {
             console.log(json);
             this.setState({card: json.response});
+            this.setState({text_preview: json.response.text_preview});
+            this.setState({category: json.response.category[0]});
+            this.setState({main_text: json.response.main_text});
             console.log(this.state.card)
+        })
+    }
+
+    getCategories() {
+        fetch('http://165.227.11.173:3001/api/category', {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            method: 'GET',
+            credentials: 'include'
+        })
+            .then(function (response) {
+                return response.json()
+            }).then((json) => {
+            this.setState({allCategories: json.response});
+            console.log(this.state.allCategories);
+        })
+    }
+
+    HandlerChange(e) {
+        const {name, value} = e.target;
+        this.setState({[name]: value});
+        console.log(this.state.name)
+    }
+
+    HandleSaveEdit(e) {
+        e.preventDefault();
+        console.log(this.state.card._id);
+        fetch(  `http://165.227.11.173:3001/api/card/${this.state.card._id}`, {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            method: "PUT",
+            credentials: 'include',
+            body: JSON.stringify({
+                "text_preview": this.state.text_preview,
+                "category": this.state.category,
+                "main_text": this.state.main_text
+            })
+        })
+            .then(function (response) {
+                return response.json()
+            }).then((json) => {
+            console.log(json);
+            this.setState({
+                edited: false
+            })
+        })
+    }
+
+    HandlerEdit() {
+        this.setState({
+            edited: true
         })
     }
 
     componentDidMount() {
         this.getthisCard();
+        this.getCategories();
     }
 
     handleClosePopup(value) {
@@ -90,7 +153,7 @@ class viewCampaign extends React.Component {
                                 <form action="" className="main-form new-campaign-form view-campaign">
                                     <label className="label-input">
                                         <span>Цель сбора средств:</span>
-                                        <textarea disabled="disabled" value={this.state.card.text_preview}/>
+                                        <textarea name="text_preview" disabled={!this.state.edited} value={this.state.text_preview} onChange={this.HandlerChange}/>
                                     </label>
 
                                     <div className="text-block">
@@ -158,7 +221,14 @@ class viewCampaign extends React.Component {
 
                                     <label className="label-select">
                                         <span> Категория заболевания</span>
-                                        <select disabled="disabled" value={this.state.card.category}/>
+                                        <select disabled={!this.state.edited} name="category" onChange={this.HandlerChange} value={this.state.category}>
+                                            {this.state.allCategories.length > 0 ? this.state.allCategories.map((item, index) => {
+                                                return <option key={item._id}>
+                                                    {item.title}
+                                                </option>
+                                            }) : false
+                                            }
+                                        </select>
                                     </label>
 
                                     <div className="main-foto">
@@ -179,7 +249,7 @@ class viewCampaign extends React.Component {
 
                                     <label className="label-input label-textarea">
                                         <span>Основной текст заявки</span>
-                                        <textarea disabled="disabled" value={this.state.card.main_text}/>
+                                        <textarea disabled={!this.state.edited} value={this.state.card.main_text} onChange={this.HandlerChange} name="main_text" value={this.state.main_text}/>
                                     </label>
 
                                     <div className="link-block">
@@ -253,7 +323,7 @@ class viewCampaign extends React.Component {
 
                                 </form>
 
-                                {this.state.card.status === "draft" ? (
+                                {this.state.card.status === "draft" && !this.state.edited ? (
                                     <div className="button-block">
                                         <button className="btn btn-transparent campaign-back" data-title="Отправить на доработку" data-action="rev" onClick={this.openPopup}>
                                             На доработку
@@ -264,11 +334,19 @@ class viewCampaign extends React.Component {
                                         <button className="btn btn-transparent campaign-delete" data-title="Удалить" data-action="delete" onClick={this.openPopup}>
                                             Удалить
                                         </button>
-                                        <button className="btn btn-transparent campaign-edit">
+                                        <button className="btn btn-transparent campaign-edit" onClick={this.HandlerEdit}>
                                             Редактировать
                                         </button>
                                     </div>
                                 ) : false}
+
+                                {this.state.edited ? (
+                                    <div className="button-block">
+                                        <button className="btn btn-transparent campaign-edit" onClick={this.HandleSaveEdit}>
+                                            Сохранить
+                                        </button>
+                                    </div>
+                                ): false}
 
                                 {this.state.card.status === "active" ? (
                                     <div className="button-block">
