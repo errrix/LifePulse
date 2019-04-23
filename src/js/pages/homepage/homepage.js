@@ -12,15 +12,16 @@ class Homepage extends React.Component {
         super(props);
 
         this.state = {
-            amount_card: []
+            active_card: [],
+            popular_card: []
         };
 
-        this.getAmountCard = this.getAmountCard.bind(this);
+        this.getPopularCard = this.getPopularCard.bind(this);
         this.getActiveCard = this.getActiveCard.bind(this);
     }
 
-    getAmountCard() {
-        fetch('http://165.227.11.173:3001/api/card/amount/?limit=3', {
+    getPopularCard() {
+        fetch('http://165.227.11.173:3001/api/card/popular/?limit=3', {
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -30,12 +31,12 @@ class Homepage extends React.Component {
             .then(function (response) {
                 return response.json()
             }).then((json) => {
-                this.setState({amount_card: json.response})
+                this.setState({popular_card: json.response})
         })
     }
 
     getActiveCard() {
-        fetch('http://165.227.11.173:3001/api/card/active/?limit=3', {
+        fetch('http://165.227.11.173:3001/api/card/active/?limit=3&new=1', {
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -51,7 +52,7 @@ class Homepage extends React.Component {
 
     componentDidMount() {
         console.log('dsadsa123')
-        this.getAmountCard();
+        this.getPopularCard();
         this.getActiveCard();
     }
 
@@ -61,7 +62,7 @@ class Homepage extends React.Component {
             <div>
                 <Jumbotron/>
 
-                <CardBlock title={'Популярные компании'} cards={this.state.amount_card}/>
+                <CardBlock title={'Популярные компании'} cards={this.state.popular_card}/>
 
                 <Howitwork/>
 

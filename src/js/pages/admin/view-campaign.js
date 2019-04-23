@@ -283,7 +283,7 @@ class viewCampaign extends React.Component {
                                         <button className="btn btn-transparent campaign-verify" data-title="Успешно пройдена проверка" data-action="verify" onClick={this.openPopup}>
                                             Проверено
                                         </button>
-                                        <button className="btn btn-transparent campaign-delete" data-title="Проверка не пройдена" data-action="verify" onClick={this.openPopup}>
+                                        <button className="btn btn-transparent campaign-delete" data-title="Проверка не пройдена" data-action="ban" onClick={this.openPopup}>
                                             Мошенничество
                                         </button>
                                     </div>
