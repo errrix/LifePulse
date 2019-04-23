@@ -16,10 +16,11 @@ class Homepage extends React.Component {
         };
 
         this.getAmountCard = this.getAmountCard.bind(this);
+        this.getActiveCard = this.getActiveCard.bind(this);
     }
 
     getAmountCard() {
-        fetch('http://165.227.11.173:3001/api/card/amount/?', {
+        fetch('http://165.227.11.173:3001/api/card/amount/?limit=3', {
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -33,9 +34,25 @@ class Homepage extends React.Component {
         })
     }
 
+    getActiveCard() {
+        fetch('http://165.227.11.173:3001/api/card/active/?limit=3', {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            method: 'GET',
+            credentials: 'include'
+        })
+            .then(function (response) {
+                return response.json()
+            }).then((json) => {
+            this.setState({active_card: json.response})
+        })
+    }
+
     componentDidMount() {
         console.log('dsadsa123')
         this.getAmountCard();
+        this.getActiveCard();
     }
 
 
@@ -48,7 +65,7 @@ class Homepage extends React.Component {
 
                 <Howitwork/>
 
-                <CardBlock title={'Помогать легко'}/>
+                <CardBlock title={'Помогать легко'}  cards={this.state.active_card}/>
 
                 <Marketing/>
 
