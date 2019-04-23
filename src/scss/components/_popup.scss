@@ -61,6 +61,12 @@
     min-height: 200px;
     transition-delay: .5s;
 
+    .label-input textarea {
+      min-height: 150px;
+      line-height: 22px;
+      padding: 10px 20px;
+    }
+
     .button-back {
       display: flex;
       align-items: center;

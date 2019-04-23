@@ -62,15 +62,17 @@ class ban extends React.Component {
                                         <th>Дата создания</th>
                                         <th>Дата бана</th>
                                         <th>Причина бана</th>
+                                        <th>Сумма</th>
                                         <th>Действия</th>
                                     </tr>
                                     {this.state.cards ? this.state.cards.map((item) => {
                                         return <tr key={item._id}>
                                             <td>{item.user[0].first_name + ' ' + item.user[0].last_name}</td>
                                             <td>{item.for_whom_name}</td>
-                                            {/*<td>{item.category[0].title}</td>*/}
-                                            <td>{item.max_sum}/{item.sum}</td>
                                             <td>{new Date(Date.parse(item.createdAt)).toLocaleDateString()}</td>
+                                            <td>!!!!!!</td>
+                                            <td>!!!!!!</td>
+                                            <td>{item.max_sum}/{item.sum}</td>
                                             <td> <Link to={`/admin/view-campaign/${item._id}`} target="">Edit</Link> </td>
                                         </tr>
                                     }) : false
