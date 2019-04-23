@@ -78,7 +78,11 @@ class usercard extends React.Component {
                             <div className="allInfoBlock">
                                 <div className="allHistoryBlock">
                                     <div className="allHistoryBlock-imgBlock">
-                                        <img src="/img/victoria-gonzales.jpg" alt=""/>
+                                        {this.state.card.photo_preview ? (
+                                            <img
+                                                src={`http://165.227.11.173:3001/${this.state.card.photo_preview.sizes[0].path}`}
+                                                alt={this.state.card.for_whom_name}/>
+                                        ) : false}
                                     </div>
                                     <div className="customUserBlock">
                                         <p>
