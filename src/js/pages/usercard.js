@@ -11,7 +11,6 @@ class usercard extends React.Component {
         super(props);
 
         this.state = {
-            // card: {}
         };
 
         this.getThisCard = this.getThisCard.bind(this);
@@ -31,7 +30,6 @@ class usercard extends React.Component {
             }).then((json) => {
             console.log(json);
             this.setState({card : json.response});
-            console.log(this.state.card.category[0].title)
         })
     }
 
