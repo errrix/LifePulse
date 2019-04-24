@@ -16,7 +16,7 @@ class UserAccount extends React.Component {
             name: '',
             last_name: '',
             phone: '',
-            show_follow: true
+            show_follow: false
         }
 
         this.showFollow = this.showFollow.bind(this);
@@ -41,7 +41,8 @@ class UserAccount extends React.Component {
                     email: json.response.email,
                     name: json.response.first_name,
                     last_name: json.response.last_name,
-                    phone: json.response.phone
+                    phone: json.response.phone,
+                    id: json.response._id
                 });
             })
     }
@@ -115,7 +116,7 @@ class UserAccount extends React.Component {
                                                             transitionEnterTimeout={300}
                                                             transitionLeave={true}
                                                             transitionLeaveTimeout={300}>
-                                            {this.state.show_follow ? <MyFollow/> : <MyCampaignList/>}
+                                            {this.state.show_follow ? <MyFollow/> : <MyCampaignList user_id={this.state.id}/>}
                                         </CSSTransitionGroup>
                                     </div>
                                 </div>

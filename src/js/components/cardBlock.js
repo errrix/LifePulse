@@ -14,7 +14,7 @@ class CardBlock extends React.Component {
         // this.getAmountCard = this.getAmountCard.bind(this);
     }
 
-    static getDerivedStateFromProps(nextProps, prevState) {
+    static getDerivedStateFromProps(nextProps) {
         return {cards: nextProps.cards};
     }
 

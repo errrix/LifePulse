@@ -32,7 +32,6 @@ class Header extends React.Component {
                 return response.json()
             })
             .then((data) => {
-                // console.log(data.response);
                 this.props.addUserIdAction(data.response.id);
                 this.props.addUserRoleAction(data.response.roles);
 

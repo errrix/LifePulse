@@ -11,16 +11,7 @@ class MyFollow extends React.Component {
                 <div className="card-block">
                     <ul className="card-block-list card-block-list-flex">
                         <li>
-                            <SingleCard/>
-                        </li>
-                        <li>
-                            <SingleCard/>
-                        </li>
-                        <li>
-                            <SingleCard/>
-                        </li>
-                        <li>
-                            <SingleCard/>
+                            {/*<SingleCard/>*/}
                         </li>
                     </ul>
 
