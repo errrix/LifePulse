@@ -55,10 +55,10 @@ class adminMenu extends React.Component {
                                     <Link to='/admin/ban'>Забаненные</Link>
                                 </li>
                                 <li>
-                                    <Link to='/admin/ended'>Завершенные</Link>
+                                    <Link to='/admin/get-money'>Вывод средств</Link>
                                 </li>
                                 <li>
-                                    <Link to='/admin/get-money'>Вывод средств</Link>
+                                    <Link to='/admin/archive'>Завершенные</Link>
                                 </li>
                             </ul>
                         </li>
@@ -70,11 +70,6 @@ class adminMenu extends React.Component {
                         <li>
                             <Link to='/admin/appeal'>Жалобы<span className="account-admin-side-menu-count">30</span></Link>
                         </li>
-
-                        {/*<li>*/}
-                            {/*<Link to='/admin/ban'>Бан</Link>*/}
-                        {/*</li>*/}
-
                         <li>
                             <Link to='/admin/users'>Пользователи</Link>
                         </li>

@@ -3,6 +3,7 @@ import React from "react";
 import SingleCard from './../../../components/singleCard'
 import {addUserCards} from "../../../actions";
 import {connect} from "react-redux";
+import {Link} from "react-router-dom";
 
 class MyCampaignList extends React.Component {
 
@@ -56,10 +57,10 @@ class MyCampaignList extends React.Component {
                         }) : false
                         }
                         <li className="m--add-new">
-                            <a href="/">
+                            <Link to="/create-fundraiser" className="active">
                                 <div className="add-icon m--large"/>
                                 <span>Добавить новую публикацию</span>
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>

@@ -50,7 +50,7 @@ class active extends React.Component {
                         <div className="account-admin-content-block account-admin-application">
                             <header>
                                 <h1>
-                                    Новые сборы
+                                    Активные сборы
                                 </h1>
                             </header>
                             <div className="account-admin-application-wrapper">

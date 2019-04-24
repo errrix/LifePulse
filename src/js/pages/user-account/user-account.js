@@ -66,9 +66,6 @@ class UserAccount extends React.Component {
                             <div className="container">
 
                                 <div className="user-account-top-block">
-                                    {/*<div className="image-block">*/}
-                                    {/*<img src="../../../dist/img/men-women.jpg" alt="user image"/>*/}
-                                    {/*</div>*/}
 
                                     <div className="text-block">
 

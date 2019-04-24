@@ -5,7 +5,7 @@ import AdminHeader from '../../../../components/adminHeader'
 import {Link} from "react-router-dom";
 import SingleCard from "../../../../components/cardBlock";
 
-class ban extends React.Component {
+class getmoney extends React.Component {
     constructor(props) {
         super(props);
 
@@ -13,17 +13,17 @@ class ban extends React.Component {
             cards: []
         };
 
-        this.getBanFundraisers = this.getBanFundraisers.bind(this);
+        this.getCompliteFundraisers = this.getCompliteFundraisers.bind(this);
     }
 
-    getBanFundraisers() {
+    getCompliteFundraisers() {
         fetch('http://165.227.11.173:3001/api/card/status?limit=222', {
             headers: {
                 'Content-Type': 'application/json'
             },
             method: 'POST',
             body: JSON.stringify({
-                "status": "ban"
+                "status": "complite"
             }),
 
             credentials: 'include'
@@ -37,7 +37,7 @@ class ban extends React.Component {
     }
 
     componentDidMount() {
-        this.getBanFundraisers();
+        this.getCompliteFundraisers();
     }
 
     render() {
@@ -50,7 +50,7 @@ class ban extends React.Component {
                         <div className="account-admin-content-block account-admin-application">
                             <header>
                                 <h1>
-                                    Бан
+                                    Вывод средств
                                 </h1>
                             </header>
                             <div className="account-admin-application-wrapper">
@@ -60,8 +60,6 @@ class ban extends React.Component {
                                         <th>Пользователь</th>
                                         <th>Пациент</th>
                                         <th>Дата создания</th>
-                                        <th>Дата бана</th>
-                                        <th>Причина бана</th>
                                         <th>Сумма</th>
                                         <th>Действия</th>
                                     </tr>
@@ -70,10 +68,8 @@ class ban extends React.Component {
                                             <td>{item.user[0].first_name + ' ' + item.user[0].last_name}</td>
                                             <td>{item.for_whom_name}</td>
                                             <td>{new Date(Date.parse(item.createdAt)).toLocaleDateString()}</td>
-                                            <td>!!!!!!</td>
-                                            <td>!!!!!!</td>
                                             <td>{item.max_sum}/{item.sum}</td>
-                                            <td> <Link to={`/admin/view-campaign/${item._id}`} target="">Edit</Link> </td>
+                                            <td> <Link to={`/admin/view-campaign/${item._id}`} target="">Pay</Link> </td>
                                         </tr>
                                     }) : false
                                     }
@@ -89,4 +85,4 @@ class ban extends React.Component {
 };
 
 
-export default ban;
+export default getmoney;

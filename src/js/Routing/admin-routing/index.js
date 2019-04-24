@@ -6,6 +6,8 @@ import appeal from "../../pages/admin/appeal";
 import application from "../../pages/admin/cardStatus/draft";
 import active from "../../pages/admin/cardStatus/active";
 import ban from "../../pages/admin/cardStatus/ban";
+import getmoney from "../../pages/admin/cardStatus/getmoney";
+import archive from "../../pages/admin/cardStatus/archive";
 import categories from "../../pages/admin/categories/categories";
 import staff from "../../pages/admin/staff/staff";
 import users from "../../pages/admin/users";
@@ -32,6 +34,8 @@ class AdminRouting extends React.Component {
                     <Route exact path="/admin/application" component={application}/>
                     <Route exact path="/admin/active" component={active}/>
                     <Route exact path="/admin/ban" component={ban}/>
+                    <Route exact path="/admin/get-money" component={getmoney}/>
+                    <Route exact path="/admin/archive" component={archive}/>
                     <Route exact path="/admin/categories" component={categories}/>
                     <Route exact path="/admin/staff" component={staff}/>
                     <Route exact path="/admin/users" component={users}/>
