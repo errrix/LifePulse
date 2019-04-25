@@ -31,7 +31,7 @@ class SingleCard extends React.Component {
                 ) : false}
                 <div className="text-block">
                     <h4>
-                        {this.state.card.full_name}
+                        {this.state.card.for_whom_name}
                     </h4>
                     <h6>
                         {this.state.card.text_preview}
