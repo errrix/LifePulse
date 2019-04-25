@@ -76,7 +76,7 @@ class usercard extends React.Component {
                                         <div className="allHistoryBlock-imgBlock">
                                             {this.state.card.photo_preview ? (
                                                 <img
-                                                    src={`http://165.227.11.173:3001/${this.state.card.photo_preview.sizes[0].path}`}
+                                                    src={`http://165.227.11.173:3001/uploads/${this.state.card.photo_preview.filename}`}
                                                     alt={this.state.card.for_whom_name}/>
                                             ) : false}
                                         </div>

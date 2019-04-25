@@ -21,7 +21,7 @@ class Header extends React.Component {
     }
 
     componentDidMount() {
-        // fetch('http://165.227.11.173:3001/api/users/mydata', {
+        // fetch('http://165.227.11.173:3001/api/users/auth', {
         //     headers: {
         //         'Content-Type': 'application/json',
         //     },
@@ -32,6 +32,7 @@ class Header extends React.Component {
         //         return response.json()
         //     })
         //     .then((data) => {
+        //         console.log(data);
         //         this.props.addUserIdAction(data.response.id);
         //     })
     }

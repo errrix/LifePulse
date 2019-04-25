@@ -29,7 +29,7 @@ class SingleUserAccountCard extends React.Component {
                 // }}
             >
                 {this.state.card.photo_preview ? (
-                    <img src={ `http://165.227.11.173:3001/${this.state.card.photo_preview.sizes[0].path}`} alt=""/>
+                    <img src={ `http://165.227.11.173:3001/uploads/${this.state.card.photo_preview.filename}`} alt=""/>
                 ) : false}
                 <div className="text-block">
                     <h4>
@@ -50,8 +50,17 @@ class SingleUserAccountCard extends React.Component {
                             </p>
                         </div>
                     </div>
+
+
+
                     {this.state.card.status === 'draft' ? (
                         <div className="btn btn-transparent">Модерация </div>
+                    ) : false}
+
+                    {this.state.card.status === 'rev' ? (
+                        <Link to={{
+
+                        }} className="btn btn-transparent">Редактировать</Link>
                     ) : false}
 
                     {this.state.card.status === 'active' ? (
