@@ -242,11 +242,9 @@ class viewCampaign extends React.Component {
                                         </h3>
 
                                         {this.state.card.photo_preview ? (
-                                            <a href={`http://165.227.11.173:3001/${this.state.card.photo_preview.sizes[0].path}`}
+                                            <a href={`http://165.227.11.173:3001/uploads/${this.state.card.photo_preview.filename}`}
                                                target="_blank">
-                                                <img
-                                                    src={`http://165.227.11.173:3001/${this.state.card.photo_preview.sizes[0].path}`}
-                                                    alt=""/>
+                                                <img src={ `http://165.227.11.173:3001/uploads/${this.state.card.photo_preview.filename}`} alt={this.state.card.for_whom_name}/>
                                             </a>
 
                                         ) : false}
@@ -266,7 +264,7 @@ class viewCampaign extends React.Component {
 
                                         <div className="link-block-wrapper">
                                             {this.state.card.photo_passports ? (
-                                                <a href={`http://165.227.11.173:3001/${this.state.card.photo_passports.sizes[0].path}`}
+                                                <a href={`http://165.227.11.173:3001/uploads/${this.state.card.photo_preview.filename}`}
                                                    target="_blank">
                                                     <span>Img паспорта автора заявки:</span>
 
@@ -284,7 +282,7 @@ class viewCampaign extends React.Component {
                                             ) : false}
 
                                             {this.state.card.photo_passports_sick ? (
-                                                <a href={`http://165.227.11.173:3001/${this.state.card.photo_passports_sick.sizes[0].path}`}
+                                                <a href={`http://165.227.11.173:3001/uploads/${this.state.card.photo_preview.filename}`}
                                                    target="_blank">
                                                     <span>Img паспорта реципиента (больного):</span>
 
@@ -303,7 +301,7 @@ class viewCampaign extends React.Component {
 
                                             {this.state.card.photo_documents ? (
                                                 this.state.card.photo_documents.map((item) => {
-                                                    return <a href={`http://165.227.11.173:3001/${item.sizes[0].path}`}
+                                                    return <a href={`http://165.227.11.173:3001/uploads/${this.state.card.photo_preview.filename}`}
                                                               target="_blank" key={item._id}>
                                                         <span>Img больничных документов:</span>
 
