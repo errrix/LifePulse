@@ -59,7 +59,10 @@ class SingleUserAccountCard extends React.Component {
 
                     {this.state.card.status === 'rev' ? (
                         <Link to={{
-
+                            pathname: `/create-fundraiser`,
+                            state: {
+                                id: this.state.card._id
+                            }
                         }} className="btn btn-transparent">Редактировать</Link>
                     ) : false}
 
