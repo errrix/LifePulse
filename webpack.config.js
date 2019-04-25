@@ -23,8 +23,9 @@ module.exports = (env, options) => {
             contentBase: path.join(__dirname, 'src/'),
             watchContentBase: true,
             historyApiFallback: true,
-            // host: "app.localhost",
+            host: "api.localhost",
             port: 4200
+
 
         },
         module: {

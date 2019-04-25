@@ -31,7 +31,7 @@ class viewCampaign extends React.Component {
 
     getthisCard() {
         let id = this.props.location.pathname.substring(this.props.location.pathname.lastIndexOf('/') + 1);
-        fetch(`http://165.227.11.173:3001/api/card/${id}`, {
+        fetch(`http://165.227.11.173:3001/api/card/admin/${id}`, {
             headers: {
                 'Content-Type': 'application/json'
             },
