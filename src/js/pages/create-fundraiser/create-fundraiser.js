@@ -40,6 +40,7 @@ class createFundraiser extends React.Component {
         this.NewFundraiser = this.NewFundraiser.bind(this);
         this.StateValueQuill = this.StateValueQuill.bind(this);
         this.imageHandler = this.imageHandler.bind(this);
+        this.getEditedCard = this.getEditedCard.bind(this);
     }
 
 
@@ -56,6 +57,50 @@ class createFundraiser extends React.Component {
             }).then((json) => {
             this.setState({all_categories: json.response});
             this.setState({category: json.response[0]._id});
+        })
+    }
+
+    getEditedCard(id) {
+        fetch(`http://165.227.11.173:3001/api/card/admin/${id}`, {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            method: 'GET',
+            credentials: 'include'
+        })
+            .then(function (response) {
+                return response.json()
+            }).then((json) => {
+            console.log(json);
+            this.setState({
+                card: json.response
+            })
+            this.setState({
+                status: this.state.card.status,
+                text_preview:this.state.card.text_preview,
+                sum: this.state.card.sum,
+                full_name: this.state.card.full_name,
+                account_number: this.state.card.account_number,
+                bank: this.state.card.bank,
+                mfo: this.state.card.mfo,
+                inn: this.state.card.inn,
+                phone: this.state.card.phone,
+                for_whom_name: this.state.card.for_whom_name,
+                country: this.state.card.city,
+                address: this.state.card.address,
+                birthday: this.state.card.birthday,
+                category: this.state.card.category[0]._id,
+                main_text: this.state.card.main_text,
+                photo_passports: this.state.card.photo_passports,
+                photo_passports_sick: this.state.card.photo_passports_sick,
+                photo_preview: this.state.card.photo_preview,
+                photo_documents: this.state.card.photo_documents,
+            })
+            // this.setState({card: json.response});
+            // this.setState({text_preview: json.response.text_preview});
+            // this.setState({category: json.response.category[0]._id});
+            // this.setState({main_text: json.response.main_text});
+            // console.log(this.state.card.user)
         })
     }
 
@@ -117,6 +162,9 @@ class createFundraiser extends React.Component {
 
     componentDidMount() {
         this.getCategories();
+        if(this.props.location.state.id) {
+            this.getEditedCard(this.props.location.state.id);
+        }
         document.title = "LifesPulse | Новая публикация"
     }
 
@@ -179,7 +227,7 @@ class createFundraiser extends React.Component {
                                 <label className="label-input">
                                     <span>Укажите цель сбора средств: </span>
                                     <textarea maxLength="130" minLength="80" name="text_preview"
-                                              onChange={this.StateValue} onBlur={validator.textPreview}
+                                              onChange={this.StateValue} onBlur={validator.textPreview} value={this.state.text_preview}
                                               placeholder="Острое нарушение мозгового кровообращения по ишемическому типу в басейне левой внутренней сонной артерии внутренней сонной артерии"/>
                                     <span className="info">Вы можете ввести не меньше 80 и не больше 130 знаков, включая пробелы</span>
                                 </label>
@@ -188,7 +236,7 @@ class createFundraiser extends React.Component {
                                     <span>Укажите сумму сбора</span>
                                     <span className="currency">ГРН</span>
                                     <input placeholder="100 000" type="number" name="sum" onChange={this.StateValue}
-                                           onBlur={validator.sum}/>
+                                           onBlur={validator.sum} value={this.state.sum}/>
                                     <span className="error">Неверный формат. Попробуйте еще раз</span>
                                 </label>
                             </div>
@@ -198,7 +246,7 @@ class createFundraiser extends React.Component {
                             <label className="label-input">
                                 <span>Ваше ФИО</span>
                                 <input placeholder="Василий Васильев Васильевич" type="text" name="full_name"
-                                       onChange={this.StateValue} onBlur={validator.fullName}/>
+                                       onChange={this.StateValue} onBlur={validator.fullName} value={this.state.full_name}/>
                                 <span className="error">Неверный формат. Попробуйте еще раз</span>
                             </label>
 
@@ -207,19 +255,19 @@ class createFundraiser extends React.Component {
                                     <span>Номер счета</span>
                                     <input placeholder="Номер счета в Украинском банке" type="number"
                                            name="account_number" onChange={this.StateValue}
-                                           onBlur={validator.accountNumber}/>
+                                           onBlur={validator.accountNumber} value={this.state.account_number}/>
                                     <span className="error">Неверный формат. Попробуйте еще раз</span>
                                 </label>
                                 <label className="label-input">
                                     <span>Полное название банка</span>
                                     <input placeholder="АО КБ «ПРИВАТБАНК»" type="text" name="bank"
-                                           onChange={this.StateValue} onBlur={validator.bank}/>
+                                           onChange={this.StateValue} onBlur={validator.bank} value={this.state.bank}/>
                                     <span className="error">Неверный формат. Попробуйте еще раз</span>
                                 </label>
                                 <label className="label-input">
                                     <span>МФО банка</span>
                                     <input placeholder="305299" type="number" name="mfo" onChange={this.StateValue}
-                                           onBlur={validator.mfo}/>
+                                           onBlur={validator.mfo}  value={this.state.mfo}/>
                                     <span className="error">Неверный формат.</span>
                                 </label>
                             </div>
@@ -228,14 +276,14 @@ class createFundraiser extends React.Component {
                                 <label className="label-input">
                                     <span>Ваш номер телефона</span>
                                     <input type="tel" placeholder="+38 096 33 33 333" name="phone"
-                                           onChange={this.StateValue} onBlur={validator.phone}/>
+                                           onChange={this.StateValue} onBlur={validator.phone}  value={this.state.phone}/>
                                     <span className="error">Неверный формат. Попробуйте еще раз</span>
                                 </label>
 
                                 <label className="label-input">
                                     <span>Идентификационный код</span>
                                     <input placeholder="1234567890" type="number" name="inn" onChange={this.StateValue}
-                                           onBlur={validator.inn}/>
+                                           onBlur={validator.inn}  value={this.state.inn}/>
                                     <span className="error">Неверный формат. Попробуйте еще раз</span>
                                 </label>
                             </div>

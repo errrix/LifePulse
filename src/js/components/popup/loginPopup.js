@@ -82,9 +82,8 @@ class LoginPopup extends React.Component {
                 }).then((data) => {
                 if (data.success) {
                     this.props.addUserId(data.response.id);
-                    this.props.addUserRole(data.response.roles);
+                    // this.props.addUserRole(data.response.roles);
                     this.props.updateStatusPopup(false);
-                    console.log(data.response);
                 } else {
                     let errorElem = document.querySelector('.email-error');
                     errorElem.textContent = this.state.validate_email_message_from_response;

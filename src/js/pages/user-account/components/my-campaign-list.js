@@ -4,6 +4,7 @@ import SingleCard from './../../../components/singleCard'
 import {addUserCards} from "../../../actions";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
+import SingleUserAccountCard from "../../../components/singleUserAccountCard";
 
 class MyCampaignList extends React.Component {
 
@@ -52,7 +53,7 @@ class MyCampaignList extends React.Component {
                     <ul className="card-block-list card-block-list-flex">
                         {this.state.cards ? this.state.cards.map((item) => {
                             return <li key={item._id}>
-                                <SingleCard card={item}/>
+                                <SingleUserAccountCard card={item}/>
                             </li>
                         }) : false
                         }

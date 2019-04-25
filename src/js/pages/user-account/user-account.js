@@ -5,6 +5,7 @@ import CSSTransitionGroup from "react-addons-css-transition-group"
 
 import MyFollow from './components/follow'
 import MyCampaignList from './components/my-campaign-list'
+import {addUserInfo} from "../../actions";
 
 class UserAccount extends React.Component {
 
@@ -12,19 +13,21 @@ class UserAccount extends React.Component {
         super(props);
 
         this.state = {
-            email: '',
-            name: '',
-            last_name: '',
-            phone: '',
+            id: this.props.id,
+            first_name: this.props.first_name,
+            last_name: this.props.last_name,
+            email: this.props.email,
+            phone: this.props.phone,
+            user_role: this.props.phone.role,
             show_follow: false
-        }
+        };
 
         this.showFollow = this.showFollow.bind(this);
         this.showMyCampaign = this.showMyCampaign.bind(this);
+        this.getUserData = this.getUserData.bind(this);
     }
 
-    componentDidMount() {
-        console.log('some test');
+    getUserData() {
         fetch('http://165.227.11.173:3001/api/users/mydata', {
             headers: {
                 'Content-Type': 'application/json',
@@ -37,14 +40,28 @@ class UserAccount extends React.Component {
             })
             .then((json) => {
                 console.log(json.response);
+                this.props.HandleAddUserInfo({
+                    first_name: json.response.first_name,
+                    last_name: json.response.last_name,
+                    email: json.response.email,
+                    phone: json.response.phone,
+                    user_role: json.response.phone.role
+                });
                 this.setState({
                     email: json.response.email,
                     name: json.response.first_name,
                     last_name: json.response.last_name,
                     phone: json.response.phone,
                     id: json.response._id
+
                 });
             })
+    }
+
+    componentDidMount() {
+        if(this.props.first_name === '') {
+            this.getUserData()
+        }
     }
 
     showFollow() {
@@ -56,12 +73,12 @@ class UserAccount extends React.Component {
     }
 
     render() {
-        const {tokenData} = this.props;
+        const {user_id} = this.props;
 
         return (
             <div>
                 {
-                    (this.props.tokenData) ? (
+                    (this.props.user_id) ? (
                         <div className="user-account-block">
                             <div className="container">
 
@@ -129,9 +146,18 @@ class UserAccount extends React.Component {
 
 const mapStateToProps = (store) => {
     return {
-        data: store,
-        tokenData: store.user_id
+        user_id: store.user_id,
+        user_info : store.user_info,
+        first_name: store.user_info.first_name,
+        last_name: store.user_info.last_name,
+        email: store.user_info.email,
+        phone: store.user_info.phone,
+        user_role: store.user_info.user_role
     }
 };
 
-export default connect(mapStateToProps)(UserAccount);
+const mapDispatchToProps = dispatch => ({
+    HandleAddUserInfo: object => dispatch(addUserInfo(object))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserAccount);
