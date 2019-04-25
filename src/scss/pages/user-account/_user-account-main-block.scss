@@ -116,10 +116,12 @@
         .card-block-list.card-block-list-flex {
           li {
             padding: 20px 20px 30px 20px;
+            height: auto;
             .single-card {
               height: 100%;
+              justify-content: space-between;
               .text-block {
-                height: 100%;
+                height: auto;
                 .btn {
                   margin-top: 10px;
                   text-align: center
