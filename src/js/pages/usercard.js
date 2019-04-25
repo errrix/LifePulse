@@ -82,10 +82,7 @@ class usercard extends React.Component {
                                                     alt={this.state.card.for_whom_name}/>
                                             ) : false}
                                         </div>
-                                        <div className="customUserBlock">
-                                            <p>
-                                                {this.state.card.main_text}
-                                            </p>
+                                        <div className="customUserBlock" dangerouslySetInnerHTML={{__html: this.state.card.main_text}}>
                                         </div>
                                     </div>
                                     <div className="shortInfoBlock">
