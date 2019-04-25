@@ -41,6 +41,7 @@ class createFundraiser extends React.Component {
         this.StateValueQuill = this.StateValueQuill.bind(this);
         this.imageHandler = this.imageHandler.bind(this);
         this.getEditedCard = this.getEditedCard.bind(this);
+        this.deleteImage = this.deleteImage.bind(this);
     }
 
 
@@ -74,10 +75,10 @@ class createFundraiser extends React.Component {
             console.log(json);
             this.setState({
                 card: json.response
-            })
+            });
             this.setState({
                 status: this.state.card.status,
-                text_preview:this.state.card.text_preview,
+                text_preview: this.state.card.text_preview,
                 sum: this.state.card.sum,
                 full_name: this.state.card.full_name,
                 account_number: this.state.card.account_number,
@@ -95,12 +96,10 @@ class createFundraiser extends React.Component {
                 photo_passports_sick: this.state.card.photo_passports_sick,
                 photo_preview: this.state.card.photo_preview,
                 photo_documents: this.state.card.photo_documents,
+                to_whom: this.state.card.full_name === this.state.card.for_whom_name ? "self" : "notself"
             })
-            // this.setState({card: json.response});
-            // this.setState({text_preview: json.response.text_preview});
-            // this.setState({category: json.response.category[0]._id});
-            // this.setState({main_text: json.response.main_text});
-            // console.log(this.state.card.user)
+
+            console.log(new Date(Date.parse(this.state.birthday)).toISOString().substring(0,10))
         })
     }
 
@@ -156,13 +155,33 @@ class createFundraiser extends React.Component {
             .then(function (response) {
                 return response.json()
             }).then((data) => {
-            this.setState({[name]: data.response._id});
+                console.log(data);
+            this.setState({[name]: {
+                    _id: data.response._id,
+                    filename: data.response.filename
+                }});
         })
+    }
+
+    deleteImage(e) {
+        const {name} = e.target;
+        console.log(this.state[name]._id);
+        e.preventDefault();
+        fetch(`http://165.227.11.173:3001/api/images/${this.state[name]._id}`, {
+            method: 'delete',
+            credentials: 'include',
+        })
+            .then(function (response) {
+                return response.json()
+            }).then((data) => {
+                console.log(data);
+        })
+        this.setState({[name]: ''});
     }
 
     componentDidMount() {
         this.getCategories();
-        if(this.props.location.state.id) {
+        if (this.props.location.state) {
             this.getEditedCard(this.props.location.state.id);
         }
         document.title = "LifesPulse | Новая публикация"
@@ -179,7 +198,7 @@ class createFundraiser extends React.Component {
     }
 
     imageHandler(image, callback) {
-        var range = this.quillRef.getEditor().getSelection();
+        let range = this.quillRef.getEditor().getSelection();
         const input = document.createElement('input');
         input.setAttribute('type', 'file');
         input.setAttribute('accept', 'image/*');
@@ -199,7 +218,7 @@ class createFundraiser extends React.Component {
                 let url = data.response.sizes[0].path;
                 this.quillRef.getEditor().insertEmbed(range.index, 'image', `http://165.227.11.173:3001/${url}`, "user");
             })
-        }.bind(this); // react thing
+        }.bind(this);
     }
 
     render() {
@@ -214,7 +233,7 @@ class createFundraiser extends React.Component {
                     'image': this.imageHandler
                 }
             }
-        }
+        };
         return (
             <div>
                 <main className="new-campaign-block">
@@ -226,17 +245,26 @@ class createFundraiser extends React.Component {
                             <div className="header-block">
                                 <label className="label-input">
                                     <span>Укажите цель сбора средств: </span>
-                                    <textarea maxLength="130" minLength="80" name="text_preview"
-                                              onChange={this.StateValue} onBlur={validator.textPreview} value={this.state.text_preview}
-                                              placeholder="Острое нарушение мозгового кровообращения по ишемическому типу в басейне левой внутренней сонной артерии внутренней сонной артерии"/>
+                                    <textarea maxLength="130"
+                                              minLength="80"
+                                              name="text_preview"
+                                              onChange={this.StateValue}
+                                              onBlur={validator.textPreview}
+                                              value={this.state.text_preview}
+                                              placeholder="Острое нарушение мозгового кровообращения по ишемическому типу
+                                              в басейне левой внутренней сонной артерии внутренней сонной артерии"/>
                                     <span className="info">Вы можете ввести не меньше 80 и не больше 130 знаков, включая пробелы</span>
                                 </label>
 
                                 <label className="label-input label-number">
                                     <span>Укажите сумму сбора</span>
                                     <span className="currency">ГРН</span>
-                                    <input placeholder="100 000" type="number" name="sum" onChange={this.StateValue}
-                                           onBlur={validator.sum} value={this.state.sum}/>
+                                    <input placeholder="100 000"
+                                           type="number"
+                                           name="sum"
+                                           onChange={this.StateValue}
+                                           onBlur={validator.sum}
+                                           value={this.state.sum}/>
                                     <span className="error">Неверный формат. Попробуйте еще раз</span>
                                 </label>
                             </div>
@@ -245,8 +273,12 @@ class createFundraiser extends React.Component {
 
                             <label className="label-input">
                                 <span>Ваше ФИО</span>
-                                <input placeholder="Василий Васильев Васильевич" type="text" name="full_name"
-                                       onChange={this.StateValue} onBlur={validator.fullName} value={this.state.full_name}/>
+                                <input placeholder="Василий Васильев Васильевич"
+                                       type="text"
+                                       name="full_name"
+                                       onChange={this.StateValue}
+                                       onBlur={validator.fullName}
+                                       value={this.state.full_name}/>
                                 <span className="error">Неверный формат. Попробуйте еще раз</span>
                             </label>
 
@@ -267,7 +299,7 @@ class createFundraiser extends React.Component {
                                 <label className="label-input">
                                     <span>МФО банка</span>
                                     <input placeholder="305299" type="number" name="mfo" onChange={this.StateValue}
-                                           onBlur={validator.mfo}  value={this.state.mfo}/>
+                                           onBlur={validator.mfo} value={this.state.mfo}/>
                                     <span className="error">Неверный формат.</span>
                                 </label>
                             </div>
@@ -276,14 +308,15 @@ class createFundraiser extends React.Component {
                                 <label className="label-input">
                                     <span>Ваш номер телефона</span>
                                     <input type="tel" placeholder="+38 096 33 33 333" name="phone"
-                                           onChange={this.StateValue} onBlur={validator.phone}  value={this.state.phone}/>
+                                           onChange={this.StateValue} onBlur={validator.phone}
+                                           value={this.state.phone}/>
                                     <span className="error">Неверный формат. Попробуйте еще раз</span>
                                 </label>
 
                                 <label className="label-input">
                                     <span>Идентификационный код</span>
                                     <input placeholder="1234567890" type="number" name="inn" onChange={this.StateValue}
-                                           onBlur={validator.inn}  value={this.state.inn}/>
+                                           onBlur={validator.inn} value={this.state.inn}/>
                                     <span className="error">Неверный формат. Попробуйте еще раз</span>
                                 </label>
                             </div>
@@ -293,12 +326,12 @@ class createFundraiser extends React.Component {
                             <div className="to-whom-campaign">
                                 <div className="radio-wrapper" onChange={this.StateValue}>
                                     <label className="label-radio">
-                                        <input type="radio" name="to_whom" defaultChecked value="self"/>
+                                        <input type="radio" name="to_whom" defaultChecked={this.state.for_whom === "self"} value="self"/>
                                         <span>Я собираю деньги для себя</span>
                                     </label>
 
                                     <label className="label-radio">
-                                        <input type="radio" name="to_whom" value="notself"/>
+                                        <input type="radio" name="to_whom" value="notself" defaultChecked={this.state.for_whom !== "self"}/>
                                         <span>Я собираю деньги не для себя</span>
                                     </label>
                                 </div>
@@ -307,7 +340,8 @@ class createFundraiser extends React.Component {
                                         <span>Для кого собираются средства?</span>
                                         <input placeholder="Василий Васильев Васильевич" type="text"
                                                name="for_whom_name"
-                                               onChange={this.StateValue} onBlur={validator.forWhomName}/>
+                                               onChange={this.StateValue} onBlur={validator.forWhomName}
+                                               value={this.state.for_whom_name}/>
                                         <span className="error">Неверный формат. Попробуйте еще раз</span>
                                     </label>
                                 )}
@@ -317,21 +351,28 @@ class createFundraiser extends React.Component {
                                 <label className="label-input">
                                     <span>Населенный пункт</span>
                                     <input placeholder="c. Григорьевка" type="text" name="country"
-                                           onChange={this.StateValue} onBlur={validator.country}/>
+                                           onChange={this.StateValue} onBlur={validator.country}
+                                           value={this.state.country}/>
                                     <span className="error">Неверный формат. Попробуйте еще раз</span>
                                 </label>
 
                                 <label className="label-input">
                                     <span>Адрес</span>
                                     <input placeholder="ул. Бунина, 17, кв. 12" type="text" name="address"
-                                           onChange={this.StateValue} onBlur={validator.address}/>
+                                           onChange={this.StateValue} onBlur={validator.address}
+                                           value={this.state.address}/>
                                     <span className="error">Неверный формат. Попробуйте еще раз</span>
                                 </label>
 
                                 <label className="label-input">
                                     <span>Дата рождения</span>
-                                    <input placeholder="13.07.2012" type="date" name="birthday"
-                                           onChange={this.StateValue} onBlur={validator.birthday}/>
+                                    <input placeholder="13.07.2012"
+                                           type="date"
+                                           name="birthday"
+                                           onChange={this.StateValue}
+                                           onBlur={validator.birthday}
+                                           value={this.state.birthday !== "" ? new Date(Date.parse(this.state.birthday)).toISOString().substring(0,10) : false}
+                                    />
                                     <span className="error">Неверный формат.</span>
                                 </label>
                             </div>
@@ -340,7 +381,7 @@ class createFundraiser extends React.Component {
 
                             <label className="label-select">
                                 <span> Категория заболевания</span>
-                                <select name="category" onChange={this.StateValue}>
+                                <select name="category" onChange={this.StateValue} value={this.state.category}>
                                     {
                                         this.state.all_categories.map((item, index) => {
                                             return <option key={item._id} value={item._id}>{item.title}</option>
@@ -351,24 +392,36 @@ class createFundraiser extends React.Component {
 
                             <div className="photo-preview-block">
                                 <h6 className="h4Header">Фото-обложка компании по сбору средств</h6>
-
                                 <label className="label-file">
-                                    <span className="btn btn-transparent">ВЫБРАТЬ</span>
-                                    <input type="file" name='photo_preview' onChange={this.LoadImage}/>
+
+                                    {this.state.photo_preview !== null && this.state.photo_preview  ? (
+                                        <div>
+                                                <img src={ `http://165.227.11.173:3001/uploads/${this.state.photo_preview.filename}`} alt=""/>
+                                            {/*{this.state.card.photo_preview.sizes[0] ? (*/}
+                                                {/*<img src={ `http://165.227.11.173:3001/uploads/${this.state.card.photo_preview.filename}`} alt=""/>*/}
+                                            {/*) : false}*/}
+                                            <button className="btn btn-transparent" name="photo_preview" onClick={this.deleteImage}>Удалить фото</button>
+                                        </div>
+
+                                        ) : (
+                                        <fieldset>
+                                            <span className="btn btn-transparent">ВЫБРАТЬ</span>
+                                            <input type="file" name='photo_preview' onChange={this.LoadImage}/>
+                                        </fieldset>
+                                    )}
+                                  
                                 </label>
                             </div>
 
 
                             <label className="label-input label-textarea">
                                 <span>Опишите свою ситуацию</span>
-
-
-                                {/*<textarea placeholder="Опишите свою ситуацию" name="main_text"*/}
-                                {/*onChange={this.StateValue}/>*/}
                             </label>
-                            <ReactQuill name="main_text" value={this.state.main_text}
+                            <ReactQuill name="main_text"
+                                        value={this.state.main_text}
                                         onChange={this.StateValueQuill}
-                                        modules={modules} ref={(el) => this.quillRef = el}
+                                        modules={modules}
+                                        ref={(el) => this.quillRef = el}
                             />
 
                             <div className="block-line"/>
