@@ -5,6 +5,7 @@ import adminLogin from "../../pages/admin/admin-login";
 import appeal from "../../pages/admin/appeal";
 import application from "../../pages/admin/cardStatus/draft";
 import active from "../../pages/admin/cardStatus/active";
+import verify from "../../pages/admin/cardStatus/verify";
 import ban from "../../pages/admin/cardStatus/ban";
 import getmoney from "../../pages/admin/cardStatus/getmoney";
 import archive from "../../pages/admin/cardStatus/archive";
@@ -34,6 +35,7 @@ class AdminRouting extends React.Component {
                     <Route exact path="/admin/application" component={application}/>
                     <Route exact path="/admin/active" component={active}/>
                     <Route exact path="/admin/ban" component={ban}/>
+                    <Route exact path="/admin/verify" component={verify}/>
                     <Route exact path="/admin/get-money" component={getmoney}/>
                     <Route exact path="/admin/archive" component={archive}/>
                     <Route exact path="/admin/categories" component={categories}/>
