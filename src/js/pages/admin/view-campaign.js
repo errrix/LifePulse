@@ -191,14 +191,17 @@ class viewCampaign extends React.Component {
                                             </div>
                                             <div className="text-item">
                                                 <span>email: </span>
-                                                <span>!!!!!!!!!!!!!!!!!!!!!!!!!! FIX_ME</span>
+                                                <span>{this.state.card.email}</span>
+                                                {/*{this.state.card === true ?*/}
+                                                    {/*(<span>{this.state.card.user[0].email}</span>) : false*/}
+                                                {/*}*/}
                                             </div>
                                         </div>
 
                                         <div className="text-block">
                                             <div className="text-item">
                                                 <span>Пациент: </span>
-                                                <span>!!!!!!!!!!!!!!!!!!!!!!!!! FIX_ME</span>
+                                                <span>{this.state.card.for_whom_name}</span>
                                             </div>
                                             <div className="text-item">
                                                 <span>Дата рождения: </span>

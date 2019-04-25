@@ -90,7 +90,7 @@ class usercard extends React.Component {
                                     <div className="shortInfoBlock">
                                         <p className="shortInfoBlock-age">Дата рождения: <span>{new Date(Date.parse(this.state.card.birthday)).toLocaleDateString()}</span></p>
                                         <p className="shortInfoBlock-locations">Место
-                                            проживания: <span>{this.state.card.city} {this.state.card.address}</span>
+                                            проживания: <span>{this.state.card.city}</span>
                                         </p>
                                         <p className="shortInfoBlock-category">Категория: <span>{this.state.card.category[0].title}</span></p>
                                         <p className="shortInfoBlock-startFund">Начало сборов: <span>{new Date(Date.parse(this.state.card.createdAt)).toLocaleDateString()}</span></p>
