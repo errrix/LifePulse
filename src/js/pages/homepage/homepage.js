@@ -52,9 +52,9 @@ class Homepage extends React.Component {
     }
 
     componentDidMount() {
-        console.log('dsadsa123')
         this.getPopularCard();
         this.getActiveCard();
+        document.title = "LifesPulse | Главная"
     }
 
 
