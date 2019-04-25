@@ -66,7 +66,7 @@ class createFundraiser extends React.Component {
             method: 'POST',
             body: JSON.stringify({
                 "user": this.props.userId,
-                "status": "active",
+                "status": "draft",
                 "text_preview": this.state.text_preview,
                 "sum": this.state.sum,
                 "full_name": this.state.full_name,
