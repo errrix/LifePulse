@@ -21,21 +21,19 @@ class Header extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://165.227.11.173:3001/api/users/mydata', {
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            method: 'GET',
-            credentials: "include"
-        })
-            .then((response) => {
-                return response.json()
-            })
-            .then((data) => {
-                this.props.addUserIdAction(data.response.id);
-                this.props.addUserRoleAction(data.response.roles);
-
-            })
+        // fetch('http://165.227.11.173:3001/api/users/mydata', {
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     method: 'GET',
+        //     credentials: "include"
+        // })
+        //     .then((response) => {
+        //         return response.json()
+        //     })
+        //     .then((data) => {
+        //         this.props.addUserIdAction(data.response.id);
+        //     })
     }
 
     toggleMobMenu() {
@@ -55,7 +53,7 @@ class Header extends React.Component {
     }
 
     render() {
-        const {addUserIdAction, tokenData, addUserRoleAction} = this.props;
+        const {addUserIdAction, tokenData} = this.props;
         return (
 
             <div>
@@ -64,7 +62,7 @@ class Header extends React.Component {
                                     transitionEnterTimeout={300}
                                     transitionLeave={true}
                                     transitionLeaveTimeout={300}>
-                    {this.state.showPopup ? (<LoginPopup updateStatusPopup={this.handlePopup} addUserId={addUserIdAction} addUserRole={addUserRoleAction}/>) : (false)}
+                    {this.state.showPopup ? (<LoginPopup updateStatusPopup={this.handlePopup} addUserId={addUserIdAction}/>) : (false)}
                 </CSSTransitionGroup>
 
                 <header className="main-header">
@@ -181,7 +179,6 @@ const mapStateToProps = (store) => {
 
 const mapDispatchToProps = dispatch => ({
     addUserIdAction: string => dispatch(addUserId(string)),
-    addUserRoleAction: array => dispatch(addUserRole(array)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
