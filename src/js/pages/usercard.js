@@ -34,6 +34,7 @@ class usercard extends React.Component {
     }
 
     componentDidMount() {
+        document.title = "LifesPulse | Сбор средств"
         this.getThisCard();
     }
 

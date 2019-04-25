@@ -2,6 +2,10 @@ import React from "react";
 
 class Registration extends React.Component {
 
+    componentDidMount(){
+        document.title = "LifesPulse | Регистрация"
+    }
+
     constructor(props) {
         super(props);
 

@@ -2,6 +2,10 @@ import React from "react";
 
 class confidentiality extends React.Component {
 
+    componentDidMount(){
+        document.title = "LifesPulse | Соглашение о конфиденциальности"
+    }
+
     render() {
         return (
             <div>

@@ -2,6 +2,10 @@ import React from "react";
 
 class Faq extends React.Component {
 
+    componentDidMount(){
+        document.title = "LifesPulse | F.A.Q."
+    }
+
     constructor(props) {
         super(props);
 

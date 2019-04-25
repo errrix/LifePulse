@@ -4,6 +4,10 @@ import {Link} from "react-router-dom";
 
 class donate extends React.Component {
 
+    componentDidMount(){
+        document.title = "LifesPulse | Пожертвовать"
+    }
+
     constructor(props) {
         super(props);
 

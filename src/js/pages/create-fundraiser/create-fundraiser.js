@@ -113,6 +113,7 @@ class createFundraiser extends React.Component {
 
     componentDidMount() {
         this.getCategories();
+        document.title = "LifesPulse | Новая публикация"
     }
 
     StateValue(e) {
