@@ -55,10 +55,16 @@ class adminMenu extends React.Component {
                                     <Link to='/admin/ban'>Забаненные</Link>
                                 </li>
                                 <li>
+                                    <Link to='/admin/verify'>Верифицированные</Link>
+                                </li>
+                                <li>
                                     <Link to='/admin/get-money'>Вывод средств</Link>
                                 </li>
                                 <li>
                                     <Link to='/admin/archive'>Завершенные</Link>
+                                </li>
+                                <li>
+                                    <Link to='/admin/appeal'>Жалобы<span className="account-admin-side-menu-count">0</span></Link>
                                 </li>
                             </ul>
                         </li>
@@ -67,9 +73,6 @@ class adminMenu extends React.Component {
                             <Link to='/admin/categories'>Категория</Link>
                         </li>
 
-                        <li>
-                            <Link to='/admin/appeal'>Жалобы<span className="account-admin-side-menu-count">0</span></Link>
-                        </li>
                         <li>
                             <Link to='/admin/users'>Пользователи</Link>
                         </li>
