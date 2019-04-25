@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import ReactQuill from 'react-quill';
 
 import validator from './components/validator'
 import {connect} from "react-redux";
@@ -37,7 +38,10 @@ class createFundraiser extends React.Component {
         this.StateValue = this.StateValue.bind(this);
         this.LoadImage = this.LoadImage.bind(this);
         this.NewFundraiser = this.NewFundraiser.bind(this);
+        this.StateValueQuill = this.StateValueQuill.bind(this);
+        this.imageHandler = this.imageHandler.bind(this);
     }
+
 
     getCategories() {
         fetch('http://165.227.11.173:3001/api/category', {
@@ -121,7 +125,47 @@ class createFundraiser extends React.Component {
         console.log(this.state.name)
     }
 
+    StateValueQuill(value) {
+        this.setState({main_text: value});
+    }
+
+    imageHandler(image, callback) {
+        var range = this.quillRef.getEditor().getSelection();
+        const input = document.createElement('input');
+        input.setAttribute('type', 'file');
+        input.setAttribute('accept', 'image/*');
+        input.click();
+        input.onchange = function () {
+            const file = input.files[0];
+            let data = new FormData();
+            data.append("image", file);
+            fetch('http://165.227.11.173:3001/api/images/', {
+                method: 'POST',
+                credentials: 'include',
+                body: data
+            })
+                .then(function (response) {
+                    return response.json()
+                }).then((data) => {
+                let url = data.response.sizes[0].path;
+                this.quillRef.getEditor().insertEmbed(range.index, 'image', `http://165.227.11.173:3001/${url}`, "user");
+            })
+        }.bind(this); // react thing
+    }
+
     render() {
+        let modules = {
+            toolbar: {
+                container: [
+                    [{'header': [1, 2, false]}],
+                    ['bold', 'italic', 'blockquote'],
+                    [{'list': 'ordered'}, {'list': 'bullet'}],
+                    ['image']],
+                handlers: {
+                    'image': this.imageHandler
+                }
+            }
+        }
         return (
             <div>
                 <main className="new-campaign-block">
@@ -265,11 +309,18 @@ class createFundraiser extends React.Component {
                                 </label>
                             </div>
 
+
                             <label className="label-input label-textarea">
                                 <span>Опишите свою ситуацию</span>
-                                <textarea placeholder="Опишите свою ситуацию" name="main_text"
-                                          onChange={this.StateValue}/>
+
+
+                                {/*<textarea placeholder="Опишите свою ситуацию" name="main_text"*/}
+                                {/*onChange={this.StateValue}/>*/}
                             </label>
+                            <ReactQuill name="main_text" value={this.state.main_text}
+                                        onChange={this.StateValueQuill}
+                                        modules={modules} ref={(el) => this.quillRef = el}
+                            />
 
                             <div className="block-line"/>
 
