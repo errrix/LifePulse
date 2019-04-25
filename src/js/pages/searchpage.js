@@ -68,6 +68,7 @@ class SearchPage extends React.Component {
     componentDidMount() {
         this.getActiveCard();
         this.getCategories();
+        document.title = "LifesPulse | Поиск"
     }
 
     handleSearch(e) {

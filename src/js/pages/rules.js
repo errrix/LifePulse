@@ -2,6 +2,10 @@ import React from "react";
 
 class Rules extends React.Component {
 
+    componentDidMount(){
+        document.title = "LifesPulse | Правила платформы"
+    }
+
     render() {
         return (
             <div>

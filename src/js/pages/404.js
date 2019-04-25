@@ -3,6 +3,10 @@ import {Link} from "react-router-dom";
 
 class pageNotFound extends React.Component {
 
+    componentDidMount(){
+        document.title = "LifesPulse | Страница не найдена"
+    }
+
     render() {
         return (
             <div>

@@ -2,6 +2,10 @@ import React from "react";
 
 class RegistrationConfirm extends React.Component {
 
+    componentDidMount(){
+        document.title = "LifesPulse | Подтверждение регистрации"
+    }
+
     render() {
         return (
 

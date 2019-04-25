@@ -2,6 +2,9 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 class about extends React.Component {
+    componentDidMount(){
+        document.title = "LifesPulse | О Нас"
+    }
 
     render() {
         return (
