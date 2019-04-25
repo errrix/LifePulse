@@ -46,7 +46,7 @@ class viewCampaign extends React.Component {
             this.setState({text_preview: json.response.text_preview});
             this.setState({category: json.response.category[0]._id});
             this.setState({main_text: json.response.main_text});
-            console.log(this.state.card)
+            console.log(this.state.card.user)
         })
     }
 
@@ -191,10 +191,9 @@ class viewCampaign extends React.Component {
                                             </div>
                                             <div className="text-item">
                                                 <span>email: </span>
-                                                <span>{this.state.card.email}</span>
-                                                {/*{this.state.card === true ?*/}
-                                                    {/*(<span>{this.state.card.user[0].email}</span>) : false*/}
-                                                {/*}*/}
+                                                {this.state.card.user ?
+                                                    (<span>{this.state.card.user[0].email}</span>) : false
+                                                }
                                             </div>
                                         </div>
 
