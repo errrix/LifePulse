@@ -68,7 +68,7 @@ class adminMenu extends React.Component {
                         </li>
 
                         <li>
-                            <Link to='/admin/appeal'>Жалобы<span className="account-admin-side-menu-count">30</span></Link>
+                            <Link to='/admin/appeal'>Жалобы<span className="account-admin-side-menu-count">0</span></Link>
                         </li>
                         <li>
                             <Link to='/admin/users'>Пользователи</Link>

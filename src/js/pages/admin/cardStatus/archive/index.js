@@ -71,7 +71,7 @@ class archive extends React.Component {
                                             <td>{new Date(Date.parse(item.createdAt)).toLocaleDateString()}</td>
                                             <td>!!!!!!</td>
                                             <td>{item.max_sum}/{item.sum}</td>
-                                            <td> <Link to={`/admin/view-campaign/${item._id}`} target="">view</Link> </td>
+                                            <td> <Link to={`/admin/view-campaign/${item._id}`} target="">View</Link> </td>
                                         </tr>
                                     }) : false
                                     }
