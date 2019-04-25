@@ -1,1 +1,35 @@
-//Стили для ВИЗблока здесь пиши
+.quill {
+  .ql-container {
+    .ql-editor {
+      min-height: 250px;
+      background: $bg-white-color;
+      img {
+        max-width: 80%;
+        max-height: 400px;
+        margin: 0 auto;
+        display: block;
+      }
+      ul {
+        margin: 10px;
+
+        li {
+          color: $main-text-color;
+          font-size: 16px;
+          line-height: 1.4;
+          margin-bottom: 10px;
+          list-style-type: none;
+
+          &:before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: $bg-orange-color;
+            display: inline-block;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+}

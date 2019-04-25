@@ -158,7 +158,7 @@ class createFundraiser extends React.Component {
         let modules = {
             toolbar: {
                 container: [
-                    [{'header': [1, 2, false]}],
+                    [{'header': [2, 3, false]}],
                     ['bold', 'italic', 'blockquote'],
                     [{'list': 'ordered'}, {'list': 'bullet'}],
                     ['image']],
