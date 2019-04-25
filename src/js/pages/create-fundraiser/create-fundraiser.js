@@ -84,7 +84,7 @@ class createFundraiser extends React.Component {
                 "photo_passports_sick": this.state.photo_passports_sick,
                 "photo_preview": this.state.photo_preview,
                 "photo_documents": [this.state.photo_documents],
-                "for_whom_name": this.state.for_whom_name
+                "for_whom_name": this.state.for_whom === "self" ? this.state.full_name : this.state.for_whom_name
             })
         })
             .then(function (response) {
