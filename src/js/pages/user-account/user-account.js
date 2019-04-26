@@ -18,7 +18,6 @@ class UserAccount extends React.Component {
             last_name: this.props.last_name,
             email: this.props.email,
             phone: this.props.phone,
-            user_role: this.props.phone.role,
             show_follow: false
         };
 
@@ -45,7 +44,6 @@ class UserAccount extends React.Component {
                     last_name: json.response.last_name,
                     email: json.response.email,
                     phone: json.response.phone,
-                    user_role: json.response.phone.role
                 });
                 this.setState({
                     email: json.response.email,
@@ -151,8 +149,7 @@ const mapStateToProps = (store) => {
         first_name: store.user_info.first_name,
         last_name: store.user_info.last_name,
         email: store.user_info.email,
-        phone: store.user_info.phone,
-        user_role: store.user_info.user_role
+        phone: store.user_info.phone
     }
 };
 

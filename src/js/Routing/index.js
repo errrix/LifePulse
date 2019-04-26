@@ -20,8 +20,9 @@ import ScrollToTop from './../modules/scrollToTop';
 import AdminRouting from './admin-routing/index'
 
 import {createStore} from 'redux';
-import {Provider} from 'react-redux';
+import {connect, Provider} from 'react-redux';
 import reducer from './../reducer/';
+import {addUserId, addUserInfo, addUserRole} from "../actions";
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
@@ -68,6 +69,7 @@ class MainRouter extends React.Component {
         )
     }
 };
+
 
 
 export default MainRouter;

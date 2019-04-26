@@ -4,7 +4,7 @@ import CSSTransitionGroup from "react-addons-css-transition-group"
 
 import LoginPopup from './popup/loginPopup'
 
-import {addUserId, addUserRole } from "./../actions";
+import {addUserId, addUserRole, addUserInfo } from "./../actions";
 import {connect} from "react-redux";
 
 class Header extends React.Component {
@@ -33,8 +33,16 @@ class Header extends React.Component {
                 return response.json()
             })
             .then((data) => {
-                console.log(data);
-                this.props.addUserIdAction(data.response.id);
+                if (data.success) {
+                    console.log(data);
+                    this.props.addUserId(data.response.id);
+                    this.props.addUserRole(data.response.roles);
+                } else {
+                    console.log(data);
+                }
+            })
+            .catch(function (error) {
+                console.log(error)
             })
     }
 
@@ -52,7 +60,9 @@ class Header extends React.Component {
             })
             .then((data) => {
                 console.log(data);
-                this.props.addUserIdAction('');
+                this.props.addUserId('');
+                this.props.addUserRole([]);
+                this.props.addUserInfo({});
             })
     }
 
@@ -73,16 +83,14 @@ class Header extends React.Component {
     }
 
     render() {
-        const {addUserIdAction, tokenData} = this.props;
         return (
-
             <div>
                 <CSSTransitionGroup transitionName="logn-popup"
                                     transitionEnter={true}
                                     transitionEnterTimeout={300}
                                     transitionLeave={true}
                                     transitionLeaveTimeout={300}>
-                    {this.state.showPopup ? (<LoginPopup updateStatusPopup={this.handlePopup} addUserId={addUserIdAction}/>) : (false)}
+                    {this.state.showPopup ? (<LoginPopup updateStatusPopup={this.handlePopup}/>) : (false)}
                 </CSSTransitionGroup>
 
                 <header className="main-header">
@@ -111,7 +119,7 @@ class Header extends React.Component {
 
 
                             {
-                                (this.props.tokenData) ? (
+                                (this.props.user_id) ? (
                                     <div className="button-block">
                                         <Link to='/account' className="header-login-popup">Личный кабинет</Link>
                                         <Link to='/admin' className="header-login-popup">В админку</Link>
@@ -161,7 +169,7 @@ class Header extends React.Component {
 
 
                             {
-                                (this.props.tokenData) ? (
+                                (this.props.user_id) ? (
                                     <div className="button-block">
                                         <Link to='/account' className="header-login-popup">Личный кабинет</Link>
                                         <Link to='/admin' className="header-login-popup">В админку</Link>
@@ -195,12 +203,13 @@ class Header extends React.Component {
 const mapStateToProps = (store) => {
     return {
         data: store,
-        tokenData: store.user_id
+        user_id: store.user_id
     }
 };
 
 const mapDispatchToProps = dispatch => ({
-    addUserIdAction: string => dispatch(addUserId(string)),
+    addUserId: string => dispatch(addUserId(string)),
+    addUserRole: array => dispatch(addUserRole(array)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

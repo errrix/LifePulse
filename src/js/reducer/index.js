@@ -1,5 +1,6 @@
 const initialState = {
     user_id: '',
+    user_roles: [],
     user_info: {
         first_name: '',
         last_name: '',
@@ -20,6 +21,9 @@ const reduser = (state = initialState, action) => {
 
         case 'addUserCards' :
             return {...state, user_cards: action.payload};
+
+        case 'addUserRole' :
+            return {...state, user_roles: action.payload};
 
         default:
             return state;

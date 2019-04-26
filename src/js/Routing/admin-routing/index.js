@@ -14,6 +14,7 @@ import staff from "../../pages/admin/staff/staff";
 import users from "../../pages/admin/users";
 import viewCampaign from "../../pages/admin/view-campaign";
 import {connect} from "react-redux";
+import {addUserId, addUserInfo, addUserRole} from "../../actions";
 
 class AdminRouting extends React.Component {
 
@@ -23,10 +24,30 @@ class AdminRouting extends React.Component {
         this.state = {};
     }
 
+    componentDidMount() {
+        if (this.props.roles.length ===0 ) {
+            fetch('http://165.227.11.173:3001/api/users/auth', {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                method: 'GET',
+                credentials: "include"
+            })
+                .then((response) => {
+                    return response.json()
+                })
+                .then((data) => {
+                    console.log(data);
+                    this.props.addUserIdAction(data.response.id);
+                    this.props.addUserRole(data.response.roles);
+                })
+        }
+    }
+
     statusRole() {
-        if ( true
-            // (this.props.tokenData.indexOf('admin') !== -1 || this.props.tokenData.indexOf('moderator') !== -1)
-            // && this.props.tokenData.length !== 0
+        if (
+            (this.props.roles.indexOf('admin') !== -1 || this.props.roles.indexOf('moderator') !== -1)
+            && this.props.roles.length !== 0
         ) {
             return <Fragment>
                 <Switch>
@@ -44,7 +65,7 @@ class AdminRouting extends React.Component {
                     <Route path="/admin/view-campaign/:id" component={viewCampaign}/>
                 </Switch>
             </Fragment>
-        } else if(this.props.tokenData.length === 0) {
+        } else if(this.props.roles.length === 0) {
            return <Route exact path="/admin" component={adminLogin}/>
         } else {
             return <Redirect to={"/"}/>
@@ -62,9 +83,15 @@ class AdminRouting extends React.Component {
 
 const mapStateToProps = (store) => {
     return {
-        tokenData: store.user_role
+        data: store,
+        roles: store.user_roles
     }
 };
 
-export default connect(mapStateToProps)(AdminRouting);
+const mapDispatchToProps = dispatch => ({
+    addUserIdAction: string => dispatch(addUserId(string)),
+    addUserRole: array => dispatch(addUserRole(array)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(AdminRouting);
 

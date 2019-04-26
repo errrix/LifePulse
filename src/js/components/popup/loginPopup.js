@@ -1,5 +1,7 @@
 import React from "react";
 import {Link} from 'react-router-dom';
+import {addUserId, addUserInfo, addUserRole} from "../../actions";
+import {connect} from "react-redux";
 
 
 class LoginPopup extends React.Component {
@@ -82,7 +84,7 @@ class LoginPopup extends React.Component {
                 }).then((data) => {
                 if (data.success) {
                     this.props.addUserId(data.response.id);
-                    // this.props.addUserRole(data.response.roles);
+                    this.props.addUserRole(data.response.roles);
                     this.props.updateStatusPopup(false);
                 } else {
                     let errorElem = document.querySelector('.email-error');
@@ -171,4 +173,17 @@ class LoginPopup extends React.Component {
     }
 };
 
-export default LoginPopup;
+const mapStateToProps = (store) => {
+    return {
+        data: store,
+        user_id: store.user_id
+    }
+};
+
+const mapDispatchToProps = dispatch => ({
+    addUserId: string => dispatch(addUserId(string)),
+    addUserRole: array => dispatch(addUserRole(array)),
+    addUserInfo: object => dispatch(addUserInfo(object))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPopup);
