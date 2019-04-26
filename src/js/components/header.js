@@ -18,23 +18,42 @@ class Header extends React.Component {
 
         this.openPopup = this.openPopup.bind(this);
         this.handlePopup = this.handlePopup.bind(this);
+        this.handleLogout = this.handleLogout.bind(this);
     }
 
     componentDidMount() {
-        // fetch('http://165.227.11.173:3001/api/users/auth', {
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     method: 'GET',
-        //     credentials: "include"
-        // })
-        //     .then((response) => {
-        //         return response.json()
-        //     })
-        //     .then((data) => {
-        //         console.log(data);
-        //         this.props.addUserIdAction(data.response.id);
-        //     })
+        fetch('http://165.227.11.173:3001/api/users/auth', {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            method: 'GET',
+            credentials: "include"
+        })
+            .then((response) => {
+                return response.json()
+            })
+            .then((data) => {
+                console.log(data);
+                this.props.addUserIdAction(data.response.id);
+            })
+    }
+
+    handleLogout(e) {
+        e.preventDefault();
+        fetch('http://165.227.11.173:3001/api/users/logout', {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            method: 'GET',
+            credentials: "include"
+        })
+            .then((response) => {
+                return response.json()
+            })
+            .then((data) => {
+                console.log(data);
+                this.props.addUserIdAction('');
+            })
     }
 
     toggleMobMenu() {
@@ -96,6 +115,7 @@ class Header extends React.Component {
                                     <div className="button-block">
                                         <Link to='/account' className="header-login-popup">Личный кабинет</Link>
                                         <Link to='/admin' className="header-login-popup">В админку</Link>
+                                        <button className="header-login-popup" onClick={this.handleLogout}>Выйти</button>
                                     </div>
                                 ) : (
                                     <div className="button-block">
@@ -145,6 +165,7 @@ class Header extends React.Component {
                                     <div className="button-block">
                                         <Link to='/account' className="header-login-popup">Личный кабинет</Link>
                                         <Link to='/admin' className="header-login-popup">В админку</Link>
+                                        <button className="header-login-popup" onClick={this.handleLogout}>Выйти </button>
                                     </div>
                                 ) : (
                                     <div className="button-block">
