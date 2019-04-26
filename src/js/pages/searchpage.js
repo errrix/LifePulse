@@ -21,6 +21,7 @@ class SearchPage extends React.Component {
         this.getCategories = this.getCategories.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
         this.StateValue = this.StateValue.bind(this);
+        this.searchFundraiser = this.searchFundraiser.bind(this);
         this.handleLoadMore = debounce(this.handleLoadMore,1000).bind(this);
     }
 
@@ -57,6 +58,29 @@ class SearchPage extends React.Component {
                 cards: [...this.state.cards, ...json.response],
                 qt_cards: this.state.qt_cards + limit
             })
+        })
+    }
+
+    searchFundraiser(e) {
+        e.preventDefault();
+        console.log(this.props.userId);
+        fetch('http://165.227.11.173:3001/api/card/search?searsh=', {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include',
+            method: 'POST',
+            body: JSON.stringify({
+                "text_preview": this.state.text_preview,
+                "full_name": this.state.full_name,
+                "category": [this.state.category]
+            })
+        })
+            .then(function (response) {
+                return response.json()
+            }).then((json) => {
+            console.log(json);
+            // this.props.updateStatusPopup(false);
         })
     }
 
@@ -108,7 +132,7 @@ class SearchPage extends React.Component {
                                     })
                                 }
                             </select>
-                            <button type="submit" className="btn btn-orange">Поиск</button>
+                            <button type="submit" className="btn btn-orange"  onClick={this.searchFundraiser}>Поиск</button>
                             {/*<div className="search-result-navigation">*/}
                                 {/*<div className="search-result-sort">*/}
                                     {/*<button>Популярные</button>*/}
