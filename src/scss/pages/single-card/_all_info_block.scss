@@ -1,5 +1,5 @@
 .user-card-block {
-
+  padding: 130px 0 50px 0;
   .help-btn-block {
     display: none;
   }
@@ -388,4 +388,26 @@
       }
     }
   }
+}
+
+@media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
+  .user-card-block {
+    padding: 120px 0 50px 0;
+  }
+}
+
+@media only screen and (max-width: $mobileWidth) {
+  .user-card-block {
+    padding: 120px 0 50px 0;
+
+    .allInfoBlock .allHistoryBlock .allHistoryBlock-imgBlock {
+      width: 100%;
+      height: auto;
+      overflow: hidden;
+      img {
+        height: auto;
+      }
+    }
+  }
+
 }

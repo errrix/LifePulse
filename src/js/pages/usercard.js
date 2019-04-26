@@ -40,7 +40,6 @@ class usercard extends React.Component {
         return (
             <div>
 
-                <BackBtnBlock/>
                 <div>
                     {this.state.card ? (
                         <div className="user-card-block">
