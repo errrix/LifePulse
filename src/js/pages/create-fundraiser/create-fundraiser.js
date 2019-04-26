@@ -14,7 +14,7 @@ class createFundraiser extends React.Component {
             all_categories: [],
             to_whom: 'self',
 
-            status: '',
+            status: "draft",
             text_preview: '',
             sum: '',
             full_name: '',
@@ -42,6 +42,7 @@ class createFundraiser extends React.Component {
         this.imageHandler = this.imageHandler.bind(this);
         this.getEditedCard = this.getEditedCard.bind(this);
         this.deleteImage = this.deleteImage.bind(this);
+        this.UpdateFundraiser = this.UpdateFundraiser.bind(this);
     }
 
 
@@ -143,6 +144,45 @@ class createFundraiser extends React.Component {
         })
     }
 
+    UpdateFundraiser(e) {
+        e.preventDefault();
+        console.log(this.state.photo_preview);
+        fetch(`http://165.227.11.173:3001/api/card/${this.state.card._id}`, {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include',
+            method: 'PUT',
+            body: JSON.stringify({
+                "user": this.props.userId,
+                "status": "draft",
+                "text_preview": this.state.text_preview,
+                "sum": this.state.sum,
+                "full_name": this.state.full_name,
+                "account_number": this.state.account_number,
+                "bank": this.state.bank,
+                "mfo": this.state.mfo,
+                "inn": this.state.inn,
+                "phone": this.state.phone,
+                "city": this.state.country,
+                "address": this.state.address,
+                "birthday": this.state.birthday,
+                "category": [this.state.category],
+                "main_text": this.state.main_text,
+                "photo_passports": this.state.photo_passports,
+                "photo_passports_sick": this.state.photo_passports_sick,
+                "photo_preview": this.state.photo_preview._id,
+                "photo_documents": [this.state.photo_documents],
+                "for_whom_name": this.state.for_whom === "self" ? this.state.full_name : this.state.for_whom_name
+            })
+        })
+            .then(function (response) {
+                return response.json()
+            }).then((json) => {
+            console.log(json);
+        })
+    }
+
     LoadImage(e) {
         const {name} = e.target;
         let data = new FormData();
@@ -176,15 +216,18 @@ class createFundraiser extends React.Component {
             }).then((data) => {
                 console.log(data);
         })
-        this.setState({[name]: ''});
+        this.setState({[name]: null});
     }
 
     componentDidMount() {
         this.getCategories();
         if (this.props.location.state) {
             this.getEditedCard(this.props.location.state.id);
+            document.title = "LifesPulse | Редактирование"
+        } else {
+            document.title = "LifesPulse | Новая публикация"
         }
-        document.title = "LifesPulse | Новая публикация"
+
     }
 
     StateValue(e) {
@@ -396,11 +439,10 @@ class createFundraiser extends React.Component {
 
                                     {this.state.photo_preview !== null && this.state.photo_preview  ? (
                                         <div>
-                                                <img src={ `http://165.227.11.173:3001/uploads/${this.state.photo_preview.filename}`} alt=""/>
-                                            {/*{this.state.card.photo_preview.sizes[0] ? (*/}
-                                                {/*<img src={ `http://165.227.11.173:3001/uploads/${this.state.card.photo_preview.filename}`} alt=""/>*/}
-                                            {/*) : false}*/}
-                                            <button className="btn btn-transparent" name="photo_preview" onClick={this.deleteImage}>Удалить фото</button>
+                                            <img src={ `http://165.227.11.173:3001/uploads/${this.state.photo_preview.filename}`} alt=""/>
+                                            <button className="btn btn-transparent"
+                                                    name="photo_preview"
+                                                    onClick={this.deleteImage}>Удалить фото</button>
                                         </div>
 
                                         ) : (
@@ -442,8 +484,21 @@ class createFundraiser extends React.Component {
                                     Фото / скан Вашего паспорта
                                 </h6>
                                 <label className="label-file">
-                                    <span className="btn btn-transparent">ВЫБРАТЬ</span>
-                                    <input type="file" name='photo_passports' onChange={this.LoadImage}/>
+                                    {this.state.photo_passports !== null && this.state.photo_passports  ? (
+                                        <div>
+                                            <img src={ `http://165.227.11.173:3001/uploads/${this.state.photo_passports.filename}`} alt=""/>
+                                            <button className="btn btn-transparent"
+                                                    name="photo_passports"
+                                                    onClick={this.deleteImage}>Удалить фото</button>
+                                        </div>
+
+                                    ) : (
+                                        <fieldset>
+                                            <span className="btn btn-transparent">ВЫБРАТЬ</span>
+                                            <input type="file" name='photo_passports' onChange={this.LoadImage}/>
+                                        </fieldset>
+                                    )}
+
                                 </label>
 
                                 {this.state.to_whom === 'self' ? false : (
@@ -451,8 +506,21 @@ class createFundraiser extends React.Component {
                                         <h6>Фото / скан паспорта реципиента (больного)</h6>
 
                                         <label className="label-file">
-                                            <span className="btn btn-transparent">ВЫБРАТЬ</span>
-                                            <input type="file" name='photo_passports_sick' onChange={this.LoadImage}/>
+                                            {this.state.photo_passports_sick !== null && this.state.photo_passports_sick  ? (
+                                                <div>
+                                                    <img src={ `http://165.227.11.173:3001/uploads/${this.state.photo_passports.filename}`} alt=""/>
+                                                    <button className="btn btn-transparent"
+                                                            name="photo_passports_sick"
+                                                            onClick={this.deleteImage}>Удалить фото</button>
+                                                </div>
+
+                                            ) : (
+                                                <fieldset>
+                                                    <span className="btn btn-transparent">ВЫБРАТЬ</span>
+                                                    <input type="file" name='photo_passports_sick' onChange={this.LoadImage}/>
+                                                </fieldset>
+                                            )}
+
                                         </label>
                                     </div>
                                 )}
@@ -461,8 +529,21 @@ class createFundraiser extends React.Component {
                                     врачей)</h6>
 
                                 <label className="label-file">
-                                    <span className="btn btn-transparent">ВЫБРАТЬ</span>
-                                    <input type="file" name='photo_documents' onChange={this.LoadImage}/>
+                                    {this.state.photo_documents !== null && this.state.photo_documents  ? (
+                                        <div>
+                                            <img src={ `http://165.227.11.173:3001/uploads/${this.state.photo_passports.filename}`} alt=""/>
+                                            <button className="btn btn-transparent"
+                                                    name="photo_documents"
+                                                    onClick={this.deleteImage}>Удалить фото</button>
+                                        </div>
+
+                                    ) : (
+                                        <fieldset>
+                                            <span className="btn btn-transparent">ВЫБРАТЬ</span>
+                                            <input type="file" name='photo_documents' onChange={this.LoadImage}/>
+                                        </fieldset>
+                                    )}
+
                                 </label>
                             </div>
 
@@ -473,19 +554,30 @@ class createFundraiser extends React.Component {
                                 конфиденциальности</Link> и
                                 <Link to="/rules" target="_blank"> Правилами пользования сайтом</Link>
                             </label>
-                            <div className="button-wrapper">
-                                <button type="submit" className="btn m--with-loader" onClick={this.NewFundraiser}>
-                                    Отправить
-                                    <span className="loader"/>
-                                </button>
-                            </div>
+                            {this.state.status === 'draft' ? (
+                                <div className="button-wrapper">
+                                    <button type="submit" className="btn m--with-loader" onClick={this.NewFundraiser}>
+                                        Создать
+                                        <span className="loader"/>
+                                    </button>
+                                </div>
+                            ) :false }
+
+                            {this.state.status === 'rev' ? (
+                                <div className="button-wrapper">
+                                    <button type="submit" className="btn m--with-loader" onClick={this.UpdateFundraiser}>
+                                        Закончить редактирование
+                                        <span className="loader"/>
+                                    </button>
+                                </div>
+                            ) :false }
+
 
                         </form>
                     </div>
                 </main>
 
             </div>
-
         )
     }
 };
