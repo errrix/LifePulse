@@ -30,7 +30,7 @@ class createFundraiser extends React.Component {
             category: '',
             main_text: '',
             photo_passports: '',
-            photo_passports_sick: '',
+            photo_passports_sick: null,
             photo_preview: '',
             photo_documents: '',
         };
@@ -133,7 +133,7 @@ class createFundraiser extends React.Component {
                 "photo_passports_sick": this.state.photo_passports_sick,
                 "photo_preview": this.state.photo_preview,
                 "photo_documents": [this.state.photo_documents],
-                "for_whom_name": this.state.for_whom === "self" ? this.state.full_name : this.state.for_whom_name
+                "for_whom_name": this.state.to_whom === "self" ? this.state.full_name : this.state.for_whom_name
             })
         })
             .then(function (response) {
@@ -367,14 +367,14 @@ class createFundraiser extends React.Component {
                             <div className="block-line"/>
 
                             <div className="to-whom-campaign">
-                                <div className="radio-wrapper" onChange={this.StateValue}>
+                                <div className="radio-wrapper">
                                     <label className="label-radio">
-                                        <input type="radio" name="to_whom" defaultChecked={this.state.for_whom === "self"} value="self"/>
+                                        <input type="radio" name="to_whom" checked={this.state.to_whom === "self"} value="self"  onChange={this.StateValue}/>
                                         <span>Я собираю деньги для себя</span>
                                     </label>
 
                                     <label className="label-radio">
-                                        <input type="radio" name="to_whom" value="notself" defaultChecked={this.state.for_whom !== "self"}/>
+                                        <input type="radio" name="to_whom" value="notself" checked={this.state.to_whom === "notself"}  onChange={this.StateValue}/>
                                         <span>Я собираю деньги не для себя</span>
                                     </label>
                                 </div>

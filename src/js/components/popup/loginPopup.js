@@ -62,7 +62,7 @@ class LoginPopup extends React.Component {
 
     submitLogin(e) {
         e.preventDefault();
-        if (!this.state.validate_email && !this.state.validate_password) {
+        if (this.state.validate_email && this.state.validate_password) {
             document.querySelector('.loader').classList.add('active-loader', 'm--loader');
             fetch('http://165.227.11.173:3001/api/users/login', {
                 headers: {
@@ -71,10 +71,10 @@ class LoginPopup extends React.Component {
                 method: 'POST',
                 credentials: 'include',
                 body: JSON.stringify({
-                    email: "test@test.test",
-                    password: "Test1234"
-                    // "email": this.state.email,
-                    // "password": this.state.password
+                    // email: "test@test.test",
+                    // password: "Test1234"
+                    "email": this.state.email,
+                    "password": this.state.password
                 })
             })
                 .then(function (response) {
