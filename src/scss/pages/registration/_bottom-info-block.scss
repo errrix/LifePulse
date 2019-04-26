@@ -8,8 +8,9 @@
       color: $main-text-color;
     }
 
-    a {
+    a, button {
       font-family: $mainfont;
+      font-size: 16px;
       color: $common-orange-color;
     }
   }

@@ -42,14 +42,7 @@
         }
 
         & > h2 {
-          //color: $main-text-color;
-          //font-size: 34px;
-          //font-weight: 500;
-          //line-height: 49px;
-          //display: block;
-          //border-bottom: 1px solid rgba(0, 0, 0, 0.24);
-          //margin-bottom: 25px;
-          //.h2Header;
+          @extend .h2Header;
         }
 
         & > ul {
@@ -260,6 +253,7 @@
 
 @media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
   .user-card-block {
+    padding: 120px 0 50px 0;
     .money-count {
       display: block;
       margin-top: 30px;
@@ -326,6 +320,7 @@
 
 @media only screen and (max-width: $mobileWidth) {
   .user-card-block {
+    padding: 120px 0 50px 0;
     .money-count {
       display: block;
       margin-top: 30px;
@@ -365,6 +360,14 @@
       .allHistoryBlock {
         width: 100%;
         margin-bottom: 20px;
+        .allHistoryBlock-imgBlock {
+          width: 100%;
+          height: auto;
+          overflow: hidden;
+          img {
+            height: auto;
+          }
+        }
 
         .customUserBlock {
           padding: 50px 15px 0 15px;
@@ -388,26 +391,4 @@
       }
     }
   }
-}
-
-@media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
-  .user-card-block {
-    padding: 120px 0 50px 0;
-  }
-}
-
-@media only screen and (max-width: $mobileWidth) {
-  .user-card-block {
-    padding: 120px 0 50px 0;
-
-    .allInfoBlock .allHistoryBlock .allHistoryBlock-imgBlock {
-      width: 100%;
-      height: auto;
-      overflow: hidden;
-      img {
-        height: auto;
-      }
-    }
-  }
-
 }
