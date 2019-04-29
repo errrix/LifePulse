@@ -176,11 +176,16 @@
           .button-block {
             display: flex;
             justify-content: center;
-            padding: 20px;
+            padding-top: 20px;
+            border-top: 1px solid lightgray;
+            li {
+              margin-bottom: 15px;
+            }
             .header-login-popup {
               color: $main-text-color;
               font-size: 18px;
               line-height: 22px;
+              margin: 0 auto;
             }
           }
         }
@@ -235,11 +240,16 @@
           .button-block {
             display: flex;
             justify-content: center;
-            padding: 20px;
+            padding-top: 20px;
+            border-top: 1px solid lightgray;
+            li {
+              margin-bottom: 15px;
+            }
             .header-login-popup {
               color: $main-text-color;
               font-size: 18px;
               line-height: 22px;
+              margin: 0 auto;
             }
           }
         }

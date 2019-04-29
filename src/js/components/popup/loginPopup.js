@@ -14,7 +14,7 @@ class LoginPopup extends React.Component {
             validate_email: false,
             password: '',
             validate_password: false,
-            validate_email_message: 'Некорректный email. Попробуйте еще раз',
+            validate_email_message: 'Некорректный email.',
             validate_email_message_from_response: 'Некорректный email или пароль'
         };
 

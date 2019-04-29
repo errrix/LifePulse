@@ -171,9 +171,11 @@ class Header extends React.Component {
                             {
                                 (this.props.user_id) ? (
                                     <div className="button-block">
-                                        <Link to='/account' className="header-login-popup">Личный кабинет</Link>
-                                        <Link to='/admin' className="header-login-popup">В админку</Link>
-                                        <button className="header-login-popup" onClick={this.handleLogout}>Выйти </button>
+                                        <ul>
+                                            <li><Link to='/account' className="header-login-popup">Личный кабинет</Link></li>
+                                            <li><button className="header-login-popup" onClick={this.handleLogout}>Выйти</button></li>
+                                        </ul>
+
                                     </div>
                                 ) : (
                                     <div className="button-block">

@@ -120,6 +120,7 @@
       .label-password-top-block {
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
       }
 
       .no-account, .forgot-password {
@@ -192,5 +193,30 @@
       transition-delay: 0s;
     }
 
+  }
+}
+
+@media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
+
+}
+
+@media only screen and (max-width: $mobileWidth) {
+  .popup-content-block {
+    padding: 25px;
+    width: 100%;
+
+    .popup-step {
+      position: relative;
+      opacity: 1;
+      transition: .5s;
+      min-height: 200px;
+      transition-delay: .5s;
+
+      &.m--login {
+        .main-form label.label-input input {
+          min-width: auto;
+        }
+      }
+    }
   }
 }
