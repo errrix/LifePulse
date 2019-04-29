@@ -1,19 +1,21 @@
 import React from "react";
 
-class AddNewStaff extends React.Component{
+class AddNewStaffPopup extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            title: ''
+            first_name: '',
+            last_name: '',
+            email: '',
+            roles: '',
+            password: '',
+            confirmPassword: ''
         };
 
         this.closePopup = this.closePopup.bind(this);
         this.newStaff = this.newStaff.bind(this);
-        this.staffName = this.staffName.bind(this);
-        this.staffMail = this.staffMail.bind(this);
-        this.staffRole = this.staffRole.bind(this);
-        this.staffPassword = this.staffPassword.bind(this);
+        this.staffInfo = this.staffInfo.bind(this);
     }
 
     componentDidMount() {
@@ -21,38 +23,43 @@ class AddNewStaff extends React.Component{
     }
 
     closePopup(e) {
-        if(!document.querySelector('.popup .popup-content-block').contains(e.target)) {
+        if (!document.querySelector('.popup .popup-content-block').contains(e.target)) {
             this.props.updateStatusPopup(false);
         }
     }
 
-    staffName(e) {
-        this.setState({title: e.target.value});
+    staffInfo(e) {
+        const {name, value} = e.target;
+        this.setState({[name]: value});
+        console.log(this.state.name)
     }
 
     newStaff(e) {
-        e.preventDefault();
-        // document.querySelector('.loader').classList.add('active-loader', 'm--loader');
-        // fetch('http://165.227.11.173:3001/api/category/', {
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         "Authorization": this.props.tokenData
-        //     },
-        //     method: 'POST',
-        //     body: JSON.stringify({
-        //         "title": this.state.title
-        //     })
-        // })
-        //     .then(function (response) {
-        //         return response.json()
-        //     }).then((json) => {
-        //     this.props.updateStatusPopup(false);
-        // })
+        e.preventDefault(e);
+        document.querySelector('.loader').classList.add('active-loader', 'm--loader');
+        // if (this.state.validate_confirm) {
+            fetch("http://165.227.11.173:3001/api/users/newuser", {
+                    "method": "POST",
+                    "headers": {
+                        "Content-Type": "application/json"
+                    },
+                    "body": JSON.stringify({
+                        "first_name": this.state.first_name,
+                        "last_name": this.state.last_name,
+                        "email": this.state.email,
+                        "password": this.state.password,
+
+                    })
+                }
+            ).then((ressponse) => ressponse.json()).then((response) => {
+                console.log(response)
+            })
+        // }
     }
 
-    render(){
+    render() {
         return (
-            <div className="popup m--admin-add-new-staff hide-popup" onClick={this.closePopup}>
+            <div className="popup m--admin-add-new-staff" onClick={this.closePopup}>
                 <div className="popup-content-block">
                     <div className="popup-content-block-wrapper">
                         <div className="popup-step">
@@ -60,44 +67,51 @@ class AddNewStaff extends React.Component{
                             <form className="main-form" onSubmit={this.newStaff}>
                                 <h3>Добавить пользователя</h3>
                                 <label className="label-input">
-                                    <span>Имя и фамилия</span>
-                                    <input type="text" required onChange={this.staffName}/>
-                                    <span className="error">Введите имя и фамилию</span>
+                                    <span>Фамилия</span>
+                                    <input type="text" required name="last_name" onChange={this.staffInfo}/>
+                                    <span className="error">Введите фамилию</span>
+                                </label>
+
+                                <label className="label-input">
+                                    <span>Имя</span>
+                                    <input type="text" required name="first_name" onChange={this.staffInfo}/>
+                                    <span className="error">Введите имя</span>
                                 </label>
 
                                 <label className="label-input">
                                     <span>Email</span>
-                                    <input type="email" required onChange={this.staffMail}/>
+                                    <input type="email" required name="email" onChange={this.staffInfo}/>
                                     <span
                                         className="error"> Некорректный email. Попробуйте еще раз</span>
                                 </label>
 
                                 <label className="label-select">
                                     <span>Роль в комманде</span>
-                                    <select name="" id=""  onChange={this.staffRole}>
-                                        <option value="">СЕО</option>
-                                        <option value="">Модератор</option>
-                                        <option value="">Администратор</option>
+                                    <select name="roles" onChange={this.staffInfo} value={this.state.roles}>
+                                        <option value="ceo">СЕО</option>
+                                        <option value="moderator">Модератор</option>
+                                        <option value="admin">Администратор</option>
+                                        <option value="accountant">Бухгалтер</option>
                                     </select>
                                 </label>
 
                                 <label className="label-input">
                                     <span>Пароль</span>
-                                    <input type="password" required onChange={this.staffPassword}/>
+                                    <input type="password" required name="password" onChange={this.staffInfo}/>
                                     <span className="error">Неверный пароль. Введите еще раз</span>
                                 </label>
 
                                 <label className="label-input">
                                     <span>Повторите пароль</span>
-                                    <input type="password" required onChange={this.staffPassword}/>
+                                    <input type="password" required name="confirmPassword" onChange={this.staffInfo}/>
                                     <span className="error">Неверный пароль. Введите еще раз</span>
                                 </label>
 
                                 <div className="button-wrapper">
                                     <button type="submit" className="btn m--with-loader">
-                                        <span>
-                                            Сохранить
-                                        </span>
+                                                             <span>
+                                                                 Сохранить
+                                                             </span>
                                         <span className="loader"></span>
                                     </button>
                                 </div>
@@ -106,11 +120,10 @@ class AddNewStaff extends React.Component{
 
                         </div>
                     </div>
-
                 </div>
             </div>
         )
     }
 }
 
-export default AddNewStaff;
+export default AddNewStaffPopup;
