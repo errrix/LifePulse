@@ -103,6 +103,7 @@ class staff extends React.Component {
                             </header>
                             <div className="account-admin-staff-wrapper">
                                 <table className="account-admin-table">
+                                    <tbody>
                                     <tr className="title">
                                         <th>№</th>
                                         <th>Пользователь</th>
@@ -346,7 +347,7 @@ class staff extends React.Component {
                                             </a>
                                         </td>
                                     </tr>
-
+                                    </tbody>
                                 </table>
                             </div>
 

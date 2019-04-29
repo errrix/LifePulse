@@ -448,7 +448,7 @@ class createFundraiser extends React.Component {
                                         ) : (
                                         <fieldset>
                                             <span className="btn btn-transparent">ВЫБРАТЬ</span>
-                                            <input type="file" name='photo_preview' onChange={this.LoadImage}/>
+                                            <input type="file" name='photo_preview' accept="image/x-png,image/jpeg" onChange={this.LoadImage}/>
                                         </fieldset>
                                     )}
                                   
@@ -457,14 +457,15 @@ class createFundraiser extends React.Component {
 
 
                             <label className="label-input label-textarea">
-                                <span>Опишите свою ситуацию</span>
+                                <h6 className="h4Header">Опишите свою ситуацию</h6>
+                                <ReactQuill name="main_text"
+                                            value={this.state.main_text}
+                                            onChange={this.StateValueQuill}
+                                            modules={modules}
+                                            ref={(el) => this.quillRef = el}
+                                />
+
                             </label>
-                            <ReactQuill name="main_text"
-                                        value={this.state.main_text}
-                                        onChange={this.StateValueQuill}
-                                        modules={modules}
-                                        ref={(el) => this.quillRef = el}
-                            />
 
                             <div className="block-line"/>
 
@@ -495,7 +496,7 @@ class createFundraiser extends React.Component {
                                     ) : (
                                         <fieldset>
                                             <span className="btn btn-transparent">ВЫБРАТЬ</span>
-                                            <input type="file" name='photo_passports' onChange={this.LoadImage}/>
+                                            <input type="file" name='photo_passports' accept="image/x-png,image/jpeg" onChange={this.LoadImage}/>
                                         </fieldset>
                                     )}
 
@@ -503,7 +504,7 @@ class createFundraiser extends React.Component {
 
                                 {this.state.to_whom === 'self' ? false : (
                                     <div id="another-recipient-foto">
-                                        <h6>Фото / скан паспорта реципиента (больного)</h6>
+                                        <h6 className="h4Header">Фото / скан паспорта реципиента (больного)</h6>
 
                                         <label className="label-file">
                                             {this.state.photo_passports_sick !== null && this.state.photo_passports_sick  ? (
@@ -517,7 +518,7 @@ class createFundraiser extends React.Component {
                                             ) : (
                                                 <fieldset>
                                                     <span className="btn btn-transparent">ВЫБРАТЬ</span>
-                                                    <input type="file" name='photo_passports_sick' onChange={this.LoadImage}/>
+                                                    <input type="file" name='photo_passports_sick' accept="image/x-png,image/jpeg" onChange={this.LoadImage}/>
                                                 </fieldset>
                                             )}
 
@@ -540,7 +541,7 @@ class createFundraiser extends React.Component {
                                     ) : (
                                         <fieldset>
                                             <span className="btn btn-transparent">ВЫБРАТЬ</span>
-                                            <input type="file" name='photo_documents' onChange={this.LoadImage}/>
+                                            <input type="file" name='photo_documents' accept="image/x-png,image/jpeg" onChange={this.LoadImage}/>
                                         </fieldset>
                                     )}
 
