@@ -47,11 +47,9 @@ class UserAccount extends React.Component {
                 });
                 this.setState({
                     email: json.response.email,
-                    name: json.response.first_name,
+                    first_name: json.response.first_name,
                     last_name: json.response.last_name,
                     phone: json.response.phone,
-                    id: json.response._id
-
                 });
             })
     }
@@ -84,7 +82,7 @@ class UserAccount extends React.Component {
 
                                     <div className="text-block">
 
-                                            <h2 className="h3Header">{this.state.name} {this.state.last_name}</h2>
+                                            <h2 className="h3Header">{this.state.first_name} {this.state.last_name}</h2>
 
                                             <h4 className="h4Header">
                                                 Почта: <span>{this.state.email}</span>
@@ -128,7 +126,7 @@ class UserAccount extends React.Component {
                                                             transitionEnterTimeout={300}
                                                             transitionLeave={true}
                                                             transitionLeaveTimeout={300}>
-                                            {this.state.show_follow ? <MyFollow/> : <MyCampaignList user_id={this.state.id}/>}
+                                            {this.state.show_follow ? <MyFollow/> : <MyCampaignList user_id={this.props.user_id}/>}
                                         </CSSTransitionGroup>
                                     </div>
                                 </div>

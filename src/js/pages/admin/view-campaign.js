@@ -264,7 +264,7 @@ class viewCampaign extends React.Component {
 
                                         <div className="link-block-wrapper">
                                             {this.state.card.photo_passports ? (
-                                                <a href={`http://165.227.11.173:3001/uploads/${this.state.card.photo_preview.filename}`}
+                                                <a href={`http://165.227.11.173:3001/uploads/${this.state.card.photo_passports.filename}`}
                                                    target="_blank">
                                                     <span>Img паспорта автора заявки:</span>
 
@@ -282,7 +282,7 @@ class viewCampaign extends React.Component {
                                             ) : false}
 
                                             {this.state.card.photo_passports_sick ? (
-                                                <a href={`http://165.227.11.173:3001/uploads/${this.state.card.photo_preview.filename}`}
+                                                <a href={`http://165.227.11.173:3001/uploads/${this.state.card.photo_passports_sick.filename}`}
                                                    target="_blank">
                                                     <span>Img паспорта реципиента (больного):</span>
 
@@ -301,7 +301,7 @@ class viewCampaign extends React.Component {
 
                                             {this.state.card.photo_documents ? (
                                                 this.state.card.photo_documents.map((item) => {
-                                                    return <a href={`http://165.227.11.173:3001/uploads/${this.state.card.photo_preview.filename}`}
+                                                    return <a href={`http://165.227.11.173:3001/uploads/${item.filename}`}
                                                               target="_blank" key={item._id}>
                                                         <span>Img больничных документов:</span>
 

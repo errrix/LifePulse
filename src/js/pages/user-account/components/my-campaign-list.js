@@ -12,13 +12,13 @@ class MyCampaignList extends React.Component {
         super(props);
 
         this.state = {
-            cards: this.props.cards_from_store
+            cards: []
         };
 
         this.getUserCard = this.getUserCard.bind(this);
     }
 
-    getUserCard () {
+    getUserCard() {
         fetch(`http://165.227.11.173:3001/api/card/user/${this.props.user_id}`, {
             headers: {
                 'Content-Type': 'application/json',
@@ -31,7 +31,6 @@ class MyCampaignList extends React.Component {
             })
             .then((json) => {
                 console.log(json.response);
-                this.props.addUserCardAction(json.response);
                 this.setState({
                     cards: json.response
                 });
@@ -39,10 +38,8 @@ class MyCampaignList extends React.Component {
             })
     }
 
-    componentDidUpdate(prevProps) {
-        if(prevProps.user_id !== this.props.user_id && this.props.cards_from_store.length === 0) {
-            this.getUserCard()
-        }
+    componentDidMount() {
+        this.getUserCard()
     }
 
     render() {
@@ -70,15 +67,4 @@ class MyCampaignList extends React.Component {
     }
 };
 
-const mapStateToProps = (store) => {
-    return {
-        cards_from_store: store.user_cards
-    }
-};
-
-const mapDispatchToProps = dispatch => ({
-    addUserCardAction: array => dispatch(addUserCards(array))
-});
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(MyCampaignList);
+export default MyCampaignList;

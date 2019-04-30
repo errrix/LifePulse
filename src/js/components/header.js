@@ -4,7 +4,7 @@ import CSSTransitionGroup from "react-addons-css-transition-group"
 
 import LoginPopup from './popup/loginPopup'
 
-import {addUserId, addUserRole, addUserInfo } from "./../actions";
+import {addUserId, addUserRole, addUserInfo} from "./../actions";
 import {connect} from "react-redux";
 
 class Header extends React.Component {
@@ -62,7 +62,12 @@ class Header extends React.Component {
                 console.log(data);
                 this.props.addUserId('');
                 this.props.addUserRole([]);
-                this.props.addUserInfo({});
+                this.props.addUserInfo({
+                    first_name: "",
+                    last_name: "",
+                    email: "",
+                    phone: "",
+                });
             })
     }
 
@@ -123,7 +128,8 @@ class Header extends React.Component {
                                     <div className="button-block">
                                         <Link to='/account' className="header-login-popup">Личный кабинет</Link>
                                         <Link to='/admin' className="header-login-popup">В админку</Link>
-                                        <button className="header-login-popup" onClick={this.handleLogout}>Выйти</button>
+                                        <button className="header-login-popup" onClick={this.handleLogout}>Выйти
+                                        </button>
                                     </div>
                                 ) : (
                                     <div className="button-block">
@@ -148,7 +154,9 @@ class Header extends React.Component {
                         </div>
 
                         <div className="header__navToggle" onClick={this.toggleMobMenu}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="459" height="459" viewBox="0 0 459 459"><path d="M0 382.5h459v-51H0v51zM0 255h459v-51H0v51zM0 76.5v51h459v-51H0z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="459" height="459" viewBox="0 0 459 459">
+                                <path d="M0 382.5h459v-51H0v51zM0 255h459v-51H0v51zM0 76.5v51h459v-51H0z"/>
+                            </svg>
                         </div>
 
                         <div className="navigation-side-mobile">
@@ -172,8 +180,13 @@ class Header extends React.Component {
                                 (this.props.user_id) ? (
                                     <div className="button-block">
                                         <ul>
-                                            <li><Link to='/account' className="header-login-popup">Личный кабинет</Link></li>
-                                            <li><button className="header-login-popup" onClick={this.handleLogout}>Выйти</button></li>
+                                            <li><Link to='/account' className="header-login-popup">Личный кабинет</Link>
+                                            </li>
+                                            <li>
+                                                <button className="header-login-popup"
+                                                        onClick={this.handleLogout}>Выйти
+                                                </button>
+                                            </li>
                                         </ul>
 
                                     </div>
@@ -212,6 +225,7 @@ const mapStateToProps = (store) => {
 const mapDispatchToProps = dispatch => ({
     addUserId: string => dispatch(addUserId(string)),
     addUserRole: array => dispatch(addUserRole(array)),
+    addUserInfo: object => dispatch(addUserInfo(object)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

@@ -23,6 +23,7 @@ import {createStore} from 'redux';
 import {connect, Provider} from 'react-redux';
 import reducer from './../reducer/';
 import {addUserId, addUserInfo, addUserRole} from "../actions";
+import ThxCreate from "../pages/thx-create";
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
@@ -57,7 +58,9 @@ class MainRouter extends React.Component {
                                     <Route exact path="/account" component={UserAccount}/>
                                     <Route exact path="/usercard/:value" component={usercard}/>
                                     <Route exact path="/create-fundraiser" component={createFundraiser}/>
+                                    <Route exact path="/edit-fundraiser" component={createFundraiser}/>
                                     <Route exact path="/registration-confirm" component={RegistrationConfirm}/>
+                                    <Route exact path="/thanks-create" component={ThxCreate}/>
                                     <Route component={pageNotFound}/>
                                 </Switch>
                                 <Route path="/" component={Footer}/>

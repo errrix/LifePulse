@@ -28,11 +28,12 @@ class usercard extends React.Component {
             }).then((json) => {
             console.log(json);
             this.setState({card : json.response});
+            document.title = `LifesPulse | ${this.state.card.for_whom_name}`;
         })
     }
 
     componentDidMount() {
-        document.title = "LifesPulse | Сбор средств"
+        document.title = "LifesPulse | Сбор средств ";
         this.getThisCard();
     }
 
