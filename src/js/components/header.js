@@ -1,10 +1,8 @@
 import React from "react";
 import {Link, Redirect} from 'react-router-dom';
-import CSSTransitionGroup from "react-addons-css-transition-group"
 
-import LoginPopup from './popup/loginPopup'
 
-import {addUserId, addUserRole, addUserInfo} from "./../actions";
+import {addUserId, addUserRole, addUserInfo, changePopup} from "./../actions";
 import {connect} from "react-redux";
 
 class Header extends React.Component {
@@ -17,33 +15,7 @@ class Header extends React.Component {
         };
 
         this.openPopup = this.openPopup.bind(this);
-        this.handlePopup = this.handlePopup.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
-    }
-
-    componentDidMount() {
-        fetch('http://165.227.11.173:3001/api/users/auth', {
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            method: 'GET',
-            credentials: "include"
-        })
-            .then((response) => {
-                return response.json()
-            })
-            .then((data) => {
-                if (data.success) {
-                    console.log(data);
-                    this.props.addUserId(data.response.id);
-                    this.props.addUserRole(data.response.roles);
-                } else {
-                    console.log(data);
-                }
-            })
-            .catch(function (error) {
-                console.log(error)
-            })
     }
 
     handleLogout(e) {
@@ -76,28 +48,20 @@ class Header extends React.Component {
     }
 
     openPopup() {
-        this.setState({
-            showPopup: !this.state.showPopup
-        });
+        this.props.changePopup(true)
     }
 
-    handlePopup(value) {
-        this.setState({
-            showPopup: value
-        })
+    IsUser() {
+        return this.props.roles.indexOf('user') !== -1
+    }
+
+    componentDidMount() {
+        console.log('fdsfsd')
     }
 
     render() {
         return (
             <div>
-                <CSSTransitionGroup transitionName="logn-popup"
-                                    transitionEnter={true}
-                                    transitionEnterTimeout={300}
-                                    transitionLeave={true}
-                                    transitionLeaveTimeout={300}>
-                    {this.state.showPopup ? (<LoginPopup updateStatusPopup={this.handlePopup}/>) : (false)}
-                </CSSTransitionGroup>
-
                 <header className="main-header">
                     <div className="main-header-wrapper">
                         <div className="logo-side">
@@ -118,7 +82,10 @@ class Header extends React.Component {
                                     <Link to='/allcampaing'>Начать помогать</Link>
                                 </li>
                                 <li>
-                                    <Link to='/create-fundraiser'>Подать заявку</Link>
+                                    {
+                                        this.IsUser() ?  <Link to='/create-fundraiser'>Подать заявку</Link> : <button onClick={this.openPopup}>Подать заявку</button>
+                                    }
+
                                 </li>
                             </ul>
 
@@ -171,7 +138,9 @@ class Header extends React.Component {
                                     <Link to='/allcampaing'>Начать помогать</Link>
                                 </li>
                                 <li>
-                                    <Link to='/create-fundraiser'>Подать заявку</Link>
+                                    {
+                                        this.IsUser() ?  <Link to='/create-fundraiser'>Подать заявку</Link> : <button onClick={this.openPopup}>Подать заявку</button>
+                                    }
                                 </li>
                             </ul>
 
@@ -218,7 +187,8 @@ class Header extends React.Component {
 const mapStateToProps = (store) => {
     return {
         data: store,
-        user_id: store.user_id
+        user_id: store.user_id,
+        roles: store.user_roles
     }
 };
 
@@ -226,6 +196,7 @@ const mapDispatchToProps = dispatch => ({
     addUserId: string => dispatch(addUserId(string)),
     addUserRole: array => dispatch(addUserRole(array)),
     addUserInfo: object => dispatch(addUserInfo(object)),
+    changePopup: boolean => dispatch(changePopup(boolean))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

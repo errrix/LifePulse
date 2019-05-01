@@ -6,7 +6,7 @@ import validator from './components/validator'
 import {connect} from "react-redux";
 import FileLoader from "./components/file_loader";
 
-class createFundraiser extends React.Component {
+class CreateFundraiser extends React.Component {
 
     constructor(props) {
         super(props);
@@ -690,4 +690,4 @@ const mapStateToProps = (store) => {
 };
 
 
-export default connect(mapStateToProps)(createFundraiser);
+export default connect(mapStateToProps)(CreateFundraiser);

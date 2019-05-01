@@ -8,7 +8,8 @@ const initialState = {
         phone: '',
         user_role: []
     },
-    user_cards: []
+    user_cards: [],
+    show_popup: false
 };
 
 const reduser = (state = initialState, action) => {
@@ -24,6 +25,9 @@ const reduser = (state = initialState, action) => {
 
         case 'addUserRole' :
             return {...state, user_roles: action.payload};
+
+        case 'changePopup' :
+            return {...state, show_popup: action.payload};
 
         default:
             return state;

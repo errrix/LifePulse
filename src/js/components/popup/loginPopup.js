@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom';
-import {addUserId, addUserInfo, addUserRole} from "../../actions";
+import {addUserId, addUserInfo, addUserRole, changePopup} from "../../actions";
 import {connect} from "react-redux";
 
 
@@ -28,7 +28,7 @@ class LoginPopup extends React.Component {
 
     closePopup(e) {
         if (!document.querySelector('.popup .popup-content-block').contains(e.target)) {
-            this.props.updateStatusPopup(false);
+            this.props.changePopup(false);
             // document.querySelector('.popup').classList.add('hide-popup');
         }
     }
@@ -73,8 +73,6 @@ class LoginPopup extends React.Component {
                 method: 'POST',
                 credentials: 'include',
                 body: JSON.stringify({
-                    // email: "test@test.test",
-                    // password: "Test1234"
                     "email": this.state.email,
                     "password": this.state.password
                 })
@@ -85,7 +83,7 @@ class LoginPopup extends React.Component {
                 if (data.success) {
                     this.props.addUserId(data.response.id);
                     this.props.addUserRole(data.response.roles);
-                    this.props.updateStatusPopup(false);
+                    this.props.changePopup(false);
                 } else {
                     let errorElem = document.querySelector('.email-error');
                     errorElem.textContent = this.state.validate_email_message_from_response;
@@ -135,7 +133,7 @@ class LoginPopup extends React.Component {
                             </form>
                             <div className="label-password-top-block">
                                 <button className="forgot-password" type="button">Забыли пароль</button>
-                                <Link to='/registration' className="no-account">Нет аккаунта</Link>
+                                <Link className="no-account" to="/registration">Нет аккаунта</Link>
                             </div>
                         </div>
 
@@ -183,7 +181,8 @@ const mapStateToProps = (store) => {
 const mapDispatchToProps = dispatch => ({
     addUserId: string => dispatch(addUserId(string)),
     addUserRole: array => dispatch(addUserRole(array)),
-    addUserInfo: object => dispatch(addUserInfo(object))
+    addUserInfo: object => dispatch(addUserInfo(object)),
+    changePopup: boolean => dispatch(changePopup(boolean))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginPopup);

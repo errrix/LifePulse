@@ -2,8 +2,8 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 import validator from './components/validator'
-import LoginPopup from "../../components/popup/loginPopup";
-import CSSTransitionGroup from "react-addons-css-transition-group";
+import {changePopup} from "../../actions";
+import {connect} from "react-redux";
 
 class Registration extends React.Component {
 
@@ -24,7 +24,8 @@ class Registration extends React.Component {
         this.inputConfirmPassword = this.inputConfirmPassword.bind(this);
         this.validateConfirm = this.validateConfirm.bind(this);
         this.openPopup = this.openPopup.bind(this);
-        this.handlePopup = this.handlePopup.bind(this);
+
+
     }
 
     inputConfirmPassword(e) {
@@ -32,15 +33,11 @@ class Registration extends React.Component {
     }
 
     openPopup() {
-        this.setState({
-            showPopup: !this.state.showPopup
-        });
+        this.props.changePopup(true)
     }
 
-    handlePopup(value) {
-        this.setState({
-            showPopup: value
-        })
+    componentDidMount() {
+        this.props.changePopup(false)
     }
 
     validateConfirm(e) {
@@ -81,26 +78,15 @@ class Registration extends React.Component {
     }
 
     render() {
-
-        const {addUserIdAction, tokenData} = this.props;
-
         return (
             <div className="registration-block">
-                <CSSTransitionGroup transitionName="logn-popup"
-                                    transitionEnter={true}
-                                    transitionEnterTimeout={300}
-                                    transitionLeave={true}
-                                    transitionLeaveTimeout={300}>
-                    {this.state.showPopup ? (<LoginPopup updateStatusPopup={this.handlePopup} addUserId={addUserIdAction}/>) : (false)}
-                </CSSTransitionGroup>
-
                 <div className="container">
 
                     <h1 className="h2Header">
                         Регистрация
                     </h1>
 
-                    <div className="block-line"></div>
+                    <div className="block-line"/>
 
                     <div className="registration-block-main-form">
                         <form action="" className="main-form m--registration" onSubmit={this.sendData}>
@@ -191,4 +177,14 @@ class Registration extends React.Component {
     }
 };
 
-export default Registration;
+const mapStateToProps = (store) => {
+    return {
+        show_popup: store.show_popup
+    }
+};
+
+const mapDispatchToProps = dispatch => ({
+    changePopup: boolean => dispatch(changePopup(boolean))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Registration);
