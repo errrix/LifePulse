@@ -11,25 +11,20 @@ class Registration extends React.Component {
         super(props);
 
         this.state = {
-            first_name:'',
+            first_name: '',
             last_name: '',
-            email: '',
-            password: '',
-            confirmPassword: '',
-            validate_confirm: false,
-            phone: ''
+            reg_email: '',
+            reg_password: '',
+            phone: '',
+
+            checkbox: false
         };
         this.sendData = this.sendData.bind(this);
         this.StateValue = this.StateValue.bind(this);
-        this.inputConfirmPassword = this.inputConfirmPassword.bind(this);
-        this.validateConfirm = this.validateConfirm.bind(this);
         this.openPopup = this.openPopup.bind(this);
+        this.handleCheckbox = this.handleCheckbox.bind(this);
 
 
-    }
-
-    inputConfirmPassword(e) {
-        this.setState({confirmPassword: e.target.value})
     }
 
     openPopup() {
@@ -40,19 +35,9 @@ class Registration extends React.Component {
         this.props.changePopup(false)
     }
 
-    validateConfirm(e) {
-        if(this.state.password === e.target.value) {
-            this.setState({validate_confirm: true});
-            e.target.parentNode.classList.remove('label-error');
-        } else {
-            this.setState({validate_confirm: false});
-            e.target.parentNode.classList.add('label-error');
-        }
-    }
-
     sendData(e) {
         e.preventDefault(e);
-        if (this.state.validate_confirm) {
+        if (validator.allValidFunc()) {
             fetch("http://165.227.11.173:3001/api/users/newuser", {
                     "method": "POST",
                     "headers": {
@@ -61,12 +46,13 @@ class Registration extends React.Component {
                     "body": JSON.stringify({
                         "first_name": this.state.first_name,
                         "last_name": this.state.last_name,
-                        "email": this.state.email,
-                        "password": this.state.password,
-
+                        "email": this.state.reg_email,
+                        "password": this.state.reg_password,
+                        "phone": this.state.phone
                     })
                 }
-            ).then((ressponse) => ressponse.json()).then((response) => {
+            ).then((ressponse) => ressponse.json()
+            ).then((response) => {
                 console.log(response)
             })
         }
@@ -75,6 +61,15 @@ class Registration extends React.Component {
     StateValue(e) {
         const {name, value} = e.target;
         this.setState({[name]: value});
+    }
+
+    handleCheckbox() {
+        this.setState({
+            checkbox : !this.state.checkbox
+        });
+        setTimeout( () => {
+          validator.checkbox()
+        }, 0);
     }
 
     render() {
@@ -93,15 +88,23 @@ class Registration extends React.Component {
                             <div className="input-wrapper">
                                 <label className="label-input">
                                     <span>Имя:</span>
-                                    <input type="text" placeholder="Василий" name="first_name"
-                                           onChange={this.StateValue} onBlur={validator.firstName}/>
+                                    <input type="text"
+                                           placeholder="Василий"
+                                           name="first_name"
+                                           id="first_name"
+                                           onChange={this.StateValue}
+                                           onBlur={validator.firstName}/>
                                     <span className="error"> Поле не заполнено</span>
                                 </label>
 
                                 <label className="label-input">
                                     <span>Фамилия:</span>
-                                    <input type="text" placeholder="Васильев" name="last_name"
-                                           onChange={this.StateValue} onBlur={validator.lastName}/>
+                                    <input type="text"
+                                           placeholder="Васильев"
+                                           name="last_name"
+                                           id="last_name"
+                                           onChange={this.StateValue}
+                                           onBlur={validator.lastName}/>
                                     <span className="error"> Поле не заполнено</span>
                                 </label>
                             </div>
@@ -109,14 +112,21 @@ class Registration extends React.Component {
                             <div className="input-wrapper">
                                 <label className="label-input">
                                     <span>Ваша почта:</span>
-                                    <input type="email" placeholder="vasiliy@lifespulse.com" name="email"
-                                           onChange={this.StateValue} onBlur={validator.email}/>
+                                    <input type="email"
+                                           placeholder="vasiliy@lifespulse.com"
+                                           name="reg_email"
+                                           id="reg_email"
+                                           onChange={this.StateValue}
+                                           onBlur={validator.email}/>
                                     <span className="error"> Некорректный email. Попробуйте еще раз</span>
                                 </label>
 
                                 <label className="label-input">
                                     <span>Номер телефона (не обязательно):</span>
-                                    <input type="tel" placeholder="+38  (096) 33 33 333" name="phone"
+                                    <input type="tel"
+                                           placeholder="+38  (096) 33 33 333"
+                                           name="phone"
+                                           id="phone"
                                            onChange={this.StateValue}/>
                                     <span className="info">Ваш номер телефона - конфиденциальная информация. Он не будет доступен другим пользователям</span>
                                     <span className="error"> Неправильный ввод номера. Попробуйте еще раз</span>
@@ -126,34 +136,45 @@ class Registration extends React.Component {
                             <div className="input-wrapper">
                                 <label className="label-input m--password">
                                     <span>Пароль:</span>
-                                    <input type="password" placeholder="Введите пароль" name="password"
-                                           onChange={this.StateValue} onBlur={validator.password}/>
+                                    <input type="password"
+                                           placeholder="Введите пароль"
+                                           name="reg_password"
+                                           id="reg_password"
+                                           onChange={this.StateValue}
+                                           onBlur={validator.password}/>
                                     <span className="info">Пароль должен состоять из букв и цифер, содержать минимум 6 знаков, 3 из которых уникальные</span>
                                 </label>
 
                                 <label className="label-input m--password">
                                     <span>Повторите пароль:</span>
-                                    <input type="password" placeholder="Введите пароль" name="confirmPassword"
-                                           onChange={this.inputConfirmPassword} onBlur={this.validateConfirm}/>
+                                    <input type="password"
+                                           placeholder="Введите пароль"
+                                           name="confirm_password"
+                                           id="confirm_password"
+                                           onBlur={validator.passwordConfirm}/>
                                     <span className="error"> Пароли не совпадают. Повторите еще раз</span>
                                 </label>
                             </div>
 
 
                             <label className="label-checkbox">
-                                <input className="check__input" type="checkbox"/>
+                                <input className="check__input"
+                                       type="checkbox"
+                                       id="agree-checkbox"
+                                       onChange={this.handleCheckbox}
+                                       data-check={this.state.checkbox}
+                                />
                                 <span className="check__box"/>
-                                Я соглашаюсь с <Link to="/confidentiality" target="_blank"> Политикой конфиденциальности</Link> и
-                                <Link to="/rules" target="_blank"> Правилами пользования сайтом</Link>
+                                Я соглашаюсь с <Link to="/confidentiality" target="_blank"> Политикой
+                                конфиденциальности</Link> и
+                                <Link to="/rules" target="_blank">Правилами пользования сайтом</Link>
+                                <span className="error">Подтвердите, что ознакомились с правилами</span>
                             </label>
 
                             <div className="button-wrapper">
                                 <button className="btn m--with-loader" type="submit">
-
                                     <span>Создать профиль</span>
-
                                     <span className="loader"/>
-
                                 </button>
                             </div>
                         </form>
@@ -172,7 +193,6 @@ class Registration extends React.Component {
                     </div>
                 </div>
             </div>
-
         )
     }
 };
