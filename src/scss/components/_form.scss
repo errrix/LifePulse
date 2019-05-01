@@ -157,8 +157,16 @@
 
   .button-wrapper {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 10px;
+    .error-validator {
+      color: $common-alert-color;
+      margin-top: 20px;
+      width: 100%;
+      text-align: center;
+      font-weight: 500;
+    }
   }
 
   &.m--registration {
