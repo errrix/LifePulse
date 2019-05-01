@@ -648,12 +648,13 @@ class CreateFundraiser extends React.Component {
                                         <div className="button-wrapper">
                                             <button type="submit" className="btn m--with-loader"
                                                     onClick={this.NewFundraiser}>
-                                                Создать
+                                                Опубликовать
                                                 <span className="loader"/>
 
                                             </button>
                                             <span
-                                                className="error-validator hide">Все поля обязательны к заполнению</span>
+                                                className="error-validator hide">Все поля обязательны к заполнению
+                                            </span>
                                         </div>
                                     ) : false}
 
@@ -666,7 +667,8 @@ class CreateFundraiser extends React.Component {
 
                                             </button>
                                             <span
-                                                className="error-validator hide">Все поля обязательны к заполнению</span>
+                                                className="error-validator hide">Все поля обязательны к заполнению
+                                            </span>
                                         </div>
                                     ) : false}
 
