@@ -212,38 +212,64 @@
         }
       }
       .navigation-side-mobile {
-        display: none;
+        //display: none;
+
+        display: block;
+        position: absolute;
+        top: 80px;
+        right:0;
+        width: 0;
+        height: 100vh;
+        background: white;
+        transition: width 1s;
+        -webkit-transition: width 1s;
+        .navigation {
+          display: none;
+        }
+        .button-block {
+          display: none;
+        }
+
         &.active-nav-mobile {
-          display: block;
-          position: absolute;
+          //display: block;
+          //position: absolute;
+          //width: 100%;
+          //top: 80px;
+          //background-color: white;
+          //left: 0;
+          //padding: 20px;
           width: 100%;
-          top: 80px;
-          background-color: white;
-          left: 0;
-          padding: 20px;
           .navigation {
+            display: block;
             li {
               text-align: center;
-              margin-bottom: 10px;
-              a {
+              margin: 20px;
+              a, button {
+                font-family: $mainfont;
                 color: $main-text-color;
-                font-size: 18px;
+                font-size: 22px;
                 font-weight: 300;
-                line-height: 22px;
+                line-height: 1.4px;
+                margin: 0 auto;
                 &:hover {
                   font-weight: 400;
                   color: $orange-text-color;
                 }
               }
+              button {
+                height: 22px;
+              }
             }
           }
           .button-block {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             padding-top: 20px;
             border-top: 1px solid lightgray;
             li {
               margin-bottom: 15px;
+              text-align: center;
             }
             .header-login-popup {
               color: $main-text-color;
