@@ -14,7 +14,10 @@ class SearchPage extends React.Component {
             qt_cards: 0,
             all_categories: [],
             category: '',
-            search_text: ''
+            search_text: '',
+
+            searched: false,
+            qt_cards_search: 0,
 
         };
 
@@ -22,8 +25,7 @@ class SearchPage extends React.Component {
         this.getCategories = this.getCategories.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
         this.StateValue = this.StateValue.bind(this);
-        this.searchFundraiser = this.searchFundraiser.bind(this);
-        this.handleLoadMore = debounce(this.handleLoadMore,1000).bind(this);
+        this.handleLoadMore = debounce(this.handleLoadMore, 1000).bind(this);
     }
 
     getCategories() {
@@ -62,32 +64,17 @@ class SearchPage extends React.Component {
         })
     }
 
-    searchFundraiser(e) {
-        e.preventDefault();
-        console.log(this.props.userId);
-        fetch('http://165.227.11.173:3001/api/card/search?searsh=', {
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            credentials: 'include',
-            method: 'POST',
-            body: JSON.stringify({
-                "text_preview": this.state.text_preview,
-                "full_name": this.state.full_name,
-                "category": [this.state.category]
-            })
-        })
-            .then(function (response) {
-                return response.json()
-            }).then((json) => {
-            console.log(json);
-            // this.props.updateStatusPopup(false);
-        })
-    }
-
     StateValue(e) {
         const {name, value} = e.target;
-        this.setState({[name]: value});
+        if(name === 'search_text') {
+            this.setState({
+                [name]: value,
+                searched: false,
+                qt_cards_search: 0
+            });
+        } else {
+            this.setState({[name]: value});
+        }
     }
 
     componentDidMount() {
@@ -96,26 +83,53 @@ class SearchPage extends React.Component {
         document.title = "LifesPulse | Поиск"
     }
 
-    handleSearch(e) {
-        e.preventDefault();
-        fetch(`http://165.227.11.173:3001/api/card/search?name=${this.state.search_text}`, {
+    getSearchCard() {
+        let limit = 2;
+        this.state.qt_cards_search === 0 ? limit = 5 : limit = 2;
+        console.log(this.state.qt_cards_search);
+        fetch(`http://165.227.11.173:3001/api/card/search?limit=${limit}&skip=${this.state.qt_cards_search}&search=${this.state.search_text}`, {
             headers: {
                 'Content-Type': 'application/json'
             },
-            method: 'GET',
-            credentials: 'include'
+            method: 'POST',
+            credentials: 'include',
+            body: JSON.stringify({
+                "category": this.state.category
+            })
         })
             .then(function (response) {
                 return response.json()
             }).then((json) => {
             console.log(json.response);
+            this.state.searched ? (
+                this.setState({
+                    cards: [...this.state.cards, ...json.response],
+                    qt_cards_search: this.state.qt_cards_search + limit
+                })
+            ) : (
+                this.setState({
+                cards: [...json.response],
+                searched: true,
+                qt_cards_search: this.state.qt_cards_search + limit
+            })
+            )
+
         })
     }
 
-     handleLoadMore () {
-         this.getActiveCard()
-     }
+    handleSearch(e) {
+        e.preventDefault();
+        this.getSearchCard()
+    }
 
+    handleLoadMore() {
+        if (this.state.searched) {
+            this.getSearchCard()
+        } else {
+            this.getActiveCard()
+        }
+
+    }
 
     render() {
         return (
@@ -124,29 +138,33 @@ class SearchPage extends React.Component {
                     <div className="search-input-block">
                         <form action="" onSubmit={this.handleSearch}>
                             <label>
-                                <input type="search" placeholder="Что Вы хотите найти?" name="search_text" onChange={this.StateValue}/>
+                                <input type="search"
+                                       placeholder="Что Вы хотите найти?"
+                                       name="search_text"
+                                       onChange={this.StateValue}
+                                />
                             </label>
-                            <select  name="category" onChange={this.StateValue}>
+                            <select name="category" onChange={this.StateValue}>
+                                <option value="">Все категории</option>
                                 {
                                     this.state.all_categories.map((item, index) => {
                                         return <option key={item._id} value={item._id}>{item.title}</option>
                                     })
                                 }
                             </select>
-                            <button type="submit" className="btn btn-orange"  onClick={this.searchFundraiser}>Поиск</button>
+                            <button type="submit" className="btn btn-orange" onClick={this.searchFundraiser}>Поиск
+                            </button>
                             {/*<div className="search-result-navigation">*/}
-                                {/*<div className="search-result-sort">*/}
-                                    {/*<button>Популярные</button>*/}
-                                    {/*<button>Новые вверху</button>*/}
-                                    {/*<button>Старые вверху</button>*/}
-                                {/*</div>*/}
+                            {/*<div className="search-result-sort">*/}
+                            {/*<button>Популярные</button>*/}
+                            {/*<button>Новые вверху</button>*/}
+                            {/*<button>Старые вверху</button>*/}
+                            {/*</div>*/}
                             {/*</div>*/}
                         </form>
                     </div>
                     <div className="card-block container">
-
                         <ul className="card-block-list card-block-list-flex">
-
                             {this.state.cards ? this.state.cards.map((item) => {
                                 return <li key={item._id}>
                                     <SingleCard card={item}/>
@@ -154,7 +172,6 @@ class SearchPage extends React.Component {
                             }) : false
                             }
                         </ul>
-
                         <div className="link-wrapper">
                             <button className="link-bottom-hover" onClick={this.handleLoadMore}>Посмотреть еще</button>
                         </div>
@@ -162,9 +179,7 @@ class SearchPage extends React.Component {
                     </div>
                 </div>
                 <Subscribeblock/>
-
             </div>
-
         )
     }
 };
