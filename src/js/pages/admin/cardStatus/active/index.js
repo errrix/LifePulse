@@ -59,9 +59,9 @@ class active extends React.Component {
                                     <tr className="title">
                                         <th>Пользователь</th>
                                         <th>Пациент</th>
-                                        <th>Дата создания</th>
                                         <th>Категория</th>
                                         <th>Сумма</th>
+                                        <th>Создан</th>
                                         <th>Жалобы</th>
                                         <th>Действия</th>
                                     </tr>

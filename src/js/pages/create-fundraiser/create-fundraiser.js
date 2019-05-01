@@ -325,9 +325,10 @@ class CreateFundraiser extends React.Component {
         let modules = {
             toolbar: {
                 container: [
-                    [{'header': [2, 3, false]}],
+                    [{'header': [3, 4, false]}],
                     ['bold', 'italic', 'blockquote'],
                     [{'list': 'ordered'}, {'list': 'bullet'}],
+                    [{ 'align': [] }],
                     ['image']],
                 handlers: {
                     'image': this.imageHandler
@@ -553,7 +554,7 @@ class CreateFundraiser extends React.Component {
                                     </div>
 
 
-                                    <label className="label-input label-textarea">
+                                    <div className="quill-textarea">
                                         <h6 className="h4Header">Опишите свою ситуацию</h6>
                                         <ReactQuill name="main_text"
                                                     id="main_text"
@@ -563,7 +564,7 @@ class CreateFundraiser extends React.Component {
                                                     ref={(el) => this.quillRef = el}
                                         />
 
-                                    </label>
+                                    </div>
 
                                     <div className="block-line"/>
 

@@ -59,7 +59,7 @@ class verify extends React.Component {
                                     <tr className="title">
                                         <th>Пользователь</th>
                                         <th>Пациент</th>
-                                        <th>Дата создания</th>
+                                        <th>Создан</th>
                                         <th>Категория</th>
                                         <th>Сумма</th>
                                         <th>Жалобы</th>
@@ -69,9 +69,9 @@ class verify extends React.Component {
                                         return <tr key={item._id}>
                                             <td>{item.user[0].first_name + ' ' + item.user[0].last_name}</td>
                                             <td>{item.for_whom_name}</td>
-                                            <td></td>
-                                            <td>{item.max_sum}/{item.sum}</td>
                                             <td>{new Date(Date.parse(item.createdAt)).toLocaleDateString()}</td>
+                                            <td>{item.category[0].title}</td>
+                                            <td>{item.max_sum}/{item.sum}</td>
                                             <td></td>
                                             <td> <Link to={`/admin/view-campaign/${item._id}`} target="">Edit</Link> </td>
                                         </tr>

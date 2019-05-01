@@ -14,6 +14,7 @@
     margin-bottom: 50px;
 
     .allHistoryBlock {
+      overflow: hidden;
       width: 66%;
       box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
       background-color: #ffffff;
@@ -41,8 +42,16 @@
           text-indent: 1.5em;
         }
 
-        & > h2 {
-          @extend .h2Header;
+        & > h3 {
+          @extend .h3Header;
+        }
+
+        & > h4 {
+          @extend .h4Header;
+        }
+
+        & > p {
+          @extend .paragraph;
         }
 
         & > ul {

@@ -10,6 +10,19 @@
         margin: 0 auto;
         display: block;
       }
+
+      h3 {
+        @extend .h3Header;
+      }
+
+      h4 {
+        @extend .h4Header;
+      }
+
+      p {
+        @extend .paragraph;
+      }
+
       ul {
         margin: 10px;
 
