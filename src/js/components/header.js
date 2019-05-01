@@ -55,10 +55,6 @@ class Header extends React.Component {
         return this.props.roles.indexOf('user') !== -1
     }
 
-    componentDidMount() {
-        console.log('fdsfsd')
-    }
-
     render() {
         return (
             <div>
