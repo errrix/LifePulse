@@ -5,6 +5,7 @@ import Howitwork from '../../components/howitwork'
 import Marketing from '../../components/marketing'
 import BlogHomepage from '../../components/blogHomepage'
 import CardBlock from '../../components/cardBlock'
+import Subscribeblock from '../../components/subscribeBlock'
 
 class Homepage extends React.Component {
 
@@ -72,6 +73,8 @@ class Homepage extends React.Component {
                 <Marketing/>
 
                 <BlogHomepage/>
+
+                <Subscribeblock/>
 
             </div>
 

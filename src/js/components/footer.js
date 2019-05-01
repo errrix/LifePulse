@@ -7,24 +7,6 @@ class Footer extends React.Component {
         return (
             <div>
 
-                <div className="subscribe-block">
-                    <div className="container">
-                        <img src="/img/subscrible-img.jpg" alt=""/>
-                        <div className="subscribe-block-wrapper">
-                            <h2 className="h3Header">
-                                Следите за новостями LIFES<span>PULSE</span>
-                            </h2>
-                            <form action="">
-                                <label>
-                                    <input type="email" required placeholder="Введите Ваш e-mail"/>
-                                </label>
-                                <button type="submit" className="btn">
-                                    Подписаться
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
                 <footer className="main-footer">
                     <div className="container">
                         <div className="main-footer-wrapper">

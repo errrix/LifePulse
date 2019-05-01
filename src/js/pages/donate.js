@@ -62,7 +62,7 @@ class donate extends React.Component {
                                 to="/rules" target="_blank">Правилами пользования сайтом</Link>
                             </p>
                             <button type="submit" className="btn">
-                                ПОЖЕРТВОВАТЬ
+                                Пожертвовать
                             </button>
                         </div>
                     </form>

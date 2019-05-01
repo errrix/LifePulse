@@ -3,6 +3,7 @@ import about from "../pages/about";
 import usercard from "../pages/usercard";
 import AdminRouting from "./admin-routing";
 import Header from "../components/header";
+import Subscribeblock from "../components/subscribeBlock";
 import Registration from "../pages/registration/registration";
 import donate from "../pages/donate";
 import Faq from "../pages/faq";

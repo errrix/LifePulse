@@ -7,13 +7,6 @@ body {
   min-width: 320px;
 }
 
-#app {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
-}
-
 input, textarea {
   border: none;
   border-radius: 0;

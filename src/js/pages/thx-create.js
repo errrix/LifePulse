@@ -9,12 +9,12 @@ class ThxCreate extends React.Component {
     render() {
         return (
 
-                <div className="registration-confirm-block">
+                <div className="thx-create-fund-block">
                     <div className="container">
                         <h1 className="h2Header">
                             Спасибо за {this.props.location.state.action} заявки
                         </h1>
-                        <p>Ваша заявка находится на модерации, сообщение после модерации ждите на почте</p>
+                        <p className="paragraph">Ваша заявка находится на модерации, сообщение после модерации ждите на почте</p>
                     </div>
                 </div>
         )

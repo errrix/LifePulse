@@ -2,6 +2,7 @@ import React from "react";
 
 import SingleCard from './../components/singleCard'
 import {debounce} from "lodash"
+import Subscribeblock from "../components/subscribeBlock";
 
 class SearchPage extends React.Component {
 
@@ -160,6 +161,7 @@ class SearchPage extends React.Component {
 
                     </div>
                 </div>
+                <Subscribeblock/>
 
             </div>
 
