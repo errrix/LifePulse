@@ -48,6 +48,7 @@ class CreateFundraiser extends React.Component {
         this.deleteImage = this.deleteImage.bind(this);
         this.UpdateFundraiser = this.UpdateFundraiser.bind(this);
         this.handleCheckbox = this.handleCheckbox.bind(this);
+        this.toggleLength = this.toggleLength.bind(this);
     }
 
     handleCheckbox() {
@@ -321,6 +322,16 @@ class CreateFundraiser extends React.Component {
         }.bind(this);
     }
 
+    toggleLength() {
+        if (this.state.text_preview.length > 80) {
+            document.getElementById("text-preview-length").classList.remove('color-red')
+            document.getElementById("text-preview-length").classList.add('color-green')
+        } else {
+            document.getElementById("text-preview-length").classList.remove('color-green')
+            document.getElementById("text-preview-length").classList.add('color-red')
+        }
+    }
+
     render() {
         let modules = {
             toolbar: {
@@ -352,7 +363,7 @@ class CreateFundraiser extends React.Component {
 
                                     <div className="header-block">
                                         <label className="label-input">
-                                            <span>Укажите цель сбора средств: </span>
+                                            <span>Укажите цель сбора средств: <span id="text-preview-length">{this.state.text_preview.length}</span></span>
                                             <textarea maxLength="130"
                                                       minLength="80"
                                                       name="text_preview"
@@ -360,6 +371,7 @@ class CreateFundraiser extends React.Component {
                                                       onChange={this.StateValue}
                                                       onBlur={validator.textPreview}
                                                       value={this.state.text_preview}
+                                                      onKeyDown={this.toggleLength}
                                                       placeholder="Острое нарушение мозгового кровообращения по ишемическому типу
                                               в басейне левой внутренней сонной артерии внутренней сонной артерии"/>
                                             <span className="info">Вы можете ввести не меньше 80 и не больше 130 знаков, включая пробелы</span>

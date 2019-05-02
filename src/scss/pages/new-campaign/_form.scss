@@ -6,6 +6,14 @@
       span:first-child {
         margin-bottom: 10px;
       }
+      #text-preview-length {
+        &.color-red {
+          color: $common-alert-color;
+        }
+        &.color-green {
+          color: green;
+        }
+      }
 
       span.info {
         max-width: 100%;
@@ -133,13 +141,13 @@
         text-transform: uppercase;
         height: 45px;
         text-align: center;
-        width: 100%;
+        width: 150px;
       }
     }
 
     &.label-checkbox {
       max-width: 600px;
-      margin: 0 auto 30px;
+      margin: 0 auto 50px;
     }
   }
 
