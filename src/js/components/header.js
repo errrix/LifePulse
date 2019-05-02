@@ -44,10 +44,6 @@ class Header extends React.Component {
             })
     }
 
-    componentDidMount() {
-        console.log('mount')
-    }
-
     componentDidUpdate(prevProps) {
         if (this.props.location.pathname !== prevProps.location.pathname) {
             document.querySelector('.navigation-side-mobile').classList.remove('active-nav-mobile');
