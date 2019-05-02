@@ -61,7 +61,7 @@ class Footer extends React.Component {
                             </div>
                         </div>
                         <div className="main-footer-wrapper">
-                            <h6>© LIFESPULSE. Все права сохранены</h6>
+                            <h6>© LIFESPULSE. Все права защищены</h6>
                         </div>
                     </div>
                 </footer>

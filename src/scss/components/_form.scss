@@ -99,11 +99,12 @@
     }
 
     &.label-checkbox {
-      margin-bottom: 20px;
+      margin-bottom: 40px;
       padding-left: 20px;
 	  font-size: 14px;
       .check__input {
         position: absolute;
+        left: 0;
         -webkit-appearance: none;
       }
 

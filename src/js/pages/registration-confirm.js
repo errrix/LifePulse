@@ -12,12 +12,11 @@ class RegistrationConfirm extends React.Component {
                 <div className="registration-confirm-block">
                     <div className="container">
                         <h1 className="h2Header">
-                            Спасибо за регистрацию
+                            Спасибо за {this.props.location.state.action}
                         </h1>
-                        <p>Письмо с подтверждением регистрации отправлено Вам на почту.</p>
+                        <p className="paragraph">Письмо с подтверждением регистрации отправлено Вам на почту.</p>
                     </div>
                 </div>
-
 
         )
     }
