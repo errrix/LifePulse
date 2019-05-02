@@ -62,7 +62,7 @@ const  validator = {
 
     sum : function() {
         let elem = document.getElementById('sum');
-        if(+elem.value <= 0 || elem.value === '') {
+        if(+elem.value <= 0 || elem.value === '' || !/^\d+$/.test(elem.value)) {
             validator.validValue.sum_valid = false;
             elem.parentNode.classList.add('label-error');
         } else {
@@ -84,7 +84,7 @@ const  validator = {
 
     accountNumber : function() {
         let elem = document.getElementById('account_number');
-        if(elem.value.length < 10) {
+        if(!/^\d{10}$/.test(elem.value)) {
             validator.validValue.account_number = false;
             elem.parentNode.classList.add('label-error');
         } else {
@@ -95,7 +95,7 @@ const  validator = {
 
     bank : function() {
         let elem = document.getElementById('bank');
-        if(elem.value.length < 8) {
+        if(elem.value.length < 6) {
             validator.validValue.bank = false;
             elem.parentNode.classList.add('label-error');
         } else {
@@ -106,7 +106,7 @@ const  validator = {
 
     mfo : function() {
         let elem = document.getElementById('mfo');
-        if(elem.value.length !== 6) {
+        if(!/^\d{6}$/.test(elem.value)) {
             validator.validValue.mfo = false;
             elem.parentNode.classList.add('label-error');
         } else {
@@ -117,12 +117,12 @@ const  validator = {
 
     phone : function() {
         let elem = document.getElementById('phone');
-        if(elem.value.length < 10) {
-            validator.validValue.phone = false;
-            elem.parentNode.classList.add('label-error');
-        } else {
+        if(/^0\d{3}\d{2}\d{2}\d{2}$/.test(elem.value)) {
             validator.validValue.phone = true;
             elem.parentNode.classList.remove('label-error');
+        } else {
+            validator.validValue.phone = false;
+            elem.parentNode.classList.add('label-error');
         }
     },
 
