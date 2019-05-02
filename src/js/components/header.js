@@ -32,6 +32,7 @@ class Header extends React.Component {
             })
             .then((data) => {
                 console.log(data);
+                document.querySelector('.navigation-side-mobile').classList.remove('active-nav-mobile');
                 this.props.addUserId('');
                 this.props.addUserRole([]);
                 this.props.addUserInfo({
@@ -41,6 +42,16 @@ class Header extends React.Component {
                     phone: "",
                 });
             })
+    }
+
+    componentDidMount() {
+        console.log('mount')
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.location.pathname !== prevProps.location.pathname) {
+            document.querySelector('.navigation-side-mobile').classList.remove('active-nav-mobile');
+        }
     }
 
     toggleMobMenu() {
@@ -176,7 +187,8 @@ const mapStateToProps = (store) => {
     return {
         data: store,
         user_id: store.user_id,
-        roles: store.user_roles
+        roles: store.user_roles,
+        show_popup: store.show_popup
     }
 };
 

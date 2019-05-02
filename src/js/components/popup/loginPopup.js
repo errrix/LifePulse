@@ -84,6 +84,7 @@ class LoginPopup extends React.Component {
                     this.props.addUserId(data.response.id);
                     this.props.addUserRole(data.response.roles);
                     this.props.changePopup(false);
+                    document.querySelector('.navigation-side-mobile').classList.remove('active-nav-mobile');
                 } else {
                     let errorElem = document.querySelector('.email-error');
                     errorElem.textContent = this.state.validate_email_message_from_response;
