@@ -3,6 +3,7 @@ import React from "react";
 import AdminMenu from '../../components/adminMenu'
 import AdminHeader from '../../components/adminHeader'
 import CardStatusPopup from "./cardStatus/components/popup";
+import ReactQuill from 'react-quill';
 
 import CSSTransitionGroup from "react-addons-css-transition-group"
 
@@ -17,7 +18,8 @@ class viewCampaign extends React.Component {
             title: '',
             to_status: '',
             edited: false,
-            allCategories: []
+            allCategories: [],
+            popupStatus: false
         };
 
         this.getthisCard = this.getthisCard.bind(this);
@@ -27,6 +29,8 @@ class viewCampaign extends React.Component {
         this.HandleSaveEdit = this.HandleSaveEdit.bind(this);
         this.HandlerChange = this.HandlerChange.bind(this);
         this.getCategories = this.getCategories.bind(this);
+        this.StateValueQuill = this.StateValueQuill.bind(this);
+        this.handleStatusPopup = this.handleStatusPopup.bind(this);
     }
 
     getthisCard() {
@@ -91,6 +95,7 @@ class viewCampaign extends React.Component {
                 return response.json()
             }).then((json) => {
             console.log(json);
+            window.location.reload();
             this.setState({
                 edited: false
             })
@@ -104,6 +109,7 @@ class viewCampaign extends React.Component {
     }
 
     componentDidMount() {
+
         this.getthisCard();
         this.getCategories();
     }
@@ -114,6 +120,10 @@ class viewCampaign extends React.Component {
         });
     }
 
+    handleStatusPopup() {
+        this.props.history.goBack();
+    }
+
     openPopup(e) {
         this.setState({
             showPopup: true,
@@ -122,7 +132,24 @@ class viewCampaign extends React.Component {
         });
     }
 
+    StateValueQuill(value) {
+        this.setState({main_text: value});
+    }
+
     render() {
+        let modules = {
+            toolbar: {
+                container: [
+                    [{'header': [3, 4, false]}],
+                    ['bold', 'italic', 'blockquote'],
+                    [{'list': 'ordered'}, {'list': 'bullet'}],
+                    [{ 'align': [] }],
+                    ['image']],
+                handlers: {
+                    'image': this.imageHandler
+                }
+            }
+        };
         return (
             <div>
                 <AdminHeader/>
@@ -134,7 +161,9 @@ class viewCampaign extends React.Component {
                     {this.state.showPopup ? <CardStatusPopup title={this.state.title}
                                                              action={this.state.to_status}
                                                              updateStatusPopup={this.handleClosePopup}
-                                                             id={this.state.card._id}/> : false}
+                                                             id={this.state.card._id}
+                                                             handleStatusPopup={this.handleStatusPopup}
+                    /> : false}
 
                 </CSSTransitionGroup>
 
@@ -244,7 +273,9 @@ class viewCampaign extends React.Component {
                                         {this.state.card.photo_preview ? (
                                             <a href={`http://165.227.11.173:3001/uploads/${this.state.card.photo_preview.filename}`}
                                                target="_blank">
-                                                <img src={ `http://165.227.11.173:3001/uploads/${this.state.card.photo_preview.filename}`} alt={this.state.card.for_whom_name}/>
+                                                <img
+                                                    src={`http://165.227.11.173:3001/uploads/${this.state.card.photo_preview.filename}`}
+                                                    alt={this.state.card.for_whom_name}/>
                                             </a>
 
                                         ) : false}
@@ -252,9 +283,21 @@ class viewCampaign extends React.Component {
 
                                     <label className="label-input label-textarea">
                                         <span>Основной текст заявки</span>
-                                        <textarea disabled={!this.state.edited} value={this.state.card.main_text}
-                                                  onChange={this.HandlerChange} name="main_text"
-                                                  value={this.state.main_text}/>
+                                        {this.state.edited ? (
+                                            <ReactQuill name="main_text"
+                                                        id="main_text"
+                                                        defaultValue={this.state.card.main_text}
+                                                        value={this.state.main_text}
+                                                        onChange={this.StateValueQuill}
+                                                        modules={modules}
+                                            />
+                                            ): (
+                                            <div className="customUserBlock"
+                                                 onChange={this.HandlerChange}
+                                                 dangerouslySetInnerHTML={{__html: this.state.card.main_text}}
+                                            />
+                                        )}
+
                                     </label>
 
                                     <div className="link-block">
@@ -301,8 +344,9 @@ class viewCampaign extends React.Component {
 
                                             {this.state.card.photo_documents ? (
                                                 this.state.card.photo_documents.map((item) => {
-                                                    return <a href={`http://165.227.11.173:3001/uploads/${item.filename}`}
-                                                              target="_blank" key={item._id}>
+                                                    return <a
+                                                        href={`http://165.227.11.173:3001/uploads/${item.filename}`}
+                                                        target="_blank" key={item._id}>
                                                         <span>Img больничных документов:</span>
 
                                                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -387,9 +431,7 @@ class viewCampaign extends React.Component {
                         </div>
                     </div>
                 </main>
-
             </div>
-
         )
     }
 };

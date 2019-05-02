@@ -25,7 +25,7 @@ class CardStatusPopup extends React.Component{
     HandleSubmit(e) {
         e.preventDefault();
         let url, method, data;
-        console.log(this.props.action)
+        console.log(this.props.action);
         if( this.props.action === 'delete') {
             url =`http://165.227.11.173:3001/api/card/${this.props.id}`;
             method = 'DELETE';
@@ -34,7 +34,8 @@ class CardStatusPopup extends React.Component{
             url=`http://165.227.11.173:3001/api/card/upd_status/${this.props.id}`;
             method = 'PUT';
             data = JSON.stringify({
-                "status": this.props.action
+                "status": this.props.action,
+                "text": "some text errrix"
             })
         }
         document.querySelector('.loader').classList.add('active-loader', 'm--loader');
@@ -50,7 +51,9 @@ class CardStatusPopup extends React.Component{
                 return response.json()
             }).then((json) => {
             console.log(json);
-            this.props.updateStatusPopup(false);
+            console.log(this.props);
+            this.props.handleStatusPopup();
+            // this.props.history.goBack();
         })
     }
 
