@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom"
 
 
 import BackBtnBlock from '../components/backBtnBlock'
@@ -103,7 +104,7 @@ class usercard extends React.Component {
                                                 </p>
                                             </div>
                                         </div>
-                                        <button className="btn">Хочу помочь</button>
+                                        <Link to="/donate" className="btn">Хочу помочь</Link>
                                         <div className="repostBlock">
                                         </div>
                                         <div className="helpedUs">
