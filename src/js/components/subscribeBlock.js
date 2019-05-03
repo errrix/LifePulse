@@ -15,9 +15,9 @@ class Subscribeblock extends React.Component {
                             </h2>
                             <form>
                                 <label>
-                                    <input type="email" required placeholder="Введите Ваш e-mail"/>
+                                    <input aria-label="Введите Ваш e-mail" type="email" required placeholder="Введите Ваш e-mail"/>
                                 </label>
-                                <button type="submit" className="btn">
+                                <button aria-label="Подписаться на рассылку" type="submit" className="btn">
                                     Подписаться
                                 </button>
                             </form>

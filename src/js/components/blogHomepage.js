@@ -73,10 +73,10 @@ class BlogHomepage extends React.Component {
                        </div>
 
 
-                       <ul className="blog-article-list">
+                       <div className="blog-article-list">
                            <Slider {...settings}>
                                <div>
-                                   <li className="blog-card">
+                                   <div className="blog-card">
                                        <img src="/img/card1.jpg" alt=""/>
 
                                        <div className="text-block">
@@ -92,10 +92,10 @@ class BlogHomepage extends React.Component {
 
                                            <a href="/"> Читать дальше</a>
                                        </div>
-                                   </li>
+                                   </div>
                                </div>
                                <div>
-                                   <li className="blog-card">
+                                   <div className="blog-card">
                                        <img src="/img/card2.jpg" alt=""/>
 
                                        <div className="text-block">
@@ -111,10 +111,10 @@ class BlogHomepage extends React.Component {
 
                                            <a href="/"> Читать дальше</a>
                                        </div>
-                                   </li>
+                                   </div>
                                </div>
                                <div>
-                                   <li className="blog-card">
+                                   <div className="blog-card">
                                        <img src="/img/card3.jpg" alt=""/>
 
                                        <div className="text-block">
@@ -131,13 +131,13 @@ class BlogHomepage extends React.Component {
 
                                            <a href="/"> Читать дальше</a>
                                        </div>
-                                   </li>
+                                   </div>
                                </div>
 
 
 
                            </Slider>
-                       </ul>
+                       </div>
 
                        <div className="link-wrapper">
                            <Link to='/blog' className="link-bottom-hover">Смотреть ещё</Link>

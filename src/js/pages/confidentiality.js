@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 class confidentiality extends React.Component {
 
@@ -14,14 +15,13 @@ class confidentiality extends React.Component {
                         <h1 className="h2Header">Соглашение о конфиденциальности</h1>
 
                         <p>
-                            Благотворительная организация «ПУЛЬС ЖИЗНИ» владелец сайта <a href="/"
-                                                                                          className="link-global">http://lifespulse.com</a> c
-                            доменным именем <a href="/" className="link-global">http://lifespulse.com</a> далее
+                            Благотворительная организация «ПУЛЬС ЖИЗНИ» владелец сайта <Link to='/' className="link-global">http://lifespulse.com</Link> и <Link to='/' className="link-global">http://lifespulse.com.ua</Link> c
+                            доменным именем <Link to='/' className="link-global">http://lifespulse.com</Link> и <Link to='/' className="link-global">http://lifespulse.com.ua</Link> далее
                             именуемое «Компания» и Третье лицо, далее
                             именуемое «Пользователь» заключили настоящее Соглашение о конфиденциальности («Соглашение»)
                             для определения порядка получения, хранения, обработки, использования и раскрытия Компанией
                             персональных и других данных Пользователя при использовании им интернет-сайта
-                            <a href="/" className="link-global"> http://lifespulse.com</a> (далее «Платформа»).
+                             <Link to='/' className="link-global"> http://lifespulse.com</Link> и <Link to='/' className="link-global">http://lifespulse.com.ua</Link> (далее «Платформа»).
                         </p>
 
                         <p>
@@ -292,7 +292,7 @@ class confidentiality extends React.Component {
                             5.1. Компания имеет право вносить изменения в настоящее Соглашение. Все внесенные в
                             Соглашение
                             изменения будут доступны в виде новой редакции Соглашения по адресу
-                            http://na-starte.com.
+                            http://lifespulse.com и http://lifespulse.com.ua
                             Информация об изменении этого Соглашения будет размещена на соответствующей странице
                             Платформы.
                             В случае внесения в Соглашение изменений, пользователю необходимо будет ознакомиться

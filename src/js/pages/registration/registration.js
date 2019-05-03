@@ -160,7 +160,7 @@ class Registration extends React.Component {
                                                        id="reg_password"
                                                        onChange={this.StateValue}
                                                        onBlur={validator.password}/>
-                                                <span className="info">Пароль должен состоять из букв и цифр и содержать минимум 6 знаков.</span>
+                                                <span className="info">Пароль должен состоять из цифр и латинских букв, длиной минимум 6 символов.</span>
                                             </label>
 
                                             <label className="label-input m--password">

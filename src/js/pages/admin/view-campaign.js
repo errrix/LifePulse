@@ -281,8 +281,8 @@ class viewCampaign extends React.Component {
                                         ) : false}
                                     </div>
 
-                                    <label className="label-input label-textarea">
-                                        <span>Основной текст заявки</span>
+                                    <div className="label-input label-textarea">
+                                        <span className="h4Header">Основной текст заявки</span>
                                         {this.state.edited ? (
                                             <ReactQuill name="main_text"
                                                         id="main_text"
@@ -298,7 +298,7 @@ class viewCampaign extends React.Component {
                                             />
                                         )}
 
-                                    </label>
+                                    </div>
 
                                     <div className="link-block">
                                         <h3>

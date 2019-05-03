@@ -57,16 +57,16 @@ class CardBlock extends React.Component {
                     <h2 className="h2Header h2Header-underline">
                         {this.props.title}
                     </h2>
-                    <ul className="card-block-list">
+                    <div className="card-block-list">
                         <Slider {...settings}>
                             {this.state.cards ? this.state.cards.map((item) => {
-                                return <li key={item._id}>
+                                return <div className="card-block-list-item" key={item._id}>
                                          <SingleCard card={item}/>
-                                       </li>
+                                       </div>
                             }) : false
                             }
                         </Slider>
-                    </ul>
+                    </div>
 
                     <div className="link-wrapper">
                         <a href="/allcampaing" className="link-bottom-hover">Посмотреть еще</a>
