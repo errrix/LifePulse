@@ -60,6 +60,8 @@ class Registration extends React.Component {
                         redirect_msg: 'регистрацию',
                         redirect: true
                     });
+                } else {
+                    document.querySelector('.loader').classList.remove('active-loader', 'm--loader');
                 }
             })
         }
@@ -139,11 +141,11 @@ class Registration extends React.Component {
                                             <label className="label-input">
                                                 <span>Номер телефона (не обязательно):</span>
                                                 <input type="tel"
-                                                       placeholder="+38  (096) 33 33 333"
+                                                       placeholder="096 33 33 333"
                                                        name="phone"
                                                        id="phone"
                                                        onChange={this.StateValue}/>
-                                                <span className="info">Ваш номер телефона - конфиденциальная информация. Он не будет доступен другим пользователям</span>
+                                                <span className="info">Ваш номер телефона не будет доступен другим пользователям</span>
                                                 <span
                                                     className="error"> Неправильный ввод номера. Попробуйте еще раз</span>
                                             </label>
@@ -158,7 +160,7 @@ class Registration extends React.Component {
                                                        id="reg_password"
                                                        onChange={this.StateValue}
                                                        onBlur={validator.password}/>
-                                                <span className="info">Пароль должен состоять из букв и цифер, содержать минимум 6 знаков, 3 из которых уникальные</span>
+                                                <span className="info">Пароль должен состоять из букв и цифр и содержать минимум 6 знаков.</span>
                                             </label>
 
                                             <label className="label-input m--password">

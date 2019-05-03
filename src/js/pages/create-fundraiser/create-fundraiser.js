@@ -445,7 +445,7 @@ class CreateFundraiser extends React.Component {
                                         <label className="label-input">
                                             <span>Ваш номер телефона</span>
                                             <input type="tel"
-                                                   placeholder="+38 096 33 33 333"
+                                                   placeholder="096 33 33 333"
                                                    name="phone"
                                                    id="phone"
                                                    onChange={this.StateValue}
