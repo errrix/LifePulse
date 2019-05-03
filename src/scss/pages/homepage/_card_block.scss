@@ -7,6 +7,9 @@
 	}
 
 	.card-block-list {
+		& > li {
+			margin: 20px 0;
+		}
 		&.card-block-list-flex {
 			display: flex;
 			justify-content: space-between;
@@ -64,7 +67,7 @@
 				display: none;
 			}
 			& > li {
-				margin: 0 auto;
+				margin: 20px auto;
 			}
 		}
 	}

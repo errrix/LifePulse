@@ -33,6 +33,7 @@ class Header extends React.Component {
             .then((data) => {
                 console.log(data);
                 document.querySelector('.navigation-side-mobile').classList.remove('active-nav-mobile');
+                document.querySelector('.header__navToggle').classList.remove('active-burger');
                 this.props.addUserId('');
                 this.props.addUserRole([]);
                 this.props.addUserInfo({
@@ -47,11 +48,13 @@ class Header extends React.Component {
     componentDidUpdate(prevProps) {
         if (this.props.location.pathname !== prevProps.location.pathname) {
             document.querySelector('.navigation-side-mobile').classList.remove('active-nav-mobile');
+            document.querySelector('.header__navToggle').classList.remove('active-burger');
         }
     }
 
     toggleMobMenu() {
         document.querySelector('.navigation-side-mobile').classList.toggle('active-nav-mobile');
+        document.querySelector('.header__navToggle').classList.toggle('active-burger');
     }
 
     openPopup() {
@@ -96,20 +99,13 @@ class Header extends React.Component {
                             {
                                 (this.props.user_id) ? (
                                     <div className="button-block">
-                                        <Link to='/account' className="header-login-popup">Личный кабинет</Link>
-                                        <Link to='/admin' className="header-login-popup">В админку</Link>
+                                        <Link to='/account' className="header-login-popup">Мой кабинет</Link>
+                                        <Link to='/admin' className="header-login-popup">Админка</Link>
                                         <button className="header-login-popup" onClick={this.handleLogout}>Выйти
                                         </button>
                                     </div>
                                 ) : (
                                     <div className="button-block">
-                                        <button className="header-search">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                                <path
-                                                    d="M495.6 466.4L373.8 339.6c31.3-37.2 48.5-84.1 48.5-132.9C422.3 92.7 329.5 0 215.6 0S8.8 92.7 8.8 206.7s92.7 206.7 206.7 206.7c42.8 0 83.6-12.9 118.4-37.4l122.8 127.7c5.1 5.3 12 8.3 19.4 8.3 7 0 13.6-2.7 18.7-7.5 10.8-10.3 11.2-27.4.8-38.1zm-280-412.5c84.3 0 152.8 68.5 152.8 152.8s-68.5 152.8-152.8 152.8S62.8 291 62.8 206.7 131.3 53.9 215.6 53.9z"
-                                                    fill="#e5e5e5"/>
-                                            </svg>
-                                        </button>
 
                                         <button className="header-login-popup" onClick={this.openPopup}>
                                             Вход
@@ -124,9 +120,9 @@ class Header extends React.Component {
                         </div>
 
                         <div className="header__navToggle" onClick={this.toggleMobMenu}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="459" height="459" viewBox="0 0 459 459">
-                                <path d="M0 382.5h459v-51H0v51zM0 255h459v-51H0v51zM0 76.5v51h459v-51H0z"/>
-                            </svg>
+                            <span/>
+                            <span/>
+                            <span/>
                         </div>
 
                         <div className="navigation-side-mobile">
@@ -151,15 +147,10 @@ class Header extends React.Component {
                             {
                                 (this.props.user_id) ? (
                                     <div className="button-block">
-                                        <ul>
-                                            <li><Link to='/account' className="header-login-popup">Личный кабинет</Link>
-                                            </li>
-                                            <li>
-                                                <button className="header-login-popup"
-                                                        onClick={this.handleLogout}>Выйти
-                                                </button>
-                                            </li>
-                                        </ul>
+                                        <Link to='/account' className="header-login-popup">Мой кабинет</Link>
+                                        <Link to='/admin' className="header-login-popup">Админка</Link>
+                                        <button className="header-login-popup" onClick={this.handleLogout}>Выйти
+                                        </button>
 
                                     </div>
                                 ) : (

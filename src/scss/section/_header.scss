@@ -18,7 +18,12 @@
     padding: 0 10px;
     height: 100%;
     align-items: center;
-
+    .logo-side {
+      width: 130px;
+      img {
+        width: 100%;
+      }
+    }
     .navigation-side-mobile, .header__navToggle {
       display: none;
     }
@@ -139,12 +144,37 @@
       .header__navToggle {
         display: block;
         width: 35px;
-        height: 35px;
+        height: 26px;
         cursor: pointer;
-        svg {
-          fill: white;
-          width: 100%;
-          height: 100%;
+        position: relative;
+        &.active-burger {
+          span {
+            margin: 0;
+            position: absolute;
+            &:first-child {
+              transform: rotate(-45deg);
+              top: 11px;
+            }
+            &:nth-child(2) {
+              display: none;
+            }
+            &:last-child {
+              transform: rotate(45deg);
+              top: 11px;
+            }
+          }
+        }
+        span {
+          display: block;
+          width: 35px;
+          height: 3px;
+          margin-bottom: 8px;
+          background-color: white;
+          transition: .3s;
+          border-radius: 4px;
+          &:last-child {
+            margin-bottom: 0;
+          }
         }
       }
       .navigation-side-mobile {
@@ -154,6 +184,7 @@
         right:0;
         width: 0;
         background: white;
+        border-bottom: 1px solid lightgray;
         .navigation {
           display: none;
         }
@@ -219,12 +250,37 @@
       .header__navToggle {
         display: block;
         width: 35px;
-        height: 35px;
+        height: 26px;
         cursor: pointer;
-        svg {
-          fill: white;
-          width: 100%;
-          height: 100%;
+        position: relative;
+        &.active-burger {
+          span {
+            margin: 0;
+            position: absolute;
+            &:first-child {
+              transform: rotate(-45deg);
+              top: 11px;
+            }
+            &:nth-child(2) {
+              display: none;
+            }
+            &:last-child {
+              transform: rotate(45deg);
+              top: 11px;
+            }
+          }
+        }
+        span {
+          display: block;
+          width: 35px;
+          height: 3px;
+          margin-bottom: 8px;
+          background-color: white;
+          transition: .3s;
+          border-radius: 4px;
+          &:last-child {
+            margin-bottom: 0;
+          }
         }
       }
       .navigation-side-mobile {
