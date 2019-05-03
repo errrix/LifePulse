@@ -16,27 +16,27 @@
 			flex-wrap: wrap;
 		}
 
+		li.m--add-new {
+			a {
+				width: 300px;
+				padding-top: 70px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+
+				span {
+					color: $main-text-color;
+					font-family: $mainfont;
+					font-size: 21px;
+					line-height: 21px;
+					margin-top: 30px;
+				}
+			}
+		}
 		.card-block-list-item {
 			padding-bottom: 30px;
             outline: none;
 
-			&.m--add-new {
-				a {
-					width: 300px;
-					padding-top: 70px;
-					display: flex;
-					flex-direction: column;
-					align-items: center;
-
-					span {
-						color: $main-text-color;
-						font-family: $mainfont;
-						font-size: 21px;
-						line-height: 21px;
-						margin-top: 30px;
-					}
-				}
-			}
 		}
 	}
 
