@@ -59,12 +59,13 @@
         margin-right: 96px;
       }
 
-      a {
+      a, button {
         display: flex;
         color: $light-gray-text-color;
         font-family: $mainfont;
         font-weight: 300;
         margin-bottom: 20px;
+        font-size: 16px;
       }
 
       .padding-left {

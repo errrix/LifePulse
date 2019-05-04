@@ -58,6 +58,7 @@ class UserAccount extends React.Component {
         if(this.props.first_name === '') {
             this.getUserData()
         }
+        document.title = `LifesPulse | Личный кабинет`
     }
 
     showFollow() {

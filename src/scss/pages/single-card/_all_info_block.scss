@@ -99,6 +99,15 @@
         }
 
       }
+      .appeal-block {
+        padding: 30px;
+        display: flex;
+        justify-content: flex-end;
+        button {
+          color: $main-text-color;
+          font-size: 18px;
+        }
+      }
     }
 
     .shortInfoBlock {

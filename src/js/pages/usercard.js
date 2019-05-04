@@ -2,8 +2,6 @@ import React from "react";
 import {Link} from "react-router-dom"
 
 
-import BackBtnBlock from '../components/backBtnBlock'
-
 class usercard extends React.Component {
 
     constructor(props) {
@@ -13,6 +11,7 @@ class usercard extends React.Component {
         };
 
         this.getThisCard = this.getThisCard.bind(this);
+        this.openPopup = this.openPopup.bind(this);
     }
 
     getThisCard() {
@@ -31,6 +30,10 @@ class usercard extends React.Component {
             this.setState({card : json.response});
             document.title = `LifesPulse | ${this.state.card.for_whom_name}`;
         })
+    }
+
+    openPopup() {
+
     }
 
     componentDidMount() {
@@ -81,6 +84,9 @@ class usercard extends React.Component {
                                             ) : false}
                                         </div>
                                         <div className="customUserBlock" dangerouslySetInnerHTML={{__html: this.state.card.main_text}}>
+                                        </div>
+                                        <div className="appeal-block">
+                                            <button className='link-bottom-hover' onClick={this.openPopup}>Пожаловаться</button>
                                         </div>
                                     </div>
                                     <div className="shortInfoBlock">

@@ -1,7 +1,28 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
+import {addUserId, addUserRole, addUserInfo, changePopup} from "./../actions";
+import {connect} from "react-redux";
+
 class Footer extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            showPopup: false
+        };
+
+        this.openPopup = this.openPopup.bind(this);
+    }
+
+    openPopup() {
+        this.props.changePopup(true)
+    }
+
+    IsUser() {
+        return this.props.roles.indexOf('user') !== -1
+    }
 
     render() {
         return (
@@ -13,7 +34,7 @@ class Footer extends React.Component {
                             <div>
                                 <div className="contact-link">
 
-                                    <a href="mailto:support@info.com">
+                                    <a href="mailto:lifespulse.info@gmail.com">
                                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                                              x="0px" y="0px"
                                              viewBox="0 0 512 512">
@@ -24,7 +45,7 @@ class Footer extends React.Component {
 		L84.2,113.1h343.5L256,258.6z"/>
                                             </g>
                                         </svg>
-                                        <span>support@info.com</span>
+                                        <span>Поддержка</span>
                                     </a>
 
                                     <a href="/">
@@ -53,7 +74,9 @@ class Footer extends React.Component {
 
                                     <div>
                                         <Link to='/allcampaing'>Начать помогать</Link>
-                                        <Link to='/create-fundraiser'>Подать заявку</Link>
+                                        {
+                                            this.IsUser() ?  <Link to='/create-fundraiser'>Подать заявку</Link> : <button onClick={this.openPopup}>Подать заявку</button>
+                                        }
                                         <Link to='/'>Успешные сборы</Link>
                                         <Link to='/blog'>Блог</Link>
                                     </div>
@@ -71,4 +94,20 @@ class Footer extends React.Component {
     }
 };
 
-export default Footer;
+const mapStateToProps = (store) => {
+    return {
+        data: store,
+        user_id: store.user_id,
+        roles: store.user_roles,
+        show_popup: store.show_popup
+    }
+};
+
+const mapDispatchToProps = dispatch => ({
+    addUserId: string => dispatch(addUserId(string)),
+    addUserRole: array => dispatch(addUserRole(array)),
+    addUserInfo: object => dispatch(addUserInfo(object)),
+    changePopup: boolean => dispatch(changePopup(boolean))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Footer);

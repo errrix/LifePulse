@@ -50,7 +50,7 @@ class verify extends React.Component {
                         <div className="account-admin-content-block account-admin-application">
                             <header>
                                 <h1>
-                                    Активные сборы
+                                    Перепроверенные сборы
                                 </h1>
                             </header>
                             <div className="account-admin-application-wrapper">
@@ -72,7 +72,7 @@ class verify extends React.Component {
                                             <td>{new Date(Date.parse(item.createdAt)).toLocaleDateString()}</td>
                                             <td>{item.category[0].title}</td>
                                             <td>{item.max_sum}/{item.sum}</td>
-                                            <td></td>
+                                            <td>!!!</td>
                                             <td> <Link to={`/admin/view-campaign/${item._id}`} target="">Edit</Link> </td>
                                         </tr>
                                     }) : false
