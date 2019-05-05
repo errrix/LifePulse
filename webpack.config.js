@@ -103,7 +103,9 @@ module.exports = (env, options) => {
             }) : false,
             new CopyWebpackPlugin([
                 {from:'src/img',to:'img'},
-                {from:'src/fonts',to:'fonts'}
+                {from:'src/fonts',to:'fonts'},
+                {from:'src/robots.txt',to:''},
+                {from:'src/sitemap.xml',to:''}
                 // {from:'src/index.html',to: ''}
             ]),
             new HtmlWebpackPlugin({

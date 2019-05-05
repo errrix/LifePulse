@@ -44,8 +44,8 @@ class SearchPage extends React.Component {
     }
 
     getActiveCard() {
-        let limit = 2;
-        this.state.qt_cards === 0 ? limit = 2 : limit = 2;
+        let limit = 3;
+        this.state.qt_cards === 0 ? limit = 6 : limit = 6;
         fetch(`http://165.227.11.173:3001/api/card/active/?limit=${limit}&skip=${this.state.qt_cards}&new=1`, {
             headers: {
                 'Content-Type': 'application/json'
@@ -84,8 +84,8 @@ class SearchPage extends React.Component {
     }
 
     getSearchCard() {
-        let limit = 2;
-        this.state.qt_cards_search === 0 ? limit = 5 : limit = 2;
+        let limit = 3;
+        this.state.qt_cards_search === 0 ? limit = 6 : limit = 3;
         console.log(this.state.qt_cards_search);
         fetch(`http://165.227.11.173:3001/api/card/search?limit=${limit}&skip=${this.state.qt_cards_search}&search=${this.state.search_text}`, {
             headers: {
