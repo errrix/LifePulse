@@ -29,6 +29,7 @@ class usercard extends React.Component {
             console.log(json);
             this.setState({card : json.response});
             document.title = `LifesPulse | ${this.state.card.for_whom_name}`;
+            document.getElementById('user-card-block').classList.add('height-auto');
         })
     }
 
@@ -44,7 +45,7 @@ class usercard extends React.Component {
         return (
             <div>
 
-                <div>
+                <div id="user-card-block">
                     {this.state.card ? (
                         <div className="user-card-block">
                             <div className="container">
