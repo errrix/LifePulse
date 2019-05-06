@@ -15,7 +15,7 @@
     }
 
     h6 {
-      color: $light-gray-text-color;
+      color: $white-text-color;
       font-family: $mainfont;
       font-size: 16px;
       font-weight: 300;
@@ -36,6 +36,9 @@
         align-items: center;
         margin-bottom: 20px;
         font-weight: 300;
+        img {
+          width: 130px;
+        }
 
         svg {
           width: 20px;
@@ -45,7 +48,7 @@
         }
 
         span {
-          color: $light-gray-text-color;
+          color: $white-text-color;
           font-family: $mainfont;
         }
       }
@@ -61,7 +64,7 @@
 
       a, button {
         display: flex;
-        color: $light-gray-text-color;
+        color: $white-text-color;
         font-family: $mainfont;
         font-weight: 300;
         margin-bottom: 20px;

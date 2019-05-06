@@ -62,6 +62,9 @@ class Footer extends React.Component {
                     Одесса, Украина
                 </span>
                                     </a>
+                                    <Link to='/'>
+                                        <img src="/img/icon-logo.svg" alt="lifespulse logo"/>
+                                    </Link>
                                 </div>
 
                                 <div className="nav-block">
