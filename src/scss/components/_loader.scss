@@ -15,6 +15,13 @@
     animation: loader 1.5s linear infinite;
   }
 
+  &.center-page {
+    &:after {
+      border: 5px solid $bg-orange-color;
+      border-color: $bg-orange-color transparent $bg-orange-color transparent;
+    }
+  }
+
   &.active-loader.m--loader {
     opacity: 1;
     width: 41px;

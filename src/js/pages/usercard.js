@@ -30,6 +30,7 @@ class usercard extends React.Component {
             this.setState({card : json.response});
             document.title = `LifesPulse | ${this.state.card.for_whom_name}`;
             document.getElementById('user-card-block').classList.add('height-auto');
+            document.getElementById('wait-load').classList.remove('loader');
         })
     }
 
@@ -46,6 +47,7 @@ class usercard extends React.Component {
             <div>
 
                 <div id="user-card-block">
+                    <div id="wait-load" className="loader center-page active-loader m--loader"/>
                     {this.state.card ? (
                         <div className="user-card-block">
                             <div className="container">

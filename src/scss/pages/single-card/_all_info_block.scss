@@ -1,5 +1,8 @@
 #user-card-block {
   height: calc(100vh - 286px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   &.height-auto {
     height: auto;
   }
