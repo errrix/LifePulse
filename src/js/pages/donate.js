@@ -45,7 +45,8 @@ class donate extends React.Component {
             "amount": this.state.sum,
             "currency":"UAH",
             "description":"test",
-            "sandbox": 1
+            "sandbox": 1,
+            "server_url": "http://165.227.11.173:3001/api/users/pay"
         };
         let awaystring = btoa(JSON.stringify(data));
         let sign_string = b64_sha1('3BgS6VbCaQCljvZ1F497w4FbzH30G8ZJrSniUsYr' + awaystring + '3BgS6VbCaQCljvZ1F497w4FbzH30G8ZJrSniUsYr');
