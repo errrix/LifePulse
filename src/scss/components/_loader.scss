@@ -38,3 +38,36 @@
   }
 }
 
+
+.lp-animation-loader {
+  .svg {
+    width: 300px;
+    height: auto;
+  }
+  .st0 {
+    fill:#fff;
+    stroke: #ea6b18;
+    stroke-width: 5px;
+  }
+  .st1 {
+    fill:none;
+  }
+  .st2 {
+    fill:#ea6b18
+  }
+  .svg .st1 {
+    stroke:#ea6b18;
+    stroke-width: 20px;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    stroke-dasharray: 7705px;
+    transition: all 1s linear;
+    animation-iteration-count: infinite;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0% { stroke-dashoffset: 7705px; }
+    100% { stroke-dashoffset: 0; }
+  }
+}
