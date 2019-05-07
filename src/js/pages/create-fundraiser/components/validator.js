@@ -73,7 +73,7 @@ const  validator = {
 
     fullName : function() {
         let elem = document.getElementById('full_name');
-        if(elem.value.length < 10 || elem.value.length > 50) {
+        if(elem.value.length < 7 || elem.value.length > 50) {
             validator.validValue.full_name_valid = false;
             elem.parentNode.classList.add('label-error');
         } else {

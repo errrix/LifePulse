@@ -42,15 +42,15 @@
         position: relative;
         z-index: 1;
         height: 50px;
-        font-size: 30px;
-        font-weight: 500;
+        font-size: 24px;
+        font-weight: 400;
         line-height: 1.1;
 
         &::placeholder {
           color: $gray-text-color;
           font-family: $mainfont;
-          font-size: 30px;
-          font-weight: 500;
+          font-size: 24px;
+          font-weight: 400;
           line-height: 50px;
         }
       }
@@ -70,7 +70,7 @@
         border-left: 1px solid #eaeae8;
         background-color: $white-text-color;
         position: absolute;
-        top: 32px;
+        top: 30px;
         right: 1px;
         margin-bottom: 0;
       }
@@ -92,8 +92,10 @@
           width: 16px;
           height: 16px;
           box-shadow: 0 0 0 1px $common-orange-light-color;
-          background-color: $white-text-color;
+          background-color: $bg-white-color;
           border-radius: 50%;
+          border: 3px solid $bg-white-color;
+          box-sizing: border-box;
           transition: .2s;
         }
       }
@@ -136,10 +138,10 @@
       .btn {
         color: $main-light-text-color;
         font-family: $mainfont;
-        line-height: 45px;
+        line-height: 40px;
         font-size: 16px;
         text-transform: uppercase;
-        height: 45px;
+        height: 40px;
         text-align: center;
         width: 150px;
       }
