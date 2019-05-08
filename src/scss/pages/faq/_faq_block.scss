@@ -1,5 +1,5 @@
 .faq-block {
-  padding: 130px 0 50px 0;
+  padding: 100px 0 50px 0;
 
   .faq-block-link {
     display: flex;
@@ -30,15 +30,11 @@
       box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
       background-color: $bg-white-color;
       overflow: hidden;
-      border-radius: 5px;
 
       &.show-more {
-        div {
-          //border: 1px solid $common-orange-color;
-        }
         .faq-dropdown-show-more {
           border-top: none;
-          max-height: 400px;
+          max-height: inherit;
           opacity: 1;
           padding: 20px 40px 20px 23px;
         }
@@ -81,7 +77,7 @@
 
       .faq-dropdown-show-more {
         padding: 0 40px 0 23px;
-        transition: .5s;
+        transition: .3s;
         max-height: 0;
         opacity: 0;
         border-radius: 0 0 5px 5px;
@@ -99,7 +95,7 @@
 
 @media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
   .faq-block {
-    padding: 120px 0 50px 0;
+    padding: 100px 0 50px 0;
 
     .faq-dropdown-block {
       margin-top: 30px;
