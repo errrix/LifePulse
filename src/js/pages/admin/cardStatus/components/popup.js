@@ -6,14 +6,22 @@ class CardStatusPopup extends React.Component{
         super(props);
 
         this.state = {
+            text: ''
         };
 
         this.closePopup = this.closePopup.bind(this);
         this.HandleSubmit = this.HandleSubmit.bind(this);
+        this.HandleChange = this.HandleChange.bind(this);
     }
 
     componentDidMount() {
         // document.querySelector('input').focus();
+    }
+
+    HandleChange(e) {
+        this.setState({
+            text: e.target.value
+        })
     }
 
     closePopup(e) {
@@ -27,15 +35,22 @@ class CardStatusPopup extends React.Component{
         let url, method, data;
         console.log(this.props.action);
         if( this.props.action === 'delete') {
-            url =`http://165.227.11.173:3001/api/card/${this.props.id}`;
-            method = 'DELETE';
-            data = ''
+            url =`http://165.227.11.173:3001/api/card/delete/${this.props.id}`;
+            method = 'PUT';
+            data = JSON.stringify({
+                "status": "",
+                "text": this.state.text,
+                "title": this.props.title,
+                "email": this.props.email
+            })
         } else {
             url=`http://165.227.11.173:3001/api/card/upd_status/${this.props.id}`;
             method = 'PUT';
             data = JSON.stringify({
                 "status": this.props.action,
-                "text": "some text errrix"
+                "text": this.state.text,
+                "title": this.props.title,
+                "email": this.props.email
             })
         }
         document.querySelector('.loader').classList.add('active-loader', 'm--loader');
@@ -67,7 +82,7 @@ class CardStatusPopup extends React.Component{
                         <div className="popup-step">
                             <form className="main-form" onSubmit={this.HandleSubmit}>
                                 <h3>{this.props.title}</h3>
-                                <label className="label-input">
+                                <label className="label-input" onChange={this.HandleChange}>
                                     <span>Причина</span>
                                     <textarea/>
                                     <span className="error">Введите причину</span>

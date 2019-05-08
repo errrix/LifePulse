@@ -163,6 +163,7 @@ class viewCampaign extends React.Component {
                                                              updateStatusPopup={this.handleClosePopup}
                                                              id={this.state.card._id}
                                                              handleStatusPopup={this.handleStatusPopup}
+                                                             email={this.state.card.user[0].email}
                     /> : false}
 
                 </CSSTransitionGroup>
@@ -375,16 +376,21 @@ class viewCampaign extends React.Component {
                                 {this.state.card.status === "draft" && !this.state.edited ? (
                                     <div className="button-block">
                                         <button className="btn btn-transparent campaign-back"
-                                                data-title="Отправить на доработку" data-action="rev"
+                                                data-title="Заявка отправлена на доработку"
+                                                data-action="rev"
                                                 onClick={this.openPopup}>
                                             На доработку
                                         </button>
-                                        <button className="btn campaign-publish" data-title="Опубликовать"
-                                                data-action="active" onClick={this.openPopup}>
+                                        <button className="btn campaign-publish"
+                                                data-title="Заявка опубликована"
+                                                data-action="active"
+                                                onClick={this.openPopup}>
                                             Опубликовать
                                         </button>
-                                        <button className="btn btn-transparent campaign-delete" data-title="Удалить"
-                                                data-action="delete" onClick={this.openPopup}>
+                                        <button className="btn btn-transparent campaign-delete"
+                                                data-title="Заявка удалена"
+                                                data-action="delete"
+                                                onClick={this.openPopup}>
                                             Удалить
                                         </button>
                                         <button className="btn btn-transparent campaign-edit"
@@ -406,7 +412,8 @@ class viewCampaign extends React.Component {
                                 {this.state.card.status === "active" ? (
                                     <div className="button-block">
                                         <button className="btn btn-transparent campaign-freeze"
-                                                data-title="Приостановить для проверки" data-action="ban"
+                                                data-title="Заявка приостановлена для проверки"
+                                                data-action="ban"
                                                 onClick={this.openPopup}>
                                             Приостановить
                                         </button>
@@ -416,7 +423,8 @@ class viewCampaign extends React.Component {
                                 {this.state.card.status === "ban" ? (
                                     <div className="button-block">
                                         <button className="btn btn-transparent campaign-verify"
-                                                data-title="Успешно пройдена проверка" data-action="verify"
+                                                data-title="Проверка успешно пройдена"
+                                                data-action="verify"
                                                 onClick={this.openPopup}>
                                             Проверено
                                         </button>

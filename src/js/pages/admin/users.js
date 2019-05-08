@@ -20,7 +20,7 @@ class users extends React.Component {
     }
 
     getUsers() {
-        fetch('http://165.227.11.173:3001/api/users/', {
+        fetch('http://165.227.11.173:3001/api/users?limit=100', {
             headers: {
                 'Content-Type': 'application/json'
             },

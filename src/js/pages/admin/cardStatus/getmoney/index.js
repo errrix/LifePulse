@@ -3,7 +3,6 @@ import React from "react";
 import AdminMenu from '../../../../components/adminMenu'
 import AdminHeader from '../../../../components/adminHeader'
 import {Link} from "react-router-dom";
-import SingleCard from "../../../../components/cardBlock";
 
 class getmoney extends React.Component {
     constructor(props) {
