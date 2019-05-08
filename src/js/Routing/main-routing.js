@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 import about from "../pages/about";
-import usercard from "../pages/usercard";
+import usercard from "../pages/usercard/usercard";
 import AdminRouting from "./admin-routing";
 import Header from "../components/header";
 import Subscribeblock from "../components/subscribeBlock";

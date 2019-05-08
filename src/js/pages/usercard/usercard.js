@@ -1,6 +1,10 @@
 import React from "react";
 import {Link} from "react-router-dom"
 
+import CSSTransitionGroup from "react-addons-css-transition-group"
+
+import Complaints from "./components/popup"
+
 
 class usercard extends React.Component {
 
@@ -8,10 +12,18 @@ class usercard extends React.Component {
         super(props);
 
         this.state = {
+            showPopup: false
         };
 
         this.getThisCard = this.getThisCard.bind(this);
         this.openPopup = this.openPopup.bind(this);
+        this.handleClosePopup = this.handleClosePopup.bind(this);
+    }
+
+    handleClosePopup(value) {
+        this.setState({
+            showPopup: value
+        });
     }
 
     getThisCard() {
@@ -34,7 +46,9 @@ class usercard extends React.Component {
     }
 
     openPopup() {
-
+        this.setState({
+            showPopup: true
+        })
     }
 
     componentDidMount() {
@@ -44,12 +58,19 @@ class usercard extends React.Component {
     render() {
         return (
             <div id="user-card-block">
-
-
-
-
                     {this.state.card ? (
                         <div className="user-card-block">
+                            <CSSTransitionGroup transitionName="logn-popup"
+                                                transitionEnter={true}
+                                                transitionEnterTimeout={300}
+                                                transitionLeave={true}
+                                                transitionLeaveTimeout={300}>
+                                {this.state.showPopup ? <Complaints id={this.state.card._id}
+                                                                    user_id={this.props.user_id}
+                                                                    updateStatusPopup={this.handleClosePopup}
+                                /> : false}
+
+                            </CSSTransitionGroup>
                             <div className="container">
                                 <div className="titleCard">
                                     <h1 className="h2Header titleCard-fullName">
@@ -172,6 +193,12 @@ class usercard extends React.Component {
             </div>
 
         )
+    }
+};
+
+const mapStateToProps = (store) => {
+    return {
+        user_id: store.user_id
     }
 };
 
