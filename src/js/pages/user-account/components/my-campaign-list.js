@@ -1,7 +1,5 @@
 import React from "react";
 
-import SingleCard from './../../../components/singleCard'
-import {addUserCards} from "../../../actions";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import SingleUserAccountCard from "../../../components/singleUserAccountCard";
@@ -39,8 +37,11 @@ class MyCampaignList extends React.Component {
     }
 
     componentDidMount() {
-        this.getUserCard()
+            this.getUserCard();
+        console.log("mounted list")
     }
+
+
 
     render() {
 
@@ -67,4 +68,10 @@ class MyCampaignList extends React.Component {
     }
 };
 
-export default MyCampaignList;
+const mapStateToProps = (store) => {
+    return {
+        user_id: store.user_id
+    }
+};
+
+export default connect(mapStateToProps)( MyCampaignList );

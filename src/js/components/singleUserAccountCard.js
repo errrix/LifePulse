@@ -66,7 +66,7 @@ class SingleUserAccountCard extends React.Component {
                         }} className="btn btn-transparent">Редактировать</Link>
                     ) : false}
 
-                    {this.state.card.status === 'active' ? (
+                    {this.state.card.status === 'active' || this.state.card.status === 'verify' ? (
                         <div>
                             <div className="btn btn-transparent"> Забрать деньги </div>
                             <Link className="btn btn-transparent"
@@ -74,6 +74,13 @@ class SingleUserAccountCard extends React.Component {
                                     state: {
                                         id: this.state.card._id
                                     }}}> Просмотреть на сайте </Link>
+                        </div>
+
+                    ) : false}
+
+                    {this.state.card.status === 'ban' ? (
+                        <div>
+                            <div className="btn btn-transparent">Ваша заявка забанена, свяжитесь со службой технической поддержки </div>
                         </div>
 
                     ) : false}

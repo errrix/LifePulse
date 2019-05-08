@@ -39,12 +39,6 @@ class UserAccount extends React.Component {
             })
             .then((json) => {
                 console.log(json.response);
-                this.props.HandleAddUserInfo({
-                    first_name: json.response.first_name,
-                    last_name: json.response.last_name,
-                    email: json.response.email,
-                    phone: json.response.phone,
-                });
                 this.setState({
                     email: json.response.email,
                     first_name: json.response.first_name,
@@ -59,6 +53,15 @@ class UserAccount extends React.Component {
             this.getUserData()
         }
         document.title = `LifesPulse | Личный кабинет`
+    }
+
+    componentWillUnmount() {
+        this.props.HandleAddUserInfo({
+            first_name: this.state.first_name,
+            last_name: this.state.last_name,
+            email: this.state.email,
+            phone: this.state.phone,
+        });
     }
 
     showFollow() {
