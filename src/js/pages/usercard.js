@@ -80,6 +80,12 @@ class usercard extends React.Component {
                                 <div className="allInfoBlock">
                                     <div className="allHistoryBlock">
                                         <div className="allHistoryBlock-imgBlock">
+                                            <div className="verify-status-block">
+                                                <img src="/img/verified-icon.jpg" alt="verify card"/>
+                                                <div className="verify-status-block-tooltip">
+                                                    <p>Заявка проверена и является надежной</p>
+                                                </div>
+                                            </div>
                                             {this.state.card.photo_preview ? (
                                                 <img
                                                     src={`http://165.227.11.173:3001/uploads/${this.state.card.photo_preview.filename}`}
