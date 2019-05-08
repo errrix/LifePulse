@@ -67,7 +67,7 @@ class active extends React.Component {
                                     </tr>
                                     {this.state.cards ? this.state.cards.map((item) => {
                                         return <tr key={item._id}>
-                                            <td>!!!</td>
+                                            <td>{item.user[0].first_name + ' ' + item.user[0].last_name}</td>
                                             <td>{item.for_whom_name}</td>
                                             <td>{item.category[0].title}</td>
                                             <td>{item.max_sum}/{item.sum}</td>

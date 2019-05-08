@@ -420,7 +420,7 @@ class viewCampaign extends React.Component {
                                     </div>
                                 ) : false}
 
-                                {this.state.card.status === "ban" ? (
+                                {this.state.card.status === "ban" && !this.state.edited ? (
                                     <div className="button-block">
                                         <button className="btn btn-transparent campaign-verify"
                                                 data-title="Проверка успешно пройдена"
@@ -432,6 +432,10 @@ class viewCampaign extends React.Component {
                                                 data-title="Проверка не пройдена" data-action="ban"
                                                 onClick={this.openPopup}>
                                             Мошенничество
+                                        </button>
+                                        <button className="btn btn-transparent campaign-edit"
+                                                onClick={this.HandlerEdit}>
+                                            Редактировать
                                         </button>
                                     </div>
                                 ) : false}
