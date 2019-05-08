@@ -22,7 +22,7 @@
             top: 25px;
             left: 0;
             transition: .3s;
-            width: auto;
+            width: 50%;
             z-index: 3;
             background-color: white;
             border-radius: 4px;
@@ -30,6 +30,7 @@
             border: 1px solid lightgray;
             line-height: 1.1;
             font-size: 14px;
+			box-shadow: 0 0 10px 3px rgba(0,0,0,0.1);
           }
           &:hover .information-tooltip {
             display: block;
@@ -360,6 +361,13 @@
     label {
       width: 100%!important;
       &.label-input {
+		  span:first-child {
+			  .tooltip-hover {
+				  .information-tooltip {
+					  width: 100%;
+				  }
+			  }
+		  }
         textarea {
           min-height: 170px;
         }

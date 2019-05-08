@@ -1,18 +1,43 @@
 .about-block {
-  padding: 120px 75px 50px 75px;
+  padding: 100px 75px 50px 75px;
   h1 {
       margin-bottom: 30px;
+  }
+  blockquote {
+    color: $orange-text-color;
+    padding-left: 40%;
+    margin-bottom: 30px;
+    font-style: italic;
+    span {
+      color: $main-text-color;
+    }
+  }
+  p {
+    margin-bottom: 15px;
+    line-height: 1.8;
+  }
+  .p__padding-left {
+    padding-left: 50px;
+  }
+  .lp-style-text {
+    color: $orange-text-color;
   }
 }
 
 @media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
   .about-block {
-    padding: 120px 50px 50px 50px;
+    padding: 100px 0 50px 0;
+    blockquote {
+      padding-left: 20%;
+    }
   }
 }
 
 @media only screen and (max-width: $mobileWidth) {
   .about-block {
     padding: 100px 0 50px 0;
+    blockquote {
+      padding-left: 0;
+    }
   }
 }
