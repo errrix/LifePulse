@@ -7,11 +7,11 @@
         margin-bottom: 10px;
         display: flex;
         align-items: center;
+		position: relative;
         .tooltip-hover {
           width: 18px;
           height: 18px;
           margin-left: 10px;
-          position: relative;
           img {
             width: 100%;
             height: 100%;
@@ -19,10 +19,10 @@
           .information-tooltip {
             display: none;
             position: absolute;
-            top: 0;
-            left: 25px;
+            top: 25px;
+            left: 0;
             transition: .3s;
-            width: 500px;
+            width: auto;
             z-index: 3;
             background-color: white;
             border-radius: 4px;
@@ -360,15 +360,6 @@
     label {
       width: 100%!important;
       &.label-input {
-		  span:first-child {
-			  .tooltip-hover {
-				  .information-tooltip {
-					  left: -175px;
-					  width: 283px;
-					  top: 22px;
-				  }
-			  }
-		  }
         textarea {
           min-height: 170px;
         }
