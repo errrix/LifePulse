@@ -55,7 +55,7 @@ class Homepage extends React.Component {
     componentDidMount() {
         this.getPopularCard();
         this.getActiveCard();
-        document.title = "LifesPulse | Главная"
+        document.title = "Краудфандинг в Украине: LifesPulse — платформа для сбора денег на спасение жизней."
     }
 
 
