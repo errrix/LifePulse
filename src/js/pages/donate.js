@@ -38,7 +38,7 @@ class donate extends React.Component {
     handleDonate(e) {
         e.preventDefault();
         let data = {
-            "public_key":"i68861001769",
+            "public_key":"sandbox_i94189500709",
             "version":"3",
             "action":"pay",
             "sender_first_name": this.state.name,
@@ -46,10 +46,10 @@ class donate extends React.Component {
             "currency":"UAH",
             "description":"test",
             "sandbox": 1,
-            "server_url": "http://165.227.11.173:3001/api/users/pay"
+            "server_url": "http://165.227.11.173:3001/pay"
         };
         let awaystring = btoa(JSON.stringify(data));
-        let sign_string = b64_sha1('3BgS6VbCaQCljvZ1F497w4FbzH30G8ZJrSniUsYr' + awaystring + '3BgS6VbCaQCljvZ1F497w4FbzH30G8ZJrSniUsYr');
+        let sign_string = b64_sha1('sandbox_5eK3CTLdhGh0eKSQIF8Gj5dswJBYSga4hqarMTIY' + awaystring + 'sandbox_5eK3CTLdhGh0eKSQIF8Gj5dswJBYSga4hqarMTIY');
         this.setState({
             awaystring: awaystring,
             sign_string: sign_string
