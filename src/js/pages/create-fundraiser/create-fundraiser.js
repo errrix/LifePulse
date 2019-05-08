@@ -378,7 +378,14 @@ class CreateFundraiser extends React.Component {
                                         </label>
 
                                         <label className="label-input label-number">
-                                            <span>Укажите сумму сбора</span>
+                                            <span>Укажите сумму сбора
+                                                <div className="tooltip-hover">
+                                                  <img src="/img/information.svg" alt="information"/>
+                                                  <p className="information-tooltip">
+                                                     Указывайте сумму с учётом единого государственого налога в размере 19,5% и сервисного сбора в размере 7%
+                                                  </p>
+                                                </div>
+                                            </span>
                                             <span className="currency">ГРН</span>
                                             <input placeholder="100 000"
                                                    type="number"
