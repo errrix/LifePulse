@@ -1,5 +1,8 @@
 .quill-textarea {
   margin-bottom: 30px;
+  & > p {
+    font-weight: 500;
+  }
 }
 .quill {
   margin-top: 10px;

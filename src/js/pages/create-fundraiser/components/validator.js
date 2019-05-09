@@ -84,7 +84,7 @@ const  validator = {
 
     accountNumber : function() {
         let elem = document.getElementById('account_number');
-        if(!/^\d{10}$/.test(elem.value)) {
+        if(!/^\d+$/.test(elem.value) || elem.value.length < 7 || elem.value.length > 29) {
             validator.validValue.account_number = false;
             elem.parentNode.classList.add('label-error');
         } else {
