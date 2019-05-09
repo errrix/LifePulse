@@ -81,6 +81,9 @@ class Header extends React.Component {
                         <div className="navigation-side">
                             <ul className="navigation">
                                 <li>
+                                    <Link to='/about'>О Нас</Link>
+                                </li>
+                                <li>
                                     <Link to='/faq'>F.A.Q.</Link>
                                 </li>
                                 <li>
@@ -103,7 +106,6 @@ class Header extends React.Component {
                                 (this.props.user_id) ? (
                                     <div className="button-block">
                                         <Link to='/account' className="header-login-popup">Мой кабинет</Link>
-                                        {this.props.roles.indexOf('admin') !== -1 ? <Link to='/admin' className="header-login-popup">Админка</Link> : false}
                                         <button className="header-login-popup" onClick={this.handleLogout}>Выйти
                                         </button>
                                     </div>
@@ -131,10 +133,13 @@ class Header extends React.Component {
                         <div className="navigation-side-mobile">
                             <ul className="navigation">
                                 <li>
+                                    <Link to='/about'>О Нас</Link>
+                                </li>
+                                <li>
                                     <Link to='/faq'>F.A.Q.</Link>
                                 </li>
                                 <li>
-                                    <Link to='/'>Успешные сборы</Link>
+                                    <Link to='/success-stories'>Успешные сборы</Link>
                                 </li>
                                 <li>
                                     <Link to='/allcampaing'>Начать помогать</Link>
@@ -152,7 +157,6 @@ class Header extends React.Component {
                                 (this.props.user_id) ? (
                                     <div className="button-block">
                                         <Link to='/account' className="header-login-popup">Мой кабинет</Link>
-                                        {this.props.roles.indexOf('admin') !== -1 ? <Link to='/admin' className="header-login-popup">Админка</Link> : false}
                                         <button className="header-login-popup" onClick={this.handleLogout}>Выйти
                                         </button>
 

@@ -65,6 +65,7 @@ class Footer extends React.Component {
                                     <Link to='/'>
                                         <img src="/img/icon-logo.svg" alt="lifespulse logo"/>
                                     </Link>
+                                    {this.props.roles.indexOf('admin') !== -1 ? <Link to='/admin' className="header-login-popup">Админка</Link> : false}
                                 </div>
 
                                 <div className="nav-block">
