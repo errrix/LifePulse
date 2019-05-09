@@ -1,6 +1,6 @@
 .marketing-block {
   background-color: $bg-third-color;
-  padding: 50px 0;
+  padding: 50px 0 30px 0;
 
   .h2Header  {
     margin-bottom: 39px;
@@ -12,43 +12,28 @@
     justify-content: space-between;
 
     li {
-      width: 30%;
-      margin-bottom: 40px;
+      width: 32%;
       display: flex;
+      margin-bottom: 30px;
 
       img {
-        width: 55px;
+        width: auto;
         height: 50px;
         flex-shrink: 0;
-        margin-right: 23px;
-      }
-      h2 {
-        width: 55px;
-        height: 50px;
-        flex-shrink: 0;
-        margin-right: 23px;
-        font-size: 55px;
-        color: $orange-text-color;
+        margin-right: 20px;
       }
 
       .text-block {
         display: flex;
         flex-direction: column;
-        max-width: 240px;
-
-        h5 {
-          color: $main-text-color;
-          font-family: $mainfont;
+        h3 {
           font-size: 18px;
           font-weight: 500;
-          margin-bottom: 24px;
+          margin-bottom: 10px;
         }
-
-        h6 {
-          color: $main-text-color;
-          font-family: $mainfont;
+        p {
           font-size: 16px;
-          line-height: 21px;
+          margin-bottom: 10px;
         }
       }
     }
@@ -60,18 +45,11 @@
     .info-block-list {
       justify-content: space-around;
       li {
-        width: 40%;
-        margin-bottom: 15px;
-        h2, img {
-          width: 40px;
-          font-size: 50px;
-        }
-        .text-block {
-          h5 {
-            font-size: 18px;
-            font-weight: 500;
-            margin-bottom: 10px;
-          }
+        width: 100%;
+        margin-bottom: 20px;
+        img {
+          width: auto;
+          height: 40px;
         }
       }
     }
@@ -84,18 +62,10 @@
       li {
         width: 100%;
         margin-bottom: 15px;
-        align-items: center;
-        h2, img {
-          width: 25px;
-          font-size: 35px;
-        }
-        .text-block {
-          max-width: none;
-          h5 {
-            font-size: 18px;
-            font-weight: 500;
-            margin-bottom: 10px;
-          }
+        align-items: flex-start;
+        img {
+          width: 30px;
+          height: auto;
         }
       }
     }
