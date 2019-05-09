@@ -54,7 +54,14 @@ class SingleUserAccountCard extends React.Component {
 
 
                     {this.state.card.status === 'draft' ? (
-                        <div className="btn btn-transparent">Модерация </div>
+                        <div className="btn btn-transparent">Модерация
+                            <div className="tooltip-hover">
+                                <img src="/img/information.svg" alt="information"/>
+                                <p className="information-tooltip">
+                                    Ваша заявка проверяется модераторами. Ожидайте письмо на почту.
+                                </p>
+                            </div>
+                        </div>
                     ) : false}
 
                     {this.state.card.status === 'rev' ? (
@@ -63,12 +70,26 @@ class SingleUserAccountCard extends React.Component {
                             state: {
                                 id: this.state.card._id
                             }
-                        }} className="btn btn-transparent">Редактировать</Link>
+                        }} className="btn btn-transparent">Редактировать
+                            <div className="tooltip-hover">
+                                <img src="/img/information.svg" alt="information"/>
+                                <p className="information-tooltip">
+                                    Ваша заявка возвращена на доработку. Причина указана в письме на почте.
+                                </p>
+                            </div>
+                        </Link>
                     ) : false}
 
                     {this.state.card.status === 'active' || this.state.card.status === 'verify' ? (
                         <div>
-                            <div className="btn btn-transparent"> Забрать деньги </div>
+                            <div className="btn btn-transparent"> Забрать деньги
+                                <div className="tooltip-hover">
+                                    <img src="/img/information.svg" alt="information"/>
+                                    <p className="information-tooltip">
+                                        Вы можете остановить сбор средств и вывести собранные деньги
+                                    </p>
+                                </div>
+                            </div>
                             <Link className="btn btn-transparent"
                                 to={{pathname: `/usercard/${this.state.card._id}`,
                                     state: {
@@ -80,7 +101,14 @@ class SingleUserAccountCard extends React.Component {
 
                     {this.state.card.status === 'ban' ? (
                         <div>
-                            <div className="btn btn-transparent">Ваша заявка забанена, свяжитесь со службой технической поддержки </div>
+                            <div className="btn btn-transparent">Перемодерация
+                                <div className="tooltip-hover">
+                                    <img src="/img/information.svg" alt="information"/>
+                                    <p className="information-tooltip">
+                                        На Вашу заявку пожаловались 3 раза. Она на дополнительной проверке.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
 
                     ) : false}
