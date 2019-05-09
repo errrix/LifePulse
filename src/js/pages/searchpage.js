@@ -3,6 +3,7 @@ import React from "react";
 import SingleCard from './../components/singleCard'
 import {debounce} from "lodash"
 import Subscribeblock from "../components/subscribeBlock";
+import url from"../modules/url"
 
 class SearchPage extends React.Component {
 
@@ -29,7 +30,7 @@ class SearchPage extends React.Component {
     }
 
     getCategories() {
-        fetch('http://165.227.11.173:3001/api/category', {
+        fetch(`${url}/api/category`, {
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -46,7 +47,7 @@ class SearchPage extends React.Component {
     getActiveCard() {
         let limit = 3;
         this.state.qt_cards === 0 ? limit = 6 : limit = 6;
-        fetch(`http://165.227.11.173:3001/api/card/active/?limit=${limit}&skip=${this.state.qt_cards}&new=1`, {
+        fetch(`${url}/api/card/active/?limit=${limit}&skip=${this.state.qt_cards}&new=1`, {
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -87,7 +88,7 @@ class SearchPage extends React.Component {
         let limit = 3;
         this.state.qt_cards_search === 0 ? limit = 6 : limit = 3;
         console.log(this.state.qt_cards_search);
-        fetch(`http://165.227.11.173:3001/api/card/search?limit=${limit}&skip=${this.state.qt_cards_search}&search=${this.state.search_text}`, {
+        fetch(`${url}/api/card/search?limit=${limit}&skip=${this.state.qt_cards_search}&search=${this.state.search_text}`, {
             headers: {
                 'Content-Type': 'application/json'
             },

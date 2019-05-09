@@ -1,5 +1,6 @@
 import React from "react";
 import validator from "./validator";
+import url from "../../../modules/url"
 
 //TODO переделать в глупый компонент
 class FileLoader extends React.Component {
@@ -16,7 +17,7 @@ class FileLoader extends React.Component {
                 {this.props.item !== null && this.props.item ? (
                     <div>
                         <img
-                            src={`http://165.227.11.173:3001/uploads/${this.props.item.filename}`}
+                            src={`${url}/uploads/${this.props.item.filename}`}
                             alt=""/>
                         <button className="btn btn-transparent"
                                 name={this.props.name}

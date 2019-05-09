@@ -3,6 +3,7 @@ import {Link, Redirect} from 'react-router-dom';
 
 import {addUserId, addUserRole, addUserInfo, changePopup} from "./../actions";
 import {connect} from "react-redux";
+import url from "../modules/url"
 
 class adminHeader extends React.Component {
 
@@ -18,7 +19,7 @@ class adminHeader extends React.Component {
 
     handleLogout(e) {
         e.preventDefault();
-        fetch('http://165.227.11.173:3001/api/users/logout', {
+        fetch(`${url}/api/users/logout`, {
             headers: {
                 'Content-Type': 'application/json',
             },

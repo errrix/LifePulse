@@ -1,4 +1,5 @@
 import React from "react";
+import url from "../../../../modules/url"
 
 
 class CardStatusPopup extends React.Component{
@@ -32,10 +33,10 @@ class CardStatusPopup extends React.Component{
 
     HandleSubmit(e) {
         e.preventDefault();
-        let url, method, data;
+        let url1, method, data;
         console.log(this.props.action);
         if( this.props.action === 'delete') {
-            url =`http://165.227.11.173:3001/api/card/delete/${this.props.id}`;
+            url1 =`${url}/api/card/delete/${this.props.id}`;
             method = 'PUT';
             data = JSON.stringify({
                 "status": "",
@@ -44,7 +45,7 @@ class CardStatusPopup extends React.Component{
                 "email": this.props.email
             })
         } else {
-            url=`http://165.227.11.173:3001/api/card/upd_status/${this.props.id}`;
+            url1=`${url}/api/card/upd_status/${this.props.id}`;
             method = 'PUT';
             data = JSON.stringify({
                 "status": this.props.action,
@@ -54,7 +55,7 @@ class CardStatusPopup extends React.Component{
             })
         }
         document.querySelector('.loader').classList.add('active-loader', 'm--loader');
-        fetch(url, {
+        fetch(url1, {
             headers: {
                 'Content-Type': 'application/json'
             },

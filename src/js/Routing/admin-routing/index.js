@@ -16,6 +16,8 @@ import viewCampaign from "../../pages/admin/view-campaign";
 import {connect} from "react-redux";
 import {addUserId, addUserInfo, addUserRole} from "../../actions";
 
+import url from "../../modules/url"
+
 class AdminRouting extends React.Component {
 
     constructor(props) {
@@ -26,7 +28,7 @@ class AdminRouting extends React.Component {
 
     componentDidMount() {
         if (this.props.roles.length ===0 ) {
-            fetch('http://165.227.11.173:3001/api/users/auth', {
+            fetch(`${url}/api/users/auth`, {
                 headers: {
                     'Content-Type': 'application/json',
                 },

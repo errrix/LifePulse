@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom';
+import url from "../modules/url"
 
 class SingleCard extends React.Component {
 
@@ -27,7 +28,7 @@ class SingleCard extends React.Component {
                 }
             }} >
                 {this.state.card.photo_preview ? (
-                    <img src={ `http://165.227.11.173:3001/uploads/${this.state.card.photo_preview.filename}`} alt={this.state.card.for_whom_name}/>
+                    <img src={ `${url}/uploads/${this.state.card.photo_preview.filename}`} alt={this.state.card.for_whom_name}/>
                 ) : false}
                 <div className="text-block">
                     <h4>

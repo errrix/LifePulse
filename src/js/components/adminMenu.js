@@ -1,6 +1,8 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
+import url from "../modules/url"
+
 class adminMenu extends React.Component {
     constructor(props) {
         super(props);
@@ -13,7 +15,7 @@ class adminMenu extends React.Component {
     }
 
     getDraftFundraisers() {
-        fetch('http://165.227.11.173:3001/api/card/status?limit=222', {
+        fetch(`${url}/api/card/status?limit=222`, {
             headers: {
                 'Content-Type': 'application/json'
             },

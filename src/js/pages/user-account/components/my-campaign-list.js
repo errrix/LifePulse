@@ -4,6 +4,8 @@ import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import SingleUserAccountCard from "../../../components/singleUserAccountCard";
 
+import url from "../../../modules/url"
+
 class MyCampaignList extends React.Component {
 
     constructor(props) {
@@ -17,7 +19,7 @@ class MyCampaignList extends React.Component {
     }
 
     getUserCard() {
-        fetch(`http://165.227.11.173:3001/api/card/user/${this.props.user_id}`, {
+        fetch(`${url}/api/card/user/${this.props.user_id}`, {
             headers: {
                 'Content-Type': 'application/json',
             },

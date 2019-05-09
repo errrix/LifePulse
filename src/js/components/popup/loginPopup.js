@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from 'react-router-dom';
 import {addUserId, addUserInfo, addUserRole, changePopup} from "../../actions";
 import {connect} from "react-redux";
+import url from "../../modules/url"
 
 
 class LoginPopup extends React.Component {
@@ -66,7 +67,7 @@ class LoginPopup extends React.Component {
         e.preventDefault();
         if (this.state.validate_email && this.state.validate_password) {
             document.querySelector('.loader').classList.add('active-loader', 'm--loader');
-            fetch('http://165.227.11.173:3001/api/users/login', {
+            fetch(`${url}/api/users/login`, {
                 headers: {
                     'Content-Type': 'application/json'
                 },

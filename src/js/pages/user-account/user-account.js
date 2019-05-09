@@ -2,6 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import {Redirect, Link} from "react-router-dom";
 import CSSTransitionGroup from "react-addons-css-transition-group"
+import url from "../../modules/url"
 
 import MyFollow from './components/follow'
 import MyCampaignList from './components/my-campaign-list'
@@ -29,7 +30,7 @@ class UserAccount extends React.Component {
 
     handleLogout(e) {
         e.preventDefault();
-        fetch('http://165.227.11.173:3001/api/users/logout', {
+        fetch(`${url}/api/users/logout`, {
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -53,7 +54,7 @@ class UserAccount extends React.Component {
     }
 
     getUserData() {
-        fetch('http://165.227.11.173:3001/api/users/mydata', {
+        fetch(`${url}/api/users/mydata`, {
             headers: {
                 'Content-Type': 'application/json',
             },

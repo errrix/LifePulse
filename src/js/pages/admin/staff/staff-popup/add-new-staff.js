@@ -1,5 +1,7 @@
 import React from "react";
 
+import url from "../../../../modules/url"
+
 class AddNewStaffPopup extends React.Component {
     constructor(props) {
         super(props);
@@ -38,7 +40,7 @@ class AddNewStaffPopup extends React.Component {
         e.preventDefault(e);
         document.querySelector('.loader').classList.add('active-loader', 'm--loader');
         // if (this.state.validate_confirm) {
-            fetch("http://165.227.11.173:3001/api/users/newuser", {
+            fetch(`${url}/api/users/newuser`, {
                     "method": "POST",
                     "headers": {
                         "Content-Type": "application/json"

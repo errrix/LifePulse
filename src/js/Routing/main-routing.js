@@ -28,6 +28,8 @@ import {BrowserRouter} from 'react-router-dom';
 import ScrollToTop from './../modules/scrollToTop';
 import CSSTransitionGroup from "react-addons-css-transition-group"
 
+import url from "../modules/url"
+
 class MainRouting extends React.Component {
 
     constructor(props) {
@@ -43,7 +45,7 @@ class MainRouting extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://165.227.11.173:3001/api/users/auth', {
+        fetch(`${url}/api/users/auth`, {
             headers: {
                 'Content-Type': 'application/json',
             },

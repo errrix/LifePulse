@@ -4,6 +4,8 @@ import AdminMenu from '../../components/adminMenu'
 import AdminHeader from '../../components/adminHeader'
 import {Link} from "react-router-dom";
 
+import url from "../../modules/url"
+
 class appeal extends React.Component {
 
     constructor(props) {
@@ -17,7 +19,7 @@ class appeal extends React.Component {
     }
 
     getAppealFundraisers() {
-        fetch('http://165.227.11.173:3001/api/card/status?limit=222', {
+        fetch(`${url}/api/card/status?limit=222`, {
             headers: {
                 'Content-Type': 'application/json'
             },

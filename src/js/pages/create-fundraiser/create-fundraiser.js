@@ -6,6 +6,8 @@ import validator from './components/validator'
 import {connect} from "react-redux";
 import FileLoader from "./components/file_loader";
 
+import url from "../../modules/url"
+
 class CreateFundraiser extends React.Component {
 
     constructor(props) {
@@ -58,7 +60,7 @@ class CreateFundraiser extends React.Component {
     }
 
     getCategories() {
-        fetch('http://165.227.11.173:3001/api/category', {
+        fetch(`${url}/api/category`, {
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -74,7 +76,7 @@ class CreateFundraiser extends React.Component {
     }
 
     getEditedCard(id) {
-        fetch(`http://165.227.11.173:3001/api/card/admin/${id}`, {
+        fetch(`${url}/api/card/admin/${id}`, {
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -119,7 +121,7 @@ class CreateFundraiser extends React.Component {
         e.preventDefault();
         if (validator.allValidFunc()) {
             document.querySelector('.error-validator').classList.add('hide');
-            fetch('http://165.227.11.173:3001/api/card', {
+            fetch(`${url}/api/card`, {
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -168,7 +170,7 @@ class CreateFundraiser extends React.Component {
     UpdateFundraiser(e) {
         e.preventDefault();
         if (validator.allValidFunc()) {
-            fetch(`http://165.227.11.173:3001/api/card/${this.state.card._id}`, {
+            fetch(`${url}/api/card/${this.state.card._id}`, {
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -220,7 +222,7 @@ class CreateFundraiser extends React.Component {
         const {name} = e.target;
         let data = new FormData();
         data.append("image", e.target.files[0]);
-        fetch('http://165.227.11.173:3001/api/images/', {
+        fetch(`${url}/api/images/`, {
             method: 'POST',
             credentials: 'include',
             body: data
@@ -260,7 +262,7 @@ class CreateFundraiser extends React.Component {
             delete_id = this.state[name]._id;
         }
         e.preventDefault();
-        fetch(`http://165.227.11.173:3001/api/images/${delete_id}`, {
+        fetch(`${url}/api/images/${delete_id}`, {
             method: 'delete',
             credentials: 'include',
         })
@@ -308,7 +310,7 @@ class CreateFundraiser extends React.Component {
             const file = input.files[0];
             let data = new FormData();
             data.append("image", file);
-            fetch('http://165.227.11.173:3001/api/images/', {
+            fetch(`${url}/api/images/`, {
                 method: 'POST',
                 credentials: 'include',
                 body: data
@@ -316,8 +318,8 @@ class CreateFundraiser extends React.Component {
                 .then(function (response) {
                     return response.json()
                 }).then((data) => {
-                let url = data.response.sizes[0].path;
-                this.quillRef.getEditor().insertEmbed(range.index, 'image', `http://165.227.11.173:3001/${url}`, "user");
+                let url1 = data.response.sizes[0].path;
+                this.quillRef.getEditor().insertEmbed(range.index, 'image', `${url}/${url1}`, "user");
             })
         }.bind(this);
     }

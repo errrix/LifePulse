@@ -1,5 +1,6 @@
 import React from "react";
 import {Link, Redirect} from 'react-router-dom';
+import url from "../modules/url"
 
 
 import {addUserId, addUserRole, addUserInfo, changePopup} from "./../actions";
@@ -20,7 +21,7 @@ class Header extends React.Component {
 
     handleLogout(e) {
         e.preventDefault();
-        fetch('http://165.227.11.173:3001/api/users/logout', {
+        fetch(`${url}/api/users/logout`, {
             headers: {
                 'Content-Type': 'application/json',
             },

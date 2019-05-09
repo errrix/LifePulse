@@ -7,6 +7,8 @@ import BlogHomepage from '../../components/blogHomepage'
 import CardBlock from '../../components/cardBlock'
 import Subscribeblock from '../../components/subscribeBlock'
 
+import url from "../../modules/url"
+
 class Homepage extends React.Component {
 
     constructor(props) {
@@ -22,7 +24,7 @@ class Homepage extends React.Component {
     }
 
     getPopularCard() {
-        fetch('http://165.227.11.173:3001/api/card/popular/?limit=3', {
+        fetch(`${url}/api/card/popular/?limit=3`, {
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -37,7 +39,7 @@ class Homepage extends React.Component {
     }
 
     getActiveCard() {
-        fetch('http://165.227.11.173:3001/api/card/active/?limit=3&new=1', {
+        fetch(`${url}/api/card/active/?limit=3&new=1`, {
             headers: {
                 'Content-Type': 'application/json'
             },

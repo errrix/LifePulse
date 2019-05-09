@@ -3,6 +3,8 @@ import React from "react";
 import AdminMenu from '../../components/adminMenu'
 import AdminHeader from '../../components/adminHeader'
 
+import url from "../../modules/url"
+
 class users extends React.Component {
 
     constructor(props) {
@@ -20,7 +22,7 @@ class users extends React.Component {
     }
 
     getUsers() {
-        fetch('http://165.227.11.173:3001/api/users?limit=100', {
+        fetch(`${url}/api/users?limit=100`, {
             headers: {
                 'Content-Type': 'application/json'
             },

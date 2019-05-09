@@ -1,4 +1,5 @@
 import React from "react";
+import url from "../../../../modules/url"
 
 class AddCategoryPopup extends React.Component{
     constructor(props) {
@@ -30,7 +31,7 @@ class AddCategoryPopup extends React.Component{
     newCategory(e) {
         e.preventDefault();
         document.querySelector('.loader').classList.add('active-loader', 'm--loader');
-        fetch('http://165.227.11.173:3001/api/category/', {
+        fetch(`${url}/api/category/`, {
             headers: {
                 'Content-Type': 'application/json'
             },

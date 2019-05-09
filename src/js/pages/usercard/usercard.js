@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom"
+import url from "../../modules/url"
 
 import CSSTransitionGroup from "react-addons-css-transition-group"
 
@@ -28,7 +29,7 @@ class usercard extends React.Component {
 
     getThisCard() {
         let id = this.props.location.pathname.substring(this.props.location.pathname.lastIndexOf('/') + 1);
-        fetch(`http://165.227.11.173:3001/api/card/${id}`, {
+        fetch(`${url}/api/card/${id}`, {
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -109,7 +110,7 @@ class usercard extends React.Component {
                                             </div>
                                             {this.state.card.photo_preview ? (
                                                 <img
-                                                    src={`http://165.227.11.173:3001/uploads/${this.state.card.photo_preview.filename}`}
+                                                    src={`${url}/uploads/${this.state.card.photo_preview.filename}`}
                                                     alt={this.state.card.for_whom_name}/>
                                             ) : false}
                                         </div>

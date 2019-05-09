@@ -5,6 +5,8 @@ import validator from './components/validator'
 import {changePopup} from "../../actions";
 import {connect} from "react-redux";
 
+import url from "../../modules/url"
+
 class Registration extends React.Component {
 
     constructor(props) {
@@ -39,7 +41,7 @@ class Registration extends React.Component {
         e.preventDefault(e);
         if (validator.allValidFunc()) {
             document.querySelector('.loader').classList.add('active-loader', 'm--loader');
-            fetch("http://165.227.11.173:3001/api/users/newuser", {
+            fetch(`${url}/api/users/newuser`, {
                     "method": "POST",
                     "headers": {
                         "Content-Type": "application/json"

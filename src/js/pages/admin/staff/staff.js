@@ -7,6 +7,8 @@ import AddNewStaffPopup from './staff-popup/add-new-staff'
 // import EditCategoriesPopup from './staff-popup/edit-staff'
 // import DeleteCategoriesPopup from './staff-popup/delete-staff'
 
+import url from "../../../modules/url"
+
 
 class newStaff extends React.Component {
 
@@ -63,7 +65,7 @@ class newStaff extends React.Component {
     }
 
     getUsers() {
-        fetch('http://165.227.11.173:3001/api/users/', {
+        fetch(`${url}/api/users/`, {
             headers: {
                 'Content-Type': 'application/json'
             },

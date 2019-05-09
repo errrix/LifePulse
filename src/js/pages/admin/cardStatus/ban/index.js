@@ -5,6 +5,8 @@ import AdminHeader from '../../../../components/adminHeader'
 import {Link} from "react-router-dom";
 import SingleCard from "../../../../components/cardBlock";
 
+import url from "../../../../modules/url"
+
 class ban extends React.Component {
     constructor(props) {
         super(props);
@@ -17,7 +19,7 @@ class ban extends React.Component {
     }
 
     getBanFundraisers() {
-        fetch('http://165.227.11.173:3001/api/card/status?limit=222', {
+        fetch(`${url}/api/card/status?limit=222`, {
             headers: {
                 'Content-Type': 'application/json'
             },

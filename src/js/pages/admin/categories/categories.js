@@ -7,6 +7,8 @@ import AddCategoryPopup from './categories-popup/add-categories'
 import EditCategoriesPopup from './categories-popup/edit-categories'
 import DeleteCategoriesPopup from './categories-popup/delete-categories'
 
+import url from "../../../modules/url"
+
 
 class categories extends React.Component {
 
@@ -63,7 +65,7 @@ class categories extends React.Component {
     }
 
     getCategories() {
-        fetch('http://165.227.11.173:3001/api/category', {
+        fetch(`${url}/api/category`, {
             headers: {
                 'Content-Type': 'application/json'
             },

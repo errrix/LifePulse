@@ -1,4 +1,5 @@
 import React from "react";
+import url from "../../../modules/url"
 
 
 class Complaints extends React.Component {
@@ -32,7 +33,7 @@ class Complaints extends React.Component {
 
     HandleSubmit(e) {
         e.preventDefault();
-        fetch(`http://165.227.11.173:3001/api/card/complaints/${this.props.id}`, {
+        fetch(`${url}/api/card/complaints/${this.props.id}`, {
             headers: {
                 'Content-Type': 'application/json'
             },
