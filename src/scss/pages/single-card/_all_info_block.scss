@@ -8,7 +8,7 @@
   }
 }
 .user-card-block {
-  padding: 130px 0 50px 0;
+  padding: 100px 0 50px 0;
   .help-btn-block {
     display: none;
   }
@@ -311,7 +311,7 @@
 
 @media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
   .user-card-block {
-    padding: 120px 0 50px 0;
+    padding: 100px 0 50px 0;
     .money-count {
       display: block;
       margin-top: 30px;

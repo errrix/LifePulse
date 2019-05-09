@@ -1,6 +1,6 @@
 .new-campaign-form {
   label {
-    margin-bottom: 31px;
+    margin-bottom: 25px;
 
     &.label-input {
       span:first-child {
@@ -22,7 +22,7 @@
             top: 25px;
             left: 0;
             transition: .3s;
-            width: 50%;
+            width: 80%;
             z-index: 3;
             background-color: white;
             border-radius: 4px;
@@ -50,7 +50,8 @@
 
       span.info {
         max-width: 100%;
-        line-height: 14px;
+        line-height: 1.2;
+		font-size: 12px;
       }
 
       textarea {
@@ -270,8 +271,9 @@
     }
   }
   .photo-preview-block {
-    h6 {
+    & > p {
       margin-bottom: 10px;
+	  font-weight: 500;
     }
   }
   .document-block {
@@ -284,7 +286,7 @@
       margin-bottom: 15px;
     }
 
-    h5 {
+    & > p {
       color: $main-text-color;
       font-family: $mainfont;
       line-height: 21px;
@@ -292,8 +294,9 @@
       margin-bottom: 15px;
     }
 
-    h6 {
+    .title-span {
       margin-bottom: 10px;
+	  font-weight: 500;
     }
   }
 }

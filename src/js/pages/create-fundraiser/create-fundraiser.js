@@ -414,7 +414,14 @@ class CreateFundraiser extends React.Component {
 
                                     <div className="bank-details">
                                         <label className="label-input">
-                                            <span>Номер счета</span>
+                                            <span>Номер счета в Украинском банке
+                                                <div className="tooltip-hover">
+                                                  <img src="/img/information.svg" alt="information"/>
+                                                  <p className="information-tooltip">
+                                                     Номер счета в банке может содержать до 29 цифр
+                                                  </p>
+                                                </div>
+                                            </span>
                                             <input placeholder="Номер счета в Украинском банке"
                                                    type="number"
                                                    name="account_number"
@@ -450,7 +457,14 @@ class CreateFundraiser extends React.Component {
 
                                     <div className="phone-inn">
                                         <label className="label-input">
-                                            <span>Ваш номер телефона</span>
+                                            <span>Ваш номер телефона
+                                                  <div className="tooltip-hover">
+                                                  <img src="/img/information.svg" alt="information"/>
+                                                  <p className="information-tooltip">
+                                                     Ваш номер телефона в формате 093 123 45 67
+                                                  </p>
+                                                </div>
+                                            </span>
                                             <input type="tel"
                                                    placeholder="096 33 33 333"
                                                    name="phone"
@@ -462,7 +476,14 @@ class CreateFundraiser extends React.Component {
                                         </label>
 
                                         <label className="label-input">
-                                            <span>Идентификационный код</span>
+                                            <span>Идентификационный код
+                                                <div className="tooltip-hover">
+                                                  <img src="/img/information.svg" alt="information"/>
+                                                  <p className="information-tooltip">
+                                                     Ваш ИНН состоит из 10 символов
+                                                  </p>
+                                                </div>
+                                            </span>
                                             <input placeholder="1234567890"
                                                    type="number"
                                                    name="inn"
@@ -495,7 +516,7 @@ class CreateFundraiser extends React.Component {
                                         {this.state.to_whom === 'self' ? validator.validValue.for_whom_name_valid = true : (
                                             <label className="label-input" id="another-recipient">
                                                 {validator.validValue.for_whom_name_valid = false}
-                                                <span>Для кого собираются средства?</span>
+                                                <span>Для кого собираются средства? (ФИО)</span>
                                                 <input placeholder="Василий Васильев Васильевич"
                                                        type="text"
                                                        name="for_whom_name"
@@ -563,7 +584,7 @@ class CreateFundraiser extends React.Component {
                                     </label>
 
                                     <div className="photo-preview-block">
-                                        <h6 className="h4Header">Фото-обложка компании по сбору средств</h6>
+                                        <p>Фото-обложка компании по сбору средств</p>
                                         <FileLoader
                                             item={this.state.photo_preview}
                                             name="photo_preview"
@@ -574,7 +595,7 @@ class CreateFundraiser extends React.Component {
 
 
                                     <div className="quill-textarea">
-                                        <h6 className="h4Header">Опишите свою ситуацию</h6>
+                                        <p>Опишите свою ситуацию</p>
                                         <ReactQuill name="main_text"
                                                     id="main_text"
                                                     value={this.state.main_text}
@@ -592,17 +613,15 @@ class CreateFundraiser extends React.Component {
                                             Загрузите необходимые документы
                                         </h3>
 
-                                        <h5>
-                                            Загруженные документы необходимы для подтверждения указанной информации
-                                            нашими
-                                            модераторами.
-                                            Ваши данные не будут доступны другим пользователям.
-                                        </h5>
+                                        <p>
+                                            Загруженные документы в этом блоке не будут доступны другим пользователям, они необходимы для подтверждения указанной информации
+                                            нашими модераторами.
+                                        </p>
 
 
-                                        <h6 className="h4Header">
+                                        <p className="title-span">
                                             Фото / скан Вашего паспорта
-                                        </h6>
+                                        </p>
                                         <FileLoader
                                             item={this.state.photo_passports}
                                             name="photo_passports"
@@ -611,7 +630,7 @@ class CreateFundraiser extends React.Component {
                                         />
                                         {this.state.to_whom === 'self' ? false : (
                                             <div id="another-recipient-foto">
-                                                <h6 className="h4Header">Фото / скан паспорта реципиента (больного)</h6>
+                                                <p className="title-span">Фото / скан паспорта реципиента (больного)</p>
 
                                                 <FileLoader
                                                     name="photo_passports_sick"
@@ -623,8 +642,8 @@ class CreateFundraiser extends React.Component {
                                             </div>
                                         )}
 
-                                        <h6 className="h4Header">Фото / скан больничных документов (выписки, заключения
-                                            врачей)</h6>
+                                        <p className="title-span">Фото / скан больничных документов (выписки, заключения
+                                            врачей)</p>
                                         {
                                             this.state.photo_documents.length > 0 ? (
                                                 this.state.photo_documents.map((item) => {
