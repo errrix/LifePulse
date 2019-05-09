@@ -5,7 +5,7 @@ import CSSTransitionGroup from "react-addons-css-transition-group"
 
 import MyFollow from './components/follow'
 import MyCampaignList from './components/my-campaign-list'
-import {addUserInfo} from "../../actions";
+import {addUserId, addUserInfo, addUserRole, changePopup} from "../../actions";
 
 class UserAccount extends React.Component {
 
@@ -24,6 +24,32 @@ class UserAccount extends React.Component {
         this.showFollow = this.showFollow.bind(this);
         this.showMyCampaign = this.showMyCampaign.bind(this);
         this.getUserData = this.getUserData.bind(this);
+        this.handleLogout = this.handleLogout.bind(this);
+    }
+
+    handleLogout(e) {
+        e.preventDefault();
+        fetch('http://165.227.11.173:3001/api/users/logout', {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            method: 'GET',
+            credentials: "include"
+        })
+            .then((response) => {
+                return response.json()
+            })
+            .then((data) => {
+                console.log(data);
+                this.props.addUserId('');
+                this.props.addUserRole([]);
+                this.props.addUserInfo({
+                    first_name: "",
+                    last_name: "",
+                    email: "",
+                    phone: "",
+                });
+            })
     }
 
     getUserData() {
@@ -100,9 +126,7 @@ class UserAccount extends React.Component {
 
                                     </div>
                                     <div className="btn-logout-block">
-
-                                        {/*<a href="/">Редактировать профиль</a>*/}
-                                        <button className="logout-user-btn">Выйти</button>
+                                        <button className="logout-user-btn" onClick={this.handleLogout}>Выйти</button>
                                     </div>
                                 </div>
 
@@ -151,12 +175,19 @@ const mapStateToProps = (store) => {
         first_name: store.user_info.first_name,
         last_name: store.user_info.last_name,
         email: store.user_info.email,
-        phone: store.user_info.phone
+        phone: store.user_info.phone,
+        data: store,
+        roles: store.user_roles,
+        show_popup: store.show_popup
     }
 };
 
 const mapDispatchToProps = dispatch => ({
-    HandleAddUserInfo: object => dispatch(addUserInfo(object))
+    HandleAddUserInfo: object => dispatch(addUserInfo(object)),
+    addUserId: string => dispatch(addUserId(string)),
+    addUserRole: array => dispatch(addUserRole(array)),
+    addUserInfo: object => dispatch(addUserInfo(object)),
+    changePopup: boolean => dispatch(changePopup(boolean))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserAccount);

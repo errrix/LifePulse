@@ -10,7 +10,7 @@
 	}
 
 	.main-article {
-		width: 100%;
+		width: 96%;
 		display: flex;
 		height: 400px;
 		box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
@@ -86,7 +86,7 @@
 @media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
 	.homepage-blog-section {
 		.main-article {
-			width: 98%;
+			width: 91%;
 		}
 	}
 }
