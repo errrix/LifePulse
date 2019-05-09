@@ -103,6 +103,17 @@
             height: 21px;
           }
         }
+
+        .header-login-popup {
+          font-size: 16px;
+          line-height: 1.2;
+          color: $white-text-color;
+          margin-right: 15px;
+          padding: 5px 10px;
+          border: 1px solid $common-orange-color;
+          border-radius: 4px;
+          font-weight: 300;
+        }
       }
     }
   }
