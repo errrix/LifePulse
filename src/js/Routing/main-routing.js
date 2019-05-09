@@ -17,6 +17,7 @@ import Footer from "../components/footer";
 import Homepage from "../pages/homepage/homepage";
 import CreateFundraiser from "../pages/create-fundraiser/create-fundraiser";
 import confidentiality from "../pages/confidentiality";
+import successStories from "../pages/success-stories";
 import LoginPopup from '../components/popup/loginPopup'
 
 import {connect} from "react-redux";
@@ -84,6 +85,7 @@ class MainRouting extends React.Component {
                             <Switch>
                                 <Route exact path="/" component={Homepage}/>
                                 <Route exact path="/faq" component={Faq}/>
+                                <Route exact path="/success-stories" component={successStories}/>
                                 <Route exact path="/allcampaing" component={SearchPage}/>
                                 <Route exact path="/registration" render={(props) => {
                                     return !this.IsUser() ? <Registration {...props}/> : <Redirect to="/account"/>
