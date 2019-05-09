@@ -86,7 +86,7 @@ class MainRouting extends React.Component {
                                 <Route exact path="/faq" component={Faq}/>
                                 <Route exact path="/allcampaing" component={SearchPage}/>
                                 <Route exact path="/registration" render={(props) => {
-                                    return !this.IsUser() ? <Registration {...props}/> : <Redirect to="/account"/>
+                                    return !this.IsUser() ? <Registration {...props}/> : <Redirect to="/"/>
                                 }}/>
                                 <Route exact path="/confidentiality" component={confidentiality}/>
                                 <Route exact path="/rules" component={Rules}/>
