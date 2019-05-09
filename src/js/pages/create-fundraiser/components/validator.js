@@ -145,7 +145,7 @@ const  validator = {
                 elem.parentNode.classList.add('label-error');
             } else {
                 validator.validValue.for_whom_name_valid = true;
-                elem.classList.remove('label-error');
+                elem.parentNode.classList.remove('label-error');
             }
         }
     },
