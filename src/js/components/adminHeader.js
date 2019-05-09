@@ -64,8 +64,6 @@ class adminHeader extends React.Component {
     }
 };
 
-// export default adminHeader;
-
 const mapStateToProps = (store) => {
     return {
         data: store,
