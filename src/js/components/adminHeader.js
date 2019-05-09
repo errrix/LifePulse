@@ -14,7 +14,6 @@ class adminHeader extends React.Component {
                             </Link>
                         </div>
                         <div className="button-block">
-                            <span>Текущая почта юзера</span>
                             <a href="/">Выйти</a>
                         </div>
                     </div>

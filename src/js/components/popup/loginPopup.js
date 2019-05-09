@@ -133,7 +133,6 @@ class LoginPopup extends React.Component {
 
                             </form>
                             <div className="label-password-top-block">
-                                <button className="forgot-password" type="button">Забыли пароль</button>
                                 <Link className="no-account" to="/registration">Нет аккаунта</Link>
                             </div>
                         </div>
