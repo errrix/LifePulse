@@ -65,6 +65,8 @@ class Header extends React.Component {
         return this.props.roles.indexOf('user') !== -1
     }
 
+
+
     render() {
         return (
             <div>
@@ -89,7 +91,8 @@ class Header extends React.Component {
                                 </li>
                                 <li>
                                     {
-                                        this.IsUser() ?  <Link to='/create-fundraiser'>Подать заявку</Link> : <button onClick={this.openPopup}>Подать заявку</button>
+                                        this.IsUser() ? <Link to='/create-fundraiser'>Подать заявку</Link> :
+                                            <button onClick={this.openPopup}>Подать заявку</button>
                                     }
 
                                 </li>
@@ -100,7 +103,7 @@ class Header extends React.Component {
                                 (this.props.user_id) ? (
                                     <div className="button-block">
                                         <Link to='/account' className="header-login-popup">Мой кабинет</Link>
-                                        <Link to='/admin' className="header-login-popup">Админка</Link>
+                                        {this.props.roles.indexOf('admin') !== -1 ? <Link to='/admin' className="header-login-popup">Админка</Link> : false}
                                         <button className="header-login-popup" onClick={this.handleLogout}>Выйти
                                         </button>
                                     </div>
@@ -138,7 +141,8 @@ class Header extends React.Component {
                                 </li>
                                 <li>
                                     {
-                                        this.IsUser() ?  <Link to='/create-fundraiser'>Подать заявку</Link> : <button onClick={this.openPopup}>Подать заявку</button>
+                                        this.IsUser() ? <Link to='/create-fundraiser'>Подать заявку</Link>
+                                                      : <button onClick={this.openPopup}>Подать заявку</button>
                                     }
                                 </li>
                             </ul>
@@ -148,7 +152,7 @@ class Header extends React.Component {
                                 (this.props.user_id) ? (
                                     <div className="button-block">
                                         <Link to='/account' className="header-login-popup">Мой кабинет</Link>
-                                        <Link to='/admin' className="header-login-popup">Админка</Link>
+                                        {this.props.roles.indexOf('admin') !== -1 ? <Link to='/admin' className="header-login-popup">Админка</Link> : false}
                                         <button className="header-login-popup" onClick={this.handleLogout}>Выйти
                                         </button>
 
