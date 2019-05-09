@@ -84,7 +84,7 @@ class Header extends React.Component {
                                     <Link to='/faq'>F.A.Q.</Link>
                                 </li>
                                 <li>
-                                    <Link to='/'>Успешные сборы</Link>
+                                    <Link to='/success-stories'>Успешные сборы</Link>
                                 </li>
                                 <li>
                                     <Link to='/allcampaing'>Начать помогать</Link>
