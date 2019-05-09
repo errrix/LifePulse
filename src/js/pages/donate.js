@@ -46,6 +46,7 @@ class donate extends React.Component {
             "currency":"UAH",
             "description":"test",
             "sandbox": 1,
+            "result_url": "http://165.227.11.173:3001/pay",
             "server_url": "http://165.227.11.173:3001/pay"
         };
         let awaystring = btoa(JSON.stringify(data));
