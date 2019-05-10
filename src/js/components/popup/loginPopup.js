@@ -38,14 +38,15 @@ class LoginPopup extends React.Component {
         this.setState({email: e.target.value})
     }
 
-    validateEmail(e) {
-        if (/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{1,6}$/.test(e.target.value)) {
+    validateEmail() {
+        let elem = document.getElementById("login-email");
+        if (/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{1,6}$/.test(elem.value)) {
             this.setState({validate_email: true});
-            e.target.parentNode.classList.remove('label-error');
+            elem.parentNode.classList.remove('label-error');
         } else {
             this.setState({validate_email: false});
-            e.target.parentNode.classList.add('label-error');
-            e.target.parentNode.querySelector('.error').textContent = this.state.validate_email_message;
+            elem.parentNode.classList.add('label-error');
+            elem.parentNode.querySelector('.error').textContent = this.state.validate_email_message;
         }
     }
 
@@ -53,49 +54,56 @@ class LoginPopup extends React.Component {
         this.setState({password: e.target.value})
     }
 
-    validatePassword(e) {
-        if (e.target.value !== '') {
+    validatePassword() {
+        let elem = document.getElementById("login-password");
+        if (elem.value !== '') {
             this.setState({validate_password: true});
-            e.target.parentNode.classList.remove('label-error');
+            elem.parentNode.classList.remove('label-error');
         } else {
             this.setState({validate_password: false});
-            e.target.parentNode.classList.add('label-error');
+            elem.parentNode.classList.add('label-error');
         }
     }
 
     submitLogin(e) {
         e.preventDefault();
-        if (this.state.validate_email && this.state.validate_password) {
-            document.querySelector('.loader').classList.add('active-loader', 'm--loader');
-            fetch(`${url}/api/users/login`, {
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                method: 'POST',
-                credentials: 'include',
-                body: JSON.stringify({
-                    "email": this.state.email,
-                    "password": this.state.password
+        this.validatePassword();
+        this.validateEmail();
+        console.log(this.state.validate_email, this.state.validate_password);
+        setTimeout(()=>{
+            if (this.state.validate_email && this.state.validate_password) {
+                document.querySelector('.loader').classList.add('active-loader', 'm--loader');
+                fetch(`${url}/api/users/login`, {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    method: 'POST',
+                    credentials: 'include',
+                    body: JSON.stringify({
+                        "email": this.state.email,
+                        "password": this.state.password
+                    })
                 })
-            })
-                .then(function (response) {
-                    return response.json()
-                }).then((data) => {
-                if (data.success) {
-                    this.props.addUserId(data.response.id);
-                    this.props.addUserRole(data.response.roles);
-                    this.props.changePopup(false);
-                    document.querySelector('.navigation-side-mobile').classList.remove('active-nav-mobile');
-                } else {
-                    let errorElem = document.querySelector('.email-error');
-                    errorElem.textContent = this.state.validate_email_message_from_response;
-                    errorElem.parentNode.classList.add('label-error');
-                    document.querySelector('.loader').classList.remove('active-loader', 'm--loader');
-                }
-            }).catch(function (error) {
-                console.log(error);
-            });
-        }
+                    .then(function (response) {
+                        return response.json()
+                    }).then((data) => {
+                    if (data.success) {
+                        this.props.addUserId(data.response.id);
+                        this.props.addUserRole(data.response.roles);
+                        this.props.changePopup(false);
+                        document.querySelector('.navigation-side-mobile').classList.remove('active-nav-mobile');
+                    } else {
+                        let errorElem = document.querySelector('.email-error');
+                        errorElem.textContent = this.state.validate_email_message_from_response;
+                        errorElem.parentNode.classList.add('label-error');
+                        document.querySelector('.loader').classList.remove('active-loader', 'm--loader');
+                    }
+                }).catch(function (error) {
+                    console.log(error);
+                });
+            }
+        }, 0)
+
     }
 
     render() {
@@ -107,14 +115,22 @@ class LoginPopup extends React.Component {
                             <form className="main-form" action="" onSubmit={this.submitLogin}>
                                 <label className="label-input">
                                     <span>Ваша почта:</span>
-                                    <input type="email" onChange={this.inputEmail} onBlur={this.validateEmail}
-                                           autoComplete="email"/>
+                                    <input type="email"
+                                           id="login-email"
+                                           onChange={this.inputEmail}
+                                           onBlur={this.validateEmail}
+                                           autoComplete="email"
+                                    />
                                     <span className="error email-error"/>
                                 </label>
                                 <label className="label-input">
                                     <span>Пароль:</span>
-                                    <input type="password" onChange={this.inputPassword} onBlur={this.validatePassword}
-                                           autoComplete="password"/>
+                                    <input type="password"
+                                           id="login-password"
+                                           onChange={this.inputPassword}
+                                           onBlur={this.validatePassword}
+                                           autoComplete="password"
+                                    />
                                     <span className="error">Введите пароль</span>
                                 </label>
                                 <label className="label-checkbox">

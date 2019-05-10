@@ -16,6 +16,7 @@ class MyCampaignList extends React.Component {
         };
 
         this.getUserCard = this.getUserCard.bind(this);
+        this.reloadCard = this.reloadCard.bind(this);
     }
 
     getUserCard() {
@@ -38,6 +39,10 @@ class MyCampaignList extends React.Component {
             })
     }
 
+    reloadCard() {
+        this.getUserCard();
+    }
+
     componentDidMount() {
             this.getUserCard();
         console.log("mounted list")
@@ -53,7 +58,7 @@ class MyCampaignList extends React.Component {
                     <ul className="card-block-list card-block-list-flex">
                         {this.state.cards ? this.state.cards.map((item) => {
                             return <li key={item._id}>
-                                <SingleUserAccountCard card={item}/>
+                                <SingleUserAccountCard card={item} reloadCard={this.reloadCard}/>
                             </li>
                         }) : false
                         }

@@ -1,7 +1,11 @@
-import React from "react";
+import React, {Fragment} from "react";
 import {Link} from 'react-router-dom';
 
 import url from "../modules/url"
+import CSSTransitionGroup from "react-addons-css-transition-group"
+
+import ConfirmPopup from './popup/confirmPopup'
+
 
 class SingleUserAccountCard extends React.Component {
 
@@ -9,27 +13,40 @@ class SingleUserAccountCard extends React.Component {
         super(props);
 
         this.state = {
-            card: {}
+            card: {},
+            show_popup: false
         };
 
-        // this.getAmountCard = this.getAmountCard.bind(this);
+        this.handlerChangeStatus = this.handlerChangeStatus.bind(this);
+        this.closePopup = this.closePopup.bind(this);
     }
 
     static getDerivedStateFromProps(nextProps, prevState) {
         return {card: nextProps.card};
     }
 
+    closePopup() {
+        this.setState({show_popup: false});
+        this.props.reloadCard();
+    }
+
+    handlerChangeStatus() {
+        this.setState({show_popup: true})
+    }
+
     render() {
 
         return (
-            <div className="single-card"
-                //  to={{
-                // pathname: `/usercard/${this.state.card._id}`,
-                // state: {
-                //     id: this.state.card._id
-                // }
-                // }}
-            >
+            <div className="single-card">
+
+                <CSSTransitionGroup transitionName="logn-popup"
+                                    transitionEnter={true}
+                                    transitionEnterTimeout={300}
+                                    transitionLeave={true}
+                                    transitionLeaveTimeout={300}>
+                    {this.state.show_popup ? (<ConfirmPopup closePopup={this.closePopup} id={this.state.card._id}/>) : (false)}
+                </CSSTransitionGroup>
+
                 {this.state.card.photo_preview ? (
                     <img src={ `${url}/uploads/${this.state.card.photo_preview.filename}`} alt=""/>
                 ) : false}
@@ -84,14 +101,17 @@ class SingleUserAccountCard extends React.Component {
 
                     {this.state.card.status === 'active' || this.state.card.status === 'verify' ? (
                         <div>
-                            <div className="btn btn-transparent"> Забрать деньги
+                            <button type="button"
+                                    className="btn btn-transparent"
+                                    onClick={this.handlerChangeStatus}
+                            >Забрать деньги
                                 <div className="tooltip-hover">
                                     <img src="/img/information.svg" alt="information"/>
                                     <p className="information-tooltip">
                                         Вы можете остановить сбор средств и вывести собранные деньги
                                     </p>
                                 </div>
-                            </div>
+                            </button>
                             <Link className="btn btn-transparent"
                                 to={{pathname: `/usercard/${this.state.card._id}`,
                                     state: {
@@ -108,6 +128,20 @@ class SingleUserAccountCard extends React.Component {
                                     <img src="/img/information.svg" alt="information"/>
                                     <p className="information-tooltip">
                                         На Вашу заявку пожаловались 3 раза. Она на дополнительной проверке.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    ) : false}
+
+                    {this.state.card.status === 'complite' ? (
+                        <div>
+                            <div className="btn btn-transparent">Вывод стредств
+                                <div className="tooltip-hover">
+                                    <img src="/img/information.svg" alt="information"/>
+                                    <p className="information-tooltip">
+                                        Вывод средств
                                     </p>
                                 </div>
                             </div>
