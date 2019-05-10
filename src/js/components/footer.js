@@ -34,7 +34,7 @@ class Footer extends React.Component {
                             <div>
                                 <div className="contact-link">
 
-                                    <a href="mailto:lifespulse.info@gmail.com">
+                                    <a href="mailto:lifespulse.aid@gmail.com">
                                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                                              x="0px" y="0px"
                                              viewBox="0 0 512 512">
@@ -48,7 +48,7 @@ class Footer extends React.Component {
                                         <span>Поддержка</span>
                                     </a>
 
-                                    <a href="/">
+                                    <p>
                                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                                              x="0px" y="0px"
                                              viewBox="0 0 512 512">
@@ -61,7 +61,7 @@ class Footer extends React.Component {
                                         <span>
                     Одесса, Украина
                 </span>
-                                    </a>
+                                    </p>
                                     <Link to='/'>
                                         <img src="/img/icon-logo.svg" alt="lifespulse logo"/>
                                     </Link>
@@ -81,7 +81,7 @@ class Footer extends React.Component {
                                         {
                                             this.IsUser() ?  <Link to='/create-fundraiser'>Подать заявку</Link> : <button onClick={this.openPopup}>Подать заявку</button>
                                         }
-                                        <Link to='/'>Успешные сборы</Link>
+                                        <Link to='/success-stories'>Успешные сборы</Link>
                                         <Link to='/blog'>Блог</Link>
                                     </div>
                                 </div>
