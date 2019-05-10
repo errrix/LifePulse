@@ -39,14 +39,6 @@ class SingleUserAccountCard extends React.Component {
         return (
             <div className="single-card">
 
-                <CSSTransitionGroup transitionName="logn-popup"
-                                    transitionEnter={true}
-                                    transitionEnterTimeout={300}
-                                    transitionLeave={true}
-                                    transitionLeaveTimeout={300}>
-                    {this.state.show_popup ? (<ConfirmPopup closePopup={this.closePopup} id={this.state.card._id}/>) : (false)}
-                </CSSTransitionGroup>
-
                 {this.state.card.photo_preview ? (
                     <img src={ `${url}/uploads/${this.state.card.photo_preview.filename}`} alt=""/>
                 ) : false}
@@ -137,11 +129,11 @@ class SingleUserAccountCard extends React.Component {
 
                     {this.state.card.status === 'complite' ? (
                         <div>
-                            <div className="btn btn-transparent">Вывод стредств
+                            <div className="btn btn-transparent">Ожидание выплаты
                                 <div className="tooltip-hover">
                                     <img src="/img/information.svg" alt="information"/>
                                     <p className="information-tooltip">
-                                        Вывод средств
+                                        Ожидайте перевод средств на ваш банковский счет в течении 5 рабочих дней
                                     </p>
                                 </div>
                             </div>
@@ -149,6 +141,14 @@ class SingleUserAccountCard extends React.Component {
 
                     ) : false}
                 </div>
+
+                <CSSTransitionGroup transitionName="logn-popup"
+                                    transitionEnter={true}
+                                    transitionEnterTimeout={300}
+                                    transitionLeave={true}
+                                    transitionLeaveTimeout={300}>
+                    {this.state.show_popup ? (<ConfirmPopup closePopup={this.closePopup} id={this.state.card._id}/>) : (false)}
+                </CSSTransitionGroup>
             </div>
         )
     }

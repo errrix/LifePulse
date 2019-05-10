@@ -38,10 +38,10 @@
 }
 
 .popup-content-block {
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
   border: 1px solid #eaeae8;
   background-color: $white-text-color;
-  padding: 50px 50px 30px;
+  padding: 50px;
 
   h1 {
     text-align: center;
@@ -168,6 +168,32 @@
               fill: $common-orange-color;
             }
           }
+        }
+      }
+    }
+
+    &.m--confirm-end-fund {
+      min-height: 0;
+      p {
+        text-align: center;
+      }
+      .title {
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 10px;
+      }
+      & > button {
+        min-width: 220px;
+        margin: 30px auto;
+      }
+      .button-wrapper {
+        margin-top: 40px;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        button {
+          width: 40%;
+          min-width: 220px;
+          margin-bottom: 30px;
         }
       }
     }

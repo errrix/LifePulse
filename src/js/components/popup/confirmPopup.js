@@ -47,12 +47,11 @@ class ConfirmPopup extends React.Component {
             <div className="popup" onMouseDown={this.closePopup}>
                 <div className="popup-content-block">
                     <div className="popup-content-block-wrapper">
-                        <div className="popup-step m--login">
-
+                        <div className="popup-step m--confirm-end-fund">
 
                             {this.state.thx_msg ?(
                                 <div>
-                                    <p>
+                                    <p className="title">
                                         Спасибо за пользовние сервисом, когда Ваш запрос будет обработан Вам прийдет письмо на почту
                                     </p>
                                     <button type="button"
@@ -65,7 +64,7 @@ class ConfirmPopup extends React.Component {
                                 ) : (
                                 <form className="main-form" action="">
 
-                                    <p>Вы уверены, что хотите прекратить сбор средств и получить деньги?</p>
+                                    <p className="title">Вы уверены, что хотите прекратить сбор средств и получить деньги?</p>
                                     <p>
                                         После подтверждния Вы не сможете продолжать сбор средств по этой заявке
                                     </p>
