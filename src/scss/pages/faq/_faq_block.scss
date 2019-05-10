@@ -27,9 +27,9 @@
     .faq-dropdown-item {
       margin-bottom: 15px;
       min-height: 50px;
-      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
       background-color: $bg-white-color;
       overflow: hidden;
+      border: 1px solid lightgray;
 
       &.show-more {
         .faq-dropdown-show-more {
@@ -37,6 +37,7 @@
           max-height: inherit;
           opacity: 1;
           padding: 20px 40px 20px 23px;
+          border-top: 1px solid lightgray;
         }
         .faq-dropdown-question:before {
           transform: rotate(-45deg);
