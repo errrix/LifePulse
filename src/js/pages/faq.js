@@ -17,9 +17,15 @@ class Faq extends React.Component {
 
     toggleAnswer(e) {
         let dropdown = document.querySelectorAll('.faq-dropdown-question');
+        let dropdownTag = document.querySelectorAll('.faq-dropdown-question p');
         for (let i = 0; i < dropdown.length; i++) {
             if (e.target === dropdown[i]) {
                 dropdown[i].parentElement.classList.toggle('show-more')
+            }
+        }
+        for (let i = 0; i < dropdownTag.length; i++) {
+            if (e.target === dropdownTag[i]) {
+                dropdownTag[i].parentElement.parentElement.classList.toggle('show-more')
             }
         }
     }

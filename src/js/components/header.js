@@ -32,7 +32,7 @@ class Header extends React.Component {
                 return response.json()
             })
             .then((data) => {
-                console.log(data);
+                // console.log(data);
                 document.querySelector('.navigation-side-mobile').classList.remove('active-nav-mobile');
                 document.querySelector('.header__navToggle').classList.remove('active-burger');
                 this.props.addUserId('');

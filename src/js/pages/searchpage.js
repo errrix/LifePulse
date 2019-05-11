@@ -155,7 +155,9 @@ class SearchPage extends React.Component {
                             </select>
                             <button type="submit" className="btn btn-orange" onClick={this.searchFundraiser}>Поиск
                             </button>
+
                         </form>
+                        <div><button type="submit">Сбросить поиск</button></div>
                     </div>
                     {this.state.qt_cards ? (
 

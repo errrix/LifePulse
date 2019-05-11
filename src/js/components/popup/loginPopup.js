@@ -69,7 +69,7 @@ class LoginPopup extends React.Component {
         e.preventDefault();
         this.validatePassword();
         this.validateEmail();
-        console.log(this.state.validate_email, this.state.validate_password);
+        // console.log(this.state.validate_email, this.state.validate_password);
         setTimeout(()=>{
             if (this.state.validate_email && this.state.validate_password) {
                 document.querySelector('.loader').classList.add('active-loader', 'm--loader');
@@ -99,7 +99,7 @@ class LoginPopup extends React.Component {
                         document.querySelector('.loader').classList.remove('active-loader', 'm--loader');
                     }
                 }).catch(function (error) {
-                    console.log(error);
+                    // console.log(error);
                 });
             }
         }, 0)

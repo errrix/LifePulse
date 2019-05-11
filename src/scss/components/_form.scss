@@ -76,7 +76,6 @@
         min-width: 400px;
         width: 100%;
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-        border: 1px solid #eaeae8;
         background-color: $white-text-color;
         height: 50px;
         font-family: $mainfont;
@@ -84,6 +83,7 @@
         font-weight: 400;
         padding: 0 20px;
         line-height: 50px;
+        border: 1px solid lightgray;
       }
     }
 

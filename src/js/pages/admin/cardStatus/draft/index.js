@@ -19,7 +19,7 @@ class application extends React.Component {
     }
 
     getDraftFundraisers() {
-        fetch(`${url}/api/card/status?limit=222`, {
+        fetch(`${url}/api/card/status?limit=2202`, {
             headers: {
                 'Content-Type': 'application/json'
             },
