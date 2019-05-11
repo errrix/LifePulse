@@ -467,7 +467,7 @@ class CreateFundraiser extends React.Component {
                                                   </p>
                                                 </div>
                                             </span>
-                                            <input type="tel"
+                                            <input type="text"
                                                    placeholder="096 33 33 333"
                                                    name="phone"
                                                    id="phone"
@@ -632,6 +632,7 @@ class CreateFundraiser extends React.Component {
                                         />
                                         {this.state.to_whom === 'self' ? false : (
                                             <div id="another-recipient-foto">
+                                                <div className="block-line"/>
                                                 <p className="title-span">Фото / скан паспорта реципиента (больного)</p>
 
                                                 <FileLoader
@@ -643,7 +644,7 @@ class CreateFundraiser extends React.Component {
 
                                             </div>
                                         )}
-
+                                        <div className="block-line"/>
                                         <p className="title-span">Фото / скан больничных документов (выписки, заключения
                                             врачей)</p>
                                         {

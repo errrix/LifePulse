@@ -46,32 +46,6 @@ class Howitwork extends React.Component {
                                     </p>
                                 </div>
                             </li>
-                            {/*<li>*/}
-                                {/*<img src="/img/support.svg" alt="list-logo"/>*/}
-                                {/*<div className="text-block">*/}
-                                    {/*<h6>*/}
-                                        {/*Заявка создана и ожидает проверки нашими модераторами*/}
-                                    {/*</h6>*/}
-                                {/*</div>*/}
-                            {/*</li>*/}
-
-                            {/*<li>*/}
-                                {/*<img src="/img/article.svg" alt="list-logo"/>*/}
-                                {/*<div className="text-block">*/}
-                                    {/*<h6>*/}
-                                        {/*После проверки, Ваша заявка моментально оказывается на сервисе*/}
-                                    {/*</h6>*/}
-                                {/*</div>*/}
-                            {/*</li>*/}
-
-                            {/*<li>*/}
-                                {/*<img src="/img/peace.svg" alt="list-logo"/>*/}
-                                {/*<div className="text-block">*/}
-                                    {/*<h6>*/}
-                                        {/*Заявка начинает собирать пожертвования, которые можно вывести спустя минимум 2 недели*/}
-                                    {/*</h6>*/}
-                                {/*</div>*/}
-                            {/*</li>*/}
                         </ul>
                     </div>
                 </div>
