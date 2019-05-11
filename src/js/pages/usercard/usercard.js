@@ -140,7 +140,15 @@ class usercard extends React.Component {
                                                 </p>
                                             </div>
                                         </div>
-                                        <Link to="/donate" className="btn">Хочу помочь</Link>
+                                        <Link to={{
+                                            pathname: "/donate",
+                                            state: {
+                                                id: this.props.location.pathname.substring(this.props.location.pathname.lastIndexOf('/') + 1),
+                                                for_whom_name: this.state.card.for_whom_name,
+                                                date: new Date(Date.parse(this.state.card.createdAt)).toLocaleDateString(),
+                                                sum: this.state.card.sum
+                                            }
+                                        }} className="btn">Хочу помочь</Link>
                                         <div className="repostBlock">
                                         </div>
                                         <div className="helpedUs">
