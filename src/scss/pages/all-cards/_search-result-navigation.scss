@@ -1,5 +1,14 @@
 .search-input-block {
   padding: 130px 0 0;
+  .clear-search {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    button {
+      font-size: 16px;
+      color: $main-text-color;
+    }
+  }
   form {
     display: flex;
     justify-content: space-between;

@@ -70,19 +70,19 @@ class Footer extends React.Component {
 
                                 <div className="nav-block">
                                     <div>
-                                        <Link to='/about'>О нас</Link>
-                                        <Link to='/faq'>F.A.Q.</Link>
-                                        <Link to='/confidentiality'>Конфиденциальность</Link>
-                                        <Link to='/rules'>Правила сайта</Link>
+                                        <Link className="link-bottom-hover" to='/about'>О нас</Link>
+                                        <Link className="link-bottom-hover"  to='/faq'>F.A.Q.</Link>
+                                        <Link className="link-bottom-hover"  to='/confidentiality'>Конфиденциальность</Link>
+                                        <Link className="link-bottom-hover"  to='/rules'>Правила сайта</Link>
                                     </div>
 
                                     <div>
-                                        <Link to='/allcampaing'>Начать помогать</Link>
+                                        <Link className="link-bottom-hover"  to='/allcampaing'>Начать помогать</Link>
                                         {
-                                            this.IsUser() ?  <Link to='/create-fundraiser'>Подать заявку</Link> : <button onClick={this.openPopup}>Подать заявку</button>
+                                            this.IsUser() ?  <Link className="link-bottom-hover"  to='/create-fundraiser'>Подать заявку</Link> : <button onClick={this.openPopup}>Подать заявку</button>
                                         }
-                                        <Link to='/success-stories'>Успешные сборы</Link>
-                                        <Link to='/blog'>Блог</Link>
+                                        <Link className="link-bottom-hover"  to='/success-stories'>Успешные сборы</Link>
+                                        <Link className="link-bottom-hover"  to='/blog'>Блог</Link>
                                     </div>
                                 </div>
                             </div>

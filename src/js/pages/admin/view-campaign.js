@@ -421,6 +421,17 @@ class viewCampaign extends React.Component {
                                     </div>
                                 ) : false}
 
+                                {this.state.card.status === "verify" ? (
+                                    <div className="button-block">
+                                        <button className="btn btn-transparent campaign-freeze"
+                                                data-title="Заявка приостановлена для проверки"
+                                                data-action="ban"
+                                                onClick={this.openPopup}>
+                                            Приостановить
+                                        </button>
+                                    </div>
+                                ) : false}
+
                                 {this.state.card.status === "ban" && !this.state.edited ? (
                                     <div className="button-block">
                                         <button className="btn btn-transparent campaign-verify"
