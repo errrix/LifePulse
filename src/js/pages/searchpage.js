@@ -157,11 +157,13 @@ class SearchPage extends React.Component {
                             </button>
 
                         </form>
-                        <div><button type="submit">Сбросить поиск</button></div>
+                        <div className="clear-search">
+                            <button type="submit">Очистить поиск</button>
+                        </div>
                     </div>
                     {this.state.qt_cards ? (
 
-                    <div className="card-block container">
+                    <div className="card-block m--search-result">
                         <ul className="card-block-list card-block-list-flex">
                             {this.state.cards ? this.state.cards.map((item) => {
                                 return <li key={item._id}>

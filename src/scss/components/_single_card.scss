@@ -115,7 +115,9 @@
 @media only screen and (max-width: $mobileWidth) {
   .single-card {
     width: 280px;
-
+    .text-block {
+      padding: 10px 15px;
+    }
     &:hover {
       box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
     }
