@@ -4,6 +4,7 @@ Allow: /
 
 Disallow: /account/
 Disallow: /uploads/
+Disallow: /usercard/
 
-Host: www.lifespulse.com
-Sitemap: http://www.lifespulse.com/sitemap.xml
+Host: https://lifespulse.com
+Sitemap: https://lifespulse.com/sitemap.xml
