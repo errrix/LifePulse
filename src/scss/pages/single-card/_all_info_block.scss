@@ -366,11 +366,15 @@
       display: block;
       margin-bottom: 20px;
       position: sticky;
-      top: 90px;
+      top: 70px;
       z-index: 3;
 
-      button {
-        width: 100%;
+      a {
+        width: 95%;
+        margin: 0 auto;
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
       }
     }
   }
@@ -441,11 +445,15 @@
       display: block;
       margin-bottom: 20px;
       position: sticky;
-      top: 90px;
+      top: 70px;
       z-index: 3;
 
-      button {
-        width: 100%;
+      a {
+        width: 95%;
+        margin: 0 auto;
+        text-align: center;
+        height: 45px;
+        line-height: 45px;
       }
     }
   }

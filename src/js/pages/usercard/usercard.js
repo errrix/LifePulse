@@ -83,7 +83,7 @@ class usercard extends React.Component {
                                 </div>
 
                                 <div className="help-btn-block">
-                                    <button className="btn">Хочу помочь</button>
+                                    <Link to="/donate" className="btn">Хочу помочь</Link>
                                 </div>
 
                                 <div className="money-count">

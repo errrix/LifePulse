@@ -1,9 +1,9 @@
 .donate-page-block {
-  padding: 130px 0 50px 0;
+  padding: 100px 0 50px 0;
   .h2Header {
     text-align: center;
     display: block;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
   }
   .donate-page-block-info {
     border-bottom: 1px solid rgba(0, 0, 0, 0.24);
@@ -109,7 +109,7 @@
 
 @media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
   .donate-page-block {
-    padding: 120px 0 50px 0;
+    padding: 100px 0 50px 0;
   }
 }
 

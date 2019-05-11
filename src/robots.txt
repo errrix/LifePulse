@@ -7,4 +7,4 @@ Disallow: /uploads/
 Disallow: /usercard/
 
 Host: https://lifespulse.com
-Sitemap: https://www.lifespulse.com/sitemap.xml
+Sitemap: https://lifespulse.com/sitemap.xml
