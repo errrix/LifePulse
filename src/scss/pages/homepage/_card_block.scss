@@ -8,11 +8,10 @@
 
 	.card-block-list {
 		& > li {
-			margin: 20px 0;
+			padding: 22px;
 		}
 		&.card-block-list-flex {
 			display: flex;
-			justify-content: space-between;
 			flex-wrap: wrap;
 		}
 
@@ -56,7 +55,13 @@
 }
 
 @media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
-
+	.card-block {
+		.card-block-list {
+			&.card-block-list-flex {
+				justify-content: space-between;
+			}
+		}
+	}
 }
 
 @media only screen and (max-width: $mobileWidth) {
@@ -67,7 +72,12 @@
 				display: none;
 			}
 			& > li {
-				margin: 20px auto;
+				padding: 20px;
+			}
+			&.card-block-list-flex {
+				display: flex;
+				justify-content: center;
+				flex-wrap: wrap;
 			}
 		}
 	}
