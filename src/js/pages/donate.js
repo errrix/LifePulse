@@ -1,6 +1,7 @@
 import React from "react";
 import {Link, Redirect} from "react-router-dom";
 import url from "../modules/url";
+import {connect} from "react-redux";
 
 class Donate extends React.Component {
 
@@ -10,7 +11,6 @@ class Donate extends React.Component {
 
         this.state = {
             sum: '',
-            name: '',
             awaystring: '',
             sign_string: ''
         };
@@ -36,17 +36,16 @@ class Donate extends React.Component {
         e.preventDefault();
         let data = {
             "public_key": "sandbox_i94189500709",
+            // "public_key": "i68861001769",
             "version": "3",
             "action": "pay",
-            "sender_first_name": this.state.name,
             "amount": this.state.sum,
             "currency": "UAH",
             "description": "test",
-            "info" : this.props.history.location.state.id,
+            "info" : `${this.props.history.location.state.id};${this.props.user_id}`,
             // "sandbox": 1,
             "result_url": `${window.location.host}/usercard/${this.props.history.location.state.id}`,
             "server_url": "https://lifespulse.com/pay"
-            // "server_url": "http://165.227.11.173:3001/pay"
         };
 
         this.setState({
@@ -61,13 +60,15 @@ class Donate extends React.Component {
             credentials: 'include',
             body: JSON.stringify({
                 "data": btoa(JSON.stringify(data)),
-                "card_id": '5cd5913bc789795b569d9c4a'
+                "card_id": this.props.history.location.state.id
             })
         })
             .then(function (response) {
                 return response.json()
             }).then((json) => {
+            console.log(json.response);
             this.setState({
+
                 sign_string: json.response
             });
             setTimeout(() => {
@@ -79,10 +80,6 @@ class Donate extends React.Component {
         // let awaystring = btoa(JSON.stringify(data));
         // let sign_string = b64_sha1('sandbox_5eK3CTLdhGh0eKSQIF8Gj5dswJBYSga4hqarMTIY' + awaystring + 'sandbox_5eK3CTLdhGh0eKSQIF8Gj5dswJBYSga4hqarMTIY');
         // console.log(sign_string);
-
-
-
-
     }
 
     HandlerChange(e) {
@@ -91,6 +88,7 @@ class Donate extends React.Component {
     }
 
     componentDidMount() {
+        console.log(`${this.props.history.location.state.id};${this.props.user_id}`);
     }
 
     render() {
@@ -110,7 +108,7 @@ class Donate extends React.Component {
                             <form action="https://www.liqpay.ua/api/3/checkout"
                                   method="POST"
                                   className="donate-page-form"
-                                  target="_blank"
+                                  // target="_blank"
                                   id="donate-page-form"
                                   onSubmit={this.handleDonate}>
                                 <input type="hidden" name="data"
@@ -129,15 +127,15 @@ class Donate extends React.Component {
                                     <p className="fast-choice" onClick={this.choiceSum}>
                                         <span>25</span><span>50</span><span>100</span><span>200</span></p>
                                 </label>
-                                <label className="label-input">
-                                    <span>Ваше имя (не обязательно):</span>
-                                    <input placeholder="Василий Васильев Васильевич"
-                                           type="text"
-                                           name="name"
-                                           value={this.state.name}
-                                           onChange={this.HandlerChange}
-                                    />
-                                </label>
+                                {/*<label className="label-input">*/}
+                                    {/*<span>Ваше имя (не обязательно):</span>*/}
+                                    {/*<input placeholder="Василий Васильев Васильевич"*/}
+                                           {/*type="text"*/}
+                                           {/*name="name"*/}
+                                           {/*value={this.state.name}*/}
+                                           {/*onChange={this.HandlerChange}*/}
+                                    {/*/>*/}
+                                {/*</label>*/}
                                 <div className="button-wrapper">
                                     <p>
                                         Продолжая, Вы соглашаетесь с <Link to="/confidentiality"
@@ -160,5 +158,11 @@ class Donate extends React.Component {
     }
 };
 
+const mapStateToProps = (store) => {
+    return {
+        user_id: store.user_id
+    }
+};
 
-export default Donate;
+
+export default connect(mapStateToProps)(Donate);
