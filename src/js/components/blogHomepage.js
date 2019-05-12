@@ -75,7 +75,7 @@ class BlogHomepage extends React.Component {
 
                        <div className="blog-article-list">
                            <Slider {...settings}>
-                               <div>
+                               <div className="blog-card-item">
                                    <div className="blog-card">
                                        <img src="/img/card1.jpg" alt=""/>
 
@@ -94,7 +94,7 @@ class BlogHomepage extends React.Component {
                                        </div>
                                    </div>
                                </div>
-                               <div>
+                               <div className="blog-card-item">
                                    <div className="blog-card">
                                        <img src="/img/card2.jpg" alt=""/>
 
@@ -113,7 +113,7 @@ class BlogHomepage extends React.Component {
                                        </div>
                                    </div>
                                </div>
-                               <div>
+                               <div className="blog-card-item">
                                    <div className="blog-card">
                                        <img src="/img/card3.jpg" alt=""/>
 
