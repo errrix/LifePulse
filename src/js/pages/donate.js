@@ -109,7 +109,7 @@ class Donate extends React.Component {
                             <form action="https://www.liqpay.ua/api/3/checkout"
                                   method="POST"
                                   className="donate-page-form"
-                                  target="_blank"
+                                  // target="_blank"
                                   id="donate-page-form"
                                   onSubmit={this.handleDonate}>
                                 <input type="hidden" name="data"
