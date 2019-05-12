@@ -2,7 +2,7 @@ import React from "react";
 
 import url from "../../../../modules/url"
 
-class AddNewStaffPopup extends React.Component {
+class editStaffPopup extends React.Component {
     constructor(props) {
         super(props);
 
@@ -12,8 +12,7 @@ class AddNewStaffPopup extends React.Component {
             email: '',
             roles: '',
             password: '',
-            confirmPassword: '',
-            allRoles: []
+            confirmPassword: ''
         };
 
         this.closePopup = this.closePopup.bind(this);
@@ -129,4 +128,4 @@ class AddNewStaffPopup extends React.Component {
     }
 }
 
-export default AddNewStaffPopup;
+export default editStaffPopup;
