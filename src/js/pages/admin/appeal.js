@@ -45,7 +45,6 @@ class appeal extends React.Component {
     render() {
         return (
             <div>
-                <AdminHeader/>
                 <main className="account-admin-block">
                     <div className="account-admin-block-wrapper">
                         <AdminMenu/>

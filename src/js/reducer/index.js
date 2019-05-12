@@ -5,8 +5,7 @@ const initialState = {
         first_name: '',
         last_name: '',
         email: '',
-        phone: '',
-        user_role: []
+        phone: ''
     },
     user_cards: [],
     show_popup: false

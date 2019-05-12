@@ -36,7 +36,9 @@ class MainRouting extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {};
+        this.state = {
+            update_user: false
+        };
 
 
     }
@@ -57,6 +59,7 @@ class MainRouting extends React.Component {
                 return response.json()
             })
             .then((data) => {
+                this.setState({update_user: true});
                 if (data.success) {
                     console.log(data);
                     this.props.addUserId(data.response.id);
@@ -75,7 +78,7 @@ class MainRouting extends React.Component {
             <BrowserRouter>
                 <ScrollToTop>
                     <Switch>
-                        <Route path="/admin" component={AdminRouting}/>
+                        <Route path="/admin" render={(props) => {return <AdminRouting{...props} update_user={this.state.update_user}/>}}/>
                         <Fragment>
                             <CSSTransitionGroup transitionName="logn-popup"
                                                 transitionEnter={true}

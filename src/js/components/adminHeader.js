@@ -11,7 +11,8 @@ class adminHeader extends React.Component {
         super(props);
 
         this.state = {
-            showPopup: false
+            showPopup: false,
+            logout: false
         };
 
         this.handleLogout = this.handleLogout.bind(this);
@@ -39,28 +40,32 @@ class adminHeader extends React.Component {
                     email: "",
                     phone: "",
                 });
+                console.log(this.props)
+                // setTimeout(() => {
+                //     this.props.history.push('/')
+                //
+                // }, 0)
+                this.props.LogoutState();
             })
     }
 
 
-
     render() {
         return (
-                <header className="main-header m--account-admin">
-
-                    <div className="main-header-wrapper">
-                        <div className="logo-side">
-                            <Link to="/admin/application">
-                                <img src="/img/icon-logo.svg" alt="lifespulse logo"/>
-                            </Link>
-                        </div>
-                        <div className="button-block">
-                            <Link to="/">Вернуться на сайт</Link>
-                            <button className="header-login-popup" onClick={this.handleLogout}>Выйти
-                            </button>
-                        </div>
+            <header className="main-header m--account-admin">
+                <div className="main-header-wrapper">
+                    <div className="logo-side">
+                        <Link to="/admin/application">
+                            <img src="/img/icon-logo.svg" alt="lifespulse logo"/>
+                        </Link>
                     </div>
-                </header>
+                    <div className="button-block">
+                        <Link to="/">Вернуться на сайт</Link>
+                        <button className="header-login-popup" onClick={this.handleLogout}>Выйти
+                        </button>
+                    </div>
+                </div>
+            </header>
         )
     }
 };

@@ -153,7 +153,6 @@ class viewCampaign extends React.Component {
         };
         return (
             <div>
-                <AdminHeader/>
                 <CSSTransitionGroup transitionName="logn-popup"
                                     transitionEnter={true}
                                     transitionEnterTimeout={300}
