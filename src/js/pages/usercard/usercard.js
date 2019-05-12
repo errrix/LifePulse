@@ -92,23 +92,6 @@ class usercard extends React.Component {
                                         </p>
                                     </div>
 
-                                    <div className="help-btn-block">
-                                        <Link to="/donate" className="btn">Хочу помочь</Link>
-                                    </div>
-
-                                    <div className="money-count">
-                                        <progress value={this.state.card.max_sum} max={this.state.card.sum}/>
-
-                                        <div className="money-how">
-                                            <p>
-                                                Собрали {this.state.card.max_sum} грн
-                                            </p>
-                                            <p>
-                                                из {this.state.card.sum} грн
-                                            </p>
-                                        </div>
-                                    </div>
-
                                     <div className="allInfoBlock">
                                         <div className="allHistoryBlock">
                                             <div className="allHistoryBlock-imgBlock">
@@ -165,7 +148,7 @@ class usercard extends React.Component {
                                                     date: new Date(Date.parse(this.state.card.createdAt)).toLocaleDateString(),
                                                     sum: this.state.card.sum
                                                 }
-                                            }} className="btn">Хочу помочь</Link>
+                                            }} className="btn">Помочь</Link>
                                             <div className="repostBlock">
                                             </div>
                                             <div className="helpedUs">
