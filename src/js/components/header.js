@@ -59,7 +59,9 @@ class Header extends React.Component {
     }
 
     openPopup() {
-        this.props.changePopup(true)
+        this.props.changePopup(true);
+        document.querySelector('.navigation-side-mobile').classList.toggle('active-nav-mobile');
+        document.querySelector('.header__navToggle').classList.toggle('active-burger');
     }
 
     IsUser() {

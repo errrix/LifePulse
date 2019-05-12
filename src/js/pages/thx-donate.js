@@ -13,7 +13,7 @@ class ThxDonate extends React.Component {
                     <h1 className="h2Header">
                         Спасибо за Вашу помощь
                     </h1>
-                    <p className="paragraph">Ваша помощь неоценима</p>
+                    <p className="h3Header">Ваша помощь неоценима</p>
                 </div>
             </div>
         )
