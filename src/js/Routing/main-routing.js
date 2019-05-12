@@ -6,7 +6,7 @@ import Header from "../components/header";
 import Subscribeblock from "../components/subscribeBlock";
 import Registration from "../pages/registration/registration";
 import donate from "../pages/donate";
-import Faq from "../pages/faq";
+import Faq from "../pages/faq/faq";
 import Rules from "../pages/rules";
 import RegistrationConfirm from "../pages/registration-confirm";
 import pageNotFound from "../pages/404";
