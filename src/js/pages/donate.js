@@ -73,7 +73,7 @@ class Donate extends React.Component {
             });
             setTimeout(() => {
                 document.querySelector('.donate-page-form').submit();
-                this.props.history.goBack();
+                // this.props.history.goBack();
             }, 0);
 
         });
