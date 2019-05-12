@@ -432,6 +432,17 @@ class viewCampaign extends React.Component {
                                     </div>
                                 ) : false}
 
+                                {this.state.card.status === "complite" ? (
+                                    <div className="button-block">
+                                        <button className="btn campaign-freeze"
+                                                data-title="Деньги по заявке выплачены"
+                                                data-action="archive"
+                                                onClick={this.openPopup}>
+                                            Выплачено. Перевод в завершенные
+                                        </button>
+                                    </div>
+                                ) : false}
+
                                 {this.state.card.status === "ban" && !this.state.edited ? (
                                     <div className="button-block">
                                         <button className="btn btn-transparent campaign-verify"

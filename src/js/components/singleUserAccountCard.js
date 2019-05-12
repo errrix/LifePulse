@@ -113,6 +113,27 @@ class SingleUserAccountCard extends React.Component {
 
                     ) : false}
 
+                    {this.state.card.status === 'archive' ? (
+                        <div>
+                            <button type="button"
+                                    className="btn btn-transparent"
+                            >Сумма отправленна
+                                <div className="tooltip-hover">
+                                    <img src="/img/information.svg" alt="information"/>
+                                    <p className="information-tooltip">
+                                       Собранная сумма средств была отправлена на ваш счет в банке
+                                    </p>
+                                </div>
+                            </button>
+                            <Link className="btn btn-transparent"
+                                  to={{pathname: `/usercard/${this.state.card._id}`,
+                                      state: {
+                                          id: this.state.card._id
+                                      }}}> Просмотреть на сайте </Link>
+                        </div>
+
+                    ) : false}
+
                     {this.state.card.status === 'ban' ? (
                         <div>
                             <div className="btn btn-transparent">Перемодерация
@@ -123,6 +144,11 @@ class SingleUserAccountCard extends React.Component {
                                     </p>
                                 </div>
                             </div>
+                            <Link className="btn btn-transparent"
+                                  to={{pathname: `/usercard/${this.state.card._id}`,
+                                      state: {
+                                          id: this.state.card._id
+                                      }}}> Просмотреть на сайте </Link>
                         </div>
 
                     ) : false}
@@ -137,6 +163,11 @@ class SingleUserAccountCard extends React.Component {
                                     </p>
                                 </div>
                             </div>
+                            <Link className="btn btn-transparent"
+                                  to={{pathname: `/usercard/${this.state.card._id}`,
+                                      state: {
+                                          id: this.state.card._id
+                                      }}}> Просмотреть на сайте </Link>
                         </div>
 
                     ) : false}

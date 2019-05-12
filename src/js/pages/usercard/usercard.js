@@ -140,15 +140,25 @@ class usercard extends React.Component {
                                                     </p>
                                                 </div>
                                             </div>
-                                            <Link to={{
+                                            {this.state.card.status === 'archive' || this.state.card.status === 'complite' || this.state.card.status === 'ban' ? (
+                                                <div>
+                                                    <button type="button"
+                                                            className="btn"
+                                                    >Заявка закрыта
+                                                    </button>
+                                                </div>
+
+                                            ) :
+                                                <Link to={{
                                                 pathname: "/donate",
                                                 state: {
-                                                    id: this.props.location.pathname.substring(this.props.location.pathname.lastIndexOf('/') + 1),
-                                                    for_whom_name: this.state.card.for_whom_name,
-                                                    date: new Date(Date.parse(this.state.card.createdAt)).toLocaleDateString(),
-                                                    sum: this.state.card.sum
-                                                }
-                                            }} className="btn">Помочь</Link>
+                                                id: this.props.location.pathname.substring(this.props.location.pathname.lastIndexOf('/') + 1),
+                                                for_whom_name: this.state.card.for_whom_name,
+                                                date: new Date(Date.parse(this.state.card.createdAt)).toLocaleDateString(),
+                                                sum: this.state.card.sum
+                                            }
+                                            }} className="btn">Помочь</Link>}
+
                                             <div className="repostBlock">
                                             </div>
                                             <div className="helpedUs">
