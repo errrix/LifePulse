@@ -174,9 +174,9 @@ const  validator = {
 
     birthday : function() {
         let elem = document.getElementById('birthday');
-        let userDate = elem.value.substring(0,4);
-        let nextYear = Number(new Date().getFullYear());
-        if(userDate < 1900 || userDate > nextYear) {
+        let userDate =Date.parse(elem.value);
+        let currentDate = Date.parse(`${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`);
+        if(userDate > currentDate) {
             validator.validValue.birthday = false;
             elem.parentNode.classList.add('label-error');
         } else {
