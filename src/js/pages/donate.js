@@ -42,9 +42,9 @@ class Donate extends React.Component {
             "amount": this.state.sum,
             "currency": "UAH",
             "description": "test",
-            "info" : `${this.props.history.location.state.id};${this.props.user_id}`,
+            "info" : this.props.user_id === '' ? this.props.history.location.state.id : `${this.props.history.location.state.id};${this.props.user_id}` ,
             // "sandbox": 1,
-            "result_url": `${window.location.host}/usercard/${this.props.history.location.state.id}`,
+            "result_url": `https://${window.location.host}/thanks-donate`,
             "server_url": "https://lifespulse.com/pay"
         };
 
@@ -73,6 +73,7 @@ class Donate extends React.Component {
             });
             setTimeout(() => {
                 document.querySelector('.donate-page-form').submit();
+                this.props.history.goBack();
             }, 0);
 
         });
@@ -88,7 +89,7 @@ class Donate extends React.Component {
     }
 
     componentDidMount() {
-        console.log(`${this.props.history.location.state.id};${this.props.user_id}`);
+
     }
 
     render() {
@@ -108,7 +109,7 @@ class Donate extends React.Component {
                             <form action="https://www.liqpay.ua/api/3/checkout"
                                   method="POST"
                                   className="donate-page-form"
-                                  // target="_blank"
+                                  target="_blank"
                                   id="donate-page-form"
                                   onSubmit={this.handleDonate}>
                                 <input type="hidden" name="data"

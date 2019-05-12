@@ -29,6 +29,7 @@ import ScrollToTop from './../modules/scrollToTop';
 import CSSTransitionGroup from "react-addons-css-transition-group"
 
 import url from "../modules/url"
+import ThxDonate from "../pages/thx-donate";
 
 class MainRouting extends React.Component {
 
@@ -86,6 +87,7 @@ class MainRouting extends React.Component {
                             <Route path="/" component={Header}/>
                             <Switch>
                                 <Route exact path="/" component={Homepage}/>
+                                <Route exact path="/thanks-donate" component={ThxDonate}/>
                                 <Route exact path="/faq" component={Faq}/>
                                 <Route exact path="/success-stories" component={successStories}/>
                                 <Route exact path="/allcampaing" component={SearchPage}/>
