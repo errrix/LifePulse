@@ -3,7 +3,7 @@ import React from "react";
 import SingleCard from './../components/singleCard'
 import {debounce} from "lodash"
 import Subscribeblock from "../components/subscribeBlock";
-import url from"../modules/url"
+import url from "../modules/url"
 
 class SearchPage extends React.Component {
 
@@ -11,14 +11,24 @@ class SearchPage extends React.Component {
         super(props);
 
         this.state = {
+            all_categories: [],
+
             cards: [],
             qt_cards: 0,
-            all_categories: [],
+            nothing_more: false,
+
+            searched: false,
+
+            search_cards: [],
+            qt_cards_search: 0,
+            nothing_more_search: false,
+
             category: '',
             search_text: '',
 
-            searched: false,
-            qt_cards_search: 0,
+            last_search_text: '',
+            last_category: '',
+
 
         };
 
@@ -26,7 +36,19 @@ class SearchPage extends React.Component {
         this.getCategories = this.getCategories.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
         this.StateValue = this.StateValue.bind(this);
+        this.clearSearch = this.clearSearch.bind(this);
         this.handleLoadMore = debounce(this.handleLoadMore, 1000).bind(this);
+    }
+
+    //Очищаем поиск, обнуляем счетчик найденых карточек, убираем флаг поиска, обнуляем массив карточек, запрашиваем с сервера активные карточки
+    clearSearch() {
+        this.setState({
+            search_cards: [],
+            qt_cards_search: 0,
+            searched: false,
+            nothing_more: false
+        })
+
     }
 
     getCategories() {
@@ -47,6 +69,7 @@ class SearchPage extends React.Component {
     getActiveCard() {
         let limit = 3;
         this.state.qt_cards === 0 ? limit = 6 : limit = 6;
+
         fetch(`${url}/api/card/active/?limit=${limit}&skip=${this.state.qt_cards}&new=1`, {
             headers: {
                 'Content-Type': 'application/json'
@@ -58,6 +81,11 @@ class SearchPage extends React.Component {
                 return response.json()
             }).then((json) => {
             console.log(json.response);
+            if (json.response.length === 0) {
+                this.setState({
+                    nothing_more: true
+                })
+            }
             this.setState({
                 cards: [...this.state.cards, ...json.response],
                 qt_cards: this.state.qt_cards + limit
@@ -67,7 +95,7 @@ class SearchPage extends React.Component {
 
     StateValue(e) {
         const {name, value} = e.target;
-        if(name === 'search_text') {
+        if (name === 'search_text') {
             this.setState({
                 [name]: value,
                 searched: false,
@@ -85,37 +113,46 @@ class SearchPage extends React.Component {
     }
 
     getSearchCard() {
-        let limit = 3;
-        this.state.qt_cards_search === 0 ? limit = 6 : limit = 3;
-        console.log(this.state.qt_cards_search);
-        fetch(`${url}/api/card/search?limit=${limit}&skip=${this.state.qt_cards_search}&search=${this.state.search_text}`, {
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            method: 'POST',
-            credentials: 'include',
-            body: JSON.stringify({
-                "category": this.state.category
-            })
-        })
-            .then(function (response) {
-                return response.json()
-            }).then((json) => {
-            console.log(json.response);
-            this.state.searched ? (
-                this.setState({
-                    cards: [...this.state.cards, ...json.response],
-                    qt_cards_search: this.state.qt_cards_search + limit
+        if (this.state.search_text !== '' || this.state.category !== '') {
+            let limit = 3;
+            this.state.qt_cards_search === 0 ? limit = 6 : limit = 3;
+            console.log(this.state.qt_cards_search);
+            fetch(`${url}/api/card/search?limit=${limit}&skip=${this.state.qt_cards_search}&search=${this.state.search_text}`, {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                method: 'POST',
+                credentials: 'include',
+                body: JSON.stringify({
+                    "category": this.state.category
                 })
-            ) : (
-                this.setState({
-                cards: [...json.response],
-                searched: true,
-                qt_cards_search: this.state.qt_cards_search + limit
             })
-            )
+                .then(function (response) {
+                    return response.json()
+                }).then((json) => {
+                console.log(json.response);
+                if (json.response.length < limit) {
+                    this.setState({
+                        nothing_more: true
+                    })
+                }
+                this.state.searched ? (
+                    this.setState({
+                        search_cards: [...this.state.search_cards, ...json.response],
+                        qt_cards_search: this.state.qt_cards_search + limit
+                    })
+                ) : (
+                    this.setState({
+                        search_cards: [...json.response],
+                        searched: true,
+                        qt_cards_search: this.state.qt_cards_search + limit
+                    })
+                )
+            })
+        } else {
 
-        })
+        }
+
     }
 
     handleSearch(e) {
@@ -129,7 +166,6 @@ class SearchPage extends React.Component {
         } else {
             this.getActiveCard()
         }
-
     }
 
     render() {
@@ -153,30 +189,45 @@ class SearchPage extends React.Component {
                                     })
                                 }
                             </select>
-                            <button type="submit" className="btn btn-orange" onClick={this.searchFundraiser}>Поиск
+                            <button type="submit" className="btn btn-orange">Поиск
                             </button>
 
                         </form>
-                        <div className="clear-search">
-                            <button type="submit">Очистить поиск</button>
-                        </div>
-                    </div>
-                    {this.state.qt_cards ? (
-
-                    <div className="card-block m--search-result">
-                        <ul className="card-block-list card-block-list-flex">
-                            {this.state.cards ? this.state.cards.map((item) => {
-                                return <li key={item._id}>
-                                    <SingleCard card={item}/>
-                                </li>
-                            }) : false
-                            }
-                        </ul>
-                        <div className="link-wrapper">
-                            <button className="link-bottom-hover" onClick={this.handleLoadMore}>Посмотреть еще</button>
-                        </div>
+                        {this.state.searched ? (
+                            <div className="clear-search">
+                                <button type="submit" onClick={this.clearSearch}>Очистить поиск</button>
+                            </div>
+                        ) : false}
 
                     </div>
+                    {this.state.qt_cards || this.state.qt_cards_search ? (
+                        this.state.searched ? (
+                            <div className="card-block m--search-result">
+                                <ul className="card-block-list card-block-list-flex">
+                                    {this.state.search_cards.map((item) => {
+                                        return <li key={item._id}>
+                                            <SingleCard card={item}/>
+                                        </li>
+                                    })}
+                                </ul>
+                                <div className="link-wrapper">
+                                    <button className="btn" onClick={this.handleLoadMore}>Посмотреть еще</button>
+                                </div>
+                            </div>
+                        ) : (
+                            <div className="card-block m--search-result">
+                                <ul className="card-block-list card-block-list-flex">
+                                    {this.state.cards.map((item) => {
+                                        return <li key={item._id}>
+                                            <SingleCard card={item}/>
+                                        </li>
+                                    })}
+                                </ul>
+                                <div className="link-wrapper">
+                                    <button className="btn" onClick={this.handleLoadMore}>Посмотреть еще</button>
+                                </div>
+                            </div>
+                        )
                     ) : (
                         <div className="lp-animation-loader">
                             <svg className="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2516.4 794.3">
@@ -193,7 +244,6 @@ class SearchPage extends React.Component {
 
                         </div>
                     )}
-
                 </div>
                 <Subscribeblock/>
             </div>
