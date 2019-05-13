@@ -71,7 +71,7 @@ class active extends React.Component {
                                             <td>{item.user[0].first_name + ' ' + item.user[0].last_name}</td>
                                             <td>{item.for_whom_name}</td>
                                             <td>{item.category[0].title}</td>
-                                            <td>{item.max_sum}/{item.sum}</td>
+                                            <td>{Math.round(item.max_sum)} / {Math.round(item.sum)}</td>
                                             <td>{new Date(Date.parse(item.createdAt)).toLocaleDateString()}</td>
                                             <td>{item.complaints.length}</td>
                                             <td> <Link to={`/admin/view-campaign/${item._id}`} target="">Edit</Link> </td>

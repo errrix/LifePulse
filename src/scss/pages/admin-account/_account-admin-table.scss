@@ -9,7 +9,7 @@
     border-bottom: 1px solid #eaeae8;
 
     th {
-      padding: 15px 35px;
+      padding: 10px;
       border: 1px solid #eaeae8;
       font-size: 18px;
       font-weight: 500;
@@ -21,7 +21,7 @@
     td {
       vertical-align: middle;
       text-align: left;
-      padding: 15px 35px;
+      padding: 10px;
       border: 1px solid #eaeae8;
 
       &:nth-child(2n) {
@@ -83,6 +83,7 @@
     tr {
       td {
         padding: 15px;
+        text-align: center;
       }
     }
 

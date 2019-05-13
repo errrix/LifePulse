@@ -42,10 +42,10 @@ class SingleCard extends React.Component {
                         <progress value={this.state.card.max_sum} max={this.state.card.sum}/>
                         <div className="money-how">
                             <p>
-                                Собрали {this.state.card.max_sum}
+                                Собрали {Math.round(this.state.card.max_sum)}
                             </p>
                             <p>
-                                из {this.state.card.sum}
+                                из {Math.round(this.state.card.sum)}
                             </p>
                         </div>
                     </div>
