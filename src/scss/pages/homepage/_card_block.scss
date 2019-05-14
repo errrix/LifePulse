@@ -54,6 +54,9 @@
 	}
 
 	&.m--search-result {
+		.search-text-result {
+			text-align: center;
+		}
 		.link-wrapper {
 			justify-content: center;
 

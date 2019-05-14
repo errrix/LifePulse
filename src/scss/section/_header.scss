@@ -10,7 +10,7 @@
   z-index: 20;
 
   .main-header-wrapper {
-    max-width: 1051px;
+    max-width: 1200px;
     width: 100%;
     margin: 0 auto;
     display: flex;
@@ -151,7 +151,7 @@
   }
 }
 
-@media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
+@media only screen and (max-width: $tabletWidth + 30) and (min-width: $mobileWidth + 1) {
   .main-header {
     .main-header-wrapper {
       .header__navToggle {

@@ -62,7 +62,7 @@ class successStories extends React.Component {
             <div>
                 <div className="success-stories-block">
                     <div className="container">
-                        <div className="card-block">
+                        <div className="card-block m--search-result">
                             <ul className="card-block-list card-block-list-flex">
                                 {this.state.cards ? this.state.cards.map((item) => {
                                     return <li key={item._id}>
@@ -72,7 +72,12 @@ class successStories extends React.Component {
                                 }
                             </ul>
                             <div className="link-wrapper">
-                                <button className="link-bottom-hover" onClick={this.handleLoadMore}>Посмотреть еще</button>
+                                <button className="btn m--with-loader" onClick={this.handleLoadMore}>
+                                    <span>
+                                        Посмотреть еще
+                                    </span>
+                                    <span className="loader"/>
+                                </button>
                             </div>
 
                         </div>
