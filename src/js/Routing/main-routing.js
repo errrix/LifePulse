@@ -93,6 +93,7 @@ class MainRouting extends React.Component {
                                 <Route exact path="/" component={Homepage}/>
                                 <Route exact path="/thanks-donate" component={ThxDonate}/>
                                 <Route exact path="/faq" component={Faq}/>
+                                <Route exact path="/search" component={SearchPage}/>
                                 <Route exact path="/success-stories" component={successStories}/>
                                 <Route exact path="/allcampaing" component={AllFundraiser}/>
                                 <Route exact path="/registration" render={(props) => {

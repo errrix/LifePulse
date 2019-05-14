@@ -13,10 +13,6 @@ class SearchPage extends React.Component {
         this.state = {
             all_categories: [],
 
-            cards: [],
-            qt_cards: 0,
-            nothing_more: false,
-
             searched: false,
 
             search_cards: [],
@@ -32,23 +28,25 @@ class SearchPage extends React.Component {
 
         };
 
-        this.getActiveCard = this.getActiveCard.bind(this);
         this.getCategories = this.getCategories.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
         this.StateValue = this.StateValue.bind(this);
         this.clearSearch = this.clearSearch.bind(this);
+        this.showMoreCards = this.showMoreCards.bind(this);
         this.handleLoadMore = debounce(this.handleLoadMore, 1000).bind(this);
     }
 
-    //Очищаем поиск, обнуляем счетчик найденых карточек, убираем флаг поиска, обнуляем массив карточек, запрашиваем с сервера активные карточки
+    //Очищаем поиск, обнуляем счетчик найденых карточек, убираем флаг поиска, обнуляем массив карточек
     clearSearch() {
         this.setState({
             search_cards: [],
             qt_cards_search: 0,
             searched: false,
-            nothing_more: false
+            nothing_more_search: false,
+            category: '',
+            search_text: '',
+            search_false: false
         })
-
     }
 
     getCategories() {
@@ -66,58 +64,47 @@ class SearchPage extends React.Component {
         })
     }
 
-    getActiveCard() {
-        let limit = 3;
-        this.state.qt_cards === 0 ? limit = 6 : limit = 6;
+    StateValue(e) {
+        const {name, value} = e.target;
+        this.setState({[name]: value});
+    }
 
-        fetch(`${url}/api/card/active/?limit=${limit}&skip=${this.state.qt_cards}&new=1`, {
+    componentDidMount() {
+        this.getCategories();
+        document.title = "LifesPulse | Поиск"
+    }
+
+    showMoreCards() {
+        fetch(`${url}/api/card/search?limit=6&skip=${this.state.qt_cards_search}&search=${this.state.search_text}`, {
             headers: {
                 'Content-Type': 'application/json'
             },
-            method: 'GET',
-            credentials: 'include'
+            method: 'POST',
+            credentials: 'include',
+            body: JSON.stringify({
+                "category": this.state.category
+            })
         })
             .then(function (response) {
                 return response.json()
             }).then((json) => {
             console.log(json.response);
-            if (json.response.length === 0) {
-                this.setState({
-                    nothing_more: true
-                })
-            }
             this.setState({
-                cards: [...this.state.cards, ...json.response],
-                qt_cards: this.state.qt_cards + limit
+                search_cards: [...this.state.search_cards, ...json.response],
+                qt_cards_search: this.state.qt_cards_search + 6,
+                nothing_more_search: json.response.length < 6,
             })
         })
     }
 
-    StateValue(e) {
-        const {name, value} = e.target;
-        if (name === 'search_text') {
-            this.setState({
-                [name]: value,
-                searched: false,
-                qt_cards_search: 0
-            });
-        } else {
-            this.setState({[name]: value});
-        }
-    }
-
-    componentDidMount() {
-        this.getActiveCard();
-        this.getCategories();
-        document.title = "LifesPulse | Поиск"
-    }
-
     getSearchCard() {
-        if (this.state.search_text !== '' || this.state.category !== '') {
-            let limit = 3;
-            this.state.qt_cards_search === 0 ? limit = 6 : limit = 3;
+        if (this.state.search_text === ''
+            && this.state.category === ''
+            || (this.state.search_text === this.state.last_search_text && this.state.category === this.state.last_category)
+        ) {
             console.log(this.state.qt_cards_search);
-            fetch(`${url}/api/card/search?limit=${limit}&skip=${this.state.qt_cards_search}&search=${this.state.search_text}`, {
+        } else {
+            fetch(`${url}/api/card/search?limit=9&search=${this.state.search_text}`, {
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -131,26 +118,16 @@ class SearchPage extends React.Component {
                     return response.json()
                 }).then((json) => {
                 console.log(json.response);
-                if (json.response.length < limit) {
-                    this.setState({
-                        nothing_more: true
-                    })
-                }
-                this.state.searched ? (
-                    this.setState({
-                        search_cards: [...this.state.search_cards, ...json.response],
-                        qt_cards_search: this.state.qt_cards_search + limit
-                    })
-                ) : (
-                    this.setState({
-                        search_cards: [...json.response],
-                        searched: true,
-                        qt_cards_search: this.state.qt_cards_search + limit
-                    })
-                )
+                this.setState({
+                    search_cards: [...json.response],
+                    searched: true,
+                    qt_cards_search: 9,
+                    nothing_more_search: json.response.length < 9,
+                    last_search_text: this.state.search_text,
+                    last_category: this.state.category,
+                    search_false: json.response.length === 0
+                })
             })
-        } else {
-
         }
 
     }
@@ -161,11 +138,7 @@ class SearchPage extends React.Component {
     }
 
     handleLoadMore() {
-        if (this.state.searched) {
-            this.getSearchCard()
-        } else {
-            this.getActiveCard()
-        }
+        this.getSearchCard()
     }
 
     render() {
@@ -173,77 +146,61 @@ class SearchPage extends React.Component {
             <div>
                 <div className="container">
                     <div className="search-input-block">
-                        <form action="" onSubmit={this.handleSearch}>
+                        <form onSubmit={this.handleSearch}>
                             <label>
                                 <input type="search"
                                        placeholder="Что Вы хотите найти?"
                                        name="search_text"
                                        onChange={this.StateValue}
+                                       value={this.state.search_text}
                                 />
                             </label>
-                            <select name="category" onChange={this.StateValue}>
+                            <select name="category"
+                                    onChange={this.StateValue}
+                                    value={this.state.category}>
                                 <option value="">Все категории</option>
                                 {
-                                    this.state.all_categories.map((item, index) => {
+                                    this.state.all_categories.map((item) => {
                                         return <option key={item._id} value={item._id}>{item.title}</option>
                                     })
                                 }
                             </select>
-                            <button type="submit" className="btn btn-orange">Поиск
+                            <button type="submit"
+                                    className="btn btn-orange">
+                                Поиск
                             </button>
-
                         </form>
+
                         {this.state.searched ? (
                             <div className="clear-search">
                                 <button type="submit" onClick={this.clearSearch}>Очистить поиск</button>
                             </div>
-                        ) : false}
+                        ) : <div> Что вы хотите найти? нужно этот блок растянуть по высоте и текста тут может какого-то
+                            накидать я хз</div>}
 
                     </div>
-                    {this.state.qt_cards || this.state.qt_cards_search ? (
-                        this.state.searched ? (
-                            <div className="card-block m--search-result">
-                                <ul className="card-block-list card-block-list-flex">
-                                    {this.state.search_cards.map((item) => {
-                                        return <li key={item._id}>
-                                            <SingleCard card={item}/>
-                                        </li>
-                                    })}
-                                </ul>
-                                <div className="link-wrapper">
-                                    <button className="btn" onClick={this.handleLoadMore}>Посмотреть еще</button>
-                                </div>
-                            </div>
+
+                    <div className="card-block m--search-result">
+                        {this.state.search_false ? (
+                            <div>Нихуя не найдено</div>
                         ) : (
-                            <div className="card-block m--search-result">
-                                <ul className="card-block-list card-block-list-flex">
-                                    {this.state.cards.map((item) => {
-                                        return <li key={item._id}>
-                                            <SingleCard card={item}/>
-                                        </li>
-                                    })}
-                                </ul>
-                                <div className="link-wrapper">
-                                    <button className="btn" onClick={this.handleLoadMore}>Посмотреть еще</button>
-                                </div>
+                            <ul className="card-block-list card-block-list-flex">
+
+                                {this.state.search_cards.map((item) => {
+                                    return <li key={item._id}>
+                                        <SingleCard card={item}/>
+                                    </li>
+                                })}
+                            </ul>
+                        )}
+
+
+                        {this.state.searched && !this.state.nothing_more_search ? (
+                            <div className="link-wrapper">
+                                <button className="btn" onClick={this.showMoreCards}>Посмотреть еще</button>
                             </div>
-                        )
-                    ) : (
-                        <div className="lp-animation-loader">
-                            <svg className="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2516.4 794.3">
-                                <path className="st0"
-                                      d="M66.5 436.3l6.5 58.6H7.9l-6.5-58.6V0h65.1v436.3zM151.2 58.6h65.1v71.6h-65.1V58.6zm.6 130.2h63.8v306h-63.8v-306zM274.9 188.8H327V97.7C327 39.1 359.6 0 424.7 0l32.6 6.5v58.6l-35.8-6.5c-19.5 0-29.3 13-29.3 32.6v97.7h65.1v58.6h-65.1v247.4H327V247.4h-52.1v-58.6zM545.1 358.1c0 45.6 32.6 84.7 87.9 84.7 39.1 0 65.8-19.5 75.5-45.6l54.7 26c-26 45.6-71.6 78.1-133.5 78.1-81.4 0-149.8-65.1-149.8-159.5S545 182.3 629.7 182.3c78.1 0 143.3 61.9 143.3 156.3l-6.5 19.5H545.1zm3.3-57.3h156.3c-3.3-33.9-35.8-59.9-74.9-59.9-45.6 0-71.6 26.1-81.4 59.9zM808.8 410.2l58.6-22.8c3.3 32.6 29.3 56.7 61.9 56.7 32.6 0 48.8-17.6 48.8-37.1 0-18.9-13-28.7-39.1-33.2-11.1-2-22.1-4.6-32.6-7.2-52.1-13-87.9-44.3-87.9-93.1 0-58.6 55.3-91.2 107.4-91.2 55.3 0 104.2 35.8 110.7 91.2h-65.1c0-19.5-19.5-33.9-45.6-33.9s-45.6 14.3-45.6 33.9 15.6 30.6 39.1 35.2l32.6 6.5c50.8 11.1 87.9 39.7 87.9 91.8 0 52.1-48.8 94.4-110.7 94.4-61.7 0-107.3-35.8-120.4-91.2z"/>
-                                <g>
-                                    <path className="st1"
-                                          d="M2300.1 633.3c-12-16.4-31.6-44.5-34.1-48.1l-.2-.2c-2.9-4.1-18.7-24.4-42.9-24.4-15 0-28 7.5-38.7 22.3-25.5 35.5-34.9 57.6-35.3 58.6-.1.1-.1.3-.2.4-.6.7-3.7 3.3-13.6 3.1-26.9-.7-152.5-.7-157.8-.7-1.5 0-30.9.3-57 21.5-2.6-18.2-6-48-10.1-97.1-5.3-62.9-11-147.9-17-252.7-10-175.5-17.6-289.9-17.9-297.2-.4-8.9-8.3-15.9-18-16.1h-.3c-9.7 0-17.7 6.9-18.3 15.8l-42.5 619.4c-1.4-2.5-3.3-5-5.8-7.4-11.5-11.3-30.6-15-56.7-10.9-47.6 7.4-101.6-.2-130.7-4.3l-3.4-.5c-23.8-3.3-52.2-10.4-87.3-52.3-14.8-17.6-25.8-30.3-32.8-37.6-3-3.1-5.9-6.1-9.2-8.2-6.5-5.6-22.9-17.1-45.9-16.2-21.8.9-42.2 12.5-60.6 34.6-.7.8-1.3 1.7-1.8 2.6-6.1 11.1-25.4 45.1-33.2 55.4-7.9 10.3-29.1 34.3-54.8 35.5-16.3.7-32.3 4-49.5-14.4-22.1-23.6-42.4-35.1-62.2-35.2h-.3c-22.3 0-35.7 14-43.8 22.4-.9 1-1.8 1.9-2.6 2.7-2.8 2.7-5.3 5.7-7.8 8.6-9.8 11.6-20.1 10.4-47.7 10.4H0v33.5l1060.3-.2c45.5 0 65.3-10 76.6-23.3 2-2.4 4-4.7 5.6-6.3 1.1-1 2.2-2.2 3.4-3.5 5.2-5.4 10.6-11 16.2-11h.1c3 0 14.2 1.8 34.6 23.5 24.9 26.6 50.8 27.3 79.1 26.1 40.3-1.8 69.3-31.8 83-49.6 9.9-12.8 30.3-49.2 35.2-58.2 11.1-13 21.8-19.8 31.9-20.3 11.2-.5 19.7 7.4 20 7.6 1.1 1.1 2.3 2 3.7 2.8 2.6 2.5 10.8 10.9 33.9 38.5 41.4 49.4 77.7 60.4 110.8 65l3.4.5c31.1 4.3 88.9 12.4 142.3 4.2 19.3-3 23.9.8 23.9.8.2.3.3 1.2.3 1.8-.3 1.5-.4 3.1-.3 4.7l18.9 119.3c.8 8.7 8.7 15.3 18.2 15.3h.3c9.5-.1 17.4-7.1 18-15.8l35.7-491.6c.8 14.9 1.7 29.5 2.5 43.7 6.2 107.6 12.2 193.6 17.6 255.6 3.2 37 6.4 65.8 9.3 85.7 1.6 11.2 3.2 19.6 4.8 25.8 1.6 6.1 4.9 18.8 18.1 21.6 6.9 1.4 16.8-.4 22.3-10.2 17.1-30.6 46.7-31.4 47.9-31.4 1.3 0 130.4 0 156.8.7 36.6.9 47.1-20.3 49-25 .8-1.8 9.6-21.4 31.7-52 4.3-5.9 7.3-7.3 8.1-7.3 2.9 0 9.2 5.1 12.3 9.2 3.1 4.4 27.5 39.5 38.8 54.6 6.8 9 14.9 11.7 20.6 12.3 13.5 1.5 23.3-6.6 29.8-11.9.5-.4 1.4-1.2 2.2-1.8H2511V623h-188.1c-10.2-.1-17.2 5.6-22.8 10.3z"/>
-
-                                    <path className="st2"
-                                          d="M1167.9 468.8l3.9-3.3 3.3 3.3c19.5 19.5 52.7 32.6 84.7 32.6 84.7 0 156.3-65.1 156.3-159.5s-71.6-159.5-156.3-159.5c-32.6 0-65.1 13-84.7 32.6l-3.3 3.3-3.9-3.3-5.9-26h-58.6v355.1h64.5v-75.3zm88.6-227.9c61.9 0 94.4 45.6 94.4 100.9 0 55.3-32.6 100.9-94.4 100.9-55.3 0-94.4-45.6-94.4-100.9-.1-55.3 39-100.9 94.4-100.9zM1598.3 501.4c26 0 58.6-13 71.6-32.6l3.3-3.3 3.3 3.3 6.5 26h58.6v-306h-65.1v185.6c-2 37.8-33.9 68.4-71.6 68.4-43.6 0-63.8-23.4-65.1-65.1V188.8h-65.1v188.8c-.1 71.7 45.5 123.8 123.6 123.8zM2067.1 444.1c-32.6 0-58.6-24.1-61.9-56.7l-58.6 22.8c13 55.3 58.6 91.2 120.5 91.2s110.7-42.3 110.7-94.4c0-52.1-37.1-80.7-87.9-91.8l-32.6-6.5c-23.4-4.6-39.1-15.6-39.1-35.2s19.5-33.9 45.6-33.9c26 0 45.6 14.3 45.6 33.9h65.1c-6.5-55.3-55.3-91.2-110.7-91.2-52.1 0-107.4 32.6-107.4 91.2 0 48.8 35.8 80.1 87.9 93.1 10.4 2.6 21.5 5.2 32.6 7.2 26 4.6 39.1 14.3 39.1 33.2 0 19.5-16.3 37.1-48.9 37.1zM2373.2 501.4c61.9 0 107.4-32.6 133.5-78.1l-54.7-26c-9.8 26-36.5 45.6-75.5 45.6-55.3 0-87.9-39.1-87.9-84.7H2510l6.5-19.5c0-94.4-65.1-156.3-143.3-156.3-84.7 0-149.8 65.1-149.8 159.5s68.4 159.5 149.8 159.5zm0-260.5c39.1 0 71.6 26 74.9 59.9h-156.3c9.8-33.8 35.8-59.9 81.4-59.9z"/>
-                                </g>
-                            </svg>
-
-                        </div>
-                    )}
+                        ) : false}
+                    </div>
                 </div>
                 <Subscribeblock/>
             </div>
