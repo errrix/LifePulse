@@ -32,7 +32,7 @@ class RegistrationConfirm extends React.Component {
                         <h1 className="h2Header">
                             Спасибо за регистрацию
                         </h1>
-                        <p className="h3Header">Теперь Вы можете войти на сайт.</p>
+                        <p className="h3Header">Вам на почту отправлено письмо с подтверждением регистрации.</p>
                     </div>
                 )}
             </div>
