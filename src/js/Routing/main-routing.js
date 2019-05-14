@@ -18,6 +18,7 @@ import CreateFundraiser from "../pages/create-fundraiser/create-fundraiser";
 import confidentiality from "../pages/confidentiality";
 import successStories from "../pages/success-stories";
 import AllFundraiser from "../pages/all-fundraiser";
+import ActivateUser from "../pages/activate-user";
 import LoginPopup from '../components/popup/loginPopup'
 
 import {connect} from "react-redux";
@@ -100,6 +101,7 @@ class MainRouting extends React.Component {
                                 <Route exact path="/confidentiality" component={confidentiality}/>
                                 <Route exact path="/rules" component={Rules}/>
                                 <Route exact path="/about" component={about}/>
+                                <Route exact path="/activate/:token" component={ActivateUser}/>
                                 <Route exact path="/donate" component={donate}/>
                                 <Route exact path="/account" component={() => {
                                     return this.IsUser() ? <UserAccount/> : <Redirect to="/"/>

@@ -16,7 +16,8 @@ class LoginPopup extends React.Component {
             password: '',
             validate_password: false,
             validate_email_message: 'Некорректный email.',
-            validate_email_message_from_response: 'Некорректный email или пароль'
+            validate_email_message_from_response: 'Некорректный email или пароль',
+            not_activated: false
         };
 
         this.closePopup = this.closePopup.bind(this);
@@ -25,6 +26,7 @@ class LoginPopup extends React.Component {
         this.validateEmail = this.validateEmail.bind(this);
         this.inputPassword = this.inputPassword.bind(this);
         this.validatePassword = this.validatePassword.bind(this);
+        this.resendToken = this.resendToken.bind(this);
     }
 
     closePopup(e) {
@@ -63,6 +65,26 @@ class LoginPopup extends React.Component {
             this.setState({validate_password: false});
             elem.parentNode.classList.add('label-error');
         }
+    }
+
+    resendToken() {
+        fetch(`${url}/api/users/resend`, {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            method: 'POST',
+            credentials: 'include',
+            body: JSON.stringify({
+                "email": this.state.email
+            })
+        })
+            .then(function (response) {
+                return response.json()
+            }).then((data) => {
+                console.log(data);
+        }).catch(function (error) {
+            // console.log(error);
+        });
     }
 
     submitLogin(e) {
@@ -122,7 +144,13 @@ class LoginPopup extends React.Component {
                                            autoComplete="email"
                                     />
                                     <span className="error email-error"/>
+
                                 </label>
+                                {this.state.not_activated ? (
+                                    <fieldset>
+                                        <button type="button" onClick={this.resendToken}>Отправить повторно ссылку для активации</button>
+                                    </fieldset>
+                                ) : false}
                                 <label className="label-input">
                                     <span>Пароль:</span>
                                     <input type="password"

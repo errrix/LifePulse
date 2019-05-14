@@ -22,7 +22,9 @@ module.exports = (env, options) => {
             publicPath: '',
             contentBase: path.join(__dirname, 'src/'),
             watchContentBase: true,
-            historyApiFallback: true,
+            historyApiFallback: {
+                disableDotRule: true
+            },
             host: "api.localhost",
             port: 4200
 
