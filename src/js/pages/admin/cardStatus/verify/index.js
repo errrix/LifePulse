@@ -71,7 +71,7 @@ class verify extends React.Component {
                                             <td>{item.for_whom_name}</td>
                                             <td>{new Date(Date.parse(item.createdAt)).toLocaleDateString()}</td>
                                             <td>{item.category[0].title}</td>
-                                            <td>{item.max_sum}/{item.sum}</td>
+                                            <td>{Math.round(item.max_sum)} / {Math.round(item.sum)}</td>
                                             <td>!!!</td>
                                             <td> <Link to={`/admin/view-campaign/${item._id}`} target="">Edit</Link> </td>
                                         </tr>

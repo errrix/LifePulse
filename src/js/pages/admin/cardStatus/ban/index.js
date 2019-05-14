@@ -73,7 +73,7 @@ class ban extends React.Component {
                                             <td>{new Date(Date.parse(item.createdAt)).toLocaleDateString()}</td>
                                             <td>!!!!!!</td>
                                             <td>!!!!!!</td>
-                                            <td>{item.max_sum}/{item.sum}</td>
+                                            <td>{Math.round(item.max_sum)} / {Math.round(item.sum)}</td>
                                             <td> <Link to={`/admin/view-campaign/${item._id}`} target="">Edit</Link> </td>
                                         </tr>
                                     }) : false
