@@ -130,7 +130,10 @@ class LoginPopup extends React.Component {
 
     render() {
         return (
-            <div className="popup" onMouseDown={this.closePopup}>
+            <div className="popup"
+                 onMouseDown={this.closePopup}
+                 onTouchStart={this.closePopup}
+            >
                 <div className="popup-content-block">
                     <div className="popup-content-block-wrapper">
                         <div className="popup-step m--login">
