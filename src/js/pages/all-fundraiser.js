@@ -78,6 +78,7 @@ class AllFundraiser extends React.Component {
     render() {
         return (
             <div>
+                <div className="all-campaing">
                 <div className="container">
                     {
                         this.state.cards.length > 0 ? (
@@ -109,6 +110,7 @@ class AllFundraiser extends React.Component {
 
                         </div>
                     )}
+                </div>
                 </div>
                 <Subscribeblock/>
             </div>

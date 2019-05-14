@@ -1,5 +1,5 @@
 .search-input-block {
-  padding: 130px 0 0;
+  padding: 100px 0 0;
   .clear-search {
     display: flex;
     justify-content: flex-end;
@@ -78,7 +78,7 @@
 
 @media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
   .search-input-block {
-    padding: 120px 0 0 0 ;
+    padding: 100px 0 0 0 ;
     form {
       display: flex;
       justify-content: space-between;
