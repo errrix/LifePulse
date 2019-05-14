@@ -79,6 +79,8 @@ class AllFundraiser extends React.Component {
         return (
             <div>
                 <div className="container">
+                    {
+                        this.state.cards.length > 0 ? (
                             <div className="card-block m--search-result">
                                 <ul className="card-block-list card-block-list-flex">
                                     {this.state.cards.map((item) => {
@@ -91,7 +93,7 @@ class AllFundraiser extends React.Component {
                                     <button className="btn" onClick={this.handleLoadMore}>Посмотреть еще</button>
                                 </div>
                             </div>
-                    ) : (
+                        )  : (
                         <div className="lp-animation-loader">
                             <svg className="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2516.4 794.3">
                                 <path className="st0"
