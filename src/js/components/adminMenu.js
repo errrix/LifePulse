@@ -11,31 +11,6 @@ class adminMenu extends React.Component {
             cards: []
         };
 
-        this.getDraftFundraisers = this.getDraftFundraisers.bind(this);
-    }
-
-    getDraftFundraisers() {
-        fetch(`${url}/api/card/status?limit=222`, {
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            method: 'POST',
-            body: JSON.stringify({
-                "status": "draft"
-            }),
-
-            credentials: 'include'
-        })
-            .then(function (response) {
-                return response.json()
-            }).then((json) => {
-            console.log(json.response[3]);
-            this.setState({cards: json.response})
-        })
-    }
-
-    componentDidMount() {
-        this.getDraftFundraisers();
     }
 
     render() {
@@ -48,16 +23,16 @@ class adminMenu extends React.Component {
                             <p>Сборы</p>
                             <ul>
                                 <li>
-                                    <Link to='/admin/application'>Новые<span className="account-admin-side-menu-count">{this.state.cards.length}</span></Link>
+                                    <Link to='/admin/application'>Новые</Link>
                                 </li>
                                 <li>
                                     <Link to='/admin/active'>Активные</Link>
                                 </li>
                                 <li>
-                                    <Link to='/admin/ban'>Забаненные</Link>
+                                    <Link to='/admin/verify'>Верифицированные</Link>
                                 </li>
                                 <li>
-                                    <Link to='/admin/verify'>Верифицированные</Link>
+                                    <Link to='/admin/ban'>Забаненные</Link>
                                 </li>
                                 <li>
                                     <Link to='/admin/get-money'>Вывод средств</Link>
@@ -66,7 +41,7 @@ class adminMenu extends React.Component {
                                     <Link to='/admin/archive'>Завершенные</Link>
                                 </li>
                                 <li>
-                                    <Link to='/admin/appeal'>Жалобы<span className="account-admin-side-menu-count">0</span></Link>
+                                    <Link to='/admin/appeal'>Жалобы</Link>
                                 </li>
                             </ul>
                         </li>
