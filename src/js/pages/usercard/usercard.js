@@ -15,7 +15,8 @@ class usercard extends React.Component {
 
         this.state = {
             showPopup: false,
-            card_found: true
+            card_found: true,
+            donators: []
         };
 
         this.getThisCard = this.getThisCard.bind(this);
@@ -133,10 +134,10 @@ class usercard extends React.Component {
 
                                                 <div className="money-how">
                                                     <p>
-                                                        Собрали {this.state.card.max_sum} грн
+                                                        Собрали {Math.round(this.state.card.max_sum)} грн
                                                     </p>
                                                     <p>
-                                                        из {this.state.card.sum} грн
+                                                        из {Math.round(this.state.card.sum)} грн
                                                     </p>
                                                 </div>
                                             </div>
@@ -163,33 +164,16 @@ class usercard extends React.Component {
                                             </div>
                                             <div className="helpedUs">
                                                 <h5>Уже помогли</h5>
-                                                <p>
-                                                    <span>Игорь</span>
-                                                    <span>Сума: 50,00 грн.</span>
-                                                    <span>Дата: 12 грудня 2018 р.</span>
-                                                </p>
-                                                <p>
-                                                    <span>Игорь</span>
-                                                    <span>Сума: 50,00 грн.</span>
-                                                    <span>Дата: 12 грудня 2018 р.</span>
-                                                </p>
-                                                <p>
-                                                    <span>Игорь</span>
-                                                    <span>Сума: 50,00 грн.</span>
-                                                    <span>Дата: 12 грудня 2018 р.</span>
-                                                </p>
-                                                <p>
-                                                    <span>aninimouse</span>
-                                                    <span>Сума: 50,00 грн.</span>
-                                                    <span>Дата: 12 грудня 2018 р.</span>
-                                                </p>
-                                                <p>
-                                                    <span>Игорь</span>
-                                                    <span>Сума: 50,00 грн.</span>
-                                                    <span>Дата: 12 грудня 2018 р.</span>
-                                                </p>
-                                            </div>
+                                                {this.state.card.donators ? this.state.card.donators.map((item, index) => {
+                                                        return <p key={item._id}>
+                                                            <span>{this.state.card.donators[index].user.last_name}</span>
+                                                            <span>Сума: {this.state.card.donators[index].sum}</span>
+                                                            <span>Дата: {new Date(Date.parse(this.state.card.donators[index].date)).toLocaleDateString()}</span>
+                                                        </p>
+                                                    }) : false
+                                                }
 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
