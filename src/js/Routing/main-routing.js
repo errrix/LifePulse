@@ -3,7 +3,6 @@ import about from "../pages/about";
 import usercard from "../pages/usercard/usercard";
 import AdminRouting from "./admin-routing";
 import Header from "../components/header";
-import Subscribeblock from "../components/subscribeBlock";
 import Registration from "../pages/registration/registration";
 import donate from "../pages/donate";
 import Faq from "../pages/faq/faq";
@@ -18,6 +17,7 @@ import Homepage from "../pages/homepage/homepage";
 import CreateFundraiser from "../pages/create-fundraiser/create-fundraiser";
 import confidentiality from "../pages/confidentiality";
 import successStories from "../pages/success-stories";
+import AllFundraiser from "../pages/all-fundraiser";
 import LoginPopup from '../components/popup/loginPopup'
 
 import {connect} from "react-redux";
@@ -93,7 +93,7 @@ class MainRouting extends React.Component {
                                 <Route exact path="/thanks-donate" component={ThxDonate}/>
                                 <Route exact path="/faq" component={Faq}/>
                                 <Route exact path="/success-stories" component={successStories}/>
-                                <Route exact path="/allcampaing" component={SearchPage}/>
+                                <Route exact path="/allcampaing" component={AllFundraiser}/>
                                 <Route exact path="/registration" render={(props) => {
                                     return !this.IsUser() ? <Registration {...props}/> : <Redirect to="/"/>
                                 }}/>
