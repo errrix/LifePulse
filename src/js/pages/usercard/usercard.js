@@ -167,7 +167,7 @@ class usercard extends React.Component {
                                                 {this.state.card.donators ? this.state.card.donators.map((item, index) => {
                                                         return <p key={item._id}>
                                                             <span>{this.state.card.donators[index].user.first_name}</span>
-                                                            <span>Сума: {this.state.card.donators[index].sum}</span>
+                                                            <span>Сума: {Math.round(this.state.card.donators[index].sum)}</span>
                                                             <span>Дата: {new Date(Date.parse(this.state.card.donators[index].date)).toLocaleDateString()}</span>
                                                         </p>
                                                     }) : false
