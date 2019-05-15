@@ -51,7 +51,7 @@ class viewCampaign extends React.Component {
             this.setState({text_preview: json.response.text_preview});
             this.setState({category: json.response.category[0]._id});
             this.setState({main_text: json.response.main_text});
-            console.log(this.state.card.user)
+            console.log(this.state.card.complaints)
         })
     }
 
@@ -144,7 +144,7 @@ class viewCampaign extends React.Component {
                     [{'header': [3, 4, false]}],
                     ['bold', 'italic', 'blockquote'],
                     [{'list': 'ordered'}, {'list': 'bullet'}],
-                    [{ 'align': [] }],
+                    [{'align': []}],
                     ['image']],
                 handlers: {
                     'image': this.imageHandler
@@ -292,7 +292,7 @@ class viewCampaign extends React.Component {
                                                         onChange={this.StateValueQuill}
                                                         modules={modules}
                                             />
-                                            ): (
+                                        ) : (
                                             <div className="customUserBlock"
                                                  onChange={this.HandlerChange}
                                                  dangerouslySetInnerHTML={{__html: this.state.card.main_text}}
@@ -372,6 +372,33 @@ class viewCampaign extends React.Component {
                                     </div>
 
                                 </form>
+
+                                <div className="view-compaign-complaints">
+                                    <table className="account-admin-table m--big-table">
+                                        <tbody>
+                                        <tr className="title">
+                                            <th>От кого</th>
+                                            <th>Текст жалобы</th>
+                                            <th>Дата</th>
+                                        </tr>
+                                        {this.state.card.complaints ? (this.state.card.complaints.map((item) => {
+                                            return <tr key={item._id}>
+                                                <td>
+                                                    {item.user}
+                                                </td>
+                                                <td>
+                                                    {item.text}
+                                                </td>
+                                                <td>
+                                                    {item.date}
+                                                </td>
+                                            </tr>
+                                        })) : false}
+                                        </tbody>
+                                    </table>
+
+
+                                </div>
 
                                 {this.state.card.status === "draft" && !this.state.edited ? (
                                     <div className="button-block">

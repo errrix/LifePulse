@@ -5,7 +5,7 @@ import url from "../../modules/url"
 import CSSTransitionGroup from "react-addons-css-transition-group"
 
 import Complaints from "./components/popup"
-import pageNotFound from "../404";
+import {connect} from "react-redux";
 
 
 class usercard extends React.Component {
@@ -211,4 +211,4 @@ const mapStateToProps = (store) => {
     }
 };
 
-export default usercard;
+export default connect(mapStateToProps)( usercard);
