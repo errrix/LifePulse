@@ -42,7 +42,7 @@ class Donate extends React.Component {
             "amount": this.state.sum,
             "currency": "UAH",
             "description": "test",
-            "info" : this.props.user_id === '' ? this.props.history.location.state.id : `${this.props.history.location.state.id};${this.props.user_id}` ,
+            "info" : this.props.user_id === '' ? `${this.props.history.location.state.id};5cdb2eb240e2c90822b88b82` : `${this.props.history.location.state.id};${this.props.user_id}` ,
             // "sandbox": 1,
             "result_url": `https://${window.location.host}/thanks-donate`,
             "server_url": "https://www.lifespulse.com/pay"
