@@ -68,6 +68,7 @@ class AllFundraiser extends React.Component {
             <div>
                 <div className="all-campaing">
                     <div className="container">
+                        <h1 className="h3Header h2Header-underline">АКТИВНЫЕ СБОРЫ</h1>
                         {
                             this.state.cards.length > 0 ? (
                                 <div className="card-block m--search-result">
