@@ -31,6 +31,7 @@ import CSSTransitionGroup from "react-addons-css-transition-group"
 
 import url from "../modules/url"
 import ThxDonate from "../pages/thx-donate";
+import ResendTokenPopup from "../components/popup/resendTokenPopup";
 
 class MainRouting extends React.Component {
 
@@ -38,14 +39,31 @@ class MainRouting extends React.Component {
         super(props);
 
         this.state = {
-            update_user: false
+            update_user: false,
+            show_resend_popup: false,
+            resend_email: ''
         };
 
-
+        this.toggleStatusResendPopup = this.toggleStatusResendPopup.bind(this);
+        this.closeResendPopup = this.closeResendPopup.bind(this);
     }
 
     IsUser() {
         return this.props.roles.indexOf('user') !== -1
+    }
+
+    toggleStatusResendPopup (popup_status, email) {
+        this.setState({
+            show_resend_popup: popup_status,
+            resend_email: email
+        })
+    }
+
+    closeResendPopup() {
+        this.setState({
+            show_resend_popup: false,
+
+        })
     }
 
     componentDidMount() {
@@ -86,7 +104,8 @@ class MainRouting extends React.Component {
                                                 transitionEnterTimeout={300}
                                                 transitionLeave={true}
                                                 transitionLeaveTimeout={300}>
-                                {this.props.show_popup ? (<LoginPopup {...this.props}/>) : (false)}
+                                {this.props.show_popup ? (<LoginPopup toggleStatusResendPopup={this.toggleStatusResendPopup}/>) : (false)}
+                                {this.state.show_resend_popup ? <ResendTokenPopup email={this.state.resend_email} closeResendPopup={this.closeResendPopup}/> : (false)}
                             </CSSTransitionGroup>
                             <Route path="/" component={Header}/>
                             <Switch>

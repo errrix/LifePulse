@@ -4,6 +4,7 @@ import {addUserId, addUserInfo, addUserRole, changePopup} from "../../actions";
 import {connect} from "react-redux";
 import url from "../../modules/url"
 import {BrowserRouter} from 'react-router';
+import ResendTokenPopup from "./resendTokenPopup";
 
 
 class LoginPopup extends React.Component {
@@ -124,13 +125,15 @@ class LoginPopup extends React.Component {
                         this.props.changePopup(false);
                         document.querySelector('.navigation-side-mobile').classList.remove('active-nav-mobile');
                     } else if(data.errors[0] === "User Not Activated") {
-                        let errorElem = document.querySelector('.email-error');
-                        errorElem.textContent = this.state.not_activated_message;
-                        errorElem.parentNode.classList.add('label-error');
-                        document.querySelector('.loader').classList.remove('active-loader', 'm--loader');
-                        this.setState({
-                            not_activated: true
-                        })
+                        this.props.toggleStatusResendPopup(true, this.state.email);
+                        this.props.changePopup(false);
+                        // let errorElem = document.querySelector('.email-error');
+                        // errorElem.textContent = this.state.not_activated_message;
+                        // errorElem.parentNode.classList.add('label-error');
+                        // document.querySelector('.loader').classList.remove('active-loader', 'm--loader');
+                        // this.setState({
+                        //     not_activated: true
+                        // })
                     } else {
                         let errorElem = document.querySelector('.email-error');
                         errorElem.textContent = this.state.validate_email_message_from_response;
@@ -212,6 +215,8 @@ class LoginPopup extends React.Component {
                                 <Link className="no-account" to="/registration">Нет аккаунта</Link>
                             </div>
                         </div>
+
+
 
                         {/*<div className="popup-step m--restore-password hide-step">*/}
                         {/*<button type="button" className="button-back">*/}
