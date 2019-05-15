@@ -4,6 +4,7 @@ import SingleCard from './../components/singleCard'
 import {debounce} from "lodash"
 import Subscribeblock from "../components/subscribeBlock";
 import url from "../modules/url"
+import Loader from "../components/loader";
 
 class SearchPage extends React.Component {
 
@@ -33,7 +34,7 @@ class SearchPage extends React.Component {
         this.StateValue = this.StateValue.bind(this);
         this.clearSearch = this.clearSearch.bind(this);
         this.showMoreCards = this.showMoreCards.bind(this);
-        this.handleLoadMore = debounce(this.handleLoadMore, 1000).bind(this);
+        this.handleLoadMore = debounce(this.handleLoadMore, 200).bind(this);
     }
 
     //Очищаем поиск, обнуляем счетчик найденых карточек, убираем флаг поиска, обнуляем массив карточек
@@ -88,6 +89,7 @@ class SearchPage extends React.Component {
             .then(function (response) {
                 return response.json()
             }).then((json) => {
+            document.getElementById('load-more-button').classList.remove('active-loader', 'm--loader');
             console.log(json.response);
             this.setState({
                 search_cards: [...this.state.search_cards, ...json.response],
@@ -104,6 +106,7 @@ class SearchPage extends React.Component {
         ) {
             console.log(this.state.qt_cards_search);
         } else {
+            document.getElementById('search-button').classList.add('active-loader', 'm--loader');
             fetch(`${url}/api/card/search?limit=9&search=${this.state.search_text}`, {
                 headers: {
                     'Content-Type': 'application/json'
@@ -117,6 +120,7 @@ class SearchPage extends React.Component {
                 .then(function (response) {
                     return response.json()
                 }).then((json) => {
+                document.getElementById('search-button').classList.remove('active-loader', 'm--loader');
                 console.log(json.response);
                 this.setState({
                     search_cards: [...json.response],
@@ -138,7 +142,8 @@ class SearchPage extends React.Component {
     }
 
     handleLoadMore() {
-        this.getSearchCard()
+        document.getElementById('load-more-button').classList.add('active-loader', 'm--loader');
+        this.showMoreCards()
     }
 
     render() {
@@ -167,8 +172,9 @@ class SearchPage extends React.Component {
                                     }
                                 </select>
                                 <button type="submit"
-                                        className="btn btn-orange">
-                                    Поиск
+                                        className="btn btn-orange m--with-loader">
+                                    <span>Поиск</span>
+                                    <span className="loader" id="search-button"/>
                                 </button>
                             </form>
 
@@ -198,11 +204,11 @@ class SearchPage extends React.Component {
 
                             {this.state.searched && !this.state.nothing_more_search ? (
                                 <div className="link-wrapper">
-                                    <button className="btn m--with-loader" onClick={this.showMoreCards}>
+                                    <button className="btn m--with-loader" onClick={this.handleLoadMore}>
                                         <span>
                                             Посмотреть еще
                                         </span>
-                                        <span className="loader"/>
+                                        <span className="loader" id="load-more-button"/>
                                     </button>
                                 </div>
                             ) : false}
