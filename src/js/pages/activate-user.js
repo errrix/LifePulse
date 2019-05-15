@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import url from "../modules/url";
+import Loader from "../components/loader";
 
 class ActivateUser extends React.Component {
 
@@ -40,14 +41,15 @@ class ActivateUser extends React.Component {
     render() {
         return (
 
-            <div style={{'paddingTop': '200px'}}>
+            <div className="activate-block">
                 {this.state.activated ? (
-                    <h1>
-                        Успешно!!
+                    <h1 className="h3Header">
+                        Ваша учётная запись успешно активирована. Можете войти на сайт.
                     </h1>
                 ) : (
-                    <h1>
-                        Активация ваше записи...
+                    <h1 className="h3Header">
+                        <Loader/>
+                        Ожидайте. Идёт активация Вашей учётной записи...
                     </h1>
                 )}
             </div>

@@ -1,0 +1,21 @@
+.activate-block {
+  padding: 100px 0 50px 0;
+  min-height: calc(100vh - 282px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .h3Header {
+    text-align: center;
+  }
+  .lp-animation-loader {
+    min-height: auto;
+  }
+}
+
+@media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
+
+}
+
+@media only screen and (max-width: $mobileWidth) {
+
+}
