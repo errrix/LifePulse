@@ -384,7 +384,7 @@ class viewCampaign extends React.Component {
                                         {this.state.card.complaints ? (this.state.card.complaints.map((item) => {
                                             return <tr key={item._id}>
                                                 <td>
-                                                    {item.user}
+                                                    {item.user.email}
                                                 </td>
                                                 <td>
                                                     {item.text}
