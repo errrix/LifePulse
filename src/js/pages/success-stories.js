@@ -69,6 +69,7 @@ class successStories extends React.Component {
             <div>
                 <div className="success-stories-block">
                     <div className="container">
+                        <h1 className="h3Header h2Header-underline">ЗАВЕРШЕННЫЕ СБОРЫ</h1>
                         {this.state.cards.length > 0 ? (
                         <div className="card-block m--search-result">
                             <ul className="card-block-list card-block-list-flex">
