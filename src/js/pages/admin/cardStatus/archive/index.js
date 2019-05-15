@@ -33,7 +33,7 @@ class archive extends React.Component {
             .then(function (response) {
                 return response.json()
             }).then((json) => {
-            console.log(json.response[0]);
+            console.log(json.response);
             this.setState({cards: json.response})
         })
     }

@@ -86,7 +86,7 @@ class MainRouting extends React.Component {
                                                 transitionEnterTimeout={300}
                                                 transitionLeave={true}
                                                 transitionLeaveTimeout={300}>
-                                {this.props.show_popup ? (<LoginPopup/>) : (false)}
+                                {this.props.show_popup ? (<LoginPopup {...this.props}/>) : (false)}
                             </CSSTransitionGroup>
                             <Route path="/" component={Header}/>
                             <Switch>

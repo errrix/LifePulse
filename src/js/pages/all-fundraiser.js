@@ -11,30 +11,13 @@ class AllFundraiser extends React.Component {
         super(props);
 
         this.state = {
-            all_categories: [],
             cards: [],
             qt_cards: 0,
             nothing_more: false,
         };
 
         this.getActiveCard = this.getActiveCard.bind(this);
-        this.getCategories = this.getCategories.bind(this);
-        this.handleLoadMore = debounce(this.handleLoadMore, 1000).bind(this);
-    }
-
-    getCategories() {
-        fetch(`${url}/api/category`, {
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            method: 'GET',
-            credentials: 'include'
-        })
-            .then(function (response) {
-                return response.json()
-            }).then((json) => {
-            this.setState({all_categories: json.response});
-        })
+        this.handleLoadMore = debounce(this.handleLoadMore, 200).bind(this);
     }
 
     getActiveCard() {
@@ -59,19 +42,23 @@ class AllFundraiser extends React.Component {
             }
             this.setState({
                 cards: [...this.state.cards, ...json.response],
-                qt_cards: this.state.qt_cards + limit
-            })
+                qt_cards: this.state.qt_cards + limit,
+                nothing_more: json.response.length < 6
+            });
+            if( document.querySelector('.loader')) {
+                document.querySelector('.loader').classList.remove('active-loader', 'm--loader');
+            }
         })
     }
 
 
     componentDidMount() {
         this.getActiveCard();
-        this.getCategories();
         document.title = "LifesPulse | Поиск"
     }
 
     handleLoadMore() {
+        document.querySelector('.loader').classList.add('active-loader', 'm--loader');
         this.getActiveCard()
     }
 
@@ -90,14 +77,16 @@ class AllFundraiser extends React.Component {
                                             </li>
                                         })}
                                     </ul>
-                                    <div className="link-wrapper">
-                                        <button className="btn m--with-loader" onClick={this.handleLoadMore}>
-                                            <span>
-                                                 Посмотреть еще
-                                            </span>
-                                            <span className="loader"/>
-                                        </button>
-                                    </div>
+                                    {!this.state.nothing_more ? (
+                                        <div className="link-wrapper">
+                                            <button className="btn m--with-loader" onClick={this.handleLoadMore}>
+                                    <span>
+                                        Посмотреть еще
+                                    </span>
+                                                <span className="loader"/>
+                                            </button>
+                                        </div>
+                                    ) : false}
                                 </div>
                             ) : (
                                 <div className="lp-animation-loader">

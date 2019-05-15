@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import {addUserId, addUserInfo, addUserRole, changePopup} from "../../actions";
 import {connect} from "react-redux";
 import url from "../../modules/url"
+import {BrowserRouter} from 'react-router';
 
 
 class LoginPopup extends React.Component {
@@ -17,7 +18,8 @@ class LoginPopup extends React.Component {
             validate_password: false,
             validate_email_message: 'Некорректный email.',
             validate_email_message_from_response: 'Некорректный email или пароль',
-            not_activated: false
+            not_activated_message: 'Ваша учетная запись не активирована.',
+            not_activated: true
         };
 
         this.closePopup = this.closePopup.bind(this);
@@ -82,6 +84,7 @@ class LoginPopup extends React.Component {
                 return response.json()
             }).then((data) => {
                 console.log(data);
+                console.log(this.props)
         }).catch(function (error) {
             // console.log(error);
         });
@@ -114,7 +117,15 @@ class LoginPopup extends React.Component {
                         this.props.addUserRole(data.response.roles);
                         this.props.changePopup(false);
                         document.querySelector('.navigation-side-mobile').classList.remove('active-nav-mobile');
-                    } else {
+                    } else if(data.errors[0] === "User Not Activated") {
+                        let errorElem = document.querySelector('.email-error');
+                        errorElem.textContent = this.state.not_activated_message;
+                        errorElem.parentNode.classList.add('label-error');
+                        document.querySelector('.loader').classList.remove('active-loader', 'm--loader');
+                        this.setState({
+                            not_activated: true
+                        })
+                    } else if(data.errors[0] === "Email or password is not correct") {
                         let errorElem = document.querySelector('.email-error');
                         errorElem.textContent = this.state.validate_email_message_from_response;
                         errorElem.parentNode.classList.add('label-error');
