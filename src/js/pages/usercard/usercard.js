@@ -8,7 +8,7 @@ import Complaints from "./components/popup"
 import {connect} from "react-redux";
 
 
-class usercard extends React.Component {
+class Usercard extends React.Component {
 
     constructor(props) {
         super(props);
@@ -16,18 +16,45 @@ class usercard extends React.Component {
         this.state = {
             showPopup: false,
             card_found: true,
-            donators: []
+            donators: [],
+            complaints_status_user: false
+
         };
 
         this.getThisCard = this.getThisCard.bind(this);
         this.openPopup = this.openPopup.bind(this);
         this.handleClosePopup = this.handleClosePopup.bind(this);
+        this.statusComplaints = this.statusComplaints.bind(this);
+        this.updateUserComplaintsStatus = this.updateUserComplaintsStatus.bind(this);
     }
 
     handleClosePopup(value) {
         this.setState({
             showPopup: value
         });
+    }
+
+    updateUserComplaintsStatus() {
+        this.setState({complaints_status_user : false})
+    }
+
+    statusComplaints(user) {
+        let id = this.props.location.pathname.substring(this.props.location.pathname.lastIndexOf('/') + 1);
+        fetch(`${url}/api/card/complaints/${user}`, {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            method: 'GET',
+            credentials: 'include'
+        })
+            .then(function (response) {
+                return response.json()
+            }).then((json) => {
+            if (json.success && json.response.length > 0 && json.response.indexOf(id) === -1) {
+                this.setState({complaints_status_user: true})
+            }
+            console.log(json);
+        })
     }
 
     getThisCard() {
@@ -49,7 +76,7 @@ class usercard extends React.Component {
                 document.getElementById('user-card-block').classList.add('height-auto');
             } else {
                 this.setState({
-                    card_found : false
+                    card_found: false
                 })
             }
         })
@@ -63,6 +90,13 @@ class usercard extends React.Component {
 
     componentDidMount() {
         this.getThisCard();
+        this.props.user_id !== '' ? this.statusComplaints(this.props.user_id) : false;
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.user_id !== prevProps.user_id) {
+            this.statusComplaints(this.props.user_id)
+        }
     }
 
     render() {
@@ -80,6 +114,7 @@ class usercard extends React.Component {
                                     {this.state.showPopup ? <Complaints id={this.state.card._id}
                                                                         user_id={this.props.user_id}
                                                                         updateStatusPopup={this.handleClosePopup}
+                                                                        updateUserComplaintsStatus={this.updateUserComplaintsStatus}
                                     /> : false}
 
                                 </CSSTransitionGroup>
@@ -111,10 +146,13 @@ class usercard extends React.Component {
                                             <div className="customUserBlock"
                                                  dangerouslySetInnerHTML={{__html: this.state.card.main_text}}>
                                             </div>
-                                            <div className="appeal-block">
-                                                <button className='link-bottom-hover' onClick={this.openPopup}>Пожаловаться
-                                                </button>
-                                            </div>
+                                            {this.state.complaints_status_user && this.state.card.status !== "archive" ? (
+                                                <div className="appeal-block">
+                                                    <button className='link-bottom-hover'
+                                                            onClick={this.openPopup}>Пожаловаться
+                                                    </button>
+                                                </div>
+                                            ) : false}
                                         </div>
                                         <div className="shortInfoBlock">
                                             <p className="shortInfoBlock-age">Дата
@@ -142,35 +180,35 @@ class usercard extends React.Component {
                                                 </div>
                                             </div>
                                             {this.state.card.status === 'archive' || this.state.card.status === 'complite' || this.state.card.status === 'ban' ? (
-                                                <div>
-                                                    <button type="button"
-                                                            className="btn"
-                                                    >Заявка закрыта
-                                                    </button>
-                                                </div>
+                                                    <div>
+                                                        <button type="button"
+                                                                className="btn"
+                                                        >Заявка закрыта
+                                                        </button>
+                                                    </div>
 
-                                            ) :
+                                                ) :
                                                 <Link to={{
-                                                pathname: "/donate",
-                                                state: {
-                                                id: this.props.location.pathname.substring(this.props.location.pathname.lastIndexOf('/') + 1),
-                                                for_whom_name: this.state.card.for_whom_name,
-                                                date: new Date(Date.parse(this.state.card.createdAt)).toLocaleDateString(),
-                                                sum: this.state.card.sum
-                                            }
-                                            }} className="btn">Помочь</Link>}
+                                                    pathname: "/donate",
+                                                    state: {
+                                                        id: this.props.location.pathname.substring(this.props.location.pathname.lastIndexOf('/') + 1),
+                                                        for_whom_name: this.state.card.for_whom_name,
+                                                        date: new Date(Date.parse(this.state.card.createdAt)).toLocaleDateString(),
+                                                        sum: this.state.card.sum
+                                                    }
+                                                }} className="btn">Помочь</Link>}
 
                                             <div className="repostBlock">
                                             </div>
                                             <div className="helpedUs">
                                                 <h5>Уже помогли</h5>
                                                 {this.state.card.donators ? this.state.card.donators.map((item, index) => {
-                                                        return <p key={item._id}>
-                                                            <span>{this.state.card.donators[index].user.last_name}</span>
-                                                            <span>Сума: {this.state.card.donators[index].sum}</span>
-                                                            <span>Дата: {new Date(Date.parse(this.state.card.donators[index].date)).toLocaleDateString()}</span>
-                                                        </p>
-                                                    }) : false
+                                                    return <p key={item._id}>
+                                                        <span>{this.state.card.donators[index].user.last_name}</span>
+                                                        <span>Сума: {this.state.card.donators[index].sum}</span>
+                                                        <span>Дата: {new Date(Date.parse(this.state.card.donators[index].date)).toLocaleDateString()}</span>
+                                                    </p>
+                                                }) : false
                                                 }
 
                                             </div>
@@ -198,7 +236,6 @@ class usercard extends React.Component {
                 )}
 
 
-
             </div>
 
         )
@@ -211,4 +248,4 @@ const mapStateToProps = (store) => {
     }
 };
 
-export default connect(mapStateToProps)( usercard);
+export default connect(mapStateToProps)(Usercard);

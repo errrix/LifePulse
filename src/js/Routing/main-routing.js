@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 import about from "../pages/about";
-import usercard from "../pages/usercard/usercard";
+import Usercard from "../pages/usercard/usercard";
 import AdminRouting from "./admin-routing";
 import Header from "../components/header";
 import Registration from "../pages/registration/registration";
@@ -126,7 +126,7 @@ class MainRouting extends React.Component {
                                 <Route exact path="/account" component={() => {
                                     return this.IsUser() ? <UserAccount/> : <Redirect to="/"/>
                                 }}/>
-                                <Route exact path="/usercard/:value" component={usercard}/>
+                                <Route exact path="/usercard/:value" component={Usercard}/>
                                 <Route exact path="/create-fundraiser" render={(props) => {
                                     return this.IsUser() ? <CreateFundraiser {...props}/> : <Redirect to="/"/>
                                 }}/>

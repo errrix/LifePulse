@@ -50,6 +50,7 @@ class Complaints extends React.Component {
             console.log(json);
             console.log(this.props);
             this.props.updateStatusPopup(false);
+            this.props.updateUserComplaintsStatus();
             // this.props.history.goBack();
         })
     }
