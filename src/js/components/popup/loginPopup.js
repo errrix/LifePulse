@@ -18,8 +18,9 @@ class LoginPopup extends React.Component {
             validate_password: false,
             validate_email_message: 'Некорректный email.',
             validate_email_message_from_response: 'Некорректный email или пароль',
-            not_activated_message: 'Ваша учетная запись не активирована.',
-            not_activated: true
+            not_activated_message: 'Ваша учетная запись не активирована, проверьте вашу почту.',
+            not_activated: false,
+            sended: false
         };
 
         this.closePopup = this.closePopup.bind(this);
@@ -34,7 +35,6 @@ class LoginPopup extends React.Component {
     closePopup(e) {
         if (!document.querySelector('.popup .popup-content-block').contains(e.target)) {
             this.props.changePopup(false);
-            // document.querySelector('.popup').classList.add('hide-popup');
         }
     }
 
@@ -70,6 +70,7 @@ class LoginPopup extends React.Component {
     }
 
     resendToken() {
+        document.getElementById('resend-token').innerText = "Отправка...";
         fetch(`${url}/api/users/resend`, {
             headers: {
                 'Content-Type': 'application/json'
@@ -84,7 +85,7 @@ class LoginPopup extends React.Component {
                 return response.json()
             }).then((data) => {
                 console.log(data);
-                console.log(this.props)
+                this.setState({sended: true})
         }).catch(function (error) {
             // console.log(error);
         });
@@ -98,6 +99,10 @@ class LoginPopup extends React.Component {
         setTimeout(()=>{
             if (this.state.validate_email && this.state.validate_password) {
                 document.querySelector('.loader').classList.add('active-loader', 'm--loader');
+                this.setState({
+                    not_activated: false,
+                    sended: false
+                });
                 fetch(`${url}/api/users/login`, {
                     headers: {
                         'Content-Type': 'application/json'
@@ -112,6 +117,7 @@ class LoginPopup extends React.Component {
                     .then(function (response) {
                         return response.json()
                     }).then((data) => {
+                        console.log(data);
                     if (data.success) {
                         this.props.addUserId(data.response.id);
                         this.props.addUserRole(data.response.roles);
@@ -125,7 +131,7 @@ class LoginPopup extends React.Component {
                         this.setState({
                             not_activated: true
                         })
-                    } else if(data.errors[0] === "Email or password is not correct") {
+                    } else {
                         let errorElem = document.querySelector('.email-error');
                         errorElem.textContent = this.state.validate_email_message_from_response;
                         errorElem.parentNode.classList.add('label-error');
@@ -162,7 +168,18 @@ class LoginPopup extends React.Component {
                                 </label>
                                 {this.state.not_activated ? (
                                     <fieldset>
-                                        <button type="button" onClick={this.resendToken}>Отправить повторно ссылку для активации</button>
+                                        {!this.state.sended ? (
+                                            <button type="button"
+                                                    className="btn btn-transparent m--small resend-token"
+                                                    id="resend-token"
+                                                    onClick={this.resendToken}>Отправить повторно</button>
+                                        ) :(
+                                            <button type="button"
+                                                    className="btn btn-transparent m--small resend-token"
+                                                    id="resend-token"
+                                                    >Проверьте почту</button>
+                                        )}
+
                                     </fieldset>
                                 ) : false}
                                 <label className="label-input">

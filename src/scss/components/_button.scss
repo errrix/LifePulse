@@ -75,4 +75,11 @@
       background-color: $common-gray-lighter-color;
     }
   }
+
+  &.m--small {
+    height: 30px;
+    padding: 0 10px;
+    line-height: 25px;
+    font-size: 15px;
+  }
 }
