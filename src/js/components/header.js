@@ -145,6 +145,9 @@ class Header extends React.Component {
                                     <Link to='/faq'>F.A.Q.</Link>
                                 </li>
                                 <li>
+                                    <Link to='/search'>Поиск</Link>
+                                </li>
+                                <li>
                                     <Link to='/success-stories'>Успешные сборы</Link>
                                 </li>
                                 <li>
