@@ -8,7 +8,7 @@ class Howitwork extends React.Component {
 
                 <div className="marketing-block">
                     <div className="container">
-                        <h2 className="h2Header h2Header-underline">
+                        <h2 className="h3Header h2Header-underline">
                             КАК ЭТО РАБОТАЕТ
                         </h2>
 

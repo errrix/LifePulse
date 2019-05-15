@@ -61,7 +61,6 @@ class users extends React.Component {
                                         <th>email</th>
                                         <th>Дата регистрации</th>
                                         <th>Заявки</th>
-                                        <th>Действия</th>
                                     </tr>
                                     {
                                         this.state.allUsers.map((item, index) => {
@@ -71,17 +70,6 @@ class users extends React.Component {
                                                 <td>{item.email}</td>
                                                 <td>{new Date(Date.parse(item.createdAt)).toLocaleDateString()}</td>
                                                 <td>Заявки пользователя</td>
-                                                <td className="button-block">
-                                                    <a href="/">
-                                                        <svg aria-hidden="true" data-prefix="fas" data-icon="ban"
-                                                             className="svg-inline--fa fa-ban fa-w-16"
-                                                             xmlns="http://www.w3.org/2000/svg"
-                                                             viewBox="0 0 512 512">
-                                                            <path
-                                                                d="M256 8C119.034 8 8 119.033 8 256s111.034 248 248 248 248-111.034 248-248S392.967 8 256 8zm130.108 117.892c65.448 65.448 70 165.481 20.677 235.637L150.47 105.216c70.204-49.356 170.226-44.735 235.638 20.676zM125.892 386.108c-65.448-65.448-70-165.481-20.677-235.637L361.53 406.784c-70.203 49.356-170.226 44.736-235.638-20.676z"/>
-                                                        </svg>
-                                                    </a>
-                                                </td>
                                             </tr>
                                         })
                                     }

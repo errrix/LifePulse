@@ -119,7 +119,7 @@ class newStaff extends React.Component {
                                                     <td>{index + 1}</td>
                                                     <td>{item.last_name} {item.first_name}</td>
                                                     <td>{item.email}</td>
-                                                    <td></td>
+                                                    <td>{item.roles}</td>
                                                     <td className="button-block">
                                                         <button className="admin-edit-category" onClick={this.openEditPopup}>
                                                             <svg aria-hidden="true" data-prefix="fas" data-icon="pen-square"

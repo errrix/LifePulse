@@ -54,7 +54,7 @@ class CardBlock extends React.Component {
         return (
             <div className="card-block">
                 <div className="container">
-                    <h2 className="h2Header h2Header-underline">
+                    <h2 className="h3Header h2Header-underline">
                         {this.props.title}
                     </h2>
                     <div className="card-block-list">
