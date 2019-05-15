@@ -54,20 +54,25 @@ class ResendTokenPopup extends React.Component {
                     <div className="popup-content-block-wrapper">
 
                         {this.state.sended ? (
-                            <div className="popup-step m--login">
-                                <h2>Письмо отправленно повторно</h2>
-                                <p>Для активации Вашей учетной записи перейдите по ссылке в письме</p>
+                            <div className="popup-step m--resend-token">
+                                <h2 className="h3Header">Письмо отправленно повторно</h2>
+                                <p className="paragraph">Для активации Вашей учетной записи перейдите по ссылке в письме</p>
                             </div>
                             ): (
-                            <div className="popup-step m--login">
-                                <h2>Ваша учетная запись не активирована</h2>
-                                <p>Для активации учетной записи Вам на почту было отправленно письмо при регистрации</p>
-                                <button type="submit" className="btn m--with-loader" onClick={this.resendToken}>
+                            <div className="popup-step m--resend-token">
+                                <h2 className="h3Header">Ваша учетная запись не активирована</h2>
+                                <p className="paragraph">Для активации учетной записи Вам на почту было отправленно письмо при регистрации</p>
+
+                                <div className="button-wrapper">
+                                    <button type="submit" className="btn m--with-loader" onClick={this.resendToken}>
                                 <span>
                                      Отправить письмо повторно
                                 </span>
-                                    <span className="loader"/>
-                                </button>
+                                        <span className="loader"/>
+                                    </button>
+                                </div>
+
+
                             </div>
                             )}
 
