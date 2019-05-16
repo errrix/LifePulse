@@ -17,6 +17,7 @@ class viewCampaign extends React.Component {
             card: {},
             showPopup: false,
             title: '',
+            mail_text:'',
             to_status: '',
             edited: false,
             allCategories: [],
@@ -129,7 +130,8 @@ class viewCampaign extends React.Component {
         this.setState({
             showPopup: true,
             title: e.target.getAttribute("data-title"),
-            to_status: e.target.getAttribute("data-action")
+            to_status: e.target.getAttribute("data-action"),
+            mail_text: e.target.getAttribute("data-text")
         });
     }
 
@@ -161,6 +163,7 @@ class viewCampaign extends React.Component {
                     {this.state.showPopup ? <CardStatusPopup title={this.state.title}
                                                              action={this.state.to_status}
                                                              updateStatusPopup={this.handleClosePopup}
+                                                             text={this.state.mail_text}
                                                              id={this.state.card._id}
                                                              handleStatusPopup={this.handleStatusPopup}
                                                              email={this.state.card.user[0].email}
@@ -440,6 +443,7 @@ class viewCampaign extends React.Component {
                                     <div className="button-block">
                                         <button className="btn btn-transparent campaign-freeze"
                                                 data-title="Заявка приостанавливается для проверки"
+                                                data-text={`Зравствуйте, ${this.state.card.user[0].first_name} ${this.state.card.user[0].last_name}. Ваша заявка прошла модерацию и опубликована сервисе`}
                                                 data-action="ban"
                                                 onClick={this.openPopup}>
                                             Приостановить

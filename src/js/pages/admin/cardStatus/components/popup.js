@@ -7,7 +7,7 @@ class CardStatusPopup extends React.Component{
         super(props);
 
         this.state = {
-            text: ''
+            text: this.props.text,
         };
 
         this.closePopup = this.closePopup.bind(this);
@@ -69,11 +69,8 @@ class CardStatusPopup extends React.Component{
             console.log(json);
             console.log(this.props);
             this.props.handleStatusPopup();
-            // this.props.history.goBack();
         })
     }
-
-
 
     render(){
         return (
@@ -83,9 +80,9 @@ class CardStatusPopup extends React.Component{
                         <div className="popup-step m--change-status">
                             <form className="main-form" onSubmit={this.HandleSubmit}>
                                 <h3>{this.props.title}</h3>
-                                <label className="label-input" onChange={this.HandleChange}>
+                                <label className="label-input">
                                     <span>Причина</span>
-                                    <textarea/>
+                                    <textarea onChange={this.HandleChange} defaultValue={this.state.text}/>
                                     <span className="error">Введите причину</span>
                                 </label>
                                 <div className="button-wrapper">
