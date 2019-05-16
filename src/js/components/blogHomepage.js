@@ -49,18 +49,12 @@ class BlogHomepage extends React.Component {
                                <img src="/img/header-baner2.jpg" alt=""/>
                                <div className="text-block">
                                    <div>
-                                       <h4>
+                                       <h4 className="h4Header">
                                            БЛАГОДАРЯ LIFESPULSE ПРООПЕРИРОВАЛИ ГАРШИНА
                                            ВЯЧЕСЛАВА
                                        </h4>
-                                       <h6>
-                                           Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis
-                                           dis parturient montes,
-                                           nascetur
-                                           ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis
-                                           tellus mollis orci, sed
-                                           rhoncus
-                                           sapien nunc eget. Proin sodales pulvinar tempor.
+                                       <h6 className="paragraph">
+                                           Деменция (психоорганический синдром) — это приобретенное слабоумие, возникающее из-за поражения головного мозга, чаще в пожилом и старческом возрасте (сенильная деменция, или старческий маразм). При этом нарушается интеллект и высшие функции коры головного мозга.
                                        </h6>
 
                                        <a href="/"> Читать дальше</a>
@@ -85,7 +79,7 @@ class BlogHomepage extends React.Component {
                                                    12.08.2018
                                                </div>
                                                <h4>
-                                                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi beatae  Animi beatae
+                                                   У старых людей замедлен обмен веществ и снижена подвижность, поэтому они очень чувствительны к холоду.
                                                </h4>
                                            </div>
 
@@ -104,7 +98,7 @@ class BlogHomepage extends React.Component {
                                                    12.08.2018
                                                </div>
                                                <h4>
-                                                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi beatae  Animi beatae
+                                                   Чрезмерный прием лекарств с побочным снотворным и седативным (успокаивающим) эффектом приводит к вялости, заторможенности и ухудшению когнитивных (познавательных) функций.
                                                </h4>
                                            </div>
 
@@ -123,7 +117,7 @@ class BlogHomepage extends React.Component {
                                                    12.08.2018
                                                </div>
                                                <h4>
-                                                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi beatae  Animi beatae
+                                                   Состояние, напоминающее деменцию, может развиться в результате хронической субдуральной гематомы после перенесенной черепно-мозговой травмы.
                                                </h4>
 
                                            </div>

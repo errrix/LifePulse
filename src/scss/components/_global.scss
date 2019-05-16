@@ -5,7 +5,7 @@ body {
   line-height: 1.3;
   background-color: $bg-second-color;
   min-width: 320px;
-  p,span,div,img,h1,h2,h3,h4,h5,h6,a,button {
+  p,span,div,img,h1,h2,h3,h4,h5,h6,a,button,ul,li,blockquote {
     &::selection {
       background: $orange-light-text-color;
     }
