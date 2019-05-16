@@ -439,7 +439,7 @@ class viewCampaign extends React.Component {
                                 {this.state.card.status === "active" ? (
                                     <div className="button-block">
                                         <button className="btn btn-transparent campaign-freeze"
-                                                data-title="Заявка приостановлена для проверки"
+                                                data-title="Заявка приостанавливается для проверки"
                                                 data-action="ban"
                                                 onClick={this.openPopup}>
                                             Приостановить
@@ -450,7 +450,7 @@ class viewCampaign extends React.Component {
                                 {this.state.card.status === "verify" ? (
                                     <div className="button-block">
                                         <button className="btn btn-transparent campaign-freeze"
-                                                data-title="Заявка приостановлена для проверки"
+                                                data-title="Заявка приостанавливается для проверки"
                                                 data-action="ban"
                                                 onClick={this.openPopup}>
                                             Приостановить

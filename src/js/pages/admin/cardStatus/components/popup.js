@@ -80,7 +80,7 @@ class CardStatusPopup extends React.Component{
             <div className="popup" onClick={this.closePopup}>
                 <div className="popup-content-block">
                     <div className="popup-content-block-wrapper">
-                        <div className="popup-step">
+                        <div className="popup-step m--change-status">
                             <form className="main-form" onSubmit={this.HandleSubmit}>
                                 <h3>{this.props.title}</h3>
                                 <label className="label-input" onChange={this.HandleChange}>
