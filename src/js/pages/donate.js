@@ -44,7 +44,7 @@ class Donate extends React.Component {
             "description": "test",
             "info" : this.props.user_id === '' ? `${this.props.history.location.state.id};5cdc6b1d5528562e5efa4206` : `${this.props.history.location.state.id};${this.props.user_id}` ,
             // "sandbox": 1,
-            "result_url": `https://${window.location.host}/thanks-donate`,
+            "result_url": `https://${window.location.host}/usercard/${this.props.history.location.state.id}`,
             "server_url": "https://www.lifespulse.com/pay"
         };
 
