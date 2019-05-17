@@ -414,14 +414,14 @@ class viewCampaign extends React.Component {
                                         </button>
                                         <button className="btn campaign-publish"
                                                 data-title="Заявка опубликована"
-                                                data-text={`Ваша заявка прошла модерацию и опубликована сервисе.`}
+                                                data-text={`Ваша заявка прошла модерацию и опубликована на сервисе.`}
                                                 data-action="active"
                                                 onClick={this.openPopup}>
                                             Опубликовать
                                         </button>
                                         <button className="btn btn-transparent campaign-delete"
                                                 data-title="Заявка удалена"
-                                                data-text={`Ваша заявка не прошла модерацию и и была удалена.`}
+                                                data-text={`Ваша заявка не прошла модерацию и была удалена.`}
                                                 data-action="delete"
                                                 onClick={this.openPopup}>
                                             Удалить
@@ -482,7 +482,7 @@ class viewCampaign extends React.Component {
                                     <div className="button-block">
                                         <button className="btn btn-transparent campaign-verify"
                                                 data-title="Проверка успешно пройдена"
-                                                data-text={`Ваша заявка прошла повторную модерацию и опубликована сервисе.`}
+                                                data-text={`Ваша заявка прошла повторную модерацию и опубликована на сервисе.`}
                                                 data-action="verify"
                                                 onClick={this.openPopup}>
                                             Проверено
