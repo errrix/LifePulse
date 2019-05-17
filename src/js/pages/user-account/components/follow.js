@@ -54,12 +54,14 @@ class MyFollow extends React.Component {
                                 {this.state.cards.map((item, index) => {
                                     return <li key={index}>
                                         <SingleCard card={item.card}/>
-                                        <div>Вы пожертвовали: {item.sum}</div>
+                                        <div className="your-donate">Вы пожертвовали: {item.sum} грн</div>
                                     </li>
                                 })}
-                            </ul>) : (<div>
+                            </ul>) : (<div className="no-follow-donate">
+                            <p className="h4Header">
                                 Тут пока нет карточек, помогите кому-либо или оставьте комментарий под заявкой и мы покажем
                                 эти карточки здесь
+                            </p>
                             </div>)
                     ) : (
                         <Loader/>

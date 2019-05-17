@@ -407,18 +407,21 @@ class viewCampaign extends React.Component {
                                     <div className="button-block">
                                         <button className="btn btn-transparent campaign-back"
                                                 data-title="Заявка отправлена на доработку"
+                                                data-text={`Ваша заявка не прошла модерацию. Отредактируйте информацию Вашей заявки в личном кабинете.`}
                                                 data-action="rev"
                                                 onClick={this.openPopup}>
                                             На доработку
                                         </button>
                                         <button className="btn campaign-publish"
                                                 data-title="Заявка опубликована"
+                                                data-text={`Ваша заявка прошла модерацию и опубликована сервисе.`}
                                                 data-action="active"
                                                 onClick={this.openPopup}>
                                             Опубликовать
                                         </button>
                                         <button className="btn btn-transparent campaign-delete"
                                                 data-title="Заявка удалена"
+                                                data-text={`Ваша заявка не прошла модерацию и и была удалена.`}
                                                 data-action="delete"
                                                 onClick={this.openPopup}>
                                             Удалить
@@ -443,7 +446,7 @@ class viewCampaign extends React.Component {
                                     <div className="button-block">
                                         <button className="btn btn-transparent campaign-freeze"
                                                 data-title="Заявка приостанавливается для проверки"
-                                                data-text={`Зравствуйте, ${this.state.card.user[0].first_name} ${this.state.card.user[0].last_name}. Ваша заявка прошла модерацию и опубликована сервисе`}
+                                                data-text={`Ваша заявка временно приостановлена, в связи с поступившими жалобами. С Вами свяжется техническая поддержка.`}
                                                 data-action="ban"
                                                 onClick={this.openPopup}>
                                             Приостановить
@@ -455,6 +458,7 @@ class viewCampaign extends React.Component {
                                     <div className="button-block">
                                         <button className="btn btn-transparent campaign-freeze"
                                                 data-title="Заявка приостанавливается для проверки"
+                                                data-text={`Ваша заявка временно приостановлена, в связи с поступившими жалобами. С Вами свяжется техническая поддержка.`}
                                                 data-action="ban"
                                                 onClick={this.openPopup}>
                                             Приостановить
@@ -467,6 +471,7 @@ class viewCampaign extends React.Component {
                                         <button className="btn campaign-freeze"
                                                 data-title="Деньги по заявке выплачены"
                                                 data-action="archive"
+                                                data-text={`На Ваш банковский счет была переведена собранная сумма.`}
                                                 onClick={this.openPopup}>
                                             Выплачено. Перевод в завершенные
                                         </button>
@@ -477,12 +482,15 @@ class viewCampaign extends React.Component {
                                     <div className="button-block">
                                         <button className="btn btn-transparent campaign-verify"
                                                 data-title="Проверка успешно пройдена"
+                                                data-text={`Ваша заявка прошла повторную модерацию и опубликована сервисе.`}
                                                 data-action="verify"
                                                 onClick={this.openPopup}>
                                             Проверено
                                         </button>
                                         <button className="btn btn-transparent campaign-delete"
-                                                data-title="Проверка не пройдена" data-action="ban"
+                                                data-title="Проверка не пройдена"
+                                                data-text={`Ваша заявка временно приостановлена, в связи с поступившими жалобами. С Вами свяжется техническая поддержка.`}
+                                                data-action="ban"
                                                 onClick={this.openPopup}>
                                             Мошенничество
                                         </button>

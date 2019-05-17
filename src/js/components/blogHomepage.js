@@ -26,7 +26,7 @@ class BlogHomepage extends React.Component {
                     }
                 },
                 {
-                    breakpoint: 767,
+                    breakpoint: 610,
                     settings: {
                         slidesToShow: 1,
                         slidesToScroll: 1,

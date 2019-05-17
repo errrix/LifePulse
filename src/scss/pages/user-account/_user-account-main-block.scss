@@ -73,7 +73,20 @@
     display: flex;
     overflow: hidden;
     position: relative;
-
+    .follow {
+      .your-donate {
+        padding: 5px 15px;
+        background: #fff;
+        margin-top: 10px;
+        box-shadow: 0 1px 6px rgba(0, 0, 0, .3);
+      }
+      .no-follow-donate {
+        p {
+          text-align: center;
+          padding: 40px 0;
+        }
+      }
+    }
     .button-wrapper {
       display: flex;
       justify-content: center;
