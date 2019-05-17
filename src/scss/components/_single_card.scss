@@ -88,6 +88,10 @@
       background-color: $bg-orange-color;
     }
 
+    progress::-moz-progress-bar {
+      background-color: $bg-orange-color;
+    }
+
     .money-how {
       display: flex;
       justify-content: space-between;

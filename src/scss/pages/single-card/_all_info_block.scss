@@ -228,6 +228,10 @@
           background-color: $bg-orange-color;
         }
 
+        progress::-moz-progress-bar {
+          background-color: $bg-orange-color;
+        }
+
         .money-how {
           display: flex;
           justify-content: space-between;
@@ -329,6 +333,10 @@
         background-color: $bg-orange-color;
       }
 
+      progress::-moz-progress-bar {
+        background-color: $bg-orange-color;
+      }
+
       .money-how {
         display: flex;
         justify-content: space-between;
@@ -381,6 +389,10 @@
       }
 
       progress::-webkit-progress-value {
+        background-color: $bg-orange-color;
+      }
+
+      progress::-moz-progress-bar {
         background-color: $bg-orange-color;
       }
 
