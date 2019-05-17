@@ -46,7 +46,7 @@ class BlogHomepage extends React.Component {
 
                        <div className="main-article-wrapper">
                            <div className="main-article">
-                               <img src="/img/header-baner2.jpg" alt=""/>
+                               <img src="/img/header-baner2.jpg" alt="Blog Image"/>
                                <div className="text-block">
                                    <div>
                                        <h4 className="h4Header">
