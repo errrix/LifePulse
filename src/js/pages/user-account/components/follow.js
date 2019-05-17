@@ -51,9 +51,10 @@ class MyFollow extends React.Component {
                     {this.state.loaded ? (
                         this.state.cards.length > 0 ?
                             (<ul className="card-block-list card-block-list-flex">
-                                {this.state.cards.map((item) => {
-                                    return <li key={item._id}>
-                                        <SingleCard card={item}/>
+                                {this.state.cards.map((item, index) => {
+                                    return <li key={index}>
+                                        <SingleCard card={item.card}/>
+                                        <div>Вы пожертвовали: {item.sum}</div>
                                     </li>
                                 })}
                             </ul>) : (<div>
