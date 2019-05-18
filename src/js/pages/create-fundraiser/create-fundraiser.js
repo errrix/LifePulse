@@ -463,12 +463,12 @@ class CreateFundraiser extends React.Component {
                                                   <div className="tooltip-hover">
                                                   <img src="/img/information.svg" alt="information"/>
                                                   <p className="information-tooltip">
-                                                     Ваш номер телефона в формате 093 123 45 67
+                                                     Ваш номер телефона в формате 0961234567
                                                   </p>
                                                 </div>
                                             </span>
                                             <input type="text"
-                                                   placeholder="096 33 33 333"
+                                                   placeholder="0961234567"
                                                    name="phone"
                                                    id="phone"
                                                    onChange={this.StateValue}
