@@ -100,8 +100,8 @@ class Header extends React.Component {
                                 </li>
                                 <li>
                                     {
-                                        this.IsUser() ? <Link to='/create-fundraiser'>Подать заявку</Link> :
-                                            <button onClick={this.openPopup}>Подать заявку</button>
+                                        this.IsUser() ? <Link className="gtm-create-fund" to='/create-fundraiser'>Подать заявку</Link> :
+                                            <button className="gtm-login" onClick={this.openPopup}>Подать заявку</button>
                                     }
 
                                 </li>
@@ -118,7 +118,7 @@ class Header extends React.Component {
                                 ) : (
                                     <div className="button-block">
 
-                                        <button className="header-login-popup" onClick={this.openPopup}>
+                                        <button className="header-login-popup gtm-login" onClick={this.openPopup}>
                                             Вход
                                         </button>
 

@@ -196,7 +196,7 @@ class Usercard extends React.Component {
                                                         date: new Date(Date.parse(this.state.card.createdAt)).toLocaleDateString(),
                                                         sum: this.state.card.sum
                                                     }
-                                                }} className="btn">Помочь</Link>}
+                                                }} className="btn gtm-donate">Помочь</Link>}
 
                                             <div className="repostBlock">
                                             </div>

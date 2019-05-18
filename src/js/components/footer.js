@@ -79,7 +79,7 @@ class Footer extends React.Component {
                                     <div>
                                         <Link className="link-bottom-hover"  to='/allcampaing'>Начать помогать</Link>
                                         {
-                                            this.IsUser() ?  <Link className="link-bottom-hover"  to='/create-fundraiser'>Подать заявку</Link> : <button onClick={this.openPopup}>Подать заявку</button>
+                                            this.IsUser() ?  <Link className="link-bottom-hover gtm-create-fund"  to='/create-fundraiser'>Подать заявку</Link> : <button  className="gtm-login" onClick={this.openPopup}>Подать заявку</button>
                                         }
                                         <Link className="link-bottom-hover"  to='/success-stories'>Успешные сборы</Link>
                                         <Link className="link-bottom-hover"  to='/blog'>Блог</Link>
