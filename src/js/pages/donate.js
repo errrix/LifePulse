@@ -2,6 +2,7 @@ import React from "react";
 import {Link, Redirect} from "react-router-dom";
 import url from "../modules/url";
 import {connect} from "react-redux";
+import validator from "./create-fundraiser/components/validator";
 
 class Donate extends React.Component {
 
@@ -10,7 +11,8 @@ class Donate extends React.Component {
         super(props);
 
         this.state = {
-            sum: '',
+            sum: 20,
+            sum_validate: false,
             awaystring: '',
             sign_string: ''
         };
@@ -18,6 +20,7 @@ class Donate extends React.Component {
         this.choiceSum = this.choiceSum.bind(this);
         this.handleDonate = this.handleDonate.bind(this);
         this.HandlerChange = this.HandlerChange.bind(this);
+        this.validateSum = this.validateSum.bind(this);
     }
 
     choiceSum(e) {
@@ -32,55 +35,60 @@ class Donate extends React.Component {
         e.target.classList.add("active");
     }
 
+    validateSum () {
+        let elem = document.getElementById('donate-sum');
+        if(+elem.value < 1) {
+            this.setState({sum_validate: false});
+            elem.parentNode.classList.add('label-error');
+        } else {
+            this.setState({sum_validate: true});
+            elem.parentNode.classList.remove('label-error');
+        }
+    }
+
     handleDonate(e) {
         e.preventDefault();
-        let data = {
-            "public_key": "sandbox_i94189500709",
-            // "public_key": "i68861001769",
-            "version": "3",
-            "action": "pay",
-            "amount": this.state.sum,
-            "currency": "UAH",
-            "description": "test",
-            "info" : this.props.user_id === '' ? `${this.props.history.location.state.id};5cdc6b1d5528562e5efa4206` : `${this.props.history.location.state.id};${this.props.user_id}` ,
-            // "sandbox": 1,
-            "result_url": `https://${window.location.host}/usercard/${this.props.history.location.state.id}`,
-            "server_url": "https://www.lifespulse.com/pay"
-        };
-
-        this.setState({
-            awaystring: btoa(JSON.stringify(data))
-        });
-
-        fetch(`${url}/api/card/donate/prepare`, {
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            method: 'POST',
-            credentials: 'include',
-            body: JSON.stringify({
-                "data": btoa(JSON.stringify(data)),
-                "card_id": this.props.history.location.state.id
-            })
-        })
-            .then(function (response) {
-                return response.json()
-            }).then((json) => {
-            console.log(json.response);
+        this.validateSum();
+        if(this.state.sum_validate) {
+            let data = {
+                "public_key": "sandbox_i94189500709",
+                // "public_key": "i68861001769",
+                "version": "3",
+                "action": "pay",
+                "amount": this.state.sum,
+                "currency": "UAH",
+                "description": "test",
+                "info" : this.props.user_id === '' ? `${this.props.history.location.state.id};5cdc6b1d5528562e5efa4206` : `${this.props.history.location.state.id};${this.props.user_id}` ,
+                // "sandbox": 1,
+                "result_url": `https://${window.location.host}/usercard/${this.props.history.location.state.id}`,
+                "server_url": "https://www.lifespulse.com/pay"
+            };
             this.setState({
-
-                sign_string: json.response
+                awaystring: btoa(JSON.stringify(data))
             });
-            setTimeout(() => {
-                document.querySelector('.donate-page-form').submit();
-                // this.props.history.goBack();
-            }, 0);
-
-        });
-
-        // let awaystring = btoa(JSON.stringify(data));
-        // let sign_string = b64_sha1('sandbox_5eK3CTLdhGh0eKSQIF8Gj5dswJBYSga4hqarMTIY' + awaystring + 'sandbox_5eK3CTLdhGh0eKSQIF8Gj5dswJBYSga4hqarMTIY');
-        // console.log(sign_string);
+            fetch(`${url}/api/card/donate/prepare`, {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                method: 'POST',
+                credentials: 'include',
+                body: JSON.stringify({
+                    "data": btoa(JSON.stringify(data)),
+                    "card_id": this.props.history.location.state.id
+                })
+            })
+                .then(function (response) {
+                    return response.json()
+                }).then((json) => {
+                console.log(json.response);
+                this.setState({
+                    sign_string: json.response
+                });
+                setTimeout(() => {
+                    document.querySelector('.donate-page-form').submit();
+                }, 0);
+            });
+        }
     }
 
     HandlerChange(e) {
@@ -108,7 +116,7 @@ class Donate extends React.Component {
                             </div>
                             <form action="https://www.liqpay.ua/api/3/checkout"
                                   method="POST"
-                                  className="donate-page-form"
+                                  className="donate-page-form main-form"
                                   // target="_blank"
                                   id="donate-page-form"
                                   onSubmit={this.handleDonate}>
@@ -119,12 +127,14 @@ class Donate extends React.Component {
                                 <label className="label-input">
                                     <span>Хочу пожертвовать</span>
                                     <span className="currency">ГРН</span>
-                                    <input placeholder="200"
-                                           type="number"
+                                    <input type="number"
                                            name="sum"
+                                           id="donate-sum"
                                            value={this.state.sum}
                                            onChange={this.HandlerChange}
+                                           onBlur={this.validateSum}
                                     />
+                                    <span className="error">Введите сумму, поле не должно быть пустым</span>
                                     <p className="fast-choice" onClick={this.choiceSum}>
                                         <span>25</span><span>50</span><span>100</span><span>200</span></p>
                                 </label>
