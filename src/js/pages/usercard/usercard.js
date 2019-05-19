@@ -6,6 +6,7 @@ import CSSTransitionGroup from "react-addons-css-transition-group"
 
 import Complaints from "./components/popup"
 import {connect} from "react-redux";
+import verify from "../admin/cardStatus/verify";
 
 
 class Usercard extends React.Component {
@@ -70,7 +71,7 @@ class Usercard extends React.Component {
                 return response.json()
             }).then((json) => {
             console.log(json);
-            if (json.success) {
+            if (json.success && (json.response.status === 'active' ||json.response.status === 'verify' || json.response.status === 'archive')) {
                 this.setState({card: json.response});
                 document.title = `LifesPulse | ${this.state.card.for_whom_name}`;
                 document.getElementById('user-card-block').classList.add('height-auto');
@@ -235,10 +236,7 @@ class Usercard extends React.Component {
                 ) : (
                     <Redirect to="/pagenotfound"/>
                 )}
-
-
             </div>
-
         )
     }
 };
