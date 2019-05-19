@@ -50,7 +50,7 @@ class Usercard extends React.Component {
             .then(function (response) {
                 return response.json()
             }).then((json) => {
-            if (json.success && json.response.length > 0 && json.response.indexOf(id) === -1) {
+            if (json.success && ((json.response.length > 0 && json.response.indexOf(id) === -1) || json.response.length === 0)) {
                 this.setState({complaints_status_user: true})
             }
             console.log(json);
