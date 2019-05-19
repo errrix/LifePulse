@@ -21,10 +21,10 @@ class PopupThxSubsc extends React.Component {
                     <div className="popup-content-block-wrapper">
                         <div className="popup-step m--confirm-end-fund">
                             <div>
-                                <h2>Вы подписаны</h2>
                                 <p className="title">
-                                    Спасибо за подписку
+                                    Спасибо.
                                 </p>
+                                <p>Вы подписаны на рассылку важных новостей.</p>
                             </div>
                         </div>
                     </div>
