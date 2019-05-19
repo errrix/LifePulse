@@ -18,6 +18,7 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 50px;
+    min-width: 1033px;
 
     .allHistoryBlock {
       overflow: hidden;
@@ -352,6 +353,7 @@
 
     .allInfoBlock {
       flex-direction: column;
+      min-width: auto;
 
       .allHistoryBlock {
         width: 100%;
@@ -411,6 +413,7 @@
 
     .allInfoBlock {
       flex-direction: column;
+      min-width: auto;
 
       .allHistoryBlock {
         width: 100%;

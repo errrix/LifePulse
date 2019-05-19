@@ -487,13 +487,6 @@ class viewCampaign extends React.Component {
                                                 onClick={this.openPopup}>
                                             Проверено
                                         </button>
-                                        <button className="btn btn-transparent campaign-delete"
-                                                data-title="Проверка не пройдена"
-                                                data-text={`Ваша заявка временно приостановлена, в связи с поступившими жалобами. С Вами свяжется техническая поддержка.`}
-                                                data-action="ban"
-                                                onClick={this.openPopup}>
-                                            Мошенничество
-                                        </button>
                                         <button className="btn btn-transparent campaign-edit"
                                                 onClick={this.HandlerEdit}>
                                             Редактировать

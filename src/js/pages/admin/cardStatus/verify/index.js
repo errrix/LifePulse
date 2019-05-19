@@ -62,7 +62,6 @@ class verify extends React.Component {
                                         <th>Создан</th>
                                         <th>Категория</th>
                                         <th>Сумма</th>
-                                        <th>Жалобы</th>
                                         <th>Действия</th>
                                     </tr>
                                     {this.state.cards ? this.state.cards.map((item) => {
@@ -72,7 +71,6 @@ class verify extends React.Component {
                                             <td>{new Date(Date.parse(item.createdAt)).toLocaleDateString()}</td>
                                             <td>{item.category[0].title}</td>
                                             <td>{Math.round(item.max_sum)} / {Math.round(item.sum)}</td>
-                                            <td>!!!</td>
                                             <td> <Link to={`/admin/view-campaign/${item._id}`} target="">Edit</Link> </td>
                                         </tr>
                                     }) : false

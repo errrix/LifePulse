@@ -144,11 +144,6 @@ class SingleUserAccountCard extends React.Component {
                                     </p>
                                 </div>
                             </div>
-                            <Link className="btn btn-transparent"
-                                  to={{pathname: `/usercard/${this.state.card._id}`,
-                                      state: {
-                                          id: this.state.card._id
-                                      }}}> Просмотреть на сайте </Link>
                         </div>
 
                     ) : false}

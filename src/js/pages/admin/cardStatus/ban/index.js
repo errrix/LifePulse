@@ -71,8 +71,8 @@ class ban extends React.Component {
                                             <td>{item.user[0].first_name + ' ' + item.user[0].last_name}</td>
                                             <td>{item.for_whom_name}</td>
                                             <td>{new Date(Date.parse(item.createdAt)).toLocaleDateString()}</td>
-                                            <td>!!!!!!</td>
-                                            <td>!!!!!!</td>
+                                            <td>---</td>
+                                            <td>---</td>
                                             <td>{Math.round(item.max_sum)} / {Math.round(item.sum)}</td>
                                             <td> <Link to={`/admin/view-campaign/${item._id}`} target="">Edit</Link> </td>
                                         </tr>
