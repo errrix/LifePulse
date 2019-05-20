@@ -384,7 +384,7 @@ class CreateFundraiser extends React.Component {
                                                 <div className="tooltip-hover">
                                                   <img src="/img/information.svg" alt="information"/>
                                                   <p className="information-tooltip">
-                                                     Указывайте сумму с учётом единого государственого налога в размере 19,5% и сервисного сбора в размере 7%
+                                                     Указывайте сумму с учётом единого государственого налога в размере 19,5% и сервисного сбора в размере 5%
                                                   </p>
                                                 </div>
                                             </span>
