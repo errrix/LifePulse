@@ -47,8 +47,8 @@ class Complaints extends React.Component {
             .then(function (response) {
                 return response.json()
             }).then((json) => {
-            console.log(json);
-            console.log(this.props);
+            // console.log(json);
+            // console.log(this.props);
             this.props.updateStatusPopup(false);
             this.props.updateUserComplaintsStatus();
             // this.props.history.goBack();

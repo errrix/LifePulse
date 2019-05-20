@@ -35,7 +35,7 @@ class AllFundraiser extends React.Component {
             .then(function (response) {
                 return response.json()
             }).then((json) => {
-            console.log(json.response);
+            // console.log(json.response);
             if (json.response.length === 0) {
                 this.setState({
                     nothing_more: true

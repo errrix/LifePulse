@@ -80,11 +80,11 @@ class MainRouting extends React.Component {
             .then((data) => {
                 this.setState({update_user: true});
                 if (data.success) {
-                    console.log(data);
+                    // console.log(data);
                     this.props.addUserId(data.response.id);
                     this.props.addUserRole(data.response.roles);
                 } else {
-                    console.log(data);
+                    // console.log(data);
                 }
             })
             .catch(function (error) {

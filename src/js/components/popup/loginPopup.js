@@ -118,7 +118,7 @@ class LoginPopup extends React.Component {
                     .then(function (response) {
                         return response.json()
                     }).then((data) => {
-                        console.log(data);
+                        // console.log(data);
                     if (data.success) {
                         this.props.addUserId(data.response.id);
                         this.props.addUserRole(data.response.roles);

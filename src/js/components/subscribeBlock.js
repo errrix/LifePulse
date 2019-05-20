@@ -58,7 +58,7 @@ class Subscribeblock extends React.Component {
                     .then(function (response) {
                         return response.json()
                     }).then((data) => {
-                    console.log(data);
+                    // console.log(data);
                     this.setState({success: true, email:''})
                     document.querySelector('.loader').classList.remove('active-loader', 'm--loader');
                 }).catch(function (error) {

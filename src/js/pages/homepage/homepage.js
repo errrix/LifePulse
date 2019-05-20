@@ -49,7 +49,7 @@ class Homepage extends React.Component {
             .then(function (response) {
                 return response.json()
             }).then((json) => {
-                console.log(json.response)
+                // console.log(json.response)
             this.setState({active_card: json.response})
         })
     }

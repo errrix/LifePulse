@@ -104,7 +104,7 @@ class SearchPage extends React.Component {
             && this.state.category === ''
             || (this.state.search_text === this.state.last_search_text && this.state.category === this.state.last_category)
         ) {
-            console.log(this.state.qt_cards_search);
+            // console.log(this.state.qt_cards_search);
         } else {
             document.getElementById('search-button').classList.add('active-loader', 'm--loader');
             fetch(`${url}/api/card/search?limit=9&search=${this.state.search_text}`, {
@@ -121,7 +121,7 @@ class SearchPage extends React.Component {
                     return response.json()
                 }).then((json) => {
                 document.getElementById('search-button').classList.remove('active-loader', 'm--loader');
-                console.log(json.response);
+                // console.log(json.response);
                 this.setState({
                     search_cards: [...json.response],
                     searched: true,
