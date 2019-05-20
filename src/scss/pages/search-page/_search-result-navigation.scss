@@ -60,28 +60,28 @@
     }
   }
 }
-.search-result-navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding-top: 30px;
-  width: 100%;
-  .search-result-sort {
-    button {
-      display: inline-block;
-      margin-right: 25px;
-      color: $main-text-color;
-      font-family: $mainfont;
-      font-size: 16px;
-      font-weight: 500;
-      border-bottom: 2px solid transparent;
-      &:focus {
-        color: $bg-orange-color;
-        border-bottom: 2px solid $bg-orange-color;
-      }
-    }
-  }
-}
+//.search-result-navigation {
+//  display: flex;
+//  justify-content: space-between;
+//  align-items: baseline;
+//  padding-top: 30px;
+//  width: 100%;
+//  .search-result-sort {
+//    button {
+//      display: inline-block;
+//      margin-right: 25px;
+//      color: $main-text-color;
+//      font-family: $mainfont;
+//      font-size: 16px;
+//      font-weight: 500;
+//      border-bottom: 2px solid transparent;
+//      &:focus {
+//        color: $bg-orange-color;
+//        border-bottom: 2px solid $bg-orange-color;
+//      }
+//    }
+//  }
+//}
 
 @media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
   .search-input-block {
@@ -117,7 +117,7 @@
       }
       input {
         width: 100%;
-        padding: 0 50px 0 15px;
+        padding: 0 15px 0 15px;
       }
       select {
         width: 100%;
@@ -126,6 +126,7 @@
       button {
         width: 100%;
         margin-top: 20px;
+        justify-content: center;
       }
     }
   }

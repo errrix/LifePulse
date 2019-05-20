@@ -194,3 +194,11 @@
     }
   }
 }
+
+
+@media only screen and (max-width: $mobileWidth) {
+  input {
+    width: 100% !important;
+    min-width: unset !important;
+  }
+}
