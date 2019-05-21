@@ -1,0 +1,19 @@
+.blog-block {
+  padding: 100px 0 50px 0;
+  min-height: calc(100vh - 282px);
+  h3 {
+      text-align: center;
+  }
+}
+
+@media only screen and (max-width: $tabletWidth) and (min-width: $mobileWidth + 1) {
+  .blog-block {
+
+  }
+}
+
+@media only screen and (max-width: $mobileWidth) {
+  .blog-block {
+
+  }
+}
