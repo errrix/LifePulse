@@ -147,7 +147,7 @@ class Usercard extends React.Component {
                                             <div className="customUserBlock"
                                                  dangerouslySetInnerHTML={{__html: this.state.card.main_text}}>
                                             </div>
-                                            {this.state.complaints_status_user && this.state.card.status !== "archive" ? (
+                                            {this.state.complaints_status_user && this.state.card.status === "active" ? (
                                                 <div className="appeal-block">
                                                     <button className='link-bottom-hover'
                                                             onClick={this.openPopup}>Пожаловаться
